@@ -4097,6 +4097,35 @@ button.rounded-lg,
     display: none;
 }
 
+/* Load More Section Stability */
+.load-more-section {
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.2s ease;
+    min-height: 60px; /* Prevent layout shift */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Prevent flickering during filtering */
+#activity-timeline-container {
+    position: relative;
+}
+
+#activity-timeline-container .activity-item {
+    transition: opacity 0.15s ease;
+}
+
+#activity-timeline-container .activity-item.hidden {
+    display: none !important;
+}
+
+/* Ensure smooth transitions when filtering */
+.activity-filters select {
+    transition: all 0.2s ease;
+}
+
 /* Dynamic Column Height Matching */
 #column-1-resident-notes,
 #column-2-lease-info {

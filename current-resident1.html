@@ -663,8 +663,23 @@
                                         <option value="payments">Payments</option>
                                         <option value="lease">Lease</option>
                                     </select>
+                                </div>
+                                
+                                <!-- Communication Type Sub-filter (Hidden by default) -->
+                                <div id="communication-type-filter-container" class="mt-3 hidden">
+                                    <select id="communication-type-filter" class="filter-dropdown w-full" onchange="filterCommunicationTypes(this.value)">
+                                        <option value="all-communications">All Communications</option>
+                                        <option value="appointment">Appointment</option>
+                                        <option value="call">Call</option>
+                                        <option value="chat">Chat</option>
+                                        <option value="comment-memo">Comment/Memo</option>
+                                        <option value="email">Email</option>
+                                        <option value="event">Event</option>
+                                        <option value="follow-up">Follow-up</option>
+                                        <option value="text">Text</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
                             
                             <div class="space-y-4" id="activity-timeline-container">
                                 <!-- Today's Activities -->
@@ -675,7 +690,7 @@
                                 </div>
 
                                     <!-- Text Message -->
-                                    <div class="activity-item" data-filter="communications work-orders" data-time="recent">
+                                    <div class="activity-item" data-filter="communications work-orders" data-communication-type="text" data-time="recent">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-sms text-primary text-sm"></i>
                             </div>
@@ -692,7 +707,7 @@
                     </div>
 
                                     <!-- Email -->
-                                    <div class="activity-item" data-filter="communications payments" data-time="recent">
+                                    <div class="activity-item" data-filter="communications payments" data-communication-type="email" data-time="recent">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-envelope text-primary text-sm"></i>
                                         </div>
@@ -709,7 +724,7 @@
                                     </div>
 
                                     <!-- Follow-up -->
-                                    <div class="activity-item" data-filter="communications lease" data-time="recent">
+                                    <div class="activity-item" data-filter="communications lease" data-communication-type="follow-up" data-time="recent">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-user-clock text-primary text-sm"></i>
                                         </div>
@@ -734,7 +749,7 @@
                                     </div>
                                     
                                     <!-- Email -->
-                                    <div class="activity-item" data-filter="communications payments" data-time="recent">
+                                    <div class="activity-item" data-filter="communications payments" data-communication-type="email" data-time="recent">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-envelope text-primary text-sm"></i>
                                         </div>
@@ -836,7 +851,7 @@
                                     </div>
                                     
                                     <!-- Payment Received -->
-                                    <div class="activity-item" data-filter="communications payments" data-time="all">
+                                    <div class="activity-item" data-filter="payments" data-time="all">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-dollar-sign text-primary text-sm"></i>
                                         </div>
@@ -2670,6 +2685,33 @@
                 // Hide the load more button
                 loadMoreSection.style.display = 'none';
                 
+                // Apply current filters to the newly revealed hidden activities
+                const currentFilter = document.getElementById('activity-filter').value;
+                const currentCommFilter = document.getElementById('communication-type-filter').value;
+                
+                // Re-apply main filter to hidden items
+                const hiddenItems = hiddenActivities.querySelectorAll('.activity-item');
+                hiddenItems.forEach(item => {
+                    const itemFilters = item.getAttribute('data-filter') || '';
+                    
+                    // Apply main filter
+                    if (currentFilter === 'all' || itemFilters.includes(currentFilter)) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                    
+                    // Apply communication filter if active
+                    if (currentFilter === 'communications' && currentCommFilter !== 'all-communications') {
+                        const itemType = item.getAttribute('data-communication-type') || '';
+                        if (itemFilters.includes('communications')) {
+                            if (itemType !== currentCommFilter) {
+                                item.classList.add('hidden');
+                            }
+                        }
+                    }
+                });
+                
                 // Remove height constraints from activity timeline to let it expand naturally
                 if (activityCard) {
                     activityCard.style.minHeight = 'auto';
@@ -2772,9 +2814,23 @@
         
         // Activity filtering functionality
         function filterActivities(filter) {
-            const allItems = document.querySelectorAll('.activity-item');
+            const visibleItems = document.querySelectorAll('.activity-item:not(#hidden-activities .activity-item)');
+            const hiddenSectionItems = document.querySelectorAll('#hidden-activities .activity-item');
+            const communicationTypeContainer = document.getElementById('communication-type-filter-container');
+            const communicationTypeFilter = document.getElementById('communication-type-filter');
+            const loadMoreSection = document.getElementById('load-more-section');
             
-            allItems.forEach(item => {
+            // Show/hide communication type sub-filter
+            if (filter === 'communications') {
+                communicationTypeContainer.classList.remove('hidden');
+            } else {
+                communicationTypeContainer.classList.add('hidden');
+                // Reset communication type filter when not showing communications
+                communicationTypeFilter.value = 'all-communications';
+            }
+            
+            // Filter visible items (only those not in hidden section)
+            visibleItems.forEach(item => {
                 const itemFilters = item.getAttribute('data-filter') || '';
                 
                 // Check activity filter
@@ -2784,6 +2840,86 @@
                     item.classList.add('hidden');
                 }
             });
+            
+            // Only filter hidden section items if the hidden section is currently visible
+            const hiddenActivitiesSection = document.getElementById('hidden-activities');
+            if (hiddenActivitiesSection && !hiddenActivitiesSection.classList.contains('hidden')) {
+                hiddenSectionItems.forEach(item => {
+                    const itemFilters = item.getAttribute('data-filter') || '';
+                    
+                    if (filter === 'all' || itemFilters.includes(filter)) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Maintain consistent positioning for load more button
+            updateLoadMorePosition();
+        }
+        
+        // Communication type filtering functionality
+        function filterCommunicationTypes(communicationType) {
+            const visibleItems = document.querySelectorAll('.activity-item:not(#hidden-activities .activity-item)');
+            const hiddenSectionItems = document.querySelectorAll('#hidden-activities .activity-item');
+            
+            // Filter visible items (only those not in hidden section)
+            visibleItems.forEach(item => {
+                const itemFilters = item.getAttribute('data-filter') || '';
+                const itemType = item.getAttribute('data-communication-type') || '';
+                
+                // Only filter items that are communications
+                if (itemFilters.includes('communications')) {
+                    if (communicationType === 'all-communications' || itemType === communicationType) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                }
+            });
+            
+            // Only filter hidden section items if the hidden section is currently visible
+            const hiddenActivitiesSection = document.getElementById('hidden-activities');
+            if (hiddenActivitiesSection && !hiddenActivitiesSection.classList.contains('hidden')) {
+                hiddenSectionItems.forEach(item => {
+                    const itemFilters = item.getAttribute('data-filter') || '';
+                    const itemType = item.getAttribute('data-communication-type') || '';
+                    
+                    // Only filter items that are communications
+                    if (itemFilters.includes('communications')) {
+                        if (communicationType === 'all-communications' || itemType === communicationType) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    }
+                });
+            }
+            
+            // Maintain consistent positioning for load more button
+            updateLoadMorePosition();
+        }
+        
+        // Function to maintain consistent load more button positioning
+        function updateLoadMorePosition() {
+            const loadMoreSection = document.getElementById('load-more-section');
+            const activityContainer = document.getElementById('activity-timeline-container');
+            
+            if (loadMoreSection && activityContainer) {
+                // Force a reflow to prevent flickering
+                loadMoreSection.style.position = 'relative';
+                loadMoreSection.style.zIndex = '1';
+                
+                // Ensure the load more section stays at the bottom of visible content
+                const visibleItems = activityContainer.querySelectorAll('.activity-item:not(.hidden):not(#hidden-activities .activity-item)');
+                if (visibleItems.length === 0) {
+                    // If no items are visible, hide the load more button temporarily
+                    loadMoreSection.style.opacity = '0.5';
+                } else {
+                    loadMoreSection.style.opacity = '1';
+                }
+            }
         }
         
         // View switching functionality
@@ -3546,6 +3682,14 @@
                     alert('Create Work Order:\n\n• Report maintenance issue\n• Select category and priority\n• Add description and photos\n• Assign to maintenance team\n• Set schedule');
                 });
             }
+            
+            // Initialize load more button position
+            updateLoadMorePosition();
+            
+            // Update load more position on window resize
+            window.addEventListener('resize', () => {
+                setTimeout(updateLoadMorePosition, 100);
+            });
 
             // Resident kebab menu functionality
             const residentKebabBtn = document.getElementById('resident-header-kebab-btn');
