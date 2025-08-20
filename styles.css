@@ -4188,11 +4188,11 @@ html {
 
 /* Custom Primary Colors */
 .bg-primary {
-    background-color: #0072ce;
+    background-color: #0072ce !important;
 }
 
 .bg-primary:hover {
-    background-color: #005ba3;
+    background-color: #005ba3 !important;
 }
 
 .text-primary {
