@@ -4171,6 +4171,31 @@ html {
     background-color: #f8f9fa;
 }
 
+/* Activity Add Dropdown Styles */
+.activity-add-option {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    margin: 2px 4px;
+}
+
+.activity-add-option:first-child {
+    border-radius: 8px 8px 4px 4px;
+}
+
+.activity-add-option:last-child {
+    border-radius: 4px 4px 8px 8px;
+}
+
+.activity-add-option:only-child {
+    border-radius: 8px;
+}
+
+.activity-add-option i {
+    width: 16px;
+    font-size: 14px;
+}
+
 /* Responsive adjustments for column height matching and sticky navigation */
 @media (max-width: 768px) {
     #column-1-resident-notes,

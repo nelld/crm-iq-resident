@@ -143,8 +143,8 @@
                 <div class="title-with-badges">
                     <h1>Melinda Michaels</h1>
                     <div class="badges-container">
-                        <span class="resident-badge current">current</span>
-                        <span class="resident-badge primary">primary</span>
+                        <span class="resident-badge current">Current</span>
+                        <span class="resident-badge primary">Primary</span>
                     </div>
                 </div>
                 <div class="page-meta">
@@ -656,10 +656,37 @@
                                 <h3 class="card-title">
                                     Activity Timeline
                                 </h3>
-                                <button class="btn btn-sm text-sm px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 focus-ring rounded-lg font-bold" onclick="addActivity()">
-                                    <i class="fas fa-circle-plus text-sm mr-1.5"></i>
-                                    Add
-                                        </button>
+                                <div class="relative">
+                                    <button id="activity-add-btn" class="btn btn-sm text-sm px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 focus-ring rounded-lg font-bold" onclick="toggleActivityAddMenu()">
+                                        <i class="fas fa-circle-plus text-sm mr-1.5"></i>
+                                        Add
+                                        <i class="fas fa-chevron-down text-xs ml-1"></i>
+                                    </button>
+                                    <div id="activity-add-menu" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50 hidden">
+                                        <div class="py-1">
+                                            <button class="activity-add-option w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors" onclick="addActivityType('comment')">
+                                                <i class="fas fa-comment mr-2 text-gray-500"></i>
+                                                Add comment
+                                            </button>
+                                            <button class="activity-add-option w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors" onclick="addActivityType('follow-up')">
+                                                <i class="fas fa-clock mr-2 text-gray-500"></i>
+                                                Add follow-up
+                                            </button>
+                                            <button class="activity-add-option w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors" onclick="addActivityType('appointment')">
+                                                <i class="fas fa-calendar-check mr-2 text-gray-500"></i>
+                                                Add appointment
+                                            </button>
+                                            <button class="activity-add-option w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors" onclick="addActivityType('log')">
+                                                <i class="fas fa-clipboard-list mr-2 text-gray-500"></i>
+                                                Log activity
+                                            </button>
+                                            <button class="activity-add-option w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors" onclick="addActivityType('memo')">
+                                                <i class="fas fa-sticky-note mr-2 text-gray-500"></i>
+                                                Add memo
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                                     </div>
                                 </div>
                         <div class="card-content">
@@ -1155,7 +1182,7 @@
                                         <div class="text-xs text-gray-500">Applied after 5-day grace period • Code: latefee</div>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">unpaid</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">Unpaid</span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-right font-medium text-gray-900">$75.00</td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
@@ -1169,7 +1196,7 @@
                                         <div class="text-xs text-gray-500">Bank: Wells Fargo ***4521 • Code: achpay</div>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">processing</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Processing</span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
                                     <td class="px-6 py-4 text-sm text-right font-medium text-gray-900">$1,337.25</td>
@@ -1183,7 +1210,7 @@
                                         <div class="text-xs text-gray-500">Monthly rent charge • Code: rentres</div>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">unpaid</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">Unpaid</span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-right font-medium text-gray-900">$2,000.00</td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
@@ -1197,7 +1224,7 @@
                                         <div class="text-xs text-gray-500">Applied after 5-day grace period • Code: latefee</div>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">unpaid</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">Unpaid</span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-right font-medium text-gray-900">$75.00</td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
@@ -1211,7 +1238,7 @@
                                         <div class="text-xs text-gray-500">Monthly rent charge • Code: rentres</div>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">unpaid</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">Unpaid</span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-right font-medium text-gray-900">$2,000.00</td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
@@ -1225,7 +1252,7 @@
                                         <div class="text-xs text-gray-500">Bank: Wells Fargo ***4521 • Code: achpay</div>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">paid</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Paid</span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
                                     <td class="px-6 py-4 text-sm text-right font-medium text-gray-900">$2,000.00</td>
@@ -1239,7 +1266,7 @@
                                         <div class="text-xs text-gray-500">2 pets × $15/month • Code: petfee</div>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">unpaid</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">Unpaid</span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-right font-medium text-gray-900">$30.00</td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
@@ -1253,7 +1280,7 @@
                                         <div class="text-xs text-gray-500">Monthly rent charge • Code: rentres</div>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">paid</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Paid</span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-right font-medium text-gray-900">$2,000.00</td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
@@ -1267,7 +1294,7 @@
                                         <div class="text-xs text-gray-500">Bank: Wells Fargo ***4521 • Code: achpay</div>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">paid</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Paid</span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
                                     <td class="px-6 py-4 text-sm text-right font-medium text-gray-900">$2,030.00</td>
@@ -1281,7 +1308,7 @@
                                         <div class="text-xs text-gray-500">2 pets × $15/month • Code: petfee</div>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">paid</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Paid</span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-right font-medium text-gray-900">$30.00</td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
@@ -1295,7 +1322,7 @@
                                         <div class="text-xs text-gray-500">Monthly rent charge • Code: rentres</div>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">paid</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Paid</span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-right font-medium text-gray-900">$2,000.00</td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
@@ -1310,7 +1337,7 @@
                                         <div class="text-xs text-gray-500">Carried from previous year • Code: balance</div>
                                     </td>
                                     <td class="px-6 py-4 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">carried forward</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Carried forward</span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
                                     <td class="px-6 py-4 text-sm text-right">-</td>
@@ -1432,7 +1459,7 @@
                             <div class="flex flex-col items-end gap-2">
                                 <div class="text-lg font-bold">-$1,337.25</div>
                                 <div class="flex items-center gap-3">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">processing</span>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Processing</span>
                                 </div>
                             </div>
                         </div>
@@ -2091,7 +2118,7 @@
                                         <div class="flex items-center gap-3">
                                             <h4 class="font-semibold text-gray-900">Angela Johnson</h4>
                                             <span class="badge bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full font-medium">
-                                                application completed
+                                                Application completed
                                             </span>
                                         </div>
                                         <button id="kebab-btn-roommate-angela" class="btn btn-sm px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 focus-ring w-10 h-8 flex items-center justify-center rounded-lg">
@@ -2152,7 +2179,7 @@
                                     <div class="flex items-start justify-between mb-1">
                                         <div class="flex items-center gap-3">
                                             <h4 class="font-semibold text-gray-900">John Smith</h4>
-                                            <span class="resident-badge current">current</span>
+                                            <span class="resident-badge current">Current</span>
                                         </div>
                                         <button id="kebab-btn-roommate-john" class="btn btn-sm px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 focus-ring w-10 h-8 flex items-center justify-center rounded-lg">
                                             <i class="fas fa-ellipsis-v text-sm"></i>
@@ -2541,9 +2568,39 @@
         // Track if load more has been clicked - Global variable
         let timelineExpanded = false;
         
-        // Handle Add Activity button - Global function
-        function addActivity() {
-            alert('Add Activity:\n\n• Create new activity entry\n• Select activity type (call, email, note, task)\n• Add activity details and description\n• Set due date or completed status\n• Assign to team member\n• Link to customer record');
+        // Handle Add Activity dropdown - Global functions
+        function toggleActivityAddMenu() {
+            const menu = document.getElementById('activity-add-menu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+        
+        function addActivityType(type) {
+            // Close the dropdown
+            const menu = document.getElementById('activity-add-menu');
+            if (menu) menu.classList.add('hidden');
+            
+            // Handle different activity types
+            switch(type) {
+                case 'comment':
+                    alert('Add Comment:\n\n• Add a comment to the activity timeline\n• Include relevant details and context\n• Tag team members if needed\n• Save for future reference');
+                    break;
+                case 'follow-up':
+                    alert('Add Follow-up:\n\n• Schedule a follow-up task\n• Set due date and priority\n• Add follow-up details\n• Assign to team member\n• Link to previous activities');
+                    break;
+                case 'appointment':
+                    alert('Add Appointment:\n\n• Schedule an appointment\n• Set date and time\n• Add location details\n• Send calendar invites\n• Add appointment notes');
+                    break;
+                case 'log':
+                    alert('Log Activity:\n\n• Record completed activity\n• Document what was done\n• Add outcome and results\n• Set completion status\n• Link to related records');
+                    break;
+                case 'memo':
+                    alert('Add Memo:\n\n• Create internal memo\n• Document important information\n• Add memo subject and content\n• Tag relevant departments\n• Set memo priority');
+                    break;
+                default:
+                    alert('Unknown activity type selected');
+            }
         }
         
         // Handle Load More Activities button - Global function
@@ -2730,6 +2787,13 @@
                 const kebabMenu = document.getElementById('ledger-kebab-menu');
                 if (kebabBtn && kebabMenu && !kebabBtn.contains(e.target) && !kebabMenu.contains(e.target)) {
                     kebabMenu.classList.add('hidden');
+                }
+                
+                // Close activity add menu when clicking outside
+                const activityBtn = document.getElementById('activity-add-btn');
+                const activityMenu = document.getElementById('activity-add-menu');
+                if (activityBtn && activityMenu && !activityBtn.contains(e.target) && !activityMenu.contains(e.target)) {
+                    activityMenu.classList.add('hidden');
                 }
             });
         });
