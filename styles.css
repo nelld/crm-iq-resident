@@ -625,6 +625,21 @@ body {
     overflow: hidden;
 }
 
+/* Enhanced Shadow for Key Cards */
+.card-enhanced-shadow {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.card-enhanced-shadow:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+/* Shadow without hover effect */
+.card-shadow-static {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
 .card-header {
     padding: 16px 20px 12px;
     display: flex;
@@ -1324,16 +1339,16 @@ body {
 }
 
 .form-btn.secondary {
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: rgba(0, 0, 0, 0.05);
     color: #000000de;
-    border: 1px solid #efefef;
+    border: 1px solid rgba(0, 0, 0, 0.01);
     font-family: 'Inter', 'Roboto', sans-serif;
 }
 
 .form-btn.secondary:hover {
-    background-color: rgba(0, 0, 0, 0.08);
-
+    background-color: rgba(0, 0, 0, 0.1);
     color: #000000;
+	border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 /* Responsive Form Layout */
@@ -1458,7 +1473,7 @@ body {
 }
 
 .communication-fill {
-    background-color: #3b82f6;
+    background-color: #0072ce;
 }
 
 .compliance-fill {
@@ -2692,7 +2707,7 @@ button.rounded-lg,
 }
 
 .add-vehicle-btn {
-    background-color: #3b82f6;
+    background-color: #0072ce;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -2812,7 +2827,7 @@ button.rounded-lg,
 }
 
 .add-pet-btn {
-    background-color: #3b82f6;
+    background-color: #0072ce;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -3554,7 +3569,7 @@ button.rounded-lg,
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background-color: #3b82f6;
+    background-color: #0072ce;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4071,8 +4086,8 @@ button.rounded-lg,
 
 .filter-dropdown:focus {
     outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: #0072ce;
+    box-shadow: 0 0 0 3px rgba(0, 114, 206, 0.1);
 }
 
 .activity-item.hidden {
@@ -4144,22 +4159,22 @@ html {
 
 /* Tab-style Filters */
 .tab-filter {
-    background-color: #f8f9fa;
+    background-color: white;
     color: #374151;
     border: 1px solid #d1d5db;
     cursor: pointer;
 }
 
 .tab-filter:hover {
-    background-color: #e9ecef;
+    background-color: #f8f8f8;
     color: #1f2937;
-    border-color: #9ca3af;
+    border-color: #bbb;
 }
 
 .tab-filter.active {
-    background-color: rgba(59, 130, 246, 0.1);
+    background-color: rgba(0, 114, 206, 0.1);
     color: #374151;
-    border-color: #3b82f6;
+    border-color: #0072ce;
 }
 
 /* Pagination Styles */
@@ -4169,6 +4184,45 @@ html {
 
 .pagination-page:hover:not(.active) {
     background-color: #f8f9fa;
+}
+
+/* Custom Primary Colors */
+.bg-primary {
+    background-color: #0072ce;
+}
+
+.bg-primary:hover {
+    background-color: #005ba3;
+}
+
+.text-primary {
+    color: #0072ce;
+}
+
+.text-primary:hover {
+    color: #005ba3;
+}
+
+.text-link {
+    color: #0264b3;
+}
+
+.text-link:hover {
+    color: #01508a;
+}
+
+.border-primary {
+    border-color: #0072ce;
+}
+
+.focus-ring-primary:focus {
+    outline: none;
+    border-color: #0072ce;
+    box-shadow: 0 0 0 3px rgba(0, 114, 206, 0.1);
+}
+
+.bg-primary-light {
+    background-color: rgba(0, 114, 206, 0.1);
 }
 
 /* Activity Add Dropdown Styles */

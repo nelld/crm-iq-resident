@@ -271,7 +271,7 @@
                 <div class="col-span-1 lg:col-span-2 space-y-6">
                     
                     <!-- Row 1: Active Tasks & Alerts -->
-                    <div class="card hover-lift shadow-soft">
+                    <div class="card hover-lift shadow-soft card-enhanced-shadow">
                         <div class="card-header" id="alerts-header" onclick="toggleAlerts()" style="cursor: pointer;">
                             <div class="flex items-center justify-between w-full">
                                 <div class="flex-1">
@@ -309,7 +309,7 @@
                                         <div class="flex-1">
                                             <h4 class="text-sm font-semibold mb-1">Lease Expiring Soon</h4>
                                             <p class="text-xs mb-2">Current lease expires Sep 30, 2025 - renewal action required</p>
-                                            <button class="text-xs bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg transition-colors">
+                                            <button class="text-xs bg-primary text-white px-3 py-1 rounded-lg transition-colors">
                                                 Create proposal
                                             </button>
                     </div>
@@ -327,7 +327,7 @@
                                                 <button class="text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-lg transition-colors">
                                                     View Details
                                                 </button>
-                                                <button class="text-xs bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg transition-colors">
+                                                <button class="text-xs bg-primary text-white px-3 py-1 rounded-lg transition-colors">
                                                     Complete
                         </button>
                     </div>
@@ -346,7 +346,7 @@
                                                 <button class="bg-gray-200 hover:bg-gray-300 text-xs px-3 py-1 rounded-lg transition-colors">
                                                     Send invitation
                         </button>
-                                                <button class="bg-blue-600 hover:bg-blue-700 text-xs text-white px-3 py-1 rounded-lg transition-colors">
+                                                <button class="bg-primary text-xs text-white px-3 py-1 rounded-lg transition-colors">
                                                     Approve application
                                 </button>
                             </div>
@@ -412,7 +412,7 @@
                         <div class="flex flex-col space-y-6" id="column-1-resident-notes">
 
                     <!-- Resident Information Card -->
-                    <div class="card hover-lift shadow-soft">
+                    <div class="card hover-lift shadow-soft card-shadow-static">
                         <div class="card-header">
                             <div class="flex items-center justify-between w-full">
                                 <h3 class="card-title">Resident information</h3>
@@ -436,19 +436,19 @@
 
                                 <!-- Resident Info -->
                                 <div class="flex-1 min-w-0">
-                                    <h4 class="font-semibold text-gray-900 mb-1">Melinda Michaels <i class="fas fa-clone text-blue-600 text-xs cursor-pointer hover:text-blue-700 ml-1" title="Copy resident name, email and phone number"></i></h4>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Melinda Michaels <i class="fas fa-clone text-primary text-xs cursor-pointer ml-1" title="Copy resident name, email and phone number"></i></h4>
                                     <p class="text-sm text-gray-600 mb-2">Preferred name: Mel Michaels</p>
                                     
                                     <!-- Contact Information -->
                                     <div class="space-y-1 text-sm mb-2">
                                         <div class="flex items-center gap-2">
                                             <span class="text-gray-900">(555) 123-4567</span>
-                                            <i class="fas fa-phone text-blue-500 text-sm cursor-pointer hover:text-blue-600" title="Call"></i>
-                                            <i class="fas fa-mobile-alt text-blue-500 text-sm cursor-pointer hover:text-blue-600" title="Mobile"></i>
+                                            <i class="fas fa-phone text-link text-sm cursor-pointer" title="Call"></i>
+                                            <i class="fas fa-mobile-alt text-link text-sm cursor-pointer" title="Mobile"></i>
                             </div>
                                         <div class="flex items-center gap-2">
                                             <span class="text-gray-900">melinda.michaels@email.com</span>
-                                            <i class="fas fa-envelope text-blue-500 text-sm cursor-pointer hover:text-blue-600" title="Send email"></i>
+                                            <i class="fas fa-envelope text-link text-sm cursor-pointer" title="Send email"></i>
                             </div>
                             </div>
                                     
@@ -484,7 +484,7 @@
                                 <i class="fas fa-users text-gray-500 text-sm"></i>
                                 <span class="text-sm font-medium">2 roommates (1 current, <span class="text-orange-600">1 pending</span>)</span>
                             </div>
-                            <span class="text-blue-600 text-sm cursor-pointer hover:text-blue-700 transition-colors" onclick="openPageslide('roommate-details-overlay')">View details</span>
+                            <span class="text-link text-sm cursor-pointer transition-colors" onclick="openPageslide('roommate-details-overlay')">View details</span>
                         </div>
                     </div>
 
@@ -492,7 +492,7 @@
                     </div>
 
                     <!-- Notes Card -->
-                    <div class="card hover-lift shadow-soft">
+                    <div class="card hover-lift shadow-soft card-shadow-static">
                         <div class="card-header">
                             <div class="flex items-center justify-between w-full">
                                 <h3 class="card-title">Notes</h3>
@@ -516,14 +516,14 @@
                                     <p class="text-sm text-gray-700">
                                         <span id="note-preview">Received work order for refrigerator repair. Tenant mentioned it stopped cooling yesterday evening.</span>
                                         <span id="note-full" class="hidden"> Scheduled technician for tomorrow morning. Also discussed upcoming lease renewal - tenant interested in staying for another year.</span>
-                                        <button id="note-toggle" class="text-blue-600 hover:text-blue-700 font-medium ml-1" onclick="toggleNoteExpansion()">read more</button>
+                                        <button id="note-toggle" class="text-link font-medium ml-1" onclick="toggleNoteExpansion()">read more</button>
                                     </p>
                             </div>
                             </div>
                             
                             <!-- View More Notes -->
                             <div class="mt-3">
-                                <button class="text-sm text-blue-600 hover:text-blue-700 font-medium" onclick="viewAllNotes()">
+                                <button class="text-sm text-link font-medium" onclick="viewAllNotes()">
                                     See 4 other notes
                                 </button>
                             </div>
@@ -535,7 +535,7 @@
                         <!-- Column 2: Lease Information -->
                         <div class="flex flex-col space-y-6" id="column-2-lease-info">
                             <!-- Lease Information Card -->
-                    <div class="card hover-lift shadow-soft flex-grow">
+                    <div class="card hover-lift shadow-soft flex-grow card-shadow-static">
                         <div class="card-header">
                             <div class="flex items-center justify-between w-full">
                                 <h3 class="card-title">Lease information</h3>
@@ -628,14 +628,14 @@
                                                     <i class="fas fa-paw text-gray-500 text-sm"></i>
                                                     <span class="text-sm font-medium">2 Pets (1 dog, 1 cat)</span>
                                 </div>
-                                                <span class="text-blue-600 text-sm cursor-pointer hover:text-blue-700  transition-colors" onclick="openPageslide('pet-details-overlay')">View details</span>
+                                                <span class="text-link text-sm cursor-pointer  transition-colors" onclick="openPageslide('pet-details-overlay')">View details</span>
                             </div>
                                             <div class="flex items-center justify-between">
                                                 <div class="flex items-center gap-2">
                                                     <i class="fas fa-car text-gray-500 text-sm"></i>
                                                     <span class="text-sm font-medium">2 Vehicles</span>
                         </div>
-                                                <span class="text-blue-600 text-sm cursor-pointer hover:text-blue-700 transition-colors" onclick="openPageslide('vehicle-details-overlay')">View details</span>
+                                                <span class="text-link text-sm cursor-pointer transition-colors" onclick="openPageslide('vehicle-details-overlay')">View details</span>
                                 </div>
                             </div>
                         </div>
@@ -707,14 +707,14 @@
                                 <!-- Today's Activities -->
                                 <div class="activity-section">
                                     <div class="activity-date-header">
-                                        <i class="fas fa-circle text-blue-500 text-xs mr-2"></i>
+                                        <i class="fas fa-circle text-primary text-xs mr-2"></i>
                                         <span class="text-sm font-semibold text-gray-900">Today: Aug 17, 2025</span>
                                 </div>
 
                                     <!-- Text Message -->
                                     <div class="activity-item" data-filter="communications work-orders" data-time="recent">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-sms text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-sms text-primary text-sm"></i>
                             </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -730,8 +730,8 @@
 
                                     <!-- Email -->
                                     <div class="activity-item" data-filter="communications payments" data-time="recent">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-envelope text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-envelope text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -747,8 +747,8 @@
 
                                     <!-- Follow-up -->
                                     <div class="activity-item" data-filter="communications lease" data-time="recent">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-user-clock text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-user-clock text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -772,8 +772,8 @@
                                     
                                     <!-- Email -->
                                     <div class="activity-item" data-filter="communications payments" data-time="recent">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-envelope text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-envelope text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -789,8 +789,8 @@
                                     
                                     <!-- Work Order -->
                                     <div class="activity-item" data-filter="work-orders" data-time="recent">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-wrench text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-wrench text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -825,8 +825,8 @@
                                     
                                     <!-- Lease Renewal #4 Milestone -->
                                     <div class="activity-item milestone-item" data-filter="milestones lease" data-time="1year">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-key text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-key text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -850,8 +850,8 @@
                                     
                                     <!-- Lease Renewal #3 Milestone -->
                                     <div class="activity-item milestone-item" data-filter="milestones lease" data-time="1year">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-sync text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-sync text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -874,8 +874,8 @@
                                     
                                     <!-- Payment Received -->
                                     <div class="activity-item" data-filter="communications payments" data-time="all">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-dollar-sign text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-dollar-sign text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -899,8 +899,8 @@
                                     
                                     <!-- Work Order Completed -->
                                     <div class="activity-item" data-filter="work-orders" data-time="all">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-check text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-check text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -924,8 +924,8 @@
                                     
                                     <!-- Move-in Milestone -->
                                     <div class="activity-item milestone-item" data-filter="milestones lease" data-time="all">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-home text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-home text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -948,8 +948,8 @@
                                     
                                     <!-- Lease Signing Milestone -->
                                     <div class="activity-item milestone-item" data-filter="milestones lease" data-time="all">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-file-signature text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-file-signature text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -972,8 +972,8 @@
                                     
                                     <!-- Application Approved Milestone -->
                                     <div class="activity-item milestone-item" data-filter="milestones lease" data-time="all">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-check-circle text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-check-circle text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -996,8 +996,8 @@
                                     
                                     <!-- Application Submitted Milestone -->
                                     <div class="activity-item milestone-item" data-filter="milestones lease" data-time="all">
-                                        <div class="activity-icon bg-blue-100">
-                                            <i class="fas fa-file-alt text-blue-600 text-sm"></i>
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-file-alt text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
@@ -1041,31 +1041,31 @@
                         <!-- Account Summary Cards -->
             <div class="mb-8">
 				<div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-					<div class="card">
+					<div class="card card-shadow-static">
 						<div class="card-content text-center">
 							<div class="text-2xl font-bold text-gray-900">$2,674.50</div>
 							<div class="text-sm text-gray-600">Outstanding balance</div>
 						</div>
 					</div>
-					<div class="card">
+					<div class="card card-shadow-static">
 						<div class="card-content text-center">
 							<div class="text-2xl font-bold text-gray-900">98% on-time</div>
 							<div class="text-sm text-gray-600">Payment performance</div>
 						</div>
 					</div>
-					<div class="card">
+					<div class="card card-shadow-static">
 						<div class="card-content text-center">
 							<div class="text-2xl font-bold text-gray-900">Aug 16, 2025</div>
 							<div class="text-sm text-gray-600">Last payment</div>
 						</div>
 					</div>
-					<div class="card">
+					<div class="card card-shadow-static">
 						<div class="card-content text-center">
 							<div class="text-2xl font-bold text-gray-900">3 days early</div>
 							<div class="text-sm text-gray-600">Average payment time</div>
 						</div>
 					</div>
-					<div class="card">
+					<div class="card card-shadow-static">
 						<div class="card-content text-center">
 							<div class="text-2xl font-bold text-gray-900">Sep 1, 2025</div>
 							<div class="text-sm text-gray-600">Next due date</div>
@@ -1083,7 +1083,7 @@
                     <div class="flex-1 min-w-[300px]">
                         <div class="relative">
                             <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
-                            <input type="text" placeholder="Search transactions..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <input type="text" placeholder="Search transactions..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus-ring-primary">
                         </div>
                     </div>
                     
@@ -1358,7 +1358,7 @@
                 </button>
                 
                 <!-- Page Numbers -->
-                <button class="pagination-page w-8 h-8 text-sm border border-blue-500 bg-blue-500 text-white rounded" data-page="1" onclick="goToPage(1)">1</button>
+                <button class="pagination-page w-8 h-8 text-sm border border-primary bg-primary text-white rounded" data-page="1" onclick="goToPage(1)">1</button>
                 <button class="pagination-page w-8 h-8 text-sm border border-gray-300 text-gray-700 hover:bg-gray-50 rounded" data-page="2" onclick="goToPage(2)">2</button>
                 
                 <!-- Next Button -->
@@ -1421,7 +1421,7 @@
                             <input 
                                 type="text" 
                                 placeholder="Search charges..." 
-                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus-ring-primary text-sm"
                             >
                     </div>
                         
@@ -2131,12 +2131,12 @@
                                     <div class="space-y-1 text-sm mb-2">
                                         <div class="flex items-center gap-2">
                                             <span class="text-gray-900">(555) 234-5678</span>
-                                            <i class="fas fa-phone text-blue-500 text-sm cursor-pointer hover:text-blue-600" title="Call"></i>
-                                            <i class="fas fa-mobile-alt text-blue-500 text-sm cursor-pointer hover:text-blue-600" title="Mobile"></i>
+                                            <i class="fas fa-phone text-link text-sm cursor-pointer" title="Call"></i>
+                                            <i class="fas fa-mobile-alt text-link text-sm cursor-pointer" title="Mobile"></i>
                                         </div>
                                         <div class="flex items-center gap-2">
                                             <span class="text-gray-900">angela.johnson@email.com</span>
-                                            <i class="fas fa-envelope text-blue-500 text-sm cursor-pointer hover:text-blue-600" title="Send email"></i>
+                                            <i class="fas fa-envelope text-link text-sm cursor-pointer" title="Send email"></i>
                                         </div>
                                     </div>
                                     
@@ -2151,11 +2151,11 @@
                                     </div>
 
                                     <div class="mt-4">
-                                        <button class="btn text-sm px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white focus-ring rounded-lg">
+                                        <button class="btn text-sm px-3 py-1.5 bg-primary text-white focus-ring rounded-lg">
                                             <i class="fas fa-paper-plane text-sm mr-1.5"></i>
                                             Send invitation
                                         </button>
-                                        <button class="btn text-sm px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white focus-ring rounded-lg ml-2">
+                                        <button class="btn text-sm px-3 py-1.5 bg-primary text-white focus-ring rounded-lg ml-2">
                                             <i class="fas fa-check text-sm mr-1.5"></i>
                                             Approve application
                                         </button>
@@ -2170,7 +2170,7 @@
                         <div class="card-content">
                             <div class="flex items-start gap-3">
                                 <!-- Avatar -->
-                                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <div class="w-10 h-10 bg-primary-light rounded-full flex items-center justify-center flex-shrink-0">
                                     <span class="text-blue-600 font-semibold text-sm">JS</span>
                                 </div>
 
@@ -2190,12 +2190,12 @@
                                     <div class="space-y-1 text-sm mb-2">
                                         <div class="flex items-center gap-2">
                                             <span class="text-gray-900">(555) 345-6789</span>
-                                            <i class="fas fa-phone text-blue-500 text-sm cursor-pointer hover:text-blue-600" title="Call"></i>
-                                            <i class="fas fa-mobile-alt text-blue-500 text-sm cursor-pointer hover:text-blue-600" title="Mobile"></i>
+                                            <i class="fas fa-phone text-link text-sm cursor-pointer" title="Call"></i>
+                                            <i class="fas fa-mobile-alt text-link text-sm cursor-pointer" title="Mobile"></i>
                                         </div>
                                         <div class="flex items-center gap-2">
                                             <span class="text-gray-900">john.smith@email.com</span>
-                                            <i class="fas fa-envelope text-blue-500 text-sm cursor-pointer hover:text-blue-600" title="Send email"></i>
+                                            <i class="fas fa-envelope text-link text-sm cursor-pointer" title="Send email"></i>
                                         </div>
                                     </div>
 
@@ -2870,14 +2870,14 @@
             // Update pagination button styling
             const pageButtons = document.querySelectorAll('.pagination-page');
             pageButtons.forEach(btn => {
-                btn.classList.remove('border-blue-500', 'bg-blue-500', 'text-white');
+                btn.classList.remove('border-primary', 'bg-primary', 'text-white');
                 btn.classList.add('border-gray-300', 'text-gray-700', 'hover:bg-gray-50');
             });
             
             // Activate clicked page button
             const clickedButton = document.querySelector(`.pagination-page[data-page="${pageNumber}"]`);
             if (clickedButton) {
-                clickedButton.classList.add('border-blue-500', 'bg-blue-500', 'text-white');
+                clickedButton.classList.add('border-primary', 'bg-primary', 'text-white');
                 clickedButton.classList.remove('border-gray-300', 'text-gray-700', 'hover:bg-gray-50');
             }
             
