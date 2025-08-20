@@ -4094,36 +4094,71 @@ button.rounded-lg,
 }
 
 .activity-item.hidden {
-    display: none;
+    display: none !important;
+}
+
+.activity-item {
+    display: block;
+}
+
+/* Disable all transitions during filtering */
+.filtering * {
+    transition: none !important;
+    animation: none !important;
 }
 
 /* Load More Section Stability */
 .load-more-section {
     position: relative;
-    z-index: 1;
-    transition: opacity 0.2s ease;
-    min-height: 60px; /* Prevent layout shift */
+    z-index: 10;
+    min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: white;
+    margin-top: 1rem;
+    border-top: 1px solid #f3f4f6;
+    flex-shrink: 0; /* Prevent shrinking in flex container */
+}
+
+/* Stable activity timeline card without inner scroll */
+#activity-timeline-card {
+    min-height: 500px; /* Minimum height to reduce dramatic changes */
+    transition: none; /* Disable height transitions during filtering */
+}
+
+#activity-timeline-card .card-content {
+    transition: none; /* Disable content transitions during filtering */
 }
 
 /* Prevent flickering during filtering */
 #activity-timeline-container {
     position: relative;
+    min-height: 300px; /* Reduced since card has fixed height */
 }
 
-#activity-timeline-container .activity-item {
-    transition: opacity 0.15s ease;
+/* Ensure activity sections maintain structure */
+.activity-section {
+    position: relative;
 }
 
-#activity-timeline-container .activity-item.hidden {
-    display: none !important;
+.activity-section.empty {
+    display: none;
 }
 
-/* Ensure smooth transitions when filtering */
+/* Smooth filtering transitions */
+.activity-filters {
+    position: relative;
+    z-index: 5;
+}
+
 .activity-filters select {
     transition: all 0.2s ease;
+}
+
+/* Ensure hidden items stay completely hidden */
+#hidden-activities.hidden {
+    display: none !important;
 }
 
 /* Dynamic Column Height Matching */
@@ -4174,7 +4209,7 @@ button.rounded-lg,
     border-top: 1px solid #e5e7eb;
     border-radius: 0 0 0.5rem 0.5rem;
 	background-color: #fff;
-	margin-top: -90px !important;
+	margin-top: -84px !important;
 	z-index: 9999;
 	position: relative;
 }

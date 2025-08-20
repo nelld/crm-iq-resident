@@ -2676,47 +2676,67 @@
             const activityCard = document.getElementById('activity-timeline-card');
             
             if (hiddenActivities && loadMoreSection) {
-                // Mark timeline as expanded
-                timelineExpanded = true;
-                
-                // Show all hidden activities
-                hiddenActivities.classList.remove('hidden');
-                
-                // Hide the load more button
-                loadMoreSection.style.display = 'none';
-                
-                // Apply current filters to the newly revealed hidden activities
-                const currentFilter = document.getElementById('activity-filter').value;
-                const currentCommFilter = document.getElementById('communication-type-filter').value;
-                
-                // Re-apply main filter to hidden items
-                const hiddenItems = hiddenActivities.querySelectorAll('.activity-item');
-                hiddenItems.forEach(item => {
-                    const itemFilters = item.getAttribute('data-filter') || '';
+                // Use requestAnimationFrame to batch DOM updates
+                requestAnimationFrame(() => {
+                    // Mark timeline as expanded
+                    timelineExpanded = true;
                     
-                    // Apply main filter
-                    if (currentFilter === 'all' || itemFilters.includes(currentFilter)) {
-                        item.classList.remove('hidden');
-                    } else {
-                        item.classList.add('hidden');
-                    }
+                    // Show all hidden activities
+                    hiddenActivities.classList.remove('hidden');
                     
-                    // Apply communication filter if active
-                    if (currentFilter === 'communications' && currentCommFilter !== 'all-communications') {
-                        const itemType = item.getAttribute('data-communication-type') || '';
-                        if (itemFilters.includes('communications')) {
-                            if (itemType !== currentCommFilter) {
-                                item.classList.add('hidden');
+                    // Hide the load more button smoothly
+                    loadMoreSection.style.display = 'none';
+                    
+                    // Apply current filters to the newly revealed hidden activities
+                    const currentFilter = document.getElementById('activity-filter').value;
+                    const currentCommFilter = document.getElementById('communication-type-filter').value;
+                    
+                    // Batch all filter applications
+                    const hiddenItems = hiddenActivities.querySelectorAll('.activity-item');
+                    const itemsToShow = [];
+                    const itemsToHide = [];
+                    
+                    hiddenItems.forEach(item => {
+                        const itemFilters = item.getAttribute('data-filter') || '';
+                        
+                        // Check main filter
+                        if (currentFilter === 'all' || itemFilters.includes(currentFilter)) {
+                            // Check communication filter if active
+                            if (currentFilter === 'communications' && currentCommFilter !== 'all-communications') {
+                                const itemType = item.getAttribute('data-communication-type') || '';
+                                if (itemFilters.includes('communications') && itemType !== currentCommFilter) {
+                                    itemsToHide.push(item);
+                                } else {
+                                    itemsToShow.push(item);
+                                }
+                            } else {
+                                itemsToShow.push(item);
                             }
+                        } else {
+                            itemsToHide.push(item);
                         }
-                    }
+                    });
+                    
+                    // Apply all changes in a single batch
+                    itemsToHide.forEach(item => item.classList.add('hidden'));
+                    itemsToShow.forEach(item => item.classList.remove('hidden'));
+                    
+                    // Keep the card height fixed - no changes needed
+                    // The card maintains its fixed height for consistent layout
+                    
+                    // Check and hide empty activity sections
+                    requestAnimationFrame(() => {
+                        const activitySections = document.querySelectorAll('.activity-section');
+                        activitySections.forEach(section => {
+                            const visibleItemsInSection = section.querySelectorAll('.activity-item:not(.hidden)');
+                            if (visibleItemsInSection.length === 0) {
+                                section.classList.add('empty');
+                            } else {
+                                section.classList.remove('empty');
+                            }
+                        });
+                    });
                 });
-                
-                // Remove height constraints from activity timeline to let it expand naturally
-                if (activityCard) {
-                    activityCard.style.minHeight = 'auto';
-                    activityCard.style.height = 'auto';
-                }
                 
                 // Show success message
                 setTimeout(() => {
@@ -2814,108 +2834,176 @@
         
         // Activity filtering functionality
         function filterActivities(filter) {
-            const visibleItems = document.querySelectorAll('.activity-item:not(#hidden-activities .activity-item)');
-            const hiddenSectionItems = document.querySelectorAll('#hidden-activities .activity-item');
-            const communicationTypeContainer = document.getElementById('communication-type-filter-container');
-            const communicationTypeFilter = document.getElementById('communication-type-filter');
-            const loadMoreSection = document.getElementById('load-more-section');
+            const activityCard = document.getElementById('activity-timeline-card');
             
-            // Show/hide communication type sub-filter
-            if (filter === 'communications') {
-                communicationTypeContainer.classList.remove('hidden');
-            } else {
-                communicationTypeContainer.classList.add('hidden');
-                // Reset communication type filter when not showing communications
-                communicationTypeFilter.value = 'all-communications';
+            // Add filtering class to disable all transitions
+            if (activityCard) {
+                activityCard.classList.add('filtering');
             }
             
-            // Filter visible items (only those not in hidden section)
-            visibleItems.forEach(item => {
-                const itemFilters = item.getAttribute('data-filter') || '';
+            // Use requestAnimationFrame to batch DOM updates and prevent flickering
+            requestAnimationFrame(() => {
+                const visibleItems = document.querySelectorAll('.activity-item:not(#hidden-activities .activity-item)');
+                const hiddenSectionItems = document.querySelectorAll('#hidden-activities .activity-item');
+                const communicationTypeContainer = document.getElementById('communication-type-filter-container');
+                const communicationTypeFilter = document.getElementById('communication-type-filter');
+                const activitySections = document.querySelectorAll('.activity-section');
                 
-                // Check activity filter
-                if (filter === 'all' || itemFilters.includes(filter)) {
-                    item.classList.remove('hidden');
+                // Batch all DOM changes together
+                const itemsToShow = [];
+                const itemsToHide = [];
+                
+                // Show/hide communication type sub-filter
+                if (filter === 'communications') {
+                    communicationTypeContainer.classList.remove('hidden');
                 } else {
-                    item.classList.add('hidden');
+                    communicationTypeContainer.classList.add('hidden');
+                    // Reset communication type filter when not showing communications
+                    communicationTypeFilter.value = 'all-communications';
                 }
-            });
-            
-            // Only filter hidden section items if the hidden section is currently visible
-            const hiddenActivitiesSection = document.getElementById('hidden-activities');
-            if (hiddenActivitiesSection && !hiddenActivitiesSection.classList.contains('hidden')) {
-                hiddenSectionItems.forEach(item => {
+                
+                // Prepare visible items changes
+                visibleItems.forEach(item => {
                     const itemFilters = item.getAttribute('data-filter') || '';
                     
                     if (filter === 'all' || itemFilters.includes(filter)) {
-                        item.classList.remove('hidden');
+                        itemsToShow.push(item);
                     } else {
-                        item.classList.add('hidden');
+                        itemsToHide.push(item);
                     }
                 });
-            }
-            
-            // Maintain consistent positioning for load more button
-            updateLoadMorePosition();
+                
+                // Prepare hidden section items changes (only if section is visible)
+                const hiddenActivitiesSection = document.getElementById('hidden-activities');
+                if (hiddenActivitiesSection && !hiddenActivitiesSection.classList.contains('hidden')) {
+                    hiddenSectionItems.forEach(item => {
+                        const itemFilters = item.getAttribute('data-filter') || '';
+                        
+                        if (filter === 'all' || itemFilters.includes(filter)) {
+                            itemsToShow.push(item);
+                        } else {
+                            itemsToHide.push(item);
+                        }
+                    });
+                }
+                
+                // Apply all changes in a single batch
+                itemsToHide.forEach(item => item.classList.add('hidden'));
+                itemsToShow.forEach(item => item.classList.remove('hidden'));
+                
+                // Check and hide empty activity sections
+                requestAnimationFrame(() => {
+                    activitySections.forEach(section => {
+                        const visibleItemsInSection = section.querySelectorAll('.activity-item:not(.hidden)');
+                        if (visibleItemsInSection.length === 0) {
+                            section.classList.add('empty');
+                        } else {
+                            section.classList.remove('empty');
+                        }
+                    });
+                    
+                    // Update load more position after all changes are complete
+                    updateLoadMorePosition();
+                    
+                    // Remove filtering class after filtering is complete
+                    setTimeout(() => {
+                        if (activityCard) {
+                            activityCard.classList.remove('filtering');
+                        }
+                    }, 50);
+                });
+            });
         }
         
         // Communication type filtering functionality
         function filterCommunicationTypes(communicationType) {
-            const visibleItems = document.querySelectorAll('.activity-item:not(#hidden-activities .activity-item)');
-            const hiddenSectionItems = document.querySelectorAll('#hidden-activities .activity-item');
+            const activityCard = document.getElementById('activity-timeline-card');
             
-            // Filter visible items (only those not in hidden section)
-            visibleItems.forEach(item => {
-                const itemFilters = item.getAttribute('data-filter') || '';
-                const itemType = item.getAttribute('data-communication-type') || '';
+            // Add filtering class to disable all transitions
+            if (activityCard) {
+                activityCard.classList.add('filtering');
+            }
+            
+            // Use requestAnimationFrame to batch DOM updates and prevent flickering
+            requestAnimationFrame(() => {
+                const visibleItems = document.querySelectorAll('.activity-item:not(#hidden-activities .activity-item)');
+                const hiddenSectionItems = document.querySelectorAll('#hidden-activities .activity-item');
+                const activitySections = document.querySelectorAll('.activity-section');
                 
-                // Only filter items that are communications
-                if (itemFilters.includes('communications')) {
-                    if (communicationType === 'all-communications' || itemType === communicationType) {
-                        item.classList.remove('hidden');
-                    } else {
-                        item.classList.add('hidden');
-                    }
-                }
-            });
-            
-            // Only filter hidden section items if the hidden section is currently visible
-            const hiddenActivitiesSection = document.getElementById('hidden-activities');
-            if (hiddenActivitiesSection && !hiddenActivitiesSection.classList.contains('hidden')) {
-                hiddenSectionItems.forEach(item => {
+                // Batch all DOM changes together
+                const itemsToShow = [];
+                const itemsToHide = [];
+                
+                // Prepare visible items changes
+                visibleItems.forEach(item => {
                     const itemFilters = item.getAttribute('data-filter') || '';
                     const itemType = item.getAttribute('data-communication-type') || '';
                     
                     // Only filter items that are communications
                     if (itemFilters.includes('communications')) {
                         if (communicationType === 'all-communications' || itemType === communicationType) {
-                            item.classList.remove('hidden');
+                            itemsToShow.push(item);
                         } else {
-                            item.classList.add('hidden');
+                            itemsToHide.push(item);
                         }
                     }
                 });
-            }
-            
-            // Maintain consistent positioning for load more button
-            updateLoadMorePosition();
+                
+                // Prepare hidden section items changes (only if section is visible)
+                const hiddenActivitiesSection = document.getElementById('hidden-activities');
+                if (hiddenActivitiesSection && !hiddenActivitiesSection.classList.contains('hidden')) {
+                    hiddenSectionItems.forEach(item => {
+                        const itemFilters = item.getAttribute('data-filter') || '';
+                        const itemType = item.getAttribute('data-communication-type') || '';
+                        
+                        // Only filter items that are communications
+                        if (itemFilters.includes('communications')) {
+                            if (communicationType === 'all-communications' || itemType === communicationType) {
+                                itemsToShow.push(item);
+                            } else {
+                                itemsToHide.push(item);
+                            }
+                        }
+                    });
+                }
+                
+                // Apply all changes in a single batch
+                itemsToHide.forEach(item => item.classList.add('hidden'));
+                itemsToShow.forEach(item => item.classList.remove('hidden'));
+                
+                // Check and hide empty activity sections
+                requestAnimationFrame(() => {
+                    activitySections.forEach(section => {
+                        const visibleItemsInSection = section.querySelectorAll('.activity-item:not(.hidden)');
+                        if (visibleItemsInSection.length === 0) {
+                            section.classList.add('empty');
+                        } else {
+                            section.classList.remove('empty');
+                        }
+                    });
+                    
+                    // Update load more position after all changes are complete
+                    updateLoadMorePosition();
+                    
+                    // Remove filtering class after filtering is complete
+                    setTimeout(() => {
+                        if (activityCard) {
+                            activityCard.classList.remove('filtering');
+                        }
+                    }, 50);
+                });
+            });
         }
         
         // Function to maintain consistent load more button positioning
         function updateLoadMorePosition() {
             const loadMoreSection = document.getElementById('load-more-section');
-            const activityContainer = document.getElementById('activity-timeline-container');
             
-            if (loadMoreSection && activityContainer) {
-                // Force a reflow to prevent flickering
-                loadMoreSection.style.position = 'relative';
-                loadMoreSection.style.zIndex = '1';
-                
-                // Ensure the load more section stays at the bottom of visible content
-                const visibleItems = activityContainer.querySelectorAll('.activity-item:not(.hidden):not(#hidden-activities .activity-item)');
+            if (loadMoreSection) {
+                // Simple opacity update without layout changes
+                const visibleItems = document.querySelectorAll('.activity-item:not(.hidden):not(#hidden-activities .activity-item)');
                 if (visibleItems.length === 0) {
-                    // If no items are visible, hide the load more button temporarily
-                    loadMoreSection.style.opacity = '0.5';
+                    loadMoreSection.style.opacity = '0.3';
                 } else {
                     loadMoreSection.style.opacity = '1';
                 }
@@ -3686,10 +3774,25 @@
             // Initialize load more button position
             updateLoadMorePosition();
             
-            // Update load more position on window resize
-            window.addEventListener('resize', () => {
-                setTimeout(updateLoadMorePosition, 100);
-            });
+            // Add debounce function to prevent rapid filter changes
+            let filterTimeout = null;
+            const originalFilterActivities = filterActivities;
+            const originalFilterCommunicationTypes = filterCommunicationTypes;
+            
+            // Override filter functions with debounced versions
+            window.filterActivities = function(filter) {
+                if (filterTimeout) clearTimeout(filterTimeout);
+                filterTimeout = setTimeout(() => {
+                    originalFilterActivities(filter);
+                }, 50);
+            };
+            
+            window.filterCommunicationTypes = function(type) {
+                if (filterTimeout) clearTimeout(filterTimeout);
+                filterTimeout = setTimeout(() => {
+                    originalFilterCommunicationTypes(type);
+                }, 50);
+            };
 
             // Resident kebab menu functionality
             const residentKebabBtn = document.getElementById('resident-header-kebab-btn');
@@ -4179,11 +4282,11 @@
                 });
             }
 
-            // Dynamic height matching for columns including activity timeline
+            // Dynamic height matching for columns (activity timeline has fixed height)
             function matchColumnHeights() {
                 const column1 = document.getElementById('column-1-resident-notes');
                 const column2 = document.getElementById('column-2-lease-info');
-                const activityCard = document.getElementById('activity-timeline-card');
+                // Activity card height is fixed, no need to include in matching
                 
                 if (column1 && column2) {
                     // Reset heights to auto to get natural heights
@@ -4192,11 +4295,7 @@
                     column1.style.height = 'auto';
                     column2.style.height = 'auto';
                     
-                    // Only reset activity card height if timeline hasn't been expanded
-                    if (activityCard && !timelineExpanded) {
-                        activityCard.style.minHeight = 'auto';
-                        activityCard.style.height = 'auto';
-                    }
+                    // Activity card maintains fixed height - no adjustments needed
                     
                     // Force a reflow to get accurate measurements
                     column1.offsetHeight;
@@ -4212,10 +4311,7 @@
                         column1.style.minHeight = maxHeight + 'px';
                         column2.style.minHeight = maxHeight + 'px';
                         
-                        // Only match activity timeline card height if timeline hasn't been expanded
-                        if (activityCard && !timelineExpanded) {
-                            activityCard.style.minHeight = maxHeight + 'px';
-                        }
+                        // Activity card maintains fixed height - no matching needed
                         
                         // Debug log (remove in production)
                         console.log('Height matching applied:', {
