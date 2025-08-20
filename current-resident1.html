@@ -143,8 +143,8 @@
                 <div class="title-with-badges">
                     <h1>Melinda Michaels</h1>
                     <div class="badges-container">
-                        <span class="resident-badge current">Current</span>
-                        <span class="resident-badge primary">Primary</span>
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Current</span>
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Primary</span>
                     </div>
                 </div>
                 <div class="page-meta">
@@ -485,12 +485,26 @@
                     
                     <!-- Roommates Section -->
                     <div class="mt-6 pt-6 border-t border-gray-100">
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between mb-3">
                             <div class="flex items-center gap-2">
                                 <i class="fas fa-users text-gray-500 text-sm"></i>
-                                <span class="text-sm font-medium">2 roommates (1 current, <span class="text-orange-600">1 pending</span>)</span>
+                                <span class="text-sm font-medium">2 roommates</span>
                             </div>
                             <span class="text-link text-sm cursor-pointer transition-colors" onclick="openPageslide('roommate-details-overlay')">View details</span>
+                        </div>
+                        
+                        <!-- Roommate List -->
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm text-gray-700">Angela Johnson</span>
+                                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                    Pending approval
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm text-gray-700">John Smith</span>
+                                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Current</span>
+                            </div>
                         </div>
                     </div>
 
