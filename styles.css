@@ -338,6 +338,7 @@ body {
     border-bottom: 1px solid #e0e0e0;
     display: flex;
     align-items: flex-start;
+    justify-content: space-between;
     position: fixed;
     top: 110px; /* Header (65px) + Breadcrumb (~40px) */
     left: 0;
@@ -450,8 +451,8 @@ body {
 }
 
 .resident-action-btn {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 8px;
     border: none;
     background-color: #f5f5f5;
