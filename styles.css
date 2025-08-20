@@ -2249,6 +2249,7 @@ body {
     z-index: 2;
     border: 2px solid white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
 }
 
 .timeline-point.current {
@@ -2262,7 +2263,7 @@ body {
 }
 
 .timeline-point.scheduled {
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.9);
     color: white;
 }
 
@@ -3367,7 +3368,8 @@ button.rounded-lg,
     border-radius: 50%;
     border: 2px solid #fff;
     box-shadow: 0 0 0 2px #e2e8f0;
-    z-index: 1;
+    z-index: 2;
+    background-color: #ffffff;
 }
 
 .journey-point.current {
@@ -4196,11 +4198,11 @@ html {
 }
 
 .text-primary {
-    color: #0072ce;
+    color: #0072ce !important;
 }
 
 .text-primary:hover {
-    color: #005ba3;
+    color: #005ba3 !important;
 }
 
 .text-link {
@@ -4222,7 +4224,7 @@ html {
 }
 
 .bg-primary-light {
-    background-color: rgba(0, 114, 206, 0.1);
+    background-color: #daedfb;
 }
 
 /* Activity Add Dropdown Styles */
