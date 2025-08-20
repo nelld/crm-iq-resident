@@ -4144,7 +4144,7 @@ button.rounded-lg,
     border-top: 1px solid #e5e7eb;
     border-radius: 0 0 0.5rem 0.5rem;
 	background-color: #fff;
-	margin-top: -70px !important;
+	margin-top: -12px !important;
 	z-index: 9999;
 	position: relative;
 }
