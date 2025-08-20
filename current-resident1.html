@@ -652,7 +652,7 @@
                                 </div>
                                     </div>
                                 </div>
-                        <div class="card-content">
+                        <div class="card-content pb-0">
                             <!-- Activity Filters -->
                             <div class="activity-filters">
                                 <div class="flex items-center gap-4">
@@ -3538,6 +3538,14 @@
                     }
                 });
             });
+
+            // Header work order button
+            const headerWorkOrderBtn = document.getElementById('header-work-order-btn');
+            if (headerWorkOrderBtn) {
+                headerWorkOrderBtn.addEventListener('click', function() {
+                    alert('Create Work Order:\n\n• Report maintenance issue\n• Select category and priority\n• Add description and photos\n• Assign to maintenance team\n• Set schedule');
+                });
+            }
 
             // Resident kebab menu functionality
             const residentKebabBtn = document.getElementById('resident-header-kebab-btn');
