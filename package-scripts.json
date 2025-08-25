@@ -1,0 +1,32 @@
+{
+  "name": "crm-iq-resident",
+  "version": "1.0.0",
+  "description": "CRM IQ Resident Management System",
+  "scripts": {
+    "validate-styles": "node validate-styles.js .",
+    "validate-styles:fix": "node validate-styles.js . --fix-suggestions",
+    "validate-styles:ci": "node validate-styles.js . || exit 1",
+    "lint:styles": "npm run validate-styles",
+    "pre-commit": "npm run validate-styles",
+    "build": "npm run validate-styles && echo 'Build process continues...'",
+    "dev": "echo 'Starting dev server...' && npm run validate-styles"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run validate-styles"
+    }
+  },
+  "lint-staged": {
+    "*.{html,css}": [
+      "node validate-styles.js"
+    ]
+  },
+  "devDependencies": {
+    "glob": "^8.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.0"
+  },
+  "keywords": ["crm", "resident-management", "real-estate", "yardi"],
+  "author": "CRM IQ Team",
+  "license": "Private"
+}
