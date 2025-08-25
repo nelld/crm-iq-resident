@@ -119,6 +119,102 @@
             visibility: visible;
             opacity: 1;
         }
+        
+        /* Form Label Positioning - Labels Above Fields */
+        .contact-edit-form .form-row {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 8px !important;
+            margin-bottom: 16px !important;
+        }
+        
+        .contact-edit-form .form-row-group {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 16px !important;
+            margin-bottom: 16px !important;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-edit-form .form-row-group {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        
+        .contact-edit-form .form-row-group .form-row {
+            margin-bottom: 0 !important;
+        }
+        
+        .contact-edit-form .form-label {
+            display: block !important;
+            margin-bottom: 6px !important;
+            font-weight: 500 !important;
+            font-size: 14px !important;
+            color: #374151 !important;
+            order: 1 !important;
+        }
+        
+        .contact-edit-form .form-input,
+        .contact-edit-form .form-select,
+        .contact-edit-form .form-input-group,
+        .contact-edit-form .phone-input-group,
+        .contact-edit-form .country-input-group {
+            order: 2 !important;
+            width: 100% !important;
+        }
+        
+        .contact-edit-form .form-radio-group {
+            order: 2 !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 12px !important;
+            margin-top: 6px !important;
+        }
+        
+        .contact-edit-form .form-checkbox-group {
+            order: 3 !important;
+            margin-top: 8px !important;
+        }
+        
+        /* Ensure phone inputs work properly with labels above */
+        .contact-edit-form .phone-input-group {
+            display: flex !important;
+            gap: 8px !important;
+        }
+        
+        .contact-edit-form .country-select {
+            width: auto !important;
+            min-width: 70px !important;
+        }
+        
+        /* Form sections spacing */
+        .contact-edit-form .form-section {
+            margin-bottom: 32px !important;
+        }
+        
+        .contact-edit-form .form-section-title {
+            margin-bottom: 20px !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #111827 !important;
+        }
+        
+        /* Special handling for identification section with 3 fields */
+        .contact-edit-form .form-section h3 + .form-row-group:first-of-type {
+            grid-template-columns: 1fr 1fr 1fr !important;
+        }
+        
+        @media (max-width: 1024px) {
+            .contact-edit-form .form-section h3 + .form-row-group:first-of-type {
+                grid-template-columns: 1fr 1fr !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-edit-form .form-section h3 + .form-row-group:first-of-type {
+                grid-template-columns: 1fr !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -421,7 +517,7 @@
                             <div class="flex items-center justify-between w-full">
                                 <h3 class="card-title">Resident information</h3>
                                 <div class="flex items-center gap-2">
-                                    <button class="btn btn-light btn-sm">
+                                    <button class="btn btn-light btn-sm section-edit-btn">
                                         <i class="fas fa-pen mr-1"></i>
                                         Edit
                                     </button>
@@ -3416,28 +3512,28 @@
                 <div class="space-y-4">
                     
                     <!-- Pet #1 - Blue (Dog) -->
-                    <div class="pet-detail-card">
-                        <div class="pet-card-header border-0">
+                    <div class="card shadow-sm">
+                        <div class="card-header pb-0 border-0">
                             <div class="flex items-center gap-3">
                                 <div class="pet-avatar">
                                     <i class="fas fa-dog  text-lg"></i>
                                 </div>
                                 <div>
                                     <h3 class="pet-name">Blue</h3>
-                                    <span class="pet-type">Dog</span>
+                                    <span class="pet-type text-sm">Dog</span>
                                 </div>
                             </div>
-                            <div class="pet-actions">
-                                <button class="pet-edit-btn" onclick="editPet('Blue')">
+                            <div class="">
+                                <button class="btn btn-light btn-sm" onclick="editPet('Blue')">
                                     <i class="fas fa-pen"></i>
                                 </button>
-                                <button class="pet-delete-btn" onclick="deletePet('Blue')">
+                                <button class="btn btn-light btn-sm" onclick="deletePet('Blue')">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </div>
                         </div>
                         
-                        <div class="pet-card-content">
+                        <div class="card-content">
                             <div class="pet-metadata">
                                 <div class="pet-primary-info">
                                     Jack Russell Terrier • Male • 2 years old
@@ -3450,28 +3546,28 @@
                     </div>
 
                     <!-- Pet #2 - Cat (example) -->
-                    <div class="pet-detail-card">
-                        <div class="pet-card-header">
+                    <div class="card shadow-sm">
+                        <div class="card-header pb-0 border-0">
                             <div class="flex items-center gap-3">
                                 <div class="pet-avatar">
                                     <i class="fas fa-cat  text-lg"></i>
                                 </div>
                                 <div>
                                     <h3 class="pet-name">Whiskers</h3>
-                                    <span class="pet-type">Cat</span>
+                                    <span class="pet-type text-sm">Cat</span>
                                 </div>
                             </div>
-                            <div class="pet-actions">
-                                <button class="pet-edit-btn" onclick="editPet('Whiskers')">
+                            <div class="">
+                                <button class="btn btn-light btn-sm" onclick="editPet('Whiskers')">
                                     <i class="fas fa-pen"></i>
                                 </button>
-                                <button class="pet-delete-btn" onclick="deletePet('Whiskers')">
+                                <button class="btn btn-light btn-sm" onclick="deletePet('Whiskers')">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </div>
                         </div>
                         
-                        <div class="pet-card-content">
+                        <div class="card-content">
                             <div class="pet-metadata">
                                 <div class="pet-primary-info">
                                     Domestic Shorthair • Female • 3 years old
