@@ -558,7 +558,7 @@
 						<div class="flex items-start justify-between">
 							<div class="flex-1">
 								<div class="flex items-center gap-2 mb-2">
-									<i class="fas fa-user text-sm text-muted"></i>
+									<i class="fas fa-user-shield text-sm text-muted"></i>
 									<span class="text-sm font-medium">Emergency contact</span>
 								</div>
 								<div class="flex items-center gap-2 text-sm text-muted">
@@ -4437,10 +4437,10 @@
                 // Show/hide communication sub-filters
                 if (filter === 'communications') {
                     communicationTypeContainer.classList.remove('hidden');
-                    communicationSourceContainer.classList.remove('hidden');
+                    sourceContainer.classList.remove('hidden');
                 } else {
                     communicationTypeContainer.classList.add('hidden');
-                    communicationSourceContainer.classList.add('hidden');
+                    sourceContainer.classList.add('hidden');
                     // Reset communication filters when not showing communications
                     resetCommunicationFilters();
                 }
