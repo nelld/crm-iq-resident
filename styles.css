@@ -24,6 +24,9 @@ a {
 .btn.kebab-menu {padding: .375rem .875rem;}
 .btn.btn-sm.kebab-menu {padding: 0.275rem .875rem;}
 .btn-link { font-weight: 400;}
+.pageslide .card .card-header {
+    padding: 16px 20px 12px;
+}
 
 /* History Records Styling */
 .history-records-container {

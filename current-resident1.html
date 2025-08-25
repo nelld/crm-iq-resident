@@ -3521,7 +3521,7 @@
                                     </div>
                                     <div>
                                         <h3 class="pet-name">Blue</h3>
-                                        <span class="pet-type text-sm">Dog</span>
+                                        <span class="pet-type">Dog</span>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2">
@@ -3529,7 +3529,7 @@
                                         <i class="fas fa-pen"></i>
                                     </button>
                                     <button class="btn btn-light btn-sm" onclick="deletePet('Blue')">
-                                        <i class="fas fa-trash"></i>
+                                        <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </div>
                             </div>
@@ -3557,7 +3557,7 @@
                                     </div>
                                     <div>
                                         <h3 class="pet-name">Whiskers</h3>
-                                        <span class="pet-type text-sm">Cat</span>
+                                        <span class="pet-type">Cat</span>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2">
@@ -3565,7 +3565,7 @@
                                         <i class="fas fa-pen"></i>
                                     </button>
                                     <button class="btn btn-light btn-sm" onclick="deletePet('Whiskers')">
-                                        <i class="fas fa-trash"></i>
+                                        <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </div>
                             </div>
@@ -3610,33 +3610,35 @@
                 <div class="space-y-4">
                     
                     <!-- Vehicle #1 - Honda Civic -->
-                    <div class="vehicle-detail-card">
-                        <div class="vehicle-card-header">
-                            <div class="flex items-center gap-3">
-                                <div class="vehicle-avatar">
-                                    <i class="fas fa-car  text-lg"></i>
+                    <div class="card shadow-sm">
+                        <div class="card-header pb-0 border-0">
+                            <div class="flex items-center justify-between w-full">
+                                <div class="flex items-center gap-3">
+                                    <div class="vehicle-avatar">
+                                        <i class="fas fa-car  text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="vehicle-name">2019 Honda Civic</h3>
+                                        <span class="vehicle-plate">License: ABC-1234 • CA</span>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 class="vehicle-name">2019 Honda Civic</h3>
-                                    <span class="vehicle-plate">License: ABC-1234 • CA</span>
+                                <div class="flex items-center gap-2">
+                                    <button class="btn btn-light btn-sm" onclick="editVehicle('2019 Honda Civic')">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-light btn-sm" onclick="deleteVehicle('2019 Honda Civic')">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
                                 </div>
-                            </div>
-                            <div class="vehicle-actions">
-                                <button class="btn btn-light" onclick="editVehicle('2019 Honda Civic')">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <button class="btn btn-light" onclick="deleteVehicle('2019 Honda Civic')">
-                                    <i class="fas fa-trash"></i>
-                                </button>
                             </div>
                         </div>
                         
-                        <div class="vehicle-card-content">
+                        <div class="card-content">
                             <div class="vehicle-metadata">
-                                <div class="vehicle-primary-info">
+                                <div class="font-medium">
                                     Honda • Civic • 2019
                                 </div>
-                                <div class="vehicle-secondary-info">
+                                <div class="text-muted">
                                     Color: White
                                 </div>
                             </div>
@@ -3644,33 +3646,35 @@
                     </div>
 
                     <!-- Vehicle #2 - Toyota RAV4 -->
-                    <div class="vehicle-detail-card">
-                        <div class="vehicle-card-header">
-                            <div class="flex items-center gap-3">
-                                <div class="vehicle-avatar">
-                                    <i class="fas fa-car  text-lg"></i>
+                    <div class="card shadow-sm">
+                        <div class="card-header pb-0 border-0">
+                            <div class="flex items-center justify-between w-full">
+                                <div class="flex items-center gap-3">
+                                    <div class="vehicle-avatar">
+                                        <i class="fas fa-car text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="vehicle-name">2021 Toyota RAV4</h3>
+                                        <span class="vehicle-plate">License: XYZ-5678 • CA</span>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 class="vehicle-name">2021 Toyota RAV4</h3>
-                                    <span class="vehicle-plate">License: XYZ-5678 • CA</span>
+                                <div class="flex items-center gap-2">
+                                    <button class="btn btn-light btn-sm" onclick="editVehicle('2021 Toyota RAV4')">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-light btn-sm" onclick="deleteVehicle('2021 Toyota RAV4')">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
                                 </div>
-                            </div>
-                            <div class="vehicle-actions">
-                                <button class="vehicle-edit-btn" onclick="editVehicle('2021 Toyota RAV4')">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <button class="btn btn-light" onclick="deleteVehicle('2021 Toyota RAV4')">
-                                    <i class="fas fa-trash"></i>
-                                </button>
                             </div>
                         </div>
                         
-                        <div class="vehicle-card-content">
+                        <div class="card-content">
                             <div class="vehicle-metadata">
-                                <div class="vehicle-primary-info">
+                                <div class="font-medium">
                                     Toyota • RAV4 • 2021
                                 </div>
-                                <div class="vehicle-secondary-info">
+                                <div class="text-muted">
                                     Color: Silver
                                 </div>
                             </div>
