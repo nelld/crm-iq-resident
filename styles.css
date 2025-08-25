@@ -164,6 +164,9 @@ body {
     color: #212121;
     background-color: #fbfbfb;
     overflow-x: hidden;
+    /* Ensure sticky positioning works properly */
+    height: 100%;
+    position: relative;
 }
 
 /* Header Styles */
@@ -171,6 +174,7 @@ body {
     background: linear-gradient(to right,#0072CE,#0085f1 90%,#0072CE);
     color: white;
     padding: 0;
+    position: -webkit-sticky; /* Safari support */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -178,6 +182,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     will-change: transform; /* Optimize for sticky positioning */
     transform: translateZ(0); /* Create new stacking context */
+    -webkit-transform: translateZ(0); /* Safari support */
 }
 
 .header-content {
@@ -423,7 +428,7 @@ body {
     background-color: #fbfbfb;
     overflow-x: hidden;
     min-width: 0;
-    padding-top: 82px; /* Account for fixed headers: header (65px) + breadcrumb (~40px) + tenant header (~88px) */
+    padding-top: 0; /* Remove padding since headers are now sticky, not fixed */
 }
 
 /* Breadcrumb */
@@ -436,11 +441,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: -webkit-sticky; /* Safari support */
     position: sticky;
     top: 65px; /* Height of header */
     z-index: 999;
     will-change: transform; /* Optimize for sticky positioning */
     transform: translateZ(0); /* Create new stacking context */
+    -webkit-transform: translateZ(0); /* Safari support */
 }
 
 .breadcrumb-content {
@@ -475,12 +482,32 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    position: fixed;
-    top: 110px; /* Header (65px) + Breadcrumb (~40px) */
-    left: 0;
-    right: 0;
+    position: -webkit-sticky; /* Safari support */
+    position: sticky;
+    top: 105px; /* Header (65px) + Breadcrumb (~40px) */
     z-index: 998;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    will-change: transform; /* Optimize for sticky positioning */
+    transform: translateZ(0); /* Create new stacking context */
+    -webkit-transform: translateZ(0); /* Safari support */
+}
+
+/* Ensure main container supports sticky positioning */
+.main-container {
+    position: relative;
+    height: 100%;
+}
+
+/* Additional sticky positioning support */
+.header,
+.breadcrumb,
+.page-header {
+    /* Ensure elements maintain their position during scroll */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /* Force hardware acceleration for smoother performance */
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
 }
 
 .page-title {
@@ -4535,18 +4562,30 @@ html {
     
     /* Adjust sticky positioning for mobile */
     .header {
+        position: -webkit-sticky; /* Safari support */
         position: sticky;
         top: 0;
+        z-index: 1000;
+        -webkit-transform: translateZ(0); /* Safari support */
+        transform: translateZ(0);
     }
     
     .breadcrumb {
+        position: -webkit-sticky; /* Safari support */
         position: sticky;
         top: 65px;
+        z-index: 999;
+        -webkit-transform: translateZ(0); /* Safari support */
+        transform: translateZ(0);
     }
     
     .page-header {
-        position: static; /* Remove fixed on mobile for better UX */
-        top: auto;
+        position: -webkit-sticky; /* Safari support */
+        position: sticky;
+        top: 105px; /* Header (65px) + Breadcrumb (~40px) */
+        z-index: 998;
+        -webkit-transform: translateZ(0); /* Safari support */
+        transform: translateZ(0);
     }
     
     .sidebar {
@@ -4561,7 +4600,7 @@ html {
     
     .content-area {
         margin-left: 0; /* Reset margin on mobile */
-        padding-top: 105px; /* Account for sticky headers on mobile: header (65px) + breadcrumb (~40px) */
+        padding-top: 0; /* Remove padding since headers use sticky positioning */
     }
     
     .main-container {
