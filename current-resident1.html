@@ -318,7 +318,7 @@
             
             <!-- Kebab Menu -->
             <div class="resident-kebab-menu">
-                <button id="resident-header-kebab-btn" class="btn btn-light">
+                <button id="resident-header-kebab-btn" class="btn btn-light kebab-menu">
                     <i class="fas fa-ellipsis-v"></i>
                 </button>
             <div id="resident-header-kebab-dropdown" class="resident-kebab-dropdown">
@@ -421,11 +421,11 @@
                             <div class="flex items-center justify-between w-full">
                                 <h3 class="card-title">Resident information</h3>
                                 <div class="flex items-center gap-2">
-                                    <button class="btn btn-light">
-                                        <i class="fas fa-pen mr-1.5"></i>
+                                    <button class="btn btn-light btn-sm">
+                                        <i class="fas fa-pen mr-1"></i>
                                         Edit
                                     </button>
-                                    <button id="kebab-btn-resident" class="btn btn-light">
+                                    <button id="kebab-btn-resident" class="btn btn-light btn-sm kebab-menu">
                                         <i class="fas fa-ellipsis-v"></i>
                         </button>
                     </div>
@@ -593,8 +593,8 @@
                         <div class="card-header border-0">
                             <div class="flex items-center justify-between w-full">
                                 <h3 class="card-title">Notes</h3>
-                                <button class="btn btn-light" onclick="addNote()">
-                                    <i class="fas fa-circle-plus mr-1.5"></i>
+                                <button class="btn btn-light btn-sm" onclick="addNote()">
+                                    <i class="fas fa-circle-plus mr-1"></i>
                                     Add
                                 </button>
                             </div>
@@ -656,7 +656,7 @@
                             <div class="flex items-center justify-between w-full">
                                 <h3 class="card-title">Lease information</h3>
                                 <!-- <div class="flex items-center gap-2">
-                                    <button id="kebab-btn-lease" class="btn btn-light">
+                                    <button id="kebab-btn-lease" class="btn btn-light btn-sm">
                                         <span class="">Manage</span>
                                         <i class="fas fa-chevron-down"></i>
                                         </button>
@@ -822,8 +822,8 @@
                                     Activity Timeline
                                 </h3>
                                 <div class="relative">
-                                    <button id="activity-add-btn" class="btn btn-light" onclick="toggleActivityAddMenu()">
-                                        <i class="fas fa-circle-plus mr-1.5"></i>
+                                    <button id="activity-add-btn" class="btn btn-light btn-sm" onclick="toggleActivityAddMenu()">
+                                        <i class="fas fa-circle-plus mr-1"></i>
                                         Add
                                         <i class="fas fa-chevron-down text-sm ml-1"></i>
                                     </button>
@@ -2115,7 +2115,7 @@
                 
                 <!-- Kebab Menu -->
                 <div class="relative">
-                    <button id="ledger-kebab-btn" class="btn btn-light" onclick="toggleLedgerKebab()">
+                    <button id="ledger-kebab-btn" class="btn btn-light kebab-menu" onclick="toggleLedgerKebab()">
                         <i class="fas fa-ellipsis-v"></i>
                     </button>
                     <div id="ledger-kebab-menu" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 z-50 hidden">
@@ -2470,11 +2470,11 @@
                         <!-- Action Buttons -->
                         <div class="flex items-center gap-2">
                             <button class="btn btn-light">
-                                <i class="fas fa-credit-card mr-1.5"></i>
+                                <i class="fas fa-credit-card mr-1"></i>
                                 Receive payment
                             </button>
                             
-                            <button id="kebab-btn-charges" class="btn btn-light">
+                            <button id="kebab-btn-charges" class="btn btn-light kebab-menu">
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
                         </div>
@@ -3152,7 +3152,7 @@
                                                 Application completed
                                             </span>
                                         </div>
-                                        <button id="kebab-btn-roommate-angela-pageslide" class="btn btn-light">
+                                        <button id="kebab-btn-roommate-angela-pageslide" class="btn btn-light kebab-menu">
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                     </div>
@@ -3254,7 +3254,7 @@
                                             <h2 class="text-md font-weight-bold">John Smith</h2>
                                             <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">Current</span>
                                         </div>
-                                        <button id="kebab-btn-roommate-john-pageslide" class="btn btn-light">
+                                        <button id="kebab-btn-roommate-john-pageslide" class="btn btn-light kebab-menu">
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                     </div>
@@ -3345,7 +3345,7 @@
 
                     <!-- Add Roommate Button -->
                     <div class="add-pet-section">
-                        <button class="font-medium px-3 py-1.5" onclick="addNewRoommate()">
+                        <button class="font-medium px-3 py-1" onclick="addNewRoommate()">
                             <i class="fas fa-plus mr-2"></i>
                             Add Roommate
                         </button>
@@ -4816,7 +4816,7 @@
                 if (loadMoreSection.parentNode !== hiddenActivitiesSection) {
                     // Move button to be the last child of hidden-activities section
                     hiddenActivitiesSection.appendChild(loadMoreSection);
-                    loadMoreSection.style.marginTop = '1.5rem';
+                    loadMoreSection.style.marginTop = '1rem';
                 }
             }
         }

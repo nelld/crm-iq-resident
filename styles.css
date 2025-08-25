@@ -21,7 +21,8 @@ a {
 	color: #0264b3 !important;
 }
 .text-sm { font-size: .761775rem !important; }
-
+.btn.kebab-menu {padding: .375rem .875rem;}
+.btn.btn-sm.kebab-menu {padding: 0.275rem .875rem;}
 .btn-link { font-weight: 400;}
 
 /* History Records Styling */
