@@ -65,6 +65,16 @@
 	<link rel="stylesheet" href="styles.css?v=190">
     
     <style>
+        /* Content container width customization */
+        .container {
+            max-width: 1600px !important;
+        }
+        
+        /* Sidebar width customization */
+        .sidebar {
+            width: 220px !important;
+        }
+        
         /* Black tooltips for contact icons */
         .tooltip-black {
             position: relative;
@@ -209,7 +219,7 @@
                         <span class="text-sm font-medium">Active Tasks:</span>
                     </div>
                     <div class="flex items-center gap-1">
-                        <span class="text-lg font-bold text-orange-600">3</span>
+                        <span class="text-lg font-bold">3</span>
                     </div>
                 </div>
                 <div class="flex items-center gap-1 text-xs">
@@ -229,7 +239,7 @@
                         <span class="text-sm font-medium">Outstanding:</span>
                     </div>
                     <div class="flex items-center gap-1">
-                        <span class="text-lg font-bold text-red-600">$2,809.50</span>
+                        <span class="text-lg font-bold">$2,809.50</span>
                     </div>
                 </div>
                 <div class="flex items-center gap-1 text-xs">
@@ -250,7 +260,7 @@
                             <span class="text-sm font-medium ">Health Score:</span>
                         </div>
                         <div class="flex items-center gap-1">
-                            <span class="text-lg font-bold text-green-600">90</span>
+                            <span class="text-lg font-bold">90</span>
                             <span class="text-xs text-muted">/100</span>
                         </div>
                     </div>
@@ -959,7 +969,7 @@
                                 </div>
 
                                     <!-- Text Message -->
-                                    <div class="activity-item" data-filter="communications work-orders" data-communication-type="text" data-time="recent" data-activity-type="system">
+                                    <div class="activity-item" data-filter="communications" data-communication-type="text" data-time="recent" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-sms text-primary text-sm"></i>
                             </div>
@@ -976,7 +986,7 @@
                     </div>
 
                                     <!-- Email -->
-                                    <div class="activity-item" data-filter="communications payments" data-communication-type="email" data-time="recent" data-activity-type="system">
+                                    <div class="activity-item" data-filter="communications" data-communication-type="email" data-time="recent" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-envelope text-primary text-sm"></i>
                                         </div>
@@ -993,7 +1003,7 @@
                                     </div>
 
                                     <!-- Follow-up -->
-                                    <div class="activity-item" data-filter="communications lease" data-communication-type="follow-up" data-time="recent" data-activity-type="system">
+                                    <div class="activity-item" data-filter="communications" data-communication-type="follow-up" data-time="recent" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-user-clock text-primary text-sm"></i>
                                         </div>
@@ -1008,6 +1018,23 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <!-- Memo -->
+                                    <div class="activity-item" data-filter="communications" data-communication-type="comment-memo" data-time="recent" data-activity-type="user">
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-sticky-note text-primary text-sm"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-header">
+                                                <span class="activity-type">Memo: Added</span>
+                                                <span class="activity-time">5:45 AM PST</span>
+                                            </div>
+                                            <p class="activity-description">Internal note: Resident prefers morning maintenance appointments</p>
+                                            <div class="activity-meta">
+                                                <span class="text-xs text-muted">by Sarah Adams</span>
+                                            </div>
+                                        </div>
+                                    </div>
                 </div>
 
                                 <!-- Recent Activities -->
@@ -1018,7 +1045,7 @@
                                     </div>
                                     
                                     <!-- Email -->
-                                    <div class="activity-item" data-filter="communications payments" data-communication-type="email" data-time="recent" data-activity-type="system">
+                                    <div class="activity-item" data-filter="communications" data-communication-type="email" data-time="recent" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-envelope text-primary text-sm"></i>
                                         </div>
@@ -1047,6 +1074,23 @@
                                             <p class="activity-description">WO #26145: Refrigerator is not working (Appliances)</p>
                                             <div class="activity-meta">
                                                 <span class="text-xs text-muted">Medium Priority • by Melinda Michaels</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Appointment Scheduled -->
+                                    <div class="activity-item" data-filter="communications" data-communication-type="appointment" data-time="recent" data-activity-type="user">
+                                        <div class="activity-icon bg-primary-light">
+                                            <i class="fas fa-calendar-check text-primary text-sm"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-header">
+                                                <span class="activity-type">Appointment: Scheduled</span>
+                                                <span class="activity-time">9:30 AM PST</span>
+                                            </div>
+                                            <p class="activity-description">Refrigerator repair appointment scheduled for Aug 17, 9:00 AM</p>
+                                            <div class="activity-meta">
+                                                <span class="text-xs text-muted">Maintenance Team • Confirmed</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1231,16 +1275,16 @@
                                     </div>
                                     
                                     <!-- Community Event -->
-                                    <div class="activity-item" data-filter="communications" data-communication-type="email" data-time="all" data-activity-type="system">
+                                    <div class="activity-item" data-filter="communications" data-communication-type="event" data-time="all" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
-                                            <i class="fas fa-envelope text-primary text-sm"></i>
+                                            <i class="fas fa-calendar-alt text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
-                                                <span class="activity-type">Email: Sent</span>
+                                                <span class="activity-type">Event: Scheduled</span>
                                                 <span class="activity-time">5:00 PM PST</span>
                                             </div>
-                                            <p class="activity-description">Subject: Community BBQ Event - August 20th</p>
+                                            <p class="activity-description">Community BBQ Event - August 20th</p>
                                             <div class="activity-meta">
                                                 <span class="text-xs text-muted">Community Newsletter</span>
                                             </div>
@@ -1382,7 +1426,7 @@
                                     </div>
                                     
                                     <!-- Lease Renewal #4 Milestone -->
-                                    <div class="activity-item milestone-item" data-filter="milestones lease" data-time="1year" data-activity-type="system">
+                                    <div class="activity-item milestone-item" data-filter="milestones" data-time="1year" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-key text-primary text-sm"></i>
                                         </div>
@@ -1407,7 +1451,7 @@
                                     </div>
                                     
                                     <!-- Lease Renewal #3 Milestone -->
-                                    <div class="activity-item milestone-item" data-filter="milestones lease" data-time="1year" data-activity-type="system">
+                                    <div class="activity-item milestone-item" data-filter="milestones" data-time="1year" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-sync text-primary text-sm"></i>
                                         </div>
@@ -1481,7 +1525,7 @@
                                     </div>
                                     
                                     <!-- Move-in Milestone -->
-                                    <div class="activity-item milestone-item" data-filter="milestones lease" data-time="all" data-activity-type="system">
+                                    <div class="activity-item milestone-item" data-filter="milestones" data-time="all" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-home text-primary text-sm"></i>
                                         </div>
@@ -1505,7 +1549,7 @@
                                     </div>
                                     
                                     <!-- Lease Signing Milestone -->
-                                    <div class="activity-item milestone-item" data-filter="milestones lease" data-time="all" data-activity-type="system">
+                                    <div class="activity-item milestone-item" data-filter="milestones" data-time="all" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-file-signature text-primary text-sm"></i>
                                         </div>
@@ -1529,7 +1573,7 @@
                                     </div>
                                     
                                     <!-- Application Approved Milestone -->
-                                    <div class="activity-item milestone-item" data-filter="milestones lease" data-time="all" data-activity-type="system">
+                                    <div class="activity-item milestone-item" data-filter="milestones" data-time="all" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-check-circle text-primary text-sm"></i>
                                         </div>
@@ -1628,17 +1672,17 @@
                                         </div>
                                     </div>
                                     
-                                    <!-- Text Message -->
-                                    <div class="activity-item" data-filter="communications" data-communication-type="text" data-time="all" data-activity-type="user">
+                                    <!-- Appointment Rescheduling -->
+                                    <div class="activity-item" data-filter="communications" data-communication-type="appointment" data-time="all" data-activity-type="user">
                                         <div class="activity-icon bg-primary-light">
-                                            <i class="fas fa-sms text-primary text-sm"></i>
+                                            <i class="fas fa-calendar-check text-primary text-sm"></i>
                                         </div>
                                         <div class="activity-content">
                                             <div class="activity-header">
-                                                <span class="activity-type">Text: Received</span>
+                                                <span class="activity-type">Appointment: Rescheduled</span>
                                                 <span class="activity-time">9:15 AM PST</span>
                                             </div>
-                                            <p class="activity-description">Request for maintenance appointment rescheduling</p>
+                                            <p class="activity-description">Maintenance appointment rescheduled via text message</p>
                                             <div class="activity-meta">
                                                 <span class="text-xs text-muted">via SMS Portal</span>
                                             </div>
@@ -1948,7 +1992,7 @@
                                     </div>
                                     
                                     <!-- Application Submitted Milestone -->
-                                    <div class="activity-item milestone-item" data-filter="milestones lease" data-time="all" data-activity-type="system">
+                                    <div class="activity-item milestone-item" data-filter="milestones" data-time="all" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-file-alt text-primary text-sm"></i>
                                         </div>
@@ -4144,8 +4188,8 @@
                 shouldShow = itemFilters.includes(currentFilter);
                                 }
             
-            // Apply source filter to all activities (not just communications)
-            if (shouldShow && currentSourceFilter !== 'all-sources') {
+            // Apply source filter only to communications
+            if (shouldShow && currentFilter === 'communications' && currentSourceFilter !== 'all-sources') {
                 shouldShow = itemActivityType === currentSourceFilter;
             }
             
@@ -4368,6 +4412,7 @@
             }
         }
         
+
         // Activity filtering functionality
         function filterActivities(filter) {
             const activityCard = document.getElementById('activity-timeline-card');
