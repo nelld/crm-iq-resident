@@ -4192,27 +4192,47 @@
                 // Show the next batch of activity sections
                 const sectionsToShow = Math.min(activitiesPerLoad, allHiddenSections.length - activitiesShownFromHidden);
                 
+                console.log('Loading more activities:', {
+                    totalSections: allHiddenSections.length,
+                    alreadyShown: activitiesShownFromHidden,
+                    sectionsToShow: sectionsToShow
+                });
+                
                 for (let i = 0; i < sectionsToShow; i++) {
                     const sectionIndex = activitiesShownFromHidden + i;
                     if (sectionIndex < allHiddenSections.length) {
                         const section = allHiddenSections[sectionIndex];
                         section.style.display = 'block';
+                        console.log('Showing section:', sectionIndex, section);
                         
                         // Apply current filters to activities in this section
                         const itemsInSection = section.querySelectorAll('.activity-item');
+                        let visibleItemsCount = 0;
                         itemsInSection.forEach(item => {
                             applyFiltersToItem(item);
+                            if (!item.classList.contains('hidden')) {
+                                visibleItemsCount++;
+                            }
                         });
+                        console.log('Section', sectionIndex, 'has', visibleItemsCount, 'visible items out of', itemsInSection.length);
                     }
                 }
                 
                 // Update the count
                 activitiesShownFromHidden += sectionsToShow;
                 
+                console.log('Progressive loading updated, now shown:', activitiesShownFromHidden);
+                
                 // Always expand the timeline to show new content
                 const activityCard = document.getElementById('activity-timeline-card');
                 const timelineContainer = document.getElementById('activity-timeline-container');
                 const cardContent = activityCard ? activityCard.querySelector('.card-content') : null;
+                
+                // Ensure hidden activities container is visible
+                if (hiddenActivities.classList.contains('hidden')) {
+                    hiddenActivities.classList.remove('hidden');
+                    console.log('Removed hidden class from activities container');
+                }
                 
                 if (activityCard && timelineContainer) {
                     // Remove ALL height constraints so timeline can grow
@@ -4249,6 +4269,11 @@
                 
                 // Update empty state for visible sections
                 updateActivitySections();
+                
+                // Debug: Check final state
+                const visibleActivities = document.querySelectorAll('#hidden-activities .activity-item:not(.hidden)');
+                const totalActivities = document.querySelectorAll('#hidden-activities .activity-item');
+                console.log('Final state - Visible activities in hidden section:', visibleActivities.length, 'out of', totalActivities.length);
             }
         }
         
