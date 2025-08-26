@@ -171,6 +171,8 @@ body {
     background-color: #fbfbfb;
     margin: 0;
     padding: 0;
+    height: auto;
+    min-height: 100%;
 }
 
 /* Header Styles */
@@ -501,7 +503,7 @@ body {
 /* Ensure main container supports sticky positioning */
 .main-container {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* Additional sticky positioning support */
