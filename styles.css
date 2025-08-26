@@ -1608,6 +1608,22 @@ body {
         gap: 0.25rem !important;
         font-size: 0.75rem !important;
     }
+    
+    /* Stack activity filters vertically on laptop resolution */
+    .activity-filters .flex.items-center.gap-4 {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.75rem !important; /* Reduce gap between stacked filters */
+    }
+    
+    .activity-filter-dropdown-container {
+        width: 100% !important; /* Full width for better touch targets */
+    }
+    
+    .activity-filter-btn {
+        width: 100% !important; /* Full width buttons */
+        justify-content: space-between !important; /* Space between text and icon */
+    }
 }
 
 /* Health Score Tooltip */
