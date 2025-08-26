@@ -966,7 +966,7 @@
                                     </div>
                                     
                                     <!-- Source Filter -->
-                                    <div id="source-filter-container" class="activity-filter-dropdown-container hidden">
+                                    <div id="source-filter-container" class="activity-filter-dropdown-container">
                                         <button id="source-filter-btn" class="activity-filter-btn">
                                             <span class="filter-current-text">All Sources</span>
                                             <i class="fas fa-chevron-down text-sm ml-2"></i>
@@ -4284,8 +4284,8 @@
                 shouldShow = itemFilters.includes(currentFilter);
                                 }
             
-            // Apply source filter only to communications
-            if (shouldShow && currentFilter === 'communications' && currentSourceFilter !== 'all-sources') {
+            // Apply source filter to all activity types
+            if (shouldShow && currentSourceFilter !== 'all-sources') {
                 shouldShow = itemActivityType === currentSourceFilter;
             }
             
@@ -4540,13 +4540,17 @@
                 // Show/hide communication sub-filters
                 if (filter === 'communications') {
                     communicationTypeContainer.classList.remove('hidden');
-                    sourceContainer.classList.remove('hidden');
                 } else {
                     communicationTypeContainer.classList.add('hidden');
-                    sourceContainer.classList.add('hidden');
-                    // Reset communication filters when not showing communications
-                    resetCommunicationFilters();
+                    // Reset communication type filter when not showing communications
+                    resetCommunicationTypeFilter();
                 }
+                
+                // Source filter is now always visible - no need to hide/show
+                
+                // Get current source filter value
+                const sourceSelected = document.querySelector('#source-filter-dropdown .activity-filter-option.selected');
+                const currentSourceFilter = sourceSelected ? sourceSelected.getAttribute('data-value') : 'all-sources';
                 
                 // Prepare visible items changes
                 visibleItems.forEach(item => {
@@ -4563,6 +4567,11 @@
                         shouldShow = activityType === 'user';
                     } else {
                         shouldShow = itemFilters.includes(filter);
+                    }
+                    
+                    // Apply source filter to all activity types
+                    if (shouldShow && currentSourceFilter !== 'all-sources') {
+                        shouldShow = activityType === currentSourceFilter;
                     }
                     
                     if (shouldShow) {
@@ -4589,6 +4598,11 @@
                             shouldShow = activityType === 'user';
                         } else {
                             shouldShow = itemFilters.includes(filter);
+                        }
+                        
+                        // Apply source filter to all activity types
+                        if (shouldShow && currentSourceFilter !== 'all-sources') {
+                            shouldShow = activityType === currentSourceFilter;
                         }
                         
                         if (shouldShow) {
@@ -4870,8 +4884,13 @@
                             }
                             return false;
                 } else {
-                            // For other filters (work-orders, payments, etc.), check if item matches
-                            return itemFilters.includes(currentFilter);
+                            // For other filters (work-orders, payments, etc.), check if item matches activity type
+                            let activityMatches = itemFilters.includes(currentFilter);
+                            // Also apply source filter to all activity types
+                            if (activityMatches && currentSourceFilter !== 'all-sources') {
+                                activityMatches = itemActivityType === currentSourceFilter;
+                            }
+                            return activityMatches;
                         }
                         return false;
                     });

@@ -10,7 +10,6 @@
 
 html {
     height: 100%;
-    overflow: hidden; /* Prevent html scroll as well */
 }
 
 /* Primary Color Definition */
@@ -26,6 +25,8 @@ a {
 	color: #0264b3 !important;
 }
 .text-sm { font-size: .761775rem !important; }
+.btn.btn-light { background-color: rgba(242, 242, 242, 1) !important; border-color: rgba(242, 242, 242, 1) !important;}
+.btn.btn-light:hover { background-color: rgba(230, 230, 230, 1) !important; border-color: rgba(230, 230, 230, 1) !important;}
 .btn.kebab-menu {padding: .375rem .875rem;}
 .btn.btn-sm.kebab-menu {padding: 0.275rem .875rem;}
 .btn-link { font-weight: 400;}
@@ -168,10 +169,6 @@ body {
     font-family: 'Inter', 'Roboto', sans-serif;
     color: #212121;
     background-color: #fbfbfb;
-    overflow: hidden; /* Prevent body scroll entirely */
-    /* Ensure sticky positioning works properly */
-    height: 100vh;
-    position: relative;
     margin: 0;
     padding: 0;
 }
@@ -405,10 +402,7 @@ body {
 /* Layout */
 .main-container {
     display: flex;
-    height: 100vh; /* Fixed height to prevent body scroll */
     width: 100%;
-    max-width: 100vw;
-    overflow: hidden; /* Prevent any overflow on main container */
     margin: 0;
     padding: 0;
 }
@@ -429,15 +423,18 @@ body {
 
 .content-area {
     flex: 1;
-    padding: 0;
-    margin: 0;
     margin-left: 220px; /* Account for fixed sidebar width */
     background-color: #fbfbfb;
-    overflow-y: auto; /* Make content area scrollable instead of body */
-    overflow-x: hidden;
     min-width: 0;
-    height: 100vh; /* Full height container */
-    padding-top: 0; /* Remove padding since headers are now sticky, not fixed */
+    padding-bottom: 4rem; /* Bottom padding for scroll access */
+    /* NO top spacing - let headers overlay content naturally */
+}
+
+/* Ensure bottom elements like load-more are fully accessible */
+.load-more-section {
+    margin-bottom: 1rem !important;
+    position: relative !important;
+    z-index: 10 !important;
 }
 
 /* Breadcrumb */
@@ -4677,15 +4674,12 @@ html {
     
     .content-area {
         margin-left: 0; /* Reset margin on mobile */
-        padding-top: 0; /* Remove padding since headers use sticky positioning */
-        height: 100vh; /* Maintain full height on mobile */
-        overflow-y: auto; /* Ensure scrolling works on mobile */
+        padding-bottom: 4rem; /* Bottom padding for scroll access */
+        /* NO top spacing on mobile either - headers overlay content */
     }
     
     .main-container {
         flex-direction: column;
-        height: 100vh; /* Maintain viewport height on mobile */
-        overflow: hidden; /* Prevent double scroll on mobile */
     }
 }
 
