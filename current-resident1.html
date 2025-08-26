@@ -222,46 +222,11 @@
                 gap: 1rem !important;
             }
             
-            .tasks-alerts-header,
-            .balance-header,
-            .health-score-header {
-                min-width: 200px !important;
-                max-width: 280px !important;
-            }
-            
-            .tasks-alerts-header .font-medium,
-            .balance-header .font-medium,
-            .health-score-header .font-medium {
-                font-size: 13px !important;
-            }
-            
-            .tasks-alerts-header .text-lg,
-            .balance-header .text-lg,
-            .health-score-header .text-lg {
-                font-size: 16px !important;
+            .balance-header {
+                min-width: 340px !important;
             }
         }
         
-        /* Ensure proper wrapping on smaller laptop screens */
-        @media (max-width: 1366px) {
-            .page-header {
-                padding: 1rem 1.5rem !important;
-            }
-            
-            .page-header .flex.items-center.gap-8 {
-                flex-wrap: nowrap !important;
-                gap: 0.75rem !important;
-                justify-content: space-between !important;
-            }
-            
-            .tasks-alerts-header,
-            .balance-header,
-            .health-score-header {
-                flex: 1 !important;
-                min-width: 180px !important;
-                max-width: none !important;
-            }
-        }
     </style>
 </head>
 <body>
@@ -385,7 +350,7 @@
                         <span class="text-lg font-bold">$2,809.50</span>
                     </div>
                 </div>
-                <div class="flex items-center gap-1 text-sm">
+                <div class="flex items-center gap-1 text-sm no-wrap">
                     <span class="text-red-600 font-medium">3 past due</span>
                     <span class="text-gray-400">•</span>
                     <span class="text-yellow-600">1 processing</span>

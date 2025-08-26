@@ -1569,6 +1569,48 @@ body {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* 1366px laptop resolution - prevent metadata wrapping */
+@media (max-width: 1366px) and (min-width: 1200px) {
+    .balance-header .flex.items-center.gap-1.text-sm {
+        gap: 0.05rem; /* Further reduce gap */
+        font-size: 0.75rem; /* Even smaller font size */
+        flex-wrap: nowrap;
+        white-space: nowrap;
+    }
+    
+    .balance-header .flex.items-center.gap-1.text-sm span {
+        white-space: nowrap;
+    }
+    
+    .balance-header .flex.items-center.gap-1.text-sm .text-gray-400 {
+        margin: 0 0.05rem; /* Further reduce bullet spacing */
+    }
+    
+    /* Make all header sections more compact on 1366px */
+    .tasks-alerts-header,
+    .balance-header,
+    .health-score-header {
+        padding: 2px 6px !important; /* Reduce padding */
+    }
+    
+    /* Make Actions button more compact */
+    .resident-kebab-menu .btn {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    /* Make title section more compact */
+    .title-section {
+        min-width: 280px !important;
+        flex-shrink: 1 !important;
+    }
+    
+    .title-section .flex.items-center.gap-2.text-muted.text-sm {
+        gap: 0.25rem !important;
+        font-size: 0.75rem !important;
+    }
+}
+
 /* Health Score Tooltip */
 .health-score-tooltip {
     position: relative;
