@@ -4244,8 +4244,7 @@
                     hiddenActivities.classList.remove('hidden');
                 } else {
                     // More sections to show, keep as "Load more"
-                    const remainingSections = allHiddenSections.length - activitiesShownFromHidden;
-                    toggleText.textContent = `Load more activities (${remainingSections} more periods)`;
+                    toggleText.textContent = 'Load more activities';
                 }
                 
                 // Update empty state for visible sections
@@ -4371,11 +4370,10 @@
                         section.style.display = 'none';
                     });
                     
-                    // Update button to show load more option with count
+                    // Update button to show load more option
                     if (toggleIcon && toggleText) {
                         toggleIcon.className = 'fas fa-chevron-down mr-2';
-                        const totalSections = hiddenActivities.querySelectorAll('.activity-section').length;
-                        toggleText.textContent = `Load more activities (${totalSections} more periods)`;
+                        toggleText.textContent = 'Load more activities';
                     }
                     
                     // Restore matched height when collapsed
@@ -6213,8 +6211,8 @@
                     allSections.forEach(section => {
                         section.style.display = 'none';
                     });
-                    toggleText.textContent = `Load more activities (${allSections.length} more periods)`;
-                    console.log('Load more button initialized with count');
+                    toggleText.textContent = 'Load more activities';
+                    console.log('Load more button initialized');
                 } else {
                     console.log('Load more button NOT found');
                 }
