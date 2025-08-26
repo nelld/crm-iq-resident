@@ -1503,7 +1503,7 @@
                                     </div>
                                     
                                     <!-- Lease Renewal #4 Milestone -->
-                                    <div class="activity-item milestone-item" data-filter="milestones" data-time="1year" data-activity-type="system">
+                                    <div class="activity-item milestone-item" data-filter="lease" data-time="1year" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-key text-primary"></i>
                                         </div>
@@ -1528,7 +1528,7 @@
                                     </div>
                                     
                                     <!-- Lease Renewal #3 Milestone -->
-                                    <div class="activity-item milestone-item" data-filter="milestones" data-time="1year" data-activity-type="system">
+                                    <div class="activity-item milestone-item" data-filter="lease" data-time="1year" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-sync text-primary"></i>
                                         </div>
@@ -1602,7 +1602,7 @@
                                     </div>
                                     
                                     <!-- Move-in Milestone -->
-                                    <div class="activity-item milestone-item" data-filter="milestones" data-time="all" data-activity-type="system">
+                                    <div class="activity-item milestone-item" data-filter="lease" data-time="all" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-home text-primary"></i>
                                         </div>
@@ -1626,7 +1626,7 @@
                                     </div>
                                     
                                     <!-- Lease Signing Milestone -->
-                                    <div class="activity-item milestone-item" data-filter="milestones" data-time="all" data-activity-type="system">
+                                    <div class="activity-item milestone-item" data-filter="lease" data-time="all" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-file-signature text-primary"></i>
                                         </div>
@@ -1650,7 +1650,7 @@
                                     </div>
                                     
                                     <!-- Application Approved Milestone -->
-                                    <div class="activity-item milestone-item" data-filter="milestones" data-time="all" data-activity-type="system">
+                                    <div class="activity-item milestone-item" data-filter="lease" data-time="all" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-check-circle text-primary"></i>
                                         </div>
@@ -2069,7 +2069,7 @@
                                     </div>
                                     
                                     <!-- Application Submitted Milestone -->
-                                    <div class="activity-item milestone-item" data-filter="milestones" data-time="all" data-activity-type="system">
+                                    <div class="activity-item milestone-item" data-filter="lease" data-time="all" data-activity-type="system">
                                         <div class="activity-icon bg-primary-light">
                                             <i class="fas fa-file-alt text-primary"></i>
                                         </div>
@@ -4581,9 +4581,12 @@
                     }
                 });
                 
-                // Prepare hidden section items changes (only if section is visible)
+                // Always process hidden section items and show matching ones
                 const hiddenActivitiesSection = document.getElementById('hidden-activities');
-                if (hiddenActivitiesSection && !hiddenActivitiesSection.classList.contains('hidden')) {
+                const wasHidden = hiddenActivitiesSection && hiddenActivitiesSection.classList.contains('hidden');
+                let hasMatchingHiddenItems = false;
+                
+                if (hiddenActivitiesSection) {
                     hiddenSectionItems.forEach(item => {
                         const itemFilters = item.getAttribute('data-filter') || '';
                         const activityType = item.getAttribute('data-activity-type') || 'user';
@@ -4607,10 +4610,30 @@
                         
                         if (shouldShow) {
                             itemsToShow.push(item);
+                            hasMatchingHiddenItems = true;
                         } else {
                             itemsToHide.push(item);
                         }
                     });
+                    
+                    // Show hidden activities section if there are matching items
+                    if (hasMatchingHiddenItems && wasHidden) {
+                        hiddenActivitiesSection.classList.remove('hidden');
+                        
+                        // Also make the individual activity sections visible
+                        const sectionsToShow = new Set();
+                        itemsToShow.forEach(item => {
+                            const section = item.closest('.activity-section');
+                            if (section && section.parentElement === hiddenActivitiesSection) {
+                                sectionsToShow.add(section);
+                            }
+                        });
+                        sectionsToShow.forEach(section => {
+                            section.style.display = 'block';
+                        });
+                        
+                        console.log('✅ filterActivities - Auto-expanded hidden activities for filter:', filter, 'sections shown:', sectionsToShow.size);
+                    }
                 }
                 
                 // Apply all changes in a single batch
@@ -4684,9 +4707,12 @@
                     }
                 });
                 
-                // Prepare hidden section items changes (only if section is visible)
+                // Always process hidden section items and show matching ones
                 const hiddenActivitiesSection = document.getElementById('hidden-activities');
-                if (hiddenActivitiesSection && !hiddenActivitiesSection.classList.contains('hidden')) {
+                const wasHidden = hiddenActivitiesSection && hiddenActivitiesSection.classList.contains('hidden');
+                let hasMatchingHiddenItems = false;
+                
+                if (hiddenActivitiesSection) {
                     hiddenSectionItems.forEach(item => {
                         const itemFilters = item.getAttribute('data-filter') || '';
                         const itemType = item.getAttribute('data-communication-type') || '';
@@ -4700,11 +4726,31 @@
                             
                             if (typeMatches && sourceMatches) {
                                 itemsToShow.push(item);
+                                hasMatchingHiddenItems = true;
                             } else {
                                 itemsToHide.push(item);
                             }
                         }
                     });
+                    
+                    // Show hidden activities section if there are matching items
+                    if (hasMatchingHiddenItems && wasHidden) {
+                        hiddenActivitiesSection.classList.remove('hidden');
+                        
+                        // Also make the individual activity sections visible
+                        const sectionsToShow = new Set();
+                        itemsToShow.forEach(item => {
+                            const section = item.closest('.activity-section');
+                            if (section && section.parentElement === hiddenActivitiesSection) {
+                                sectionsToShow.add(section);
+                            }
+                        });
+                        sectionsToShow.forEach(section => {
+                            section.style.display = 'block';
+                        });
+                        
+                        console.log('✅ filterCommunicationTypes - Auto-expanded hidden activities, sections shown:', sectionsToShow.size);
+                    }
                 }
                 
                 // Apply all changes in a single batch
@@ -4778,9 +4824,12 @@
                     }
                 });
                 
-                // Prepare hidden section items changes (only if section is visible)
+                // Always process hidden section items and show matching ones
                 const hiddenActivitiesSection = document.getElementById('hidden-activities');
-                if (hiddenActivitiesSection && !hiddenActivitiesSection.classList.contains('hidden')) {
+                const wasHidden = hiddenActivitiesSection && hiddenActivitiesSection.classList.contains('hidden');
+                let hasMatchingHiddenItems = false;
+                
+                if (hiddenActivitiesSection) {
                     hiddenSectionItems.forEach(item => {
                         const itemFilters = item.getAttribute('data-filter') || '';
                         const itemType = item.getAttribute('data-communication-type') || '';
@@ -4794,11 +4843,31 @@
                             
                             if (typeMatches && sourceMatches) {
                                 itemsToShow.push(item);
+                                hasMatchingHiddenItems = true;
                             } else {
                                 itemsToHide.push(item);
                             }
                         }
                     });
+                    
+                    // Show hidden activities section if there are matching items
+                    if (hasMatchingHiddenItems && wasHidden) {
+                        hiddenActivitiesSection.classList.remove('hidden');
+                        
+                        // Also make the individual activity sections visible
+                        const sectionsToShow = new Set();
+                        itemsToShow.forEach(item => {
+                            const section = item.closest('.activity-section');
+                            if (section && section.parentElement === hiddenActivitiesSection) {
+                                sectionsToShow.add(section);
+                            }
+                        });
+                        sectionsToShow.forEach(section => {
+                            section.style.display = 'block';
+                        });
+                        
+                        console.log('✅ filterCommunicationSource_DEPRECATED - Auto-expanded hidden activities, sections shown:', sectionsToShow.size);
+                    }
                 }
                 
                 // Apply all changes in a single batch
