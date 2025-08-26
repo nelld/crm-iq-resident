@@ -6219,6 +6219,10 @@
                     console.log('Load more button NOT found');
                 }
                 
+                // Position load more button in the preferred location (same as after collapse)
+                resetButtonPosition();
+                console.log('Load more button positioned in preferred location');
+                
             }, 150);
             
             // Update heights on window resize (with debouncing)
