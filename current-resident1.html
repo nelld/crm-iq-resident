@@ -449,43 +449,14 @@
                 </div>
             </div>
             
-            <div class="flex items-center gap-2"><!-- Add Work Order Button -->
-            
-            <!-- Lease Manage Dropdown -->
-            <div class="resident-kebab-menu">
-                <button id="tenant-header-manage-btn" class="btn btn-light">
-                    <span class="">Manage Lease</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </div>
-            
-            <!-- Kebab Menu -->
-            <div class="resident-kebab-menu">
-                <button id="resident-header-kebab-btn" class="btn btn-light kebab-menu">
-                    <i class="fas fa-ellipsis-v"></i>
-                </button>
-            <div id="resident-header-kebab-dropdown" class="resident-kebab-dropdown">
-                <!-- Financial -->
-                <div class="resident-kebab-group-header">FINANCIAL</div>
-                <div class="resident-kebab-option" data-action="receive-payment">
-                    <i class="fas fa-circle-plus"></i>
-                    <span>Add one-time charge</span>
+            <div class="flex items-center gap-2">
+                <!-- Actions Dropdown -->
+                <div class="resident-kebab-menu">
+                    <button id="tenant-header-manage-btn" class="btn btn-light">
+                        <span class="">Actions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
                 </div>
-				<div class="resident-kebab-option" data-action="receive-payment">
-                    <i class="fas fa-credit-card"></i>
-                    <span>Receive payment</span>
-                </div>
-                
-                <!-- Service -->
-                <div class="resident-kebab-separator"></div>
-                <div class="resident-kebab-group-header">SERVICE</div>
-                <div class="resident-kebab-option" data-action="add-work-order">
-                    <i class="fas fa-wrench"></i>
-                    <span>Add work order</span>
-                </div>
-               
-                </div>
-                </div> 
             </div>
         </div>
     </div>
@@ -883,7 +854,7 @@
                                 <!-- ADDITIONAL INFO Section -->
                                 <div class="lease-section">
                                     <div class="lease-section-header">
-                                        <h4 class="font-semibold text-muted uppercase tracking-wide">Additional info</h4>
+                                        <h4 class="font-semibold text-muted uppercase tracking-wide">Additional information</h4>
                                     </div>
                                     <div class="lease-section-content">
                                         <div class="additional-info-grid">
@@ -3870,26 +3841,42 @@
     </div>
 
         <!-- Floating Kebab Dropdown - Tenant Header Manage (outside all containers) -->
-    <div id="tenant-header-manage-dropdown" class="hidden bg-white border border-gray-200 rounded-lg shadow-xl py-1 min-w-[240px]" style="position: fixed; z-index: 9999;">
-        <!-- Financial -->
+    <div id="tenant-header-manage-dropdown" class="hidden bg-white border border-gray-200 rounded-lg shadow-xl py-1 min-w-[260px]" style="position: fixed; z-index: 9999;">
+        <!-- Financial Actions -->
         <div class="kebab-group-header">Financial</div>
         <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
+            <i class="fas fa-credit-card mr-2 text-muted"></i>
+            Receive payment
+        </button>
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
             <i class="fas fa-circle-plus mr-2 text-muted"></i>
+            Add one-time charge
+        </button>
+        
+        <!-- Service & Operations -->
+        <hr class="my-1 border-gray-200">
+        <div class="kebab-group-header">Services</div>
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
+            <i class="fas fa-wrench mr-2 text-muted"></i>
+            Add work order
+        </button>
+        
+        <!-- Lease Management -->
+        <hr class="my-1 border-gray-200">
+        <div class="kebab-group-header">Lease Management</div>
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
+            <i class="fas fa-receipt mr-2 text-muted"></i>
             Add lease charge
+        </button>
+		<button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
+            <i class="fas fa-file-contract mr-2 text-muted"></i>
+            Create proposal
         </button>
         <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
             <i class="fas fa-piggy-bank mr-2 text-muted"></i>
             Apply deposit
         </button>
-        
-        <!-- Lease Operations -->
-        <hr class="my-1 border-gray-200">
-        <div class="kebab-group-header">Lease Operations</div>
         <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
-            <i class="fas fa-file-contract mr-2 text-muted"></i>
-            Create proposal
-        </button>
-		<button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
             <i class="fas fa-calendar-alt mr-2 text-muted"></i>
             Adjust lease-end
         </button>
@@ -3897,7 +3884,7 @@
             <i class="fas fa-calendar mr-2 text-muted"></i>
             Change to month-to-month
         </button>
- 		<button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
             <i class="fas fa-undo mr-2 text-muted"></i>
             Reverse move-in
         </button>
@@ -3921,11 +3908,11 @@
         <!-- Termination -->
         <hr class="my-1 border-gray-200">
         <div class="kebab-group-header">Termination</div>
- 		<button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
             <i class="fas fa-bell mr-2 text-muted"></i>
             Give notice
         </button>
- 		<button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
             <i class="fas fa-exclamation-triangle mr-2 text-muted"></i>
             Evict
         </button>
@@ -5577,7 +5564,14 @@
                         const rect = kebabBtn.getBoundingClientRect();
                         const viewportWidth = window.innerWidth;
                         const viewportHeight = window.innerHeight;
-                        const dropdownHeight = 150; // Estimated dropdown height
+                        
+                        // Estimate dropdown height based on dropdown ID
+                        let dropdownHeight = 150; // Default estimate
+                        if (dropdownId === 'tenant-header-manage-dropdown') {
+                            dropdownHeight = 450; // Actions dropdown has many items
+                        } else if (dropdownId === 'kebab-dropdown-lease') {
+                            dropdownHeight = 200;
+                        }
                         
                         // Calculate initial position (right-aligned with button)
                         let left = rect.right - dropdownWidth;
@@ -5588,36 +5582,80 @@
                             // If too far left, align with left edge of button
                             left = rect.left;
                         } else if (left + dropdownWidth > viewportWidth - 10) {
-                            // If too far right, position to the left of button
+                            // If too far right, try positioning to the left of button
                             left = rect.left - dropdownWidth + rect.width;
+                            // If still off-screen, align with right edge of viewport
+                            if (left < 10) {
+                                left = viewportWidth - dropdownWidth - 10;
+                            }
                         }
                         
-                        // Ensure minimum distance from left edge
-                        left = Math.max(10, left);
+                        // Ensure minimum distance from edges
+                        left = Math.max(10, Math.min(left, viewportWidth - dropdownWidth - 10));
                         
                         // Adjust vertical position if dropdown would go off-screen
                         if (top + dropdownHeight > viewportHeight - 10) {
-                            // Position above the button instead
-                            top = rect.top - dropdownHeight - 4;
+                            // Try positioning above the button instead
+                            const topPosition = rect.top - dropdownHeight - 4;
+                            if (topPosition >= 10) {
+                                top = topPosition;
+                            } else {
+                                // If too tall for both above and below, position at top of viewport
+                                top = 10;
+                            }
                         }
                         
-                        // Ensure minimum distance from top edge
-                        top = Math.max(10, top);
+                        // Ensure minimum distance from edges and max height
+                        top = Math.max(10, Math.min(top, viewportHeight - Math.min(dropdownHeight, viewportHeight - 20)));
                         
-                        // Apply calculated position and show dropdown
-                        console.log('Positioning dropdown:', dropdownId, 'at:', { left, top });
-                        kebabDropdown.style.position = 'fixed';
-                        kebabDropdown.style.left = left + 'px';
-                        kebabDropdown.style.top = top + 'px';
-                        kebabDropdown.style.zIndex = '9999';
-                        
-                        // Show dropdown
+                        // Show dropdown first to get actual dimensions
                         const isHidden = kebabDropdown.classList.contains('hidden');
-                        console.log('Dropdown currently hidden:', isHidden, 'for:', dropdownId);
                         
                         if (isHidden) {
+                            // Show dropdown temporarily to measure it
+                            kebabDropdown.style.position = 'fixed';
+                            kebabDropdown.style.left = left + 'px';
+                            kebabDropdown.style.top = top + 'px';
+                            kebabDropdown.style.zIndex = '9999';
+                            kebabDropdown.style.visibility = 'hidden'; // Hide visually but allow measurement
                             kebabDropdown.classList.remove('hidden');
                             kebabDropdown.style.display = 'block';
+                            
+                            // Get actual dropdown dimensions
+                            const actualHeight = kebabDropdown.offsetHeight;
+                            const actualWidth = kebabDropdown.offsetWidth;
+                            
+                            // Recalculate position with actual dimensions
+                            left = rect.right - actualWidth;
+                            
+                            // Adjust horizontal position with actual width
+                            if (left < 10) {
+                                left = rect.left;
+                            } else if (left + actualWidth > viewportWidth - 10) {
+                                left = rect.left - actualWidth + rect.width;
+                                if (left < 10) {
+                                    left = viewportWidth - actualWidth - 10;
+                                }
+                            }
+                            left = Math.max(10, Math.min(left, viewportWidth - actualWidth - 10));
+                            
+                            // Adjust vertical position with actual height
+                            top = rect.bottom + 4;
+                            if (top + actualHeight > viewportHeight - 10) {
+                                const topPosition = rect.top - actualHeight - 4;
+                                if (topPosition >= 10) {
+                                    top = topPosition;
+                                } else {
+                                    top = 10;
+                                }
+                            }
+                            top = Math.max(10, Math.min(top, viewportHeight - actualHeight - 10));
+                            
+                            // Apply final position and make visible
+                            console.log('Positioning dropdown:', dropdownId, 'at:', { left, top, actualWidth, actualHeight });
+                            kebabDropdown.style.left = left + 'px';
+                            kebabDropdown.style.top = top + 'px';
+                            kebabDropdown.style.visibility = 'visible'; // Make visible
                             console.log('✅ Dropdown should now be visible:', dropdownId);
                         } else {
                             kebabDropdown.classList.add('hidden');
@@ -5636,7 +5674,7 @@
             console.log('🔧 Initializing kebab menus...');
             const residentKebab = setupKebabMenu('kebab-btn-resident', 'kebab-dropdown-resident', 180);
             const leaseKebab = setupKebabMenu('kebab-btn-lease', 'kebab-dropdown-lease', 200);
-            const tenantHeaderManageKebab = setupKebabMenu('tenant-header-manage-btn', 'tenant-header-manage-dropdown', 200);
+            const tenantHeaderManageKebab = setupKebabMenu('tenant-header-manage-btn', 'tenant-header-manage-dropdown', 260);
             const roommateAngelaKebab = setupKebabMenu('kebab-btn-roommate-angela', 'kebab-dropdown-roommate-angela', 180);
             const roommateJohnKebab = setupKebabMenu('kebab-btn-roommate-john', 'kebab-dropdown-roommate-john', 180);
             const rentcafeKebab = setupKebabMenu('kebab-btn-rentcafe', 'kebab-dropdown-rentcafe', 160);
@@ -5835,11 +5873,7 @@
                     }
                 });
                 
-                // Also close the resident header kebab menu (uses different class system)
-                const residentHeaderDropdown = document.getElementById('resident-header-kebab-dropdown');
-                if (residentHeaderDropdown) {
-                    residentHeaderDropdown.classList.remove('active');
-                }
+                // Resident header kebab menu has been removed
                 
                 // Also close the tenant header manage dropdown (uses different class system)
                 const tenantHeaderManageDropdown = document.getElementById('tenant-header-manage-dropdown');
@@ -6266,91 +6300,7 @@
                 }
             });
 
-            // Resident kebab menu functionality
-            const residentKebabBtn = document.getElementById('resident-header-kebab-btn');
-            const residentKebabDropdown = document.getElementById('resident-header-kebab-dropdown');
-            
-            if (residentKebabBtn && residentKebabDropdown) {
-                residentKebabBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    residentKebabDropdown.classList.toggle('active');
-                });
-
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!residentKebabBtn.contains(e.target) && !residentKebabDropdown.contains(e.target)) {
-                        residentKebabDropdown.classList.remove('active');
-                    }
-                });
-                
-                // Close dropdown when scrolling to prevent positioning issues
-                function closeResidentDropdown() {
-                    residentKebabDropdown.classList.remove('active');
-                }
-                
-                document.addEventListener('scroll', closeResidentDropdown, { passive: true });
-                window.addEventListener('scroll', closeResidentDropdown, { passive: true });
-                document.querySelectorAll('.pageslide, .main-content, .content-grid').forEach(container => {
-                    container.addEventListener('scroll', closeResidentDropdown, { passive: true });
-                });
-                window.addEventListener('resize', closeResidentDropdown);
-
-                // Handle kebab menu options
-                const residentKebabOptions = document.querySelectorAll('.resident-kebab-option');
-                residentKebabOptions.forEach(option => {
-                    option.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        const action = this.getAttribute('data-action');
-                        const actionText = this.querySelector('span').textContent;
-                        
-                        residentKebabDropdown.classList.remove('active');
-                        
-                        switch(action) {
-                            case 'renew-lease':
-                                alert('Renew Lease for Kamala Hakuna:\n\n• New lease terms\n• Rental rate adjustment\n• Lease duration\n• Start date\n• Additional clauses');
-                                break;
-                            case 'receive':
-                                alert('Receive Payment for Kamala Hakuna:\n\n• Payment Amount\n• Payment Method (Cash, Check, Card, ACH)\n• Payment Date\n• Reference Number\n• Notes');
-                                break;
-                            case 'add-charge':
-                                alert('Add Charge for Kamala Hakuna:\n\n• Charge Type\n• Amount\n• Description\n• Due Date\n• Recurring Options');
-                                break;
-                            case 'add-lease-charge':
-                                alert('Add Lease Charge for Kamala Hakuna:\n\n• Lease Charge Type\n• Amount\n• Effective Date\n• Lease Terms\n• Approval Required');
-                                break;
-                            case 'transfer-unit':
-                                alert('Transfer Unit for Kamala Hakuna:\n\n• Select New Unit\n• Transfer Date\n• Reason for Transfer\n• Update Lease Terms\n• Notify Resident');
-                                break;
-                            case 'reverse-move-in':
-                                alert('Reverse Move In for Kamala Hakuna:\n\n• Cancel move-in process\n• Restore previous status\n• Adjust charges\n• Update lease status\n• Generate documentation');
-                                break;
-                            case 'assign-unit':
-                                alert('Assign Unit for Kamala Hakuna:\n\n• Select available unit\n• Set move-in date\n• Configure lease terms\n• Assign keys\n• Send welcome package');
-                                break;
-                            case 'apply-deposit':
-                                alert('Apply Deposit for Kamala Hakuna:\n\n• Select deposit type\n• Apply to charges\n• Remaining balance\n• Transaction notes\n• Receipt generation');
-                                break;
-                            case 'adjust-lease-end':
-                                alert('Adjust Lease End for Kamala Hakuna:\n\n• New end date\n• Reason for change\n• Prorated adjustments\n• Notice requirements\n• Documentation');
-                                break;
-                            case 'evict':
-                                alert('Eviction Process for Kamala Hakuna:\n\n• Legal notice generation\n• Court filing options\n• Timeline tracking\n• Documentation requirements\n• Communication log');
-                                break;
-                            case 'month-to-month':
-                                alert('Convert to Month-to-Month for Kamala Hakuna:\n\n• Update lease terms\n• New rental rate\n• Notice period settings\n• Automatic renewal options\n• Documentation updates');
-                                break;
-                            case 'notice':
-                                alert('Send Notice to Kamala Hakuna:\n\n• Notice type selection\n• Custom message\n• Delivery method\n• Legal compliance\n• Tracking and follow-up');
-                                break;
-                            case 'promote-roommate':
-                                alert('Promote Roommate for Kamala Hakuna:\n\n• Select roommate\n• Transfer lease responsibility\n• Update lease agreement\n• Credit check requirements\n• Legal documentation');
-                                break;
-                            default:
-                                alert(`${actionText} selected`);
-                        }
-                    });
-                });
-            }
+            // Resident kebab menu functionality has been moved to Actions dropdown
 
             // Suggested actions functionality
             const actionSuggestions = document.querySelectorAll('.action-suggestion');
