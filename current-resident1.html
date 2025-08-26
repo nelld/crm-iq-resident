@@ -5422,6 +5422,14 @@
                             }
                         });
                         
+                        // Also close tenant header manage dropdown
+                        const tenantManageDropdown = document.getElementById('tenant-header-manage-dropdown');
+                        if (tenantManageDropdown && tenantManageDropdown !== kebabDropdown) {
+                            tenantManageDropdown.classList.add('hidden');
+                            tenantManageDropdown.style.display = 'none';
+                            tenantManageDropdown.style.visibility = 'hidden';
+                        }
+                        
                         // Toggle current dropdown
                         const isVisible = !kebabDropdown.classList.contains('hidden');
                         if (isVisible) {
@@ -5479,6 +5487,14 @@
                             dropdown.style.display = 'none';
                         }
                     });
+                    
+                    // Also close tenant header manage dropdown
+                    const tenantManageDropdown = document.getElementById('tenant-header-manage-dropdown');
+                    if (tenantManageDropdown && tenantManageDropdown !== rentcafeJohnDropdown) {
+                        tenantManageDropdown.classList.add('hidden');
+                        tenantManageDropdown.style.display = 'none';
+                        tenantManageDropdown.style.visibility = 'hidden';
+                    }
                     
                     // Toggle this dropdown
                     const isHidden = rentcafeJohnDropdown.classList.contains('hidden');
@@ -5557,8 +5573,17 @@
                         document.querySelectorAll('[id^="kebab-dropdown-"]').forEach(dropdown => {
                             if (dropdown !== kebabDropdown) {
                                 dropdown.classList.add('hidden');
+                                dropdown.style.display = 'none';
                             }
                         });
+                        
+                        // Also close tenant header manage dropdown
+                        const tenantManageDropdown = document.getElementById('tenant-header-manage-dropdown');
+                        if (tenantManageDropdown && tenantManageDropdown !== kebabDropdown) {
+                            tenantManageDropdown.classList.add('hidden');
+                            tenantManageDropdown.style.display = 'none';
+                            tenantManageDropdown.style.visibility = 'hidden';
+                        }
                         
                         // Get button position and viewport dimensions
                         const rect = kebabBtn.getBoundingClientRect();
@@ -5660,6 +5685,7 @@
                         } else {
                             kebabDropdown.classList.add('hidden');
                             kebabDropdown.style.display = 'none';
+                            kebabDropdown.style.visibility = 'hidden';
                             console.log('✅ Dropdown hidden:', dropdownId);
                         }
                     });
@@ -5736,8 +5762,17 @@
                     document.querySelectorAll('[id^="kebab-dropdown-"]').forEach(dropdown => {
                         if (dropdown !== chargesKebabDropdown) {
                             dropdown.classList.add('hidden');
+                            dropdown.style.display = 'none';
                         }
                     });
+                    
+                    // Also close tenant header manage dropdown
+                    const tenantManageDropdown = document.getElementById('tenant-header-manage-dropdown');
+                    if (tenantManageDropdown && tenantManageDropdown !== chargesKebabDropdown) {
+                        tenantManageDropdown.classList.add('hidden');
+                        tenantManageDropdown.style.display = 'none';
+                        tenantManageDropdown.style.visibility = 'hidden';
+                    }
                     
                     // Toggle this dropdown
                     const isHidden = chargesKebabDropdown.classList.contains('hidden');
@@ -5841,9 +5876,10 @@
                     allDropdowns.forEach(dropdown => {
                         if (dropdown) {
                             dropdown.classList.add('hidden');
-                            // Special handling for charges dropdown which uses direct style manipulation
-                            if (dropdown === chargesKebabDropdown) {
-                                dropdown.style.display = 'none';
+                            dropdown.style.display = 'none';
+                            // Special handling for tenant header manage dropdown which uses visibility
+                            if (dropdown === tenantHeaderManageKebab.kebabDropdown) {
+                                dropdown.style.visibility = 'hidden';
                             }
                         }
                     });
@@ -5866,9 +5902,10 @@
                 allDropdowns.forEach(dropdown => {
                     if (dropdown) {
                         dropdown.classList.add('hidden');
-                        // Special handling for charges dropdown
-                        if (dropdown === chargesKebabDropdown) {
-                            dropdown.style.display = 'none';
+                        dropdown.style.display = 'none';
+                        // Special handling for tenant header manage dropdown
+                        if (dropdown === tenantHeaderManageKebab.kebabDropdown) {
+                            dropdown.style.visibility = 'hidden';
                         }
                     }
                 });
@@ -5879,6 +5916,8 @@
                 const tenantHeaderManageDropdown = document.getElementById('tenant-header-manage-dropdown');
                 if (tenantHeaderManageDropdown) {
                     tenantHeaderManageDropdown.classList.add('hidden');
+                    tenantHeaderManageDropdown.style.display = 'none';
+                    tenantHeaderManageDropdown.style.visibility = 'hidden';
                 }
                 
                 // Also close the activity filter dropdown
@@ -5954,7 +5993,16 @@
                     // Close all kebab dropdowns
                     document.querySelectorAll('[id^="kebab-dropdown-"]').forEach(dropdown => {
                         dropdown.classList.add('hidden');
+                        dropdown.style.display = 'none';
                     });
+                    
+                    // Also close tenant header manage dropdown
+                    const tenantManageDropdown = document.getElementById('tenant-header-manage-dropdown');
+                    if (tenantManageDropdown) {
+                        tenantManageDropdown.classList.add('hidden');
+                        tenantManageDropdown.style.display = 'none';
+                        tenantManageDropdown.style.visibility = 'hidden';
+                    }
                     
                     switch(buttonText) {
                         case 'Change password':
