@@ -75,50 +75,7 @@
             width: 220px !important;
         }
         
-        /* Black tooltips for contact icons */
-        .tooltip-black {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .tooltip-black .tooltip-text {
-            visibility: hidden;
-            width: auto;
-            min-width: 60px;
-            background-color: #000;
-            color: white;
-            text-align: center;
-            border-radius: 4px;
-            padding: 6px 10px;
-            position: absolute;
-            z-index: 1000;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 12px;
-            font-weight: 400;
-            text-transform: none;
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.2s ease-in-out;
-        }
-        
-        .tooltip-black .tooltip-text::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -4px;
-            border-width: 4px;
-            border-style: solid;
-            border-color: #000 transparent transparent transparent;
-        }
-        
-        .tooltip-black:hover .tooltip-text {
-            visibility: visible;
-            opacity: 1;
-        }
+
         
         /* Form Label Positioning - Labels Above Fields */
         .contact-edit-form .form-row {
@@ -310,6 +267,12 @@
                     <div class="badges-container">
                         <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">Current</span>
                         <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">Primary</span>
+                        <!-- Health Score (Minimal) -->
+                        <span class="tooltip-black tooltip-below ml-1">
+                            <i class="fas fa-chart-line text-green-500"></i>
+                            <span><span class="score-value">90</span>/100</span>
+                            <span class="tooltip-text">Health score</span>
+                        </span>
                     </div>
                 </div>
 			<div class="flex items-center gap-2 text-muted text-sm">
@@ -319,26 +282,6 @@
         
         <!-- Header Actions -->
         <div class="flex items-center gap-8">
-            <!-- Active Tasks & Alerts Section -->
-            <div class="tasks-alerts-header cursor-pointer" onclick="openPageslide('active-tasks-overlay')">
-        <div class="flex items-center gap-2">
-                    <div class="flex items-center gap-1">
-                        <i class="fas fa-exclamation-circle text-orange-500"></i>
-                        <span class="font-medium">Active Tasks:</span>
-                    </div>
-                    <div class="flex items-center gap-1">
-                        <span class="text-lg font-bold">3</span>
-                    </div>
-                </div>
-                <div class="flex items-center gap-1 text-sm">
-                    <span class="text-muted">Lease expiry</span>
-                    <span class="text-gray-400">•</span>
-                    <span class="text-muted">Work order</span>
-                    <span class="text-gray-400">•</span>
-                    <span class="text-muted">Application</span>
-                </div>
-            </div>
-
             <!-- Outstanding Balance Section -->
             <div class="balance-header cursor-pointer" onclick="openPageslide('outstanding-balance-overlay')">
                 <div class="flex items-center gap-2">
@@ -359,60 +302,27 @@
                 </div>
             </div>
 
-            <!-- Health Score Section -->
-            <div class="health-score-header">
-                <div class="health-score-tooltip">
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center gap-1">
-                            <i class="fas fa-chart-line text-green-500"></i>
-                            <span class="font-medium ">Health Score:</span>
-                        </div>
-                        <div class="flex items-center gap-1">
-                            <span class="text-lg font-bold">90</span>
-                            <span class="text-sm text-muted">/100</span>
-                        </div>
+            <!-- Active Tasks & Alerts Section -->
+            <div class="tasks-alerts-header cursor-pointer" onclick="openPageslide('active-tasks-overlay')">
+        <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-1">
+                        <i class="fas fa-exclamation-circle text-orange-500"></i>
+                        <span class="font-medium">Active Tasks:</span>
                     </div>
-					<div class="flex items-center gap-1 text-sm">
-						<span class="text-muted">Excellent</span>
-						<span class="text-gray-400">•</span>
-						<span class="text-muted">Low risk</span>
-					</div>
-                    <div class="tooltip-content">
-                        <div class="tooltip-header">Resident Health Score Breakdown</div>
-                        <div class="performance-item">
-                            <span class="performance-label">Payment History</span>
-                            <span class="performance-value">85%</span>
-                            <div class="performance-bar">
-                                <div class="performance-fill payment-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="performance-item">
-                            <span class="performance-label">Communication</span>
-                            <span class="performance-value">92%</span>
-                            <div class="performance-bar">
-                                <div class="performance-fill communication-fill" style="width: 92%"></div>
-                            </div>
-                        </div>
-                        <div class="performance-item">
-                            <span class="performance-label">Compliance</span>
-                            <span class="performance-value">95%</span>
-                            <div class="performance-bar">
-                                <div class="performance-fill compliance-fill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="performance-item">
-                            <span class="performance-label">Renewal Likelihood</span>
-                            <span class="performance-value">89%</span>
-                            <div class="performance-bar">
-                                <div class="performance-fill renewal-fill" style="width: 89%"></div>
-                            </div>
-                        </div>
-                        <div class="tooltip-footer">
-                            Health score is calculated based on payment history, communication responsiveness, lease compliance, and renewal probability. Updated daily.
-                        </div>
+                    <div class="flex items-center gap-1">
+                        <span class="text-lg font-bold">3</span>
                     </div>
                 </div>
+                <div class="flex items-center gap-1 text-sm">
+                    <span class="text-muted">Lease expiry</span>
+                    <span class="text-gray-400">•</span>
+                    <span class="text-muted">Work order</span>
+                    <span class="text-gray-400">•</span>
+                    <span class="text-muted">Application</span>
+                </div>
             </div>
+
+
             
             <div class="flex items-center gap-2 ml-6">
                 <!-- Actions Dropdown -->
@@ -509,156 +419,180 @@
                     </div>
                         </div>
                         <div class="card-content">
-                            <div class="flex items-start gap-3">
-                                <!-- Avatar -->
-                                <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <span class="text-white font-semibold">MM</span>
-                            </div>
+                            <!-- CONTACT INFORMATION Section -->
+                            <div class="card-section">
+                                <div class="card-section-header">
+                                    <h4 class="font-semibold text-muted uppercase tracking-wide">Contact information</h4>
+                                </div>
+                                <div class="card-section-content">
+                                    <div class="flex items-start gap-3">
+                                        <!-- Avatar -->
+                                        <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-white font-semibold">MM</span>
+                                        </div>
 
-                                <!-- Resident Info -->
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="font-semibold  mb-1">Melinda Michaels <i class="fas fa-clone text-primary text-sm cursor-pointer ml-1" title="Copy resident name, email and phone number"></i></h4>
-                                    <p class="text-muted mb-2">Preferred name: Mel Michaels</p>
-                                    
-                                    <!-- Contact Information -->
-                                    <div class="space-y-1 mb-2">
-                                        <div class="flex items-center gap-2">
-                                            <span class="">(555) 123-4567</span>
-                                            <div class="flex items-center gap-3">
+                                        <!-- Resident Info -->
+                                        <div class="flex-1 space-y-1 min-w-0">
+                                            <h4 class="font-semibold mb-0">Melinda Michaels 
+                                                <span class="tooltip-black ml-1">
+                                                    <i class="fas fa-clone text-primary text-sm cursor-pointer"></i>
+                                                    <span class="tooltip-text">Copy resident name, email and phone number</span>
+                                                </span>
+                                            </h4>
+                                            <p class="text-muted">Preferred name: Mel Michaels</p>
+                                            
+                                            <!-- Contact Information -->
+                                            <div class="flex items-center gap-2">
+												<span class="">(555) 123-4567</span>
+												<div class="flex items-center gap-3">
+													<span class="tooltip-black">
+														<i class="fas fa-phone text-link cursor-pointer"></i>
+														<span class="tooltip-text">Call</span>
+													</span>
+													<span class="tooltip-black">
+														<i class="fas fa-mobile-alt text-link cursor-pointer"></i>
+														<span class="tooltip-text">Text</span>
+													</span>
+												</div>
+											</div>
+											<div class="flex items-center gap-2">
+												<span class="">melinda.michaels@email.com</span>
 												<span class="tooltip-black">
-													<i class="fas fa-phone text-link cursor-pointer"></i>
-													<span class="tooltip-text">Call</span>
-												</span>
-												<span class="tooltip-black">
-													<i class="fas fa-mobile-alt text-link cursor-pointer"></i>
-													<span class="tooltip-text">Text</span>
+													<i class="fas fa-envelope text-link cursor-pointer"></i>
+													<span class="tooltip-text">Email</span>
 												</span>
 											</div>
+										
+                                            <div>
+                                                <span class="">Preferred contact: </span>
+                                                <span class="">SMS</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                                        <div class="flex items-center gap-2">
-                                            <span class="">melinda.michaels@email.com</span>
+
+                            <!-- REGISTRATION & STATUS Section -->
+                            <div class="card-section">
+                                <div class="card-section-header">
+                                    <div class="flex items-center justify-between w-full">
+                                        <h4 class="font-semibold text-muted uppercase tracking-wide">RentCafe registration</h4>
+                                    </div>
+                                </div>
+                                <div class="card-section-content">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                                <span><span class="font-medium text-green-700" data-field="rentcafe-status">Registered</span> on March 15, 2021</span>
+                                            </div>
+                                            <div class="text-sm text-muted">Account verified</div>
+                                        </div>
+                                        <div class="flex items-center gap-1 font-weight-normal">
+                                            <a href="#" class="btn btn-link p-0">
+                                                <i class="fas fa-external-link-alt ml-1"></i> Preview account
+                                            </a>
+                                            <button id="kebab-btn-rentcafe" class="btn btn-link">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ROOMMATES Section -->
+                            <div class="card-section">
+                                <div class="card-section-header">
+                                    <div class="flex items-center justify-between w-full">
+                                        <h4 class="font-semibold text-muted uppercase tracking-wide">Roommates</h4>
+                                        <button class="btn btn-link p-0" onclick="openPageslide('roommate-details-overlay')">View details</button>
+                                    </div>
+                                </div>
+                                <div class="card-section-content">
+                                    <!-- Roommate List -->
+                                    <div class="roommate-grid">
+                                        <div class="roommate-item flex items-center gap-2">
+                                            <!-- Avatar -->
+                                            <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <span class="text-white font-semibold text-xs">AJ</span>
+                                            </div>
+                                            <span class="">Angela Johnson</span>
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-orange-100 text-orange-800">
+                                                Pending
+                                            </span>
+                                            <div class="flex items-center gap-3">
+                                                <span class="tooltip-black">
+                                                    <i class="fas fa-phone text-link cursor-pointer"></i>
+                                                    <span class="tooltip-text">Call</span>
+                                                </span>
+                                                <span class="tooltip-black">
+                                                    <i class="fas fa-mobile-alt text-link cursor-pointer"></i>
+                                                    <span class="tooltip-text">Text</span>
+                                                </span>
+                                                <span class="tooltip-black">
+                                                    <i class="fas fa-envelope text-link cursor-pointer"></i>
+                                                    <span class="tooltip-text">Email</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="roommate-item flex items-center gap-2">
+                                            <!-- Avatar -->
+                                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <span class="text-white font-semibold text-xs">JS</span>
+                                            </div>
+                                            <span class="">John Smith</span>
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">Current</span>
+                                            <div class="flex items-center gap-3">
+                                                <span class="tooltip-black">
+                                                    <i class="fas fa-phone text-link cursor-pointer"></i>
+                                                    <span class="tooltip-text">Call</span>
+                                                </span>
+                                                <span class="tooltip-black">
+                                                    <i class="fas fa-mobile-alt text-link cursor-pointer"></i>
+                                                    <span class="tooltip-text">Text</span>
+                                                </span>
+                                                <span class="tooltip-black">
+                                                    <i class="fas fa-envelope text-link cursor-pointer"></i>
+                                                    <span class="tooltip-text">Email</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- EMERGENCY CONTACT Section -->
+                            <div class="card-section">
+                                <div class="card-section-header">
+                                    <div class="flex items-center justify-between w-full">
+                                        <h4 class="font-semibold text-muted uppercase tracking-wide">Emergency contacts</h4>
+                                        <button class="btn btn-link p-0">View details</button>
+                                    </div>
+                                </div>
+                                <div class="card-section-content">
+                                    <div class="flex items-center gap-2">
+                                        <!-- Avatar -->
+                                        <div class="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-white font-semibold text-xs">MB</span>
+                                        </div>
+                                        <span>Michael Brown<span class="ml-1 text-muted">(friend)</span></span>
+                                        <div class="flex items-center gap-3">
+                                            <span class="tooltip-black">
+                                                <i class="fas fa-phone text-link cursor-pointer"></i>
+                                                <span class="tooltip-text">Call</span>
+                                            </span>
+                                            <span class="tooltip-black">
+                                                <i class="fas fa-mobile-alt text-link cursor-pointer"></i>
+                                                <span class="tooltip-text">Text</span>
+                                            </span>
                                             <span class="tooltip-black">
                                                 <i class="fas fa-envelope text-link cursor-pointer"></i>
                                                 <span class="tooltip-text">Email</span>
                                             </span>
-                            </div>
-                            </div>
-                                    
-                                    <div class="text-sm">
-                                        <span class="">Preferred contact: </span>
-                                        <span class="">SMS</span>
-                            </div>
-                            </div>
-                            </div>
-                            
-                            <!-- RentCafe Registration Section -->
-                            <div class="mt-6 pt-6 border-t border-gray-100">
-                                <div class="flex items-center justify-between mb-1">
-                                    <span class="font-medium ">RentCafe registration</span>
-                                    <div class="flex items-center space-x-3">
-                                        <div class="flex items-center space-x-2">
-                                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                                            <span class="font-medium text-green-700" data-field="rentcafe-status">Registered</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex items-center justify-between">
-                                    <p class="text-sm text-muted" data-field="rentcafe-date">Registered on March 15, 2023
-									<span class="text-gray-400">•</span>
-									Account verified</p>
-                                    <div class="flex items-center gap-1 font-weight-normal">
-                                        <a href="#" class="btn btn-link btn-sm">
-                                            <i class="fas fa-external-link-alt text-sm ml-1"></i> Preview account
-                                        </a>
-                                        <button id="kebab-btn-rentcafe" class="btn btn-link btn-sm">
-											<i class="fas fa-ellipsis-v"></i>
-										</button>
-                                    </div>
-                                </div>
                             </div>
-                    
-                    <!-- Roommates Section -->
-                    <div class="mt-6 pt-6 border-t border-gray-100">
-                        <div class="flex items-center justify-between mb-3">
-                            <div class="flex items-center gap-2">
-                                <i class="fas fa-users text-muted"></i>
-                                <span class="font-medium">Roommates</span>
-                            </div>
-                            <button class="btn btn-link p-0" onclick="openPageslide('roommate-details-overlay')">View details</button>
-                        </div>
-                        
-                        <!-- Roommate List -->
-                        <div class="space-y-2">
-                            <div class="flex items-center gap-2">
-                                <span class="">Angela Johnson</span>
-                                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-orange-100 text-orange-800">
-                                    Pending
-                                </span>
-                                <div class="flex items-center gap-3">
-                                    <span class="tooltip-black">
-                                        <i class="fas fa-phone text-link cursor-pointer"></i>
-                                        <span class="tooltip-text">Call</span>
-                                    </span>
-                                    <span class="tooltip-black">
-                                        <i class="fas fa-mobile-alt text-link cursor-pointer"></i>
-                                        <span class="tooltip-text">Text</span>
-                                    </span>
-                                    <span class="tooltip-black">
-                                        <i class="fas fa-envelope text-link cursor-pointer"></i>
-                                        <span class="tooltip-text">Email</span>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="">John Smith</span>
-                                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">Current</span>
-                                <div class="flex items-center gap-3">
-                                    <span class="tooltip-black">
-                                        <i class="fas fa-phone text-link cursor-pointer"></i>
-                                        <span class="tooltip-text">Call</span>
-                                    </span>
-                                    <span class="tooltip-black">
-                                        <i class="fas fa-mobile-alt text-link cursor-pointer"></i>
-                                        <span class="tooltip-text">Text</span>
-                                    </span>
-                                    <span class="tooltip-black">
-                                        <i class="fas fa-envelope text-link cursor-pointer"></i>
-                                        <span class="tooltip-text">Email</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-					<!-- Emergency Contacts Section -->
-					<div class="mt-6 pt-6 border-t border-gray-100">
-						<div class="flex items-start justify-between">
-							<div class="flex-1">
-								<div class="flex items-center gap-2 mb-2">
-									<i class="fas fa-user-shield text-muted"></i>
-									<span class="font-medium">Emergency contact</span>
-								</div>
-								<div class="flex items-center gap-2 text-muted">
-									<span>Michael Brown<span class="ml-1 text-muted">(friend)</span></span>
-									<div class="flex items-center gap-3">
-										<span class="tooltip-black">
-											<i class="fas fa-phone text-link cursor-pointer"></i>
-											<span class="tooltip-text">Call</span>
-										</span>
-										<span class="tooltip-black">
-											<i class="fas fa-mobile-alt text-link cursor-pointer"></i>
-											<span class="tooltip-text">Text</span>
-										</span>
-										<span class="tooltip-black">
-											<i class="fas fa-envelope text-link cursor-pointer"></i>
-											<span class="tooltip-text">Email</span>
-										</span>
-									</div>
-								</div>
-							</div>
-							<button class="btn btn-link p-0">View details</button>
-						</div>
-					</div>
 
                     </div>
                     </div>
@@ -741,22 +675,20 @@
                                 </div>
                             </div>
                         <div class="card-content">
-                            <div class="space-y-12">
-                                
                                 <!-- LEASE OVERVIEW Section -->
-                                <div class="lease-section">
-                                    <div class="lease-section-header">
+                                <div class="card-section">
+                                    <div class="card-section-header">
                                         <h4 class="font-semibold text-muted uppercase tracking-wide">Lease overview</h4>
                         </div>
-                                    <div class="lease-section-content">
+                                    <div class="card-section-content">
                                         <div class="lease-overview-grid">
-                                            <div class="lease-overview-item">
-                                                <div class="flex items-center gap-2 mb-1">
+                                            <div class="lease-overview-item space-y-1">
+                                                <div class="flex items-center gap-2">
                                                     <i class="fas fa-calendar text-muted"></i>
                                                     <span class=" ">Oct 2, 2020 - Oct 1, 2025</span>
                                                     <span class="badge bg-gray-100 text-gray-800 text-sm px-2 py-1 rounded-full ">12 months</span>
                                 </div>
-                                                <div class="flex items-center gap-2 mt-2">
+                                                <div class="flex items-center gap-2">
                                                     <div class="flex items-center gap-1">
                                                                                                                  <span class="">$1337.25/mo</span>
                                                          <button class="ml-1 btn btn-link p-0" onclick="toggleLeaseChargesPopover(event)" aria-label="View lease charges breakdown">
@@ -772,7 +704,7 @@
                                                         <span class="">Late fee/NSF: 0/0</span>
                                                     </div>
                                                 </div>
-                                                <div class="flex items-center gap-2 mt-2">
+                                                <div class="flex items-center gap-2">
                                                     <div class="lease-status-indicator active"></div>
                                                     <span class="text-green-700">Active lease</span>
                                                     <span class="text-muted">•</span>
@@ -784,14 +716,14 @@
                     </div>
 
                                 <!-- PROPERTY DETAILS Section -->
-                                <div class="lease-section">
-                                    <div class="lease-section-header">
+                                <div class="card-section">
+                                    <div class="card-section-header">
                                         <h4 class="font-semibold text-muted uppercase tracking-wide">Unit details</h4>
                                     </div>
-                                    <div class="lease-section-content">
+                                    <div class="card-section-content">
                                         <div class="property-details-grid">
-                                            <div class="property-detail-item">
-                                                <div class="flex items-center gap-2 mb-2">
+                                            <div class="property-detail-item space-y-1">
+                                                <div class="flex items-center gap-2">
                                                     <i class="fas fa-bed text-muted"></i>
                                                     <span class="">Unit: <a href="#">103</a></span>
                                                     <span class="text-muted">•</span>
@@ -805,7 +737,7 @@
                                                 <div class="flex items-start gap-2">
                                                     <i class="fas fa-map-marker-alt text-muted mt-0.5"></i>
                                                     <div class="">
-                                                        <div class="mb-1">430 S Fairview Avenue 288</div>
+                                                        <div class="">430 S Fairview Avenue 288</div>
                                                         <div class="">Santa Barbara, CA 93117</div>
                             </div>
                         </div>
@@ -815,11 +747,11 @@
                     </div>
 
                                 <!-- ADDITIONAL INFO Section -->
-                                <div class="lease-section">
-                                    <div class="lease-section-header">
+                                <div class="card-section">
+                                    <div class="card-section-header">
                                         <h4 class="font-semibold text-muted uppercase tracking-wide">Additional information</h4>
                                     </div>
-                                    <div class="lease-section-content">
+                                    <div class="card-section-content">
                                         <div class="additional-info-grid">
                                             <div class="flex items-center justify-between">
                                                 <div class="flex items-center gap-2">
@@ -840,18 +772,18 @@
                     </div>
 
                                 <!-- UNIT TRANSFER AND PROMOTION HISTORY Section -->
-                                <div class="lease-section">
-                                    <div class="lease-section-header">
+                                <div class="card-section">
+                                    <div class="card-section-header">
                                         <h4 class="font-semibold text-muted uppercase tracking-wide">Unit transfer and promotion history</h4>
                                     </div>
-                                    <div class="lease-section-content">
+                                    <div class="card-section-content">
                                         <div class="history-records-container">
-                                            <div class="space-y-3">
+                                            <div>
                                                 <!-- History Record 1: Promote Roommate -->
                                                 <div class="history-record">
                                                     <div class="flex items-start justify-between">
                                                         <div class="flex-1">
-                                                            <div class="flex items-center gap-2 mb-2">
+                                                            <div class="flex items-center gap-2">
                                                                 <i class="fas fa-user-plus text-muted"></i>
                                                                 <span>Roommate promotion</span>
                                                             </div>
@@ -867,7 +799,7 @@
                                                 <div class="history-record">
                                                     <div class="flex items-start justify-between">
                                                         <div class="flex-1">
-                                                            <div class="flex items-center gap-2 mb-2">
+                                                            <div class="flex items-center gap-2">
                                                                 <i class="fas fa-exchange-alt text-muted"></i>
                                                                 <span>Unit Transfer</span>
                                                             </div>
@@ -885,7 +817,6 @@
                         </div>
                     </div>
                         </div>
-                    </div>
                 </div>
                 </div>
                 <!-- Second Column (1/3 width) -->
@@ -4192,18 +4123,11 @@
                 // Show the next batch of activity sections
                 const sectionsToShow = Math.min(activitiesPerLoad, allHiddenSections.length - activitiesShownFromHidden);
                 
-                console.log('Loading more activities:', {
-                    totalSections: allHiddenSections.length,
-                    alreadyShown: activitiesShownFromHidden,
-                    sectionsToShow: sectionsToShow
-                });
-                
                 for (let i = 0; i < sectionsToShow; i++) {
                     const sectionIndex = activitiesShownFromHidden + i;
                     if (sectionIndex < allHiddenSections.length) {
                         const section = allHiddenSections[sectionIndex];
                         section.style.display = 'block';
-                        console.log('Showing section:', sectionIndex, section);
                         
                         // Apply current filters to activities in this section
                         const itemsInSection = section.querySelectorAll('.activity-item');
@@ -4214,14 +4138,11 @@
                                 visibleItemsCount++;
                             }
                         });
-                        console.log('Section', sectionIndex, 'has', visibleItemsCount, 'visible items out of', itemsInSection.length);
                     }
                 }
                 
                 // Update the count
                 activitiesShownFromHidden += sectionsToShow;
-                
-                console.log('Progressive loading updated, now shown:', activitiesShownFromHidden);
                 
                 // Always expand the timeline to show new content
                 const activityCard = document.getElementById('activity-timeline-card');
@@ -4231,7 +4152,6 @@
                 // Ensure hidden activities container is visible
                 if (hiddenActivities.classList.contains('hidden')) {
                     hiddenActivities.classList.remove('hidden');
-                    console.log('Removed hidden class from activities container');
                 }
                 
                 if (activityCard && timelineContainer) {
@@ -4249,13 +4169,100 @@
                     timelineContainer.style.height = 'auto';
                     timelineContainer.style.maxHeight = 'none';
                     timelineContainer.style.overflowY = 'visible';
-                    
-                    console.log('Timeline height constraints removed for expansion');
                 }
                 
-                // Check if all sections are now shown
-                if (activitiesShownFromHidden >= allHiddenSections.length) {
-                    // All sections shown, change to collapse button
+                // Check if there are more matching activities to load
+                let hasMoreMatchingActivities = false;
+                
+                // Get current filter settings
+                const selectedFilterOption = document.querySelector('.activity-filter-option.selected');
+                const currentFilter = selectedFilterOption ? selectedFilterOption.getAttribute('data-value') : 'all';
+                const commTypeSelected = document.querySelector('#communication-type-filter-dropdown .activity-filter-option.selected');
+                const sourceSelected = document.querySelector('#source-filter-dropdown .activity-filter-option.selected');
+                const currentCommFilter = commTypeSelected ? commTypeSelected.getAttribute('data-value') : 'all-communications';
+                const currentSourceFilter = sourceSelected ? sourceSelected.getAttribute('data-value') : 'all-sources';
+                
+                console.log('🔍 Checking for more matching activities:', {
+                    currentFilter,
+                    currentCommFilter,
+                    currentSourceFilter,
+                    activitiesShownFromHidden,
+                    totalSections: allHiddenSections.length,
+                    sectionsToCheck: allHiddenSections.length - activitiesShownFromHidden
+                });
+                
+                // Check remaining sections for matching activities
+                for (let i = activitiesShownFromHidden; i < allHiddenSections.length; i++) {
+                    const section = allHiddenSections[i];
+                    const sectionItems = section.querySelectorAll('.activity-item');
+                    
+                    console.log(`📂 Checking section ${i}:`, {
+                        sectionItems: sectionItems.length,
+                        sectionElement: section
+                    });
+                    
+                    const matchingItems = [];
+                    const hasMatchingItems = Array.from(sectionItems).some(item => {
+                        const itemFilters = item.getAttribute('data-filter') || '';
+                        const itemCommType = item.getAttribute('data-communication-type') || '';
+                        const itemActivityType = item.getAttribute('data-activity-type') || 'user';
+                        
+                        let shouldShow = false;
+                        
+                        if (currentFilter === 'all') {
+                            shouldShow = true;
+                        } else if (currentFilter === 'system') {
+                            shouldShow = itemActivityType === 'system';
+                        } else if (currentFilter === 'user') {
+                            shouldShow = itemActivityType === 'user';
+                        } else if (currentFilter === 'communications') {
+                            if (itemFilters.includes('communications')) {
+                                const typeMatches = currentCommFilter === 'all-communications' || itemCommType === currentCommFilter;
+                                shouldShow = typeMatches;
+                            }
+                        } else {
+                            shouldShow = itemFilters.includes(currentFilter);
+                        }
+                        
+                        // Apply source filter to all activity types
+                        if (shouldShow && currentSourceFilter !== 'all-sources') {
+                            shouldShow = itemActivityType === currentSourceFilter;
+                        }
+                        
+                        if (shouldShow) {
+                            matchingItems.push({
+                                itemFilters,
+                                itemCommType,
+                                itemActivityType,
+                                element: item
+                            });
+                        }
+                        
+                        return shouldShow;
+                    });
+                    
+                    console.log(`📂 Section ${i} results:`, {
+                        hasMatchingItems,
+                        matchingItems: matchingItems.length,
+                        matchingDetails: matchingItems
+                    });
+                    
+                    if (hasMatchingItems) {
+                        hasMoreMatchingActivities = true;
+                        break;
+                    }
+                }
+                
+                console.log('🎯 Final decision:', {
+                    hasMoreMatchingActivities,
+                    allSectionsShown: activitiesShownFromHidden >= allHiddenSections.length,
+                    shouldCollapse: activitiesShownFromHidden >= allHiddenSections.length || !hasMoreMatchingActivities
+                });
+                
+                // Update button based on whether there are more matching activities
+                if (activitiesShownFromHidden >= allHiddenSections.length || !hasMoreMatchingActivities) {
+                    // All sections shown OR no more matching activities, change to collapse button
+                    console.log('✅ Switching to collapse button - no more matching activities');
                     timelineExpanded = true;
                     toggleIcon.className = 'fas fa-chevron-up mr-2';
                     toggleText.textContent = 'Show less activities';
@@ -4263,17 +4270,107 @@
                     // Remove the hidden class from the container
                     hiddenActivities.classList.remove('hidden');
                 } else {
-                    // More sections to show, keep as "Load more"
+                    // More matching activities to show, keep as "Load more"
+                    console.log('📋 Keeping load more button - more matching activities found');
                     toggleText.textContent = 'Load more activities';
                 }
                 
                 // Update empty state for visible sections
                 updateActivitySections();
                 
-                // Debug: Check final state
-                const visibleActivities = document.querySelectorAll('#hidden-activities .activity-item:not(.hidden)');
-                const totalActivities = document.querySelectorAll('#hidden-activities .activity-item');
-                console.log('Final state - Visible activities in hidden section:', visibleActivities.length, 'out of', totalActivities.length);
+                // Also update the load more button state based on current filter
+                updateLoadMoreButtonState();
+
+            }
+        }
+        
+        // Helper function to update load more button state based on current filter
+        function updateLoadMoreButtonState() {
+            const hiddenActivities = document.getElementById('hidden-activities');
+            const loadMoreSection = document.getElementById('load-more-section');
+            const toggleIcon = document.getElementById('toggle-activities-icon');
+            const toggleText = document.getElementById('toggle-activities-text');
+            
+            if (!hiddenActivities || !loadMoreSection || !toggleIcon || !toggleText) {
+                return;
+            }
+            
+            const allHiddenSections = hiddenActivities.querySelectorAll('.activity-section');
+            
+            // If timeline is already expanded (showing collapse button), don't change it
+            if (timelineExpanded) {
+                return;
+            }
+            
+            // Get current filter settings
+            const selectedFilterOption = document.querySelector('.activity-filter-option.selected');
+            const currentFilter = selectedFilterOption ? selectedFilterOption.getAttribute('data-value') : 'all';
+            const commTypeSelected = document.querySelector('#communication-type-filter-dropdown .activity-filter-option.selected');
+            const sourceSelected = document.querySelector('#source-filter-dropdown .activity-filter-option.selected');
+            const currentCommFilter = commTypeSelected ? commTypeSelected.getAttribute('data-value') : 'all-communications';
+            const currentSourceFilter = sourceSelected ? sourceSelected.getAttribute('data-value') : 'all-sources';
+            
+            let hasMatchingHiddenActivities = false;
+            
+            // Check if there are any activities in the hidden section that match current filter
+            if (hiddenActivities.classList.contains('hidden')) {
+                const hiddenItems = hiddenActivities.querySelectorAll('.activity-item');
+                hasMatchingHiddenActivities = Array.from(hiddenItems).some(item => {
+                    const itemFilters = item.getAttribute('data-filter') || '';
+                    const itemCommType = item.getAttribute('data-communication-type') || '';
+                    const itemActivityType = item.getAttribute('data-activity-type') || 'user';
+                    
+                    let shouldShow = false;
+                    
+                    if (currentFilter === 'all') {
+                        shouldShow = true;
+                    } else if (currentFilter === 'system') {
+                        shouldShow = itemActivityType === 'system';
+                    } else if (currentFilter === 'user') {
+                        shouldShow = itemActivityType === 'user';
+                    } else if (currentFilter === 'communications') {
+                        if (itemFilters.includes('communications')) {
+                            const typeMatches = currentCommFilter === 'all-communications' || itemCommType === currentCommFilter;
+                            shouldShow = typeMatches;
+                        }
+                    } else {
+                        shouldShow = itemFilters.includes(currentFilter);
+                    }
+                    
+                    // Apply source filter to all activity types
+                    if (shouldShow && currentSourceFilter !== 'all-sources') {
+                        shouldShow = itemActivityType === currentSourceFilter;
+                    }
+                    
+                    return shouldShow;
+                });
+            }
+            
+            console.log('🔄 updateLoadMoreButtonState:', {
+                currentFilter,
+                hasMatchingHiddenActivities,
+                hiddenSectionIsHidden: hiddenActivities.classList.contains('hidden')
+            });
+            
+            // Update button visibility based on whether there are matching activities
+            if (hasMatchingHiddenActivities) {
+                loadMoreSection.style.display = 'block';
+                loadMoreSection.style.opacity = '1';
+                toggleIcon.className = 'fas fa-chevron-down mr-2';
+                toggleText.textContent = 'Load more activities';
+            } else {
+                // No matching activities in hidden section, hide the button or show collapse if timeline has any content
+                const visibleItems = document.querySelectorAll('.activity-item:not(.hidden):not(#hidden-activities .activity-item)');
+                if (visibleItems.length > 0) {
+                    // There are visible activities, so show the interface but make it clear no more can be loaded
+                    loadMoreSection.style.display = 'block';
+                    loadMoreSection.style.opacity = '0.5';
+                    toggleIcon.className = 'fas fa-info-circle mr-2';
+                    toggleText.textContent = 'No more activities to load';
+                } else {
+                    // No visible activities at all, hide the button
+                    loadMoreSection.style.display = 'none';
+                }
             }
         }
         
@@ -4327,8 +4424,10 @@
                 const visibleItems = section.querySelectorAll('.activity-item:not(.hidden)');
                 if (visibleItems.length > 0) {
                     section.classList.remove('empty');
+                    section.style.display = 'block'; // Show sections with content
                         } else {
                     section.classList.add('empty');
+                    section.style.display = 'none'; // Hide empty sections
                 }
             });
         }
@@ -4669,13 +4768,18 @@
                         const visibleItemsInSection = section.querySelectorAll('.activity-item:not(.hidden)');
                         if (visibleItemsInSection.length === 0) {
                             section.classList.add('empty');
+                            section.style.display = 'none'; // Hide empty sections
                         } else {
                             section.classList.remove('empty');
+                            section.style.display = 'block'; // Show sections with content
                         }
                     });
                     
                     // Update load more position after all changes are complete
                     updateLoadMorePosition();
+                    
+                    // Update load more button state based on current filter
+                    updateLoadMoreButtonState();
                     
                     // Remove filtering class after filtering is complete
                     setTimeout(() => {
@@ -4786,13 +4890,18 @@
                         const visibleItemsInSection = section.querySelectorAll('.activity-item:not(.hidden)');
                         if (visibleItemsInSection.length === 0) {
                             section.classList.add('empty');
+                            section.style.display = 'none'; // Hide empty sections
                         } else {
                             section.classList.remove('empty');
+                            section.style.display = 'block'; // Show sections with content
                         }
                     });
                     
                     // Update load more position after all changes are complete
                     updateLoadMorePosition();
+                    
+                    // Update load more button state based on current filter
+                    updateLoadMoreButtonState();
                     
                     // Remove filtering class after filtering is complete
                     setTimeout(() => {
@@ -4903,13 +5012,18 @@
                         const visibleItemsInSection = section.querySelectorAll('.activity-item:not(.hidden)');
                         if (visibleItemsInSection.length === 0) {
                             section.classList.add('empty');
+                            section.style.display = 'none'; // Hide empty sections
                         } else {
                             section.classList.remove('empty');
+                            section.style.display = 'block'; // Show sections with content
                         }
                     });
                     
                     // Update load more position after all changes are complete
                     updateLoadMorePosition();
+                    
+                    // Update load more button state based on current filter
+                    updateLoadMoreButtonState();
                     
                     // Remove filtering class after filtering is complete
                     setTimeout(() => {
@@ -6786,22 +6900,7 @@
                 });
             });
 
-            // Health score tooltip positioning
-            const healthTooltip = document.querySelector('.health-score-tooltip');
-            const tooltipContent = document.querySelector('.tooltip-content');
-            
-            if (healthTooltip && tooltipContent) {
-                healthTooltip.addEventListener('mouseenter', function() {
-                    const rect = this.getBoundingClientRect();
-                    
-                    // Position tooltip below the health score indicator
-                    const left = rect.left + (rect.width / 2) - (280 / 2); // Center horizontally, 280 is tooltip width
-                    const top = rect.bottom + 10; // Position below with 10px gap
-                    
-                    tooltipContent.style.left = `${Math.max(10, left)}px`; // Ensure it doesn't go off screen
-                    tooltipContent.style.top = `${top}px`;
-                });
-            }
+
 
             // Contact edit form handling
             const contactEditForm = document.querySelector('.contact-edit-form');
