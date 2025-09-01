@@ -5396,22 +5396,6 @@
                 if (activityBtn && activityMenu && !activityBtn.contains(e.target) && !activityMenu.contains(e.target)) {
                     activityMenu.classList.add('hidden');
                 }
-                
-                // Close lease charges popover when clicking outside
-                const leaseChargesPopover = document.getElementById('lease-charges-popover');
-                const leaseChargesBtn = document.querySelector('[onclick*="toggleLeaseChargesPopover"]');
-                if (leaseChargesPopover && leaseChargesBtn && 
-                    !leaseChargesBtn.contains(e.target) && !leaseChargesPopover.contains(e.target)) {
-                    leaseChargesPopover.classList.add('hidden');
-                }
-                
-                // Close deposit popover when clicking outside
-                const depositPopover = document.getElementById('deposit-popover');
-                const depositBtn = document.querySelector('[onclick*="toggleDepositPopover"]');
-                if (depositPopover && depositBtn && 
-                    !depositBtn.contains(e.target) && !depositPopover.contains(e.target)) {
-                    depositPopover.classList.add('hidden');
-                }
             });
         });
         
@@ -6198,6 +6182,22 @@
                             }
                         }
                     });
+                }
+                
+                // Close lease charges popover when clicking outside
+                const leaseChargesPopover = document.getElementById('lease-charges-popover');
+                const leaseChargesBtn = document.querySelector('[onclick*="toggleLeaseChargesPopover"]');
+                if (leaseChargesPopover && leaseChargesBtn && 
+                    !leaseChargesBtn.contains(e.target) && !leaseChargesPopover.contains(e.target)) {
+                    leaseChargesPopover.classList.add('hidden');
+                }
+                
+                // Close deposit popover when clicking outside
+                const depositPopover = document.getElementById('deposit-popover');
+                const depositBtn = document.querySelector('[onclick*="toggleDepositPopover"]');
+                if (depositPopover && depositBtn && 
+                    !depositBtn.contains(e.target) && !depositPopover.contains(e.target)) {
+                    depositPopover.classList.add('hidden');
                 }
             });
             
