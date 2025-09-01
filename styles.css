@@ -2099,7 +2099,7 @@ body {
 }
 
 .pageslide-content {
-    padding: 32px;
+    padding: 24px;
 }
 
 /* Charges Summary */
@@ -3915,13 +3915,13 @@ button.rounded-lg,
 /* Roommate Details Pageslide Styles */
 .roommate-details {
     background-color: white;
-    max-width: 700px;
+    max-width: 750px;
 }
 
 .roommate-profile-card {
     background-color: white;
     border-radius: 8px;
-    padding: 16px;
+    padding: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #e5e7eb;
 }
@@ -3929,7 +3929,7 @@ button.rounded-lg,
 .roommate-header {
     display: flex;
     gap: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     align-items: flex-start;
     position: relative;
 }
@@ -3967,7 +3967,7 @@ button.rounded-lg,
 .roommate-badges {
     display: flex;
     gap: 6px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     flex-wrap: wrap;
 }
 
