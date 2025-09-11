@@ -376,7 +376,8 @@
 						<i class="fas fa-concierge-bell text-muted mr-2"></i>
                         Concierge
                     </div>
-					<div class="menu-item">
+<!-- <div class="menu-item" id="documents-menu" <onclick="toggleView('documents')">-->
+					<div class="menu-item" id="documents-menu">
 						<i class="fas fa-folder text-muted mr-2"></i>
 						Documents
                 </div>
@@ -476,7 +477,7 @@
                             <div class="card-section">
                                 <div class="card-section-header">
                                     <div class="flex items-center justify-between w-full">
-                                        <h4 class="font-semibold text-muted uppercase tracking-wide">RentCafe registration</h4>
+                                        <h4 class="font-semibold text-muted uppercase tracking-wide">Rentcafe registration</h4>
                                     </div>
                                 </div>
                                 <div class="card-section-content">
@@ -2156,7 +2157,7 @@
             <div class="">
                 <div class="overflow-x-auto">
                     <table class="w-full">
-                        <thead class="bg-gray-50 border-b border-gray-200">
+                        <thead class="border-b border-gray-200">
                             <tr>
                                 <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortTable('date')">
                                     <div class="flex items-center gap-2">
@@ -2431,6 +2432,663 @@
         </div>
 
             
+        </div>
+
+        <!-- Documents View (Hidden by default) -->
+        <div id="documents-view" class="container py-6 mx-auto" style="display: none;">
+            
+            <!-- Page Title -->
+            <div class="mb-6 flex items-center justify-between">
+                <div>
+                    <h1 class="text-2xl font-bold  mb-1">Documents & Signatures</h1>
+                    <p class="text-muted">Manage lease documents, signatures, and attachments</p>
+                </div>
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus mr-2"></i>
+                    Add Documents
+                </button>
+            </div>
+
+            <!-- Status Overview Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                <div class="bg-white rounded-lg border border-gray-200 p-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-2xl font-bold text-orange-600">2</div>
+                            <div class="text-sm font-medium text-gray-600">Pending Signatures</div>
+                        </div>
+                        <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-signature text-orange-600"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg border border-gray-200 p-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-2xl font-bold text-red-600">3</div>
+                            <div class="text-sm font-medium text-gray-600">Missing Uploads</div>
+                        </div>
+                        <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-upload text-red-600"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg border border-gray-200 p-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-2xl font-bold text-green-600">6</div>
+                            <div class="text-sm font-medium text-gray-600">Completed</div>
+                        </div>
+                        <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-check text-green-600"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg border border-gray-200 p-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-2xl font-bold ">11</div>
+                            <div class="text-sm font-medium text-gray-600">Total Documents</div>
+                        </div>
+                        <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-folder text-gray-600"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Filters -->
+            <div class="mt-8 mb-6">
+                <!-- Search Bar -->
+                <div class="mb-4">
+                    <div class="relative w-full md:w-80">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input 
+                            type="text" 
+                            id="documents-search"
+                            placeholder="Search documents..." 
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus-ring-primary"
+                            oninput="filterDocuments()"
+                        >
+                    </div>
+                </div>
+                
+                <!-- Tab-style Filters -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <button id="doc-filter-all" class="tab-filter active px-4 py-2 rounded-full font-medium transition-colors" onclick="setDocumentsFilter('all')">
+                        All
+                    </button>
+                    <button id="doc-filter-signature" class="tab-filter px-4 py-2 rounded-full font-medium transition-colors" onclick="setDocumentsFilter('signature')">
+                        Signature Documents
+                    </button>
+                    <button id="doc-filter-upload" class="tab-filter px-4 py-2 rounded-full font-medium transition-colors" onclick="setDocumentsFilter('upload')">
+                        Upload Documents
+                    </button>
+                    <button id="doc-filter-attachments" class="tab-filter px-4 py-2 rounded-full font-medium transition-colors" onclick="setDocumentsFilter('attachments')">
+                        Attachments
+                    </button>
+                </div>
+            </div>
+
+            <!-- Documents Table -->
+            <div class="overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="border-b border-gray-200">
+                            <tr>
+                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortDocumentsTable('name')">
+                                    <div class="flex items-center gap-2">
+                                        Document Name
+                                        <i class="fas fa-sort text-sm text-gray-400"></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortDocumentsTable('linkedto')">
+                                    <div class="flex items-center gap-2">
+                                        Linked To
+                                        <i class="fas fa-sort text-sm text-gray-400"></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortDocumentsTable('category')">
+                                    <div class="flex items-center gap-2">
+                                        Category
+                                        <i class="fas fa-sort text-sm text-gray-400"></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortDocumentsTable('status')">
+                                    <div class="flex items-center gap-2">
+                                        Status
+                                        <i class="fas fa-sort text-sm text-gray-400"></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortDocumentsTable('modified')">
+                                    <div class="flex items-center gap-2">
+                                        Last Modified
+                                        <i class="fas fa-sort text-sm text-gray-400"></i>
+                                    </div>
+                                </th>
+                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider">
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="documents-tbody" class="bg-white divide-y divide-gray-200">
+                            
+                            <!-- SIGNATURE DOCUMENTS -->
+                            
+                            <!-- Lease Agreement (Completed) -->
+                            <tr class="hover:bg-gray-50" data-category="signature">
+                                <td class="px-6 py-4">
+                                    <a href="#" class="font-medium">Lease Agreement - Bluemoon 2101</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Melinda Michaels</div>
+                                    <div class="text-sm text-muted">Primary Resident</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Signature Document</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        <i class="fas fa-check w-3 h-3 mr-1"></i>
+                                        Signed
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm">Aug 29, 2025</div>
+                                    <div class="text-muted text-sm">CRMIQQA@yardi.com</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <span class="tooltip-text">View Document</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                            <span class="tooltip-text">Download</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-sync-alt"></i>
+                                            </button>
+                                            <span class="tooltip-text">Regenerate</span>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Guarantor Contract - Angela (Pending) -->
+                            <tr class="hover:bg-gray-50" data-category="signature">
+                                <td class="px-6 py-4">
+                                    <a href="#" class="font-medium">Guarantor Contract - Angela Johnson</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Angela Johnson</div>
+                                    <div class="text-sm text-muted">Roommate</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Signature Document</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-orange-100 text-orange-800">
+                                        <i class="fas fa-signature w-3 h-3 mr-1"></i>
+                                        Awaiting Signature
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-muted">
+                                    -
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button>
+                                            <span class="tooltip-text">Send for Signature</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <span class="tooltip-text">View</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-pen"></i>
+                                            </button>
+                                            <span class="tooltip-text">Edit</span>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Guarantor Contract - John (Pending) -->
+                            <tr class="hover:bg-gray-50" data-category="signature">
+                                <td class="px-6 py-4">
+                                    <a href="#" class="font-medium">Guarantor Contract - John Smith</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">John Smith</div>
+                                    <div class="text-sm text-muted">Roommate</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Signature Document</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-orange-100 text-orange-800">
+                                        <i class="fas fa-signature w-3 h-3 mr-1"></i>
+                                        Awaiting Signature
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-muted">
+                                    -
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button>
+                                            <span class="tooltip-text">Send for Signature</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <span class="tooltip-text">View</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-pen"></i>
+                                            </button>
+                                            <span class="tooltip-text">Edit</span>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- UPLOAD DOCUMENTS -->
+
+                            <!-- Pay Stub - Brent (Completed) -->
+                            <tr class="hover:bg-gray-50" data-category="upload">
+                                <td class="px-6 py-4">
+                                    <a href="#" class="font-medium">Pay Stub - November 2024</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Melinda Michaels</div>
+                                    <div class="text-sm text-muted">Primary Resident</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Upload Document</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        <i class="fas fa-check w-3 h-3 mr-1"></i>
+                                        Uploaded
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm">Nov 19, 2024</div>
+                                    <div class="text-muted text-sm">By Resident</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <span class="tooltip-text">View</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                            <span class="tooltip-text">Download</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-sync-alt"></i>
+                                            </button>
+                                            <span class="tooltip-text">Replace</span>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Employment Verification - Angela (Missing) -->
+                            <tr class="hover:bg-gray-50" data-category="upload">
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Employment Verification Letter</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Angela Johnson</div>
+                                    <div class="text-sm text-muted">Roommate</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Upload Document</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                                        <i class="fas fa-exclamation w-3 h-3 mr-1"></i>
+                                        Required
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-muted">
+                                    -
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-upload"></i>
+                                            </button>
+                                            <span class="tooltip-text">Request Upload</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-bell"></i>
+                                            </button>
+                                            <span class="tooltip-text">Send Reminder</span>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Bank Statement - John (Missing) -->
+                            <tr class="hover:bg-gray-50" data-category="upload">
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Bank Statement</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">John Smith</div>
+                                    <div class="text-sm text-muted">Roommate</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Upload Document</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                                        <i class="fas fa-exclamation w-3 h-3 mr-1"></i>
+                                        Required
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-muted">
+                                    -
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-upload"></i>
+                                            </button>
+                                            <span class="tooltip-text">Request Upload</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-bell"></i>
+                                            </button>
+                                            <span class="tooltip-text">Send Reminder</span>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- ID Copy - Brent (Completed) -->
+                            <tr class="hover:bg-gray-50" data-category="upload">
+                                <td class="px-6 py-4">
+                                    <a href="#" class="font-medium">Driver's License Copy</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Melinda Michaels</div>
+                                    <div class="text-sm text-muted">Primary Resident</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Upload Document</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        <i class="fas fa-check w-3 h-3 mr-1"></i>
+                                        Uploaded
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm">Aug 15, 2024</div>
+                                    <div class="text-muted text-sm">By Resident</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <span class="tooltip-text">View</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                            <span class="tooltip-text">Download</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-sync-alt"></i>
+                                            </button>
+                                            <span class="tooltip-text">Replace</span>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- ATTACHMENTS -->
+
+                            <!-- Insurance Certificate (Completed) -->
+                            <tr class="hover:bg-gray-50" data-category="attachments">
+                                <td class="px-6 py-4">
+                                    <a href="#" class="font-medium">Renter's Insurance Certificate</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">John Smith</div>
+                                    <div class="text-sm text-muted">Roommate</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Attachment</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                        <i class="fas fa-paperclip w-3 h-3 mr-1"></i>
+                                        Attached
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm">Oct 15, 2024</div>
+                                    <div class="text-muted text-sm">Property Manager</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <span class="tooltip-text">View</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                            <span class="tooltip-text">Download</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-user-tag"></i>
+                                            </button>
+                                            <span class="tooltip-text">Reassign</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                            <span class="tooltip-text">Delete</span>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Pet Documentation (Completed) -->
+                            <tr class="hover:bg-gray-50" data-category="attachments">
+                                <td class="px-6 py-4">
+                                    <a href="#" class="font-medium">Pet Vaccination Records</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Angela Johnson</div>
+                                    <div class="text-sm text-muted">Roommate</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Attachment</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                        <i class="fas fa-paperclip w-3 h-3 mr-1"></i>
+                                        Attached
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm">Sep 10, 2024</div>
+                                    <div class="text-muted text-sm">Property Manager</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <span class="tooltip-text">View</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                            <span class="tooltip-text">Download</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-user-tag"></i>
+                                            </button>
+                                            <span class="tooltip-text">Reassign</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                            <span class="tooltip-text">Delete</span>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Lease Addendum (Completed) -->
+                            <tr class="hover:bg-gray-50" data-category="attachments">
+                                <td class="px-6 py-4">
+                                    <a href="#" class="font-medium">Parking Agreement Addendum</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Melinda Michaels</div>
+                                    <div class="text-sm text-muted">Primary Resident</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="font-medium">Attachment</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                        <i class="fas fa-paperclip w-3 h-3 mr-1"></i>
+                                        Attached
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm">Aug 30, 2024</div>
+                                    <div class="text-muted text-sm">Property Manager</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <span class="tooltip-text">View</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                            <span class="tooltip-text">Download</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-user-tag"></i>
+                                            </button>
+                                            <span class="tooltip-text">Reassign</span>
+                                        </span>
+                                        <span class="tooltip-black">
+                                            <button class="btn btn-light">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                            <span class="tooltip-text">Delete</span>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Upload Zone -->
+            <div class="mt-6 bg-white rounded-lg border border-gray-200 p-6">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Select who this attachment is for <span class="text-red-500">*</span>
+                    </label>
+                    <select class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white">
+                        <option value="brent-biondi" selected>Melinda Michaels</option>
+                        <option value="angela-johnson">Angela Johnson</option>
+                        <option value="john-smith">John Smith</option>
+                    </select>
+                </div>
+                
+                <div class="border-2 border-dashed border-gray-300 hover:border-blue-400 transition-colors p-8 rounded-lg">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-cloud-upload-alt text-blue-600 text-xl"></i>
+                        </div>
+                        <p class="text-gray-700 mb-4">Drop files here to upload attachments or documents on behalf of residents.</p>
+                        <p class="text-muted text-sm mb-4">Files will be categorized as attachments and can be linked to specific residents.</p>
+                        
+                        <div class="mb-4">
+                            <span class="text-muted">or</span>
+                        </div>
+                        
+                        <!-- Upload Button -->
+                        <button class="btn btn-primary">
+                            <i class="fas fa-upload mr-2"></i>
+                            Select File
+                        </button>
+                        
+                        <!-- File Format Information -->
+                        <div class="mt-4 text-xs text-muted text-left">
+                            <strong>Max Size:</strong> 5MB<br>
+                            <strong>Valid files:</strong> PDF, Text(TXT, CSV, XML), Excel (XLS, XLSX, XLSB), Word(DOC, DOCX, RTF), Image(JPG, JPEG, TIF, BMP, GIF, PNG), Video (MP4, MPG, AVI), Other (ZIP, SWF, DWF, DWFX, SVG)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         </main>
@@ -3136,16 +3794,128 @@
     <div class="pageslide-overlay" id="roommate-details-overlay">
         <div class="pageslide roommate-details">
             <div class="pageslide-header">
+                <div>
                 <h2 class="pageslide-title">Roommate details</h2>
+                    <p class="text-sm text-muted mt-1">2 current roommates, 2 past roommates</p>
+                </div>
                 <button class="pageslide-close" onclick="closePageslide('roommate-details-overlay')">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             
             <div class="pageslide-content">
-                <div class="space-y-4">
+                <!-- Current Roommates Header -->
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-900">Current Roommates</h3>
+                    <button class="btn btn-link" onclick="toggleCurrentRoommatesExpanded()">
+                        <span id="current-roommates-toggle-text">More details</span>
+                        <i id="current-roommates-chevron" class="fas fa-chevron-down ml-1"></i>
+                    </button>
+                </div>
+                
+                <!-- Current Roommates (Collapsed - Show basic info) -->
+                <div id="current-roommates-summary" class="space-y-4">
                     
-                    <!-- Roommate #1 - Angela Johnson -->
+                    <!-- Roommate #1 - Angela Johnson (Collapsed) -->
+                    <div class="card hover-lift shadow-soft">
+                        <div class="card-content">
+                            <div class="flex items-start gap-3">
+                                <!-- Avatar -->
+                                <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class=" font-semibold">AJ</span>
+                                </div>
+
+                                <!-- Roommate Info -->
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between">
+                                        <div class="flex items-center gap-3">
+                                            <h2 class="text-md font-semibold">Angela Johnson</h2>
+                                            <span class="badge bg-amber-100 text-amber-800 text-sm px-2 py-1 rounded-full font-medium">
+                                                Application completed
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-muted mb-2">
+                                        <span>Preferred name: Ann Johnson</span><span class="text-muted">•</span><span>r112345</span>
+                                    </div>
+                                    
+                                    <!-- Contact Information -->
+                                    <div class="space-y-1 mb-3">
+                                        <div class="flex items-center gap-2">
+                                            <span class="">(555) 234-5678</span>
+                                            <i class="fas fa-phone text-link cursor-pointer" title="Call"></i>
+                                            <i class="fas fa-mobile-alt text-link cursor-pointer" title="Mobile"></i>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="">angela.johnson@email.com</span>
+                                            <i class="fas fa-envelope text-link cursor-pointer" title="Send email"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Action Buttons - Always Visible -->
+                                    <div class="flex gap-2 flex-wrap">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-envelope mr-1"></i>
+                                            Send invitation
+                                        </button>
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-file-alt mr-1"></i>
+                                            View application
+                                        </button>
+                                        <button class="btn btn-primary btn-sm">
+                                            <i class="fas fa-check mr-1"></i>
+                                            Approve
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Roommate #2 - John Smith (Collapsed) -->
+                    <div class="card hover-lift shadow-soft">
+                        <div class="card-content">
+                            <div class="flex items-start gap-3">
+                                <!-- Avatar -->
+                                <div class="w-10 h-10 bg-primary-light rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-blue-600 font-semibold">JS</span>
+                                </div>
+
+                                <!-- Roommate Info -->
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-start justify-between">
+                                        <div class="flex items-center gap-3">
+                                            <h2 class="text-md font-weight-bold">John Smith</h2>
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">Current</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center gap-2 text-muted mb-2">
+                                        <span>Preferred name: John Smith</span><span class="text-muted">•</span><span>r112345</span>
+                                    </div>
+                                    
+                                    <!-- Contact Information -->
+                                    <div class="space-y-1 mb-2">
+                                        <div class="flex items-center gap-2">
+                                            <span class="">(555) 345-6789</span>
+                                            <i class="fas fa-phone text-link cursor-pointer" title="Call"></i>
+                                            <i class="fas fa-mobile-alt text-link cursor-pointer" title="Mobile"></i>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="">john.smith@email.com</span>
+                                            <i class="fas fa-envelope text-link cursor-pointer" title="Send email"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Current Roommates (Expanded - Show all details) -->
+                <div id="current-roommates-expanded" class="space-y-4 hidden">
+                    
+                    <!-- Roommate #1 - Angela Johnson (Expanded) -->
                     <div class="card hover-lift shadow-soft">
                         <div class="card-content">
                             <div class="flex items-start gap-3">
@@ -3222,9 +3992,9 @@
                                    
 									
                                     <!-- RentCafe Registration Section -->
-                                    <div class="mt-4 pt-3 mb-4 pb-3 border-t border-b border-gray-100">
+                                    <div class="mt-4 pt-3 pb-3 border-t border-gray-100">
                                         <div class="flex items-center justify-between">
-                                            <span class="font-medium ">RentCafe registration</span>
+                                            <span class="font-medium ">Rentcafe registration</span>
                                             <div class="flex items-center space-x-3">
                                                 <div class="flex items-center space-x-2">
                                                     <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
@@ -3233,19 +4003,20 @@
                                             </div>
                                         </div>
                                     </div>
-
-									<div class="">
-										<button class="btn btn-light mr-2">
-                                            <i class="fas fa-email mr-1"></i>
+                                    
+                                    <!-- Action Buttons - Always Visible -->
+                                    <div class="flex gap-2 flex-wrap mt-3">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-envelope mr-1"></i>
                                             Send invitation
                                         </button>
-                                        <button class="btn btn-light mr-2">
+                                        <button class="btn btn-light btn-sm">
                                             <i class="fas fa-file-alt mr-1"></i>
-                                            View application form
+                                            View application
                                         </button>
-                                        <button class="btn btn-primary">
+                                        <button class="btn btn-primary btn-sm">
                                             <i class="fas fa-check mr-1"></i>
-                                            Approve application
+                                            Approve
                                         </button>
                                     </div>
                                 </div>
@@ -3253,7 +4024,7 @@
                         </div>
                     </div>
 
-                    <!-- Roommate #2 - John Smith -->
+                    <!-- Roommate #2 - John Smith (Expanded) -->
                     <div class="card hover-lift shadow-soft">
                         <div class="card-content">
                             <div class="flex items-start gap-3">
@@ -3328,10 +4099,10 @@
                                     </div>
 
 
-                                    <!-- RentCafe registration Section -->
+                                    <!-- Rentcafe registration Section -->
                                     <div class="mt-4 pt-3 mb-4 pb-3 border-t border-b border-gray-100">
                                         <div class="flex items-center justify-between">
-                                            <span class="font-medium ">RentCafe registration</span>
+                                            <span class="font-medium ">Rentcafe registration</span>
                                             <div class="flex items-center space-x-3">
                                                 <div class="flex items-center space-x-2">
                                                     <div class="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -3357,14 +4128,224 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Add Roommate Button -->
-                    <div class="add-pet-section">
-                        <button class="font-medium px-3 py-1" onclick="addNewRoommate()">
-                            <i class="fas fa-plus mr-2"></i>
-                            Add Roommate
-                        </button>
+                <!-- Add Roommate Button -->
+                <div class="add-pet-section mt-6 mb-4">
+                    <button class="font-medium px-3 py-1" onclick="addNewRoommate()">
+                        <i class="fas fa-plus mr-2"></i>
+                        Add roommate
+                    </button>
+                </div>
+
+                    <!-- Past Roommates Section -->
+                    <div class="mb-6 mt-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Past Roommates</h3>
+                            <button class="btn btn-link" onclick="togglePastRoommatesExpanded()">
+                                <span id="past-roommates-toggle-text">More details</span>
+                                <i id="past-roommates-chevron" class="fas fa-chevron-down ml-1"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Past Roommate List (Collapsed - Show only recent) -->
+                        <div id="past-roommates-summary" class="space-y-4">
+                            <div class="card hover-lift shadow-soft opacity-75">
+                                <div class="card-content">
+                                    <div class="flex items-start gap-3">
+                                        <!-- Avatar -->
+                                        <div class="w-10 h-10 bg-gray-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-white font-semibold">SM</span>
+                                        </div>
+
+                                        <!-- Past Roommate Info -->
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex items-start justify-between">
+                                                <div class="flex items-center gap-3">
+                                                    <h2 class="text-md font-weight-bold">Sarah Martinez</h2>
+                                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                                                        Moved Out Aug 2025
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-2 text-muted mb-2">
+                                                <span>Duration: 6 months</span><span class="text-muted">•</span><span>Former lessee</span>
+                                            </div>
+                                            
+                                            <!-- Contact Information -->
+                                            <div class="space-y-1 mb-2">
+                                                <div class="flex items-center gap-2">
+                                                    <span class="text-gray-600">(555) 123-9876</span>
+                                                    <i class="fas fa-phone text-gray-400 cursor-pointer" title="Call"></i>
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <span class="text-gray-600">sarah.martinez@email.com</span>
+                                                    <i class="fas fa-envelope text-gray-400 cursor-pointer" title="Send email"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card hover-lift shadow-soft opacity-75">
+                                <div class="card-content">
+                                    <div class="flex items-start gap-3">
+                                        <!-- Avatar -->
+                                        <div class="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-white font-semibold">DL</span>
+                                        </div>
+
+                                        <!-- Past Roommate Info -->
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex items-start justify-between">
+                                                <div class="flex items-center gap-3">
+                                                    <h2 class="text-md font-weight-bold">David Lee</h2>
+                                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                                                        Moved Out Feb 2025
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-2 text-muted mb-2">
+                                                <span>Duration: 1 year 2 months</span><span class="text-muted">•</span><span>Former lessee</span>
+                                            </div>
+                                            
+                                            <!-- Contact Information -->
+                                            <div class="space-y-1 mb-2">
+                                                <div class="flex items-center gap-2">
+                                                    <span class="text-gray-600">(555) 987-2341</span>
+                                                    <i class="fas fa-phone text-gray-400 cursor-pointer" title="Call"></i>
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <span class="text-gray-600">david.lee@email.com</span>
+                                                    <i class="fas fa-envelope text-gray-400 cursor-pointer" title="Send email"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Past Roommate List (Expanded - Show all) -->
+                        <div id="past-roommates-expanded" class="space-y-4 hidden">
+                            <div class="card hover-lift shadow-soft opacity-75">
+                                <div class="card-content">
+                                    <div class="flex items-start gap-3">
+                                        <!-- Avatar -->
+                                        <div class="w-10 h-10 bg-gray-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-white font-semibold">SM</span>
+                                        </div>
+
+                                        <!-- Past Roommate Info -->
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex items-start justify-between">
+                                                <div class="flex items-center gap-3">
+                                                    <h2 class="text-md font-weight-bold">Sarah Martinez</h2>
+                                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                                                        Moved Out Aug 2025
+                                                    </span>
+                                                </div>
+                                                <button class="btn btn-light btn-sm">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-2 text-muted mb-2">
+                                                <span>Duration: 6 months</span><span class="text-muted">•</span><span>Former lessee</span><span class="text-muted">•</span><span>r445566</span>
+                                            </div>
+                                            
+                                            <!-- Contact Information -->
+                                            <div class="space-y-1 mb-2">
+                                                <div class="flex items-center gap-2">
+                                                    <span class="text-gray-600">(555) 123-9876</span>
+                                                    <i class="fas fa-phone text-gray-400 cursor-pointer" title="Call"></i>
+                                                    <i class="fas fa-mobile-alt text-gray-400 cursor-pointer" title="Mobile"></i>
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <span class="text-gray-600">sarah.martinez@email.com</span>
+                                                    <i class="fas fa-envelope text-gray-400 cursor-pointer" title="Send email"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Move-out details -->
+                                            <div class="mt-3 pt-3 border-t border-gray-100">
+                                                <div class="flex items-center gap-2 mb-2">
+                                                    <i class="fas fa-calendar-alt text-muted"></i>
+                                                    <span class="font-medium">Move-out details</span>
+                                                </div>
+                                                <div class="text-sm text-muted">
+                                                    <div>Move-out date: August 15, 2025</div>
+                                                    <div>Reason: Lease ended - Not renewed</div>
+                                                    <div>Deposit returned: Yes ($500.00)</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card hover-lift shadow-soft opacity-75">
+                                <div class="card-content">
+                                    <div class="flex items-start gap-3">
+                                        <!-- Avatar -->
+                                        <div class="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <span class="text-white font-semibold">DL</span>
+                                        </div>
+
+                                        <!-- Past Roommate Info -->
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex items-start justify-between">
+                                                <div class="flex items-center gap-3">
+                                                    <h2 class="text-md font-weight-bold">David Lee</h2>
+                                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                                                        Moved Out Feb 2025
+                                                    </span>
+                                                </div>
+                                                <button class="btn btn-light btn-sm">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-2 text-muted mb-2">
+                                                <span>Duration: 1 year 2 months</span><span class="text-muted">•</span><span>Former lessee</span><span class="text-muted">•</span><span>r334455</span>
+                                            </div>
+                                            
+                                            <!-- Contact Information -->
+                                            <div class="space-y-1 mb-2">
+                                                <div class="flex items-center gap-2">
+                                                    <span class="text-gray-600">(555) 987-2341</span>
+                                                    <i class="fas fa-phone text-gray-400 cursor-pointer" title="Call"></i>
+                                                    <i class="fas fa-mobile-alt text-gray-400 cursor-pointer" title="Mobile"></i>
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <span class="text-gray-600">david.lee@email.com</span>
+                                                    <i class="fas fa-envelope text-gray-400 cursor-pointer" title="Send email"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Move-out details -->
+                                            <div class="mt-3 pt-3 border-t border-gray-100">
+                                                <div class="flex items-center gap-2 mb-2">
+                                                    <i class="fas fa-calendar-alt text-muted"></i>
+                                                    <span class="font-medium">Move-out details</span>
+                                                </div>
+                                                <div class="text-sm text-muted">
+                                                    <div>Move-out date: February 28, 2025</div>
+                                                    <div>Reason: Job relocation</div>
+                                                    <div>Deposit returned: Yes ($750.00)</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+
 
                 </div>
             </div>
@@ -3456,7 +4437,7 @@
                                         <i class="fas fa-pen"></i>
                                 </button>
                                     <button class="btn btn-light btn-sm" onclick="deletePet('Blue')">
-                                        <i class="fas fa-trash-alt"></i>
+                                        <i class="fas fa-trash-alt-alt"></i>
                                 </button>
                                 </div>
                             </div>
@@ -3492,7 +4473,7 @@
                                         <i class="fas fa-pen"></i>
                                 </button>
                                     <button class="btn btn-light btn-sm" onclick="deletePet('Whiskers')">
-                                        <i class="fas fa-trash-alt"></i>
+                                        <i class="fas fa-trash-alt-alt"></i>
                                 </button>
                                 </div>
                             </div>
@@ -3554,7 +4535,7 @@
                                         <i class="fas fa-pen"></i>
                                 </button>
                                     <button class="btn btn-light btn-sm" onclick="deleteVehicle('2019 Honda Civic')">
-                                        <i class="fas fa-trash-alt"></i>
+                                        <i class="fas fa-trash-alt-alt"></i>
                                 </button>
                                 </div>
                             </div>
@@ -3590,7 +4571,7 @@
                                         <i class="fas fa-pen"></i>
                                 </button>
                                     <button class="btn btn-light btn-sm" onclick="deleteVehicle('2021 Toyota RAV4')">
-                                        <i class="fas fa-trash-alt"></i>
+                                        <i class="fas fa-trash-alt-alt"></i>
                                 </button>
                                 </div>
                             </div>
@@ -4074,6 +5055,54 @@
             alert('Create Lease Proposal:\n\n• Review current lease terms\n• Check market rent rates\n• Generate renewal proposal\n• Calculate new rent amount\n• Prepare proposal documents\n• Schedule tenant meeting');
         }
         
+        // Toggle Past Roommates expanded view - Global function
+        function togglePastRoommatesExpanded() {
+            const summaryView = document.getElementById('past-roommates-summary');
+            const expandedView = document.getElementById('past-roommates-expanded');
+            const toggleText = document.getElementById('past-roommates-toggle-text');
+            const chevron = document.getElementById('past-roommates-chevron');
+            
+            if (expandedView.classList.contains('hidden')) {
+                // Expanding: show expanded view, hide summary
+                expandedView.classList.remove('hidden');
+                summaryView.classList.add('hidden');
+                toggleText.textContent = 'Less details';
+                chevron.classList.remove('fa-chevron-down');
+                chevron.classList.add('fa-chevron-up');
+            } else {
+                // Collapsing: hide expanded view, show summary
+                expandedView.classList.add('hidden');
+                summaryView.classList.remove('hidden');
+                toggleText.textContent = 'More details';
+                chevron.classList.remove('fa-chevron-up');
+                chevron.classList.add('fa-chevron-down');
+            }
+        }
+        
+        // Toggle Current Roommates expanded view - Global function
+        function toggleCurrentRoommatesExpanded() {
+            const summaryView = document.getElementById('current-roommates-summary');
+            const expandedView = document.getElementById('current-roommates-expanded');
+            const toggleText = document.getElementById('current-roommates-toggle-text');
+            const chevron = document.getElementById('current-roommates-chevron');
+            
+            if (expandedView.classList.contains('hidden')) {
+                // Expanding: show expanded view with emergency contacts and RentCafe details
+                expandedView.classList.remove('hidden');
+                summaryView.classList.add('hidden');
+                toggleText.textContent = 'Less details';
+                chevron.classList.remove('fa-chevron-down');
+                chevron.classList.add('fa-chevron-up');
+            } else {
+                // Collapsing: hide expanded view, show basic summary
+                expandedView.classList.add('hidden');
+                summaryView.classList.remove('hidden');
+                toggleText.textContent = 'More details';
+                chevron.classList.remove('fa-chevron-up');
+                chevron.classList.add('fa-chevron-down');
+            }
+        }
+        
         // Handle View All Activities button - Global function
         function viewAllActivities() {
             alert('View All Activities:\n\n• Load complete activity timeline\n• Filter by activity type\n• Search specific dates or events\n• Export activity reports\n• View detailed communication history');
@@ -4193,26 +5222,651 @@
             const menu = document.getElementById('activity-add-menu');
             if (menu) menu.classList.add('hidden');
             
-            // Handle different activity types
+            // Show appropriate modal based on activity type
             switch(type) {
                 case 'comment':
-                    alert('Add Comment:\n\n• Add a comment to the activity timeline\n• Include relevant details and context\n• Tag team members if needed\n• Save for future reference');
+                    showActivityModal('comment');
                     break;
                 case 'follow-up':
-                    alert('Add Follow-up:\n\n• Schedule a follow-up task\n• Set due date and priority\n• Add follow-up details\n• Assign to team member\n• Link to previous activities');
+                    showActivityModal('follow-up');
                     break;
                 case 'appointment':
-                    alert('Add Appointment:\n\n• Schedule an appointment\n• Set date and time\n• Add location details\n• Send calendar invites\n• Add appointment notes');
+                    showActivityModal('appointment');
                     break;
                 case 'log':
-                    alert('Log Activity:\n\n• Record completed activity\n• Document what was done\n• Add outcome and results\n• Set completion status\n• Link to related records');
+                    showActivityModal('log');
                     break;
                 case 'memo':
-                    alert('Add Memo:\n\n• Create internal memo\n• Document important information\n• Add memo subject and content\n• Tag relevant departments\n• Set memo priority');
+                    showActivityModal('memo');
                     break;
                 default:
                     alert('Unknown activity type selected');
             }
+        }
+        
+        // Show activity modal based on type
+        function showActivityModal(type) {
+            // Remove any existing modal
+            const existingModal = document.getElementById('activity-modal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+            
+            // Create modal HTML based on type
+            let modalContent = '';
+            let modalTitle = '';
+            let activityIcon = '';
+            
+            switch(type) {
+                case 'comment':
+                    modalTitle = 'Add Comment';
+                    activityIcon = 'fas fa-comment';
+                    modalContent = `
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Comment</label>
+                            <textarea id="activity-content" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" rows="4" placeholder="Enter your comment..."></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Priority</label>
+                            <select id="activity-priority" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="normal">Normal</option>
+                                <option value="high">High</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
+                        </div>
+                    `;
+                    break;
+                case 'follow-up':
+                    modalTitle = 'Add Follow-up';
+                    activityIcon = 'fas fa-user-clock';
+                    modalContent = `
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Follow-up Task</label>
+                            <input type="text" id="activity-title" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter follow-up task...">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Due Date</label>
+                            <input type="datetime-local" id="activity-due-date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                            <textarea id="activity-content" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" rows="3" placeholder="Enter follow-up details..."></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Priority</label>
+                            <select id="activity-priority" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="normal">Normal</option>
+                                <option value="high">High</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
+                        </div>
+                    `;
+                    break;
+                case 'appointment':
+                    modalTitle = 'Schedule Appointment';
+                    activityIcon = 'fas fa-calendar-check';
+                    modalContent = `
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Appointment Title</label>
+                            <input type="text" id="activity-title" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter appointment title...">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Date & Time</label>
+                                <input type="datetime-local" id="activity-due-date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Duration</label>
+                                <select id="activity-duration" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="15">15 minutes</option>
+                                    <option value="30">30 minutes</option>
+                                    <option value="60" selected>1 hour</option>
+                                    <option value="90">1.5 hours</option>
+                                    <option value="120">2 hours</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                            <input type="text" id="activity-location" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter location...">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Notes</label>
+                            <textarea id="activity-content" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" rows="3" placeholder="Enter appointment notes..."></textarea>
+                        </div>
+                    `;
+                    break;
+                case 'log':
+                    modalTitle = 'Log Activity';
+                    activityIcon = 'fas fa-clipboard-list';
+                    modalContent = `
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Activity Type</label>
+                            <select id="activity-log-type" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="phone-call">Phone Call</option>
+                                <option value="email-sent">Email Sent</option>
+                                <option value="meeting">Meeting</option>
+                                <option value="property-visit">Property Visit</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Activity Title</label>
+                            <input type="text" id="activity-title" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter activity title...">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                            <textarea id="activity-content" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" rows="4" placeholder="Describe what was done..."></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Outcome</label>
+                            <select id="activity-outcome" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="successful">Successful</option>
+                                <option value="needs-follow-up">Needs Follow-up</option>
+                                <option value="incomplete">Incomplete</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    `;
+                    break;
+                case 'memo':
+                    modalTitle = 'Add Memo';
+                    activityIcon = 'fas fa-sticky-note';
+                    modalContent = `
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="activity-title" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter memo subject...">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Content</label>
+                            <textarea id="activity-content" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" rows="5" placeholder="Enter memo content..."></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                            <select id="activity-category" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="general">General</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="financial">Financial</option>
+                                <option value="lease">Lease</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="emergency">Emergency</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Priority</label>
+                            <select id="activity-priority" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="normal">Normal</option>
+                                <option value="high">High</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            // Create modal
+            const modal = document.createElement('div');
+            modal.id = 'activity-modal';
+            modal.innerHTML = `
+                <div class="bg-white rounded-lg shadow-xl w-full max-w-md mx-4 max-h-[90vh] overflow-y-auto">
+                    <div class="flex items-center justify-between p-6 border-b">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                <i class="${activityIcon} text-blue-600"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900">${modalTitle}</h3>
+                        </div>
+                        <button onclick="closeActivityModal()" class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        ${modalContent}
+                        <div class="flex justify-end gap-3 mt-6">
+                            <button onclick="closeActivityModal()" class="px-4 py-2 text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+                                Cancel
+                            </button>
+                            <button onclick="saveActivity('${type}')" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                Save ${modalTitle}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add to body
+            document.body.appendChild(modal);
+            
+            // Focus first input
+            setTimeout(() => {
+                const firstInput = modal.querySelector('input, textarea');
+                if (firstInput) firstInput.focus();
+            }, 100);
+        }
+        
+        // Close activity modal
+        function closeActivityModal() {
+            const modal = document.getElementById('activity-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+        
+        // Validate activity form
+        function validateActivityForm(type, data) {
+            const errors = [];
+            
+            // Required field validation based on activity type
+            switch(type) {
+                case 'comment':
+                    if (!data.content.trim()) {
+                        errors.push({
+                            field: 'activity-content',
+                            message: 'Comment content is required.'
+                        });
+                    }
+                    break;
+                    
+                case 'follow-up':
+                    if (!data.title.trim()) {
+                        errors.push({
+                            field: 'activity-title',
+                            message: 'Follow-up task is required.'
+                        });
+                    }
+                    // Validate due date if provided
+                    if (data.dueDate) {
+                        const dueDateTime = new Date(data.dueDate);
+                        const now = new Date();
+                        if (dueDateTime <= now) {
+                            errors.push({
+                                field: 'activity-due-date',
+                                message: 'Due date must be in the future.'
+                            });
+                        }
+                    }
+                    break;
+                    
+                case 'appointment':
+                    if (!data.title.trim()) {
+                        errors.push({
+                            field: 'activity-title',
+                            message: 'Appointment title is required.'
+                        });
+                    }
+                    if (!data.dueDate) {
+                        errors.push({
+                            field: 'activity-due-date',
+                            message: 'Appointment date and time is required.'
+                        });
+                    } else {
+                        const appointmentDateTime = new Date(data.dueDate);
+                        const now = new Date();
+                        if (appointmentDateTime <= now) {
+                            errors.push({
+                                field: 'activity-due-date',
+                                message: 'Appointment must be scheduled for a future date.'
+                            });
+                        }
+                    }
+                    break;
+                    
+                case 'log':
+                    if (!data.title.trim()) {
+                        errors.push({
+                            field: 'activity-title',
+                            message: 'Activity title is required.'
+                        });
+                    }
+                    break;
+                    
+                case 'memo':
+                    if (!data.title.trim()) {
+                        errors.push({
+                            field: 'activity-title',
+                            message: 'Memo subject is required.'
+                        });
+                    }
+                    if (!data.content.trim()) {
+                        errors.push({
+                            field: 'activity-content',
+                            message: 'Memo content is required.'
+                        });
+                    }
+                    break;
+            }
+            
+            // General validations
+            if (data.title && data.title.length > 100) {
+                errors.push({
+                    field: 'activity-title',
+                    message: 'Title must be less than 100 characters.'
+                });
+            }
+            
+            if (data.content && data.content.length > 500) {
+                errors.push({
+                    field: 'activity-content',
+                    message: 'Content must be less than 500 characters.'
+                });
+            }
+            
+            return errors;
+        }
+        
+        // Clear validation errors
+        function clearValidationErrors() {
+            const modal = document.getElementById('activity-modal');
+            if (!modal) return;
+            
+            // Remove error classes and messages
+            const errorElements = modal.querySelectorAll('.error');
+            errorElements.forEach(element => {
+                element.classList.remove('error');
+                element.style.borderColor = '';
+            });
+            
+            const errorMessages = modal.querySelectorAll('.error-message');
+            errorMessages.forEach(msg => msg.remove());
+            
+            // Remove error alert if exists
+            const errorAlert = modal.querySelector('.error-alert');
+            if (errorAlert) errorAlert.remove();
+        }
+        
+        // Display validation errors
+        function displayValidationErrors(errors) {
+            const modal = document.getElementById('activity-modal');
+            if (!modal) return;
+            
+            // Add error styling to fields
+            errors.forEach(error => {
+                const field = document.getElementById(error.field);
+                if (field) {
+                    field.classList.add('error');
+                    field.style.borderColor = '#ef4444';
+                    
+                    // Add error message below field
+                    const errorMessage = document.createElement('div');
+                    errorMessage.className = 'error-message text-sm text-red-600 mt-1';
+                    errorMessage.textContent = error.message;
+                    
+                    // Insert after the field
+                    field.parentNode.insertBefore(errorMessage, field.nextSibling);
+                }
+            });
+            
+            // Add general error alert at top of modal
+            const modalContent = modal.querySelector('.p-6');
+            const errorAlert = document.createElement('div');
+            errorAlert.className = 'error-alert bg-red-50 border border-red-200 rounded-lg p-3 mb-4';
+            errorAlert.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                    <div>
+                        <span class="text-red-800 font-medium">Please correct the following errors:</span>
+                        <ul class="text-red-700 text-sm mt-1 ml-4">
+                            ${errors.map(error => `<li>• ${error.message}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+            
+            modalContent.insertBefore(errorAlert, modalContent.firstChild);
+            
+            // Focus on first error field
+            const firstErrorField = document.getElementById(errors[0].field);
+            if (firstErrorField) {
+                firstErrorField.focus();
+            }
+        }
+        
+        // Save new activity
+        function saveActivity(type) {
+            // Clear any previous error states
+            clearValidationErrors();
+            
+            // Get form values
+            const title = document.getElementById('activity-title')?.value || '';
+            const content = document.getElementById('activity-content')?.value || '';
+            const priority = document.getElementById('activity-priority')?.value || 'normal';
+            const dueDate = document.getElementById('activity-due-date')?.value || '';
+            const duration = document.getElementById('activity-duration')?.value || '';
+            const location = document.getElementById('activity-location')?.value || '';
+            const logType = document.getElementById('activity-log-type')?.value || '';
+            const outcome = document.getElementById('activity-outcome')?.value || '';
+            const category = document.getElementById('activity-category')?.value || '';
+            
+            // Validate fields and collect errors
+            const errors = validateActivityForm(type, {
+                title, content, dueDate, location
+            });
+            
+            if (errors.length > 0) {
+                displayValidationErrors(errors);
+                return;
+            }
+            
+            // Create new activity object
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { 
+                hour: 'numeric', 
+                minute: '2-digit',
+                timeZoneName: 'short'
+            });
+            
+            // Insert new activity into timeline
+            insertNewActivity(type, {
+                title,
+                content,
+                priority,
+                dueDate,
+                duration,
+                location,
+                logType,
+                outcome,
+                category,
+                timeString,
+                timestamp: now
+            });
+            
+            // Close modal
+            closeActivityModal();
+        }
+        
+        // Insert new activity into timeline
+        function insertNewActivity(type, data) {
+            const today = new Date();
+            const todayString = today.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+            
+            // Get or create today's section
+            let todaySection = null;
+            const activitySections = document.querySelectorAll('.activity-section');
+            
+            // Check if today's section already exists
+            activitySections.forEach(section => {
+                const header = section.querySelector('.activity-date-header span');
+                if (header && header.textContent.includes(today.getDate() + ', ' + today.getFullYear())) {
+                    todaySection = section;
+                }
+            });
+            
+            // Create today's section if it doesn't exist
+            if (!todaySection) {
+                todaySection = document.createElement('div');
+                todaySection.className = 'activity-section';
+                todaySection.innerHTML = `
+                    <div class="activity-date-header">
+                        <i class="fas fa-circle text-primary text-sm mr-2"></i>
+                        <span class="font-semibold">Today: ${todayString.replace(/^\w+: /, '')}</span>
+                    </div>
+                `;
+                
+                // Insert at the beginning of timeline container
+                const timelineContainer = document.getElementById('activity-timeline-container');
+                if (timelineContainer.firstElementChild) {
+                    timelineContainer.insertBefore(todaySection, timelineContainer.firstElementChild);
+                } else {
+                    timelineContainer.appendChild(todaySection);
+                }
+            }
+            
+            // Determine activity details based on type
+            let activityHTML = '';
+            let activityIcon = '';
+            let activityTypeText = '';
+            let activityFilter = 'communications';
+            let communicationType = 'comment-memo';
+            let activityDescription = '';
+            
+            switch(type) {
+                case 'comment':
+                    activityIcon = 'fas fa-comment text-primary';
+                    activityTypeText = 'Comment: Added';
+                    activityDescription = data.content;
+                    communicationType = 'comment-memo';
+                    break;
+                case 'follow-up':
+                    activityIcon = 'fas fa-user-clock text-primary';
+                    activityTypeText = 'Follow-Up: Created';
+                    activityDescription = data.title + (data.content ? ' - ' + data.content : '');
+                    communicationType = 'follow-up';
+                    if (data.dueDate) {
+                        const dueDate = new Date(data.dueDate);
+                        activityDescription += ` (Due: ${dueDate.toLocaleDateString()})`;
+                    }
+                    break;
+                case 'appointment':
+                    activityIcon = 'fas fa-calendar-check text-primary';
+                    activityTypeText = 'Appointment: Scheduled';
+                    activityDescription = data.title;
+                    communicationType = 'appointment';
+                    if (data.dueDate) {
+                        const aptDate = new Date(data.dueDate);
+                        activityDescription += ` (${aptDate.toLocaleDateString()} ${aptDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})})`;
+                    }
+                    if (data.location) {
+                        activityDescription += ` at ${data.location}`;
+                    }
+                    break;
+                case 'log':
+                    activityIcon = 'fas fa-clipboard-list text-primary';
+                    activityTypeText = `Activity: ${data.logType?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Logged'}`;
+                    activityDescription = data.title + (data.content ? ' - ' + data.content : '');
+                    communicationType = 'comment-memo';
+                    break;
+                case 'memo':
+                    activityIcon = 'fas fa-sticky-note text-primary';
+                    activityTypeText = 'Memo: Added';
+                    activityDescription = data.title + (data.content ? ' - ' + data.content : '');
+                    communicationType = 'comment-memo';
+                    break;
+            }
+            
+            // Create the activity HTML
+            activityHTML = `
+                <div class="activity-item new-activity" data-filter="${activityFilter}" data-communication-type="${communicationType}" data-time="recent" data-activity-type="user" style="opacity: 0; transform: translateY(-10px);">
+                    <div class="activity-icon bg-primary-light">
+                        <i class="${activityIcon}"></i>
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-header">
+                            <span class="activity-type">${activityTypeText}</span>
+                            <span class="activity-time">${data.timeString}</span>
+                        </div>
+                        <p class="activity-description">${activityDescription}</p>
+                        <div class="activity-meta">
+                            <span class="text-sm text-muted">by Current User</span>
+                            ${data.priority && data.priority !== 'normal' ? `<span class="text-sm text-muted"> • ${data.priority.charAt(0).toUpperCase() + data.priority.slice(1)} Priority</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Insert the activity at the beginning of today's section (after the date header)
+            const dateHeader = todaySection.querySelector('.activity-date-header');
+            if (dateHeader.nextElementSibling) {
+                dateHeader.insertAdjacentHTML('afterend', activityHTML);
+            } else {
+                todaySection.insertAdjacentHTML('beforeend', activityHTML);
+            }
+            
+            // Get the newly added activity element for animation
+            const newActivity = todaySection.querySelector('.new-activity');
+            
+            // Animate the new activity
+            setTimeout(() => {
+                newActivity.style.opacity = '1';
+                newActivity.style.transform = 'translateY(0)';
+                newActivity.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                newActivity.classList.remove('new-activity');
+            }, 50);
+            
+            // Apply current filters to ensure visibility
+            setTimeout(() => {
+                applyFiltersToItem(newActivity);
+                
+                // Show success notification
+                showNotification(`${activityTypeText.split(':')[0]} added successfully!`, 'success');
+            }, 100);
+            
+            // Save to local storage for persistence
+            saveActivityToStorage(type, data);
+        }
+        
+        // Save activity to local storage
+        function saveActivityToStorage(type, data) {
+            try {
+                let activities = JSON.parse(localStorage.getItem('resident-activities') || '[]');
+                activities.unshift({
+                    id: Date.now(),
+                    type: type,
+                    data: data,
+                    timestamp: new Date().toISOString()
+                });
+                
+                // Keep only last 100 activities
+                activities = activities.slice(0, 100);
+                
+                localStorage.setItem('resident-activities', JSON.stringify(activities));
+            } catch (e) {
+                console.warn('Could not save activity to local storage:', e);
+            }
+        }
+        
+        // Show notification
+        function showNotification(message, type = 'info') {
+            // Remove existing notification
+            const existing = document.getElementById('activity-notification');
+            if (existing) existing.remove();
+            
+            const notification = document.createElement('div');
+            notification.id = 'activity-notification';
+            notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300 transform translate-x-0 ${
+                type === 'success' ? 'bg-green-500 text-white' : 
+                type === 'error' ? 'bg-red-500 text-white' : 
+                'bg-blue-500 text-white'
+            }`;
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-triangle' : 'info-circle'} mr-2"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto-remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
         }
         
         // Track progressive loading
@@ -5340,25 +6994,31 @@
         function toggleView(viewName) {
             const overviewView = document.getElementById('overview-view');
             const ledgerView = document.getElementById('ledger-view');
+            const documentsView = document.getElementById('documents-view');
             const overviewMenu = document.getElementById('overview-menu');
             const ledgerMenu = document.getElementById('ledger-menu');
+            const documentsMenu = document.getElementById('documents-menu');
             
+            // Hide all views
+            overviewView.style.display = 'none';
+            ledgerView.style.display = 'none';
+            documentsView.style.display = 'none';
+            
+            // Remove active state from all menus
+            overviewMenu.classList.remove('active');
+            ledgerMenu.classList.remove('active');
+            documentsMenu.classList.remove('active');
+            
+            // Show selected view and activate corresponding menu
             if (viewName === 'overview') {
-                // Show overview, hide ledger
                 overviewView.style.display = 'block';
-                ledgerView.style.display = 'none';
-                
-                // Update menu states
                 overviewMenu.classList.add('active');
-                ledgerMenu.classList.remove('active');
             } else if (viewName === 'ledger') {
-                // Show ledger, hide overview
-                overviewView.style.display = 'none';
                 ledgerView.style.display = 'block';
-                
-                // Update menu states
-                overviewMenu.classList.remove('active');
                 ledgerMenu.classList.add('active');
+            } else if (viewName === 'documents') {
+                documentsView.style.display = 'block';
+                documentsMenu.classList.add('active');
             }
         }
         
@@ -5666,9 +7326,9 @@
             const icon = document.querySelectorAll('#ledger-view th')[columnIndex].querySelector('i');
             
             if (direction === 'asc') {
-                icon.className = 'fas fa-sort-up text-sm text-blue-600';
+                icon.className = 'fas fa-sort-up text-sm text-primary';
             } else {
-                icon.className = 'fas fa-sort-down text-sm text-blue-600';
+                icon.className = 'fas fa-sort-down text-sm text-primary';
             }
         }
         
@@ -5854,8 +7514,112 @@
             });
         }
         
-        // Basic interactivity for the CRM interface
+        // Initialize activity timeline features
+        function initializeActivityTimeline() {
+            // Add character counters to textareas and inputs
+            document.addEventListener('input', function(e) {
+                if (e.target.matches('#activity-modal textarea, #activity-modal input[type="text"]')) {
+                    updateCharacterCount(e.target);
+                }
+            });
+            
+            // Real-time validation as user types
+            document.addEventListener('input', function(e) {
+                if (e.target.closest('#activity-modal')) {
+                    debounce(clearFieldError, 300)(e.target);
+                }
+            });
+            
+            console.log('Activity timeline initialized successfully');
+        }
+        
+        // Update character count for form fields
+        function updateCharacterCount(field) {
+            const maxLength = field.id === 'activity-title' ? 100 : 500;
+            const currentLength = field.value.length;
+            
+            // Remove existing counter
+            const existingCounter = field.parentNode.querySelector('.char-counter');
+            if (existingCounter) existingCounter.remove();
+            
+            // Add character counter
+            const counter = document.createElement('div');
+            counter.className = 'char-counter text-xs text-gray-500 mt-1 text-right';
+            counter.textContent = `${currentLength}/${maxLength}`;
+            
+            // Color coding
+            if (currentLength > maxLength * 0.8) {
+                counter.className = 'char-counter text-xs text-orange-500 mt-1 text-right';
+            }
+            if (currentLength >= maxLength) {
+                counter.className = 'char-counter text-xs text-red-500 mt-1 text-right';
+            }
+            
+            field.parentNode.appendChild(counter);
+        }
+        
+        // Clear field error state
+        function clearFieldError(field) {
+            field.classList.remove('error');
+            field.style.borderColor = '';
+            
+            // Remove field-specific error message
+            const errorMessage = field.parentNode.querySelector('.error-message');
+            if (errorMessage) errorMessage.remove();
+        }
+        
+        // Debounce utility
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Initialize page functionality
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize activity timeline features
+            initializeActivityTimeline();
+            
+            // Load saved activities from local storage
+            // loadSavedActivities(); // Commented out to avoid duplicating existing activities on page reload
+            
+            // Keyboard shortcuts for modals
+            document.addEventListener('keydown', function(e) {
+                const modal = document.getElementById('activity-modal');
+                if (modal) {
+                    if (e.key === 'Escape') {
+                        closeActivityModal();
+                    }
+                    // Ctrl/Cmd + Enter to save
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                        const saveBtn = modal.querySelector('button[onclick*="saveActivity"]');
+                        if (saveBtn) saveBtn.click();
+                    }
+                }
+            });
+            
+            // Close modal when clicking outside
+            document.addEventListener('click', function(e) {
+                const modal = document.getElementById('activity-modal');
+                if (modal && e.target === modal) {
+                    closeActivityModal();
+                }
+                
+                // Close activity add menu when clicking outside
+                const addMenu = document.getElementById('activity-add-menu');
+                const addBtn = document.getElementById('activity-add-btn');
+                if (addMenu && !addMenu.classList.contains('hidden') && 
+                    !addMenu.contains(e.target) && !addBtn.contains(e.target)) {
+                    addMenu.classList.add('hidden');
+                }
+            });
+        
             // Kebab menu functionality for both Resident and Lease cards
             function setupKebabMenu(btnId, dropdownId, dropdownWidth = 180) {
                 const kebabBtn = document.getElementById(btnId);
@@ -7151,6 +8915,213 @@
             // Start observing content changes
             // observeContentChanges(); // Temporarily disabled
 
+        });
+
+        // Documents page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add Documents button handler
+            const addDocumentsBtn = document.querySelector('#documents-view .btn-primary');
+            if (addDocumentsBtn) {
+                addDocumentsBtn.addEventListener('click', function() {
+                    alert('Add Documents:\n\n• Upload new files\n• Generate from templates\n• Create signature requests\n• Bulk document operations\n• Set document categories and assignees');
+                });
+            }
+
+            // Upload zone functionality
+            const selectFilesBtn = document.querySelector('#documents-view .btn-primary:contains("Select Files")');
+            const generateTemplateBtn = document.querySelector('#documents-view .btn:contains("Generate From Template")');
+            
+            // Handle file selection
+            document.querySelectorAll('#documents-view .btn').forEach(btn => {
+                if (btn.textContent.includes('Select Files')) {
+                    btn.addEventListener('click', function() {
+                        alert('File Upload:\n\n• Choose files to upload\n• Drag and drop support\n• Auto-categorization\n• Batch processing\n• File validation');
+                    });
+                } else if (btn.textContent.includes('Generate From Template')) {
+                    btn.addEventListener('click', function() {
+                        alert('Generate Document:\n\n• Choose template type\n• Auto-populate tenant data\n• Set signing requirements\n• Schedule delivery\n• Track completion');
+                    });
+                }
+            });
+
+            // Document action buttons
+            document.querySelectorAll('#documents-view .btn-sm').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const action = this.textContent.trim();
+                    const row = this.closest('tr');
+                    const docName = row.querySelector('.font-medium').textContent.trim();
+                    
+                    if (action === 'Send') {
+                        alert(`Send for Signature: ${docName}\n\n• Select recipients\n• Add custom message\n• Set signing order\n• Schedule delivery\n• Track progress`);
+                    } else if (action === 'Generate') {
+                        alert(`Generate Document: ${docName}\n\n• Create from template\n• Auto-populate data\n• Set document properties\n• Ready for review`);
+                    }
+                });
+            });
+
+            // Document table action icons
+            document.querySelectorAll('#documents-view .fas').forEach(icon => {
+                if (icon.closest('.p-1')) {
+                    icon.closest('.p-1').addEventListener('click', function() {
+                        const row = this.closest('tr');
+                        const docName = row.querySelector('.font-medium').textContent.trim();
+                        const action = this.title || 'Action';
+                        
+                        alert(`${action}: ${docName}\n\n• Document action performed\n• Status updated\n• Notifications sent\n• History logged`);
+                    });
+                }
+            });
+
+            // Documents sorting and filtering
+            let documentsCurrentSort = {
+                column: null,
+                direction: 'asc'
+            };
+
+            let documentsCurrentFilter = 'all';
+
+            function setDocumentsFilter(filter) {
+                // Remove active class from all tab filters
+                document.querySelectorAll('#documents-view .tab-filter').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked filter
+                document.getElementById('doc-filter-' + filter).classList.add('active');
+                
+                // Set current filter
+                documentsCurrentFilter = filter;
+                
+                // Apply filter
+                filterDocuments();
+            }
+
+            function filterDocuments() {
+                const searchTerm = document.getElementById('documents-search').value.toLowerCase();
+                const rows = document.querySelectorAll('#documents-view tbody tr');
+                
+                rows.forEach(row => {
+                    let showRow = true;
+                    
+                    // Search filter
+                    if (searchTerm) {
+                        const text = row.textContent.toLowerCase();
+                        if (!text.includes(searchTerm)) {
+                            showRow = false;
+                        }
+                    }
+                    
+                    // Category tab filter
+                    if (documentsCurrentFilter !== 'all' && showRow) {
+                        const category = row.getAttribute('data-category');
+                        
+                        switch (documentsCurrentFilter) {
+                            case 'signature':
+                                showRow = category === 'signature';
+                                break;
+                            case 'upload':
+                                showRow = category === 'upload';
+                                break;
+                            case 'attachments':
+                                showRow = category === 'attachments';
+                                break;
+                        }
+                    }
+                    
+                    row.style.display = showRow ? '' : 'none';
+                });
+            }
+
+            function sortDocumentsTable(column) {
+                const table = document.getElementById('documents-tbody');
+                const rows = Array.from(table.querySelectorAll('tr'));
+                
+                // Determine sort direction
+                if (documentsCurrentSort.column === column) {
+                    documentsCurrentSort.direction = documentsCurrentSort.direction === 'asc' ? 'desc' : 'asc';
+                } else {
+                    documentsCurrentSort.direction = 'asc';
+                }
+                documentsCurrentSort.column = column;
+                
+                // Update sort icons
+                updateDocumentsSortIcons(column, documentsCurrentSort.direction);
+                
+                // Sort rows based on column
+                rows.sort((a, b) => {
+                    let aValue, bValue;
+                    
+                    switch(column) {
+                        case 'name':
+                            aValue = a.children[0].textContent.trim();
+                            bValue = b.children[0].textContent.trim();
+                            break;
+                        case 'linkedto':
+                            aValue = a.children[1].textContent.trim();
+                            bValue = b.children[1].textContent.trim();
+                            break;
+                        case 'category':
+                            aValue = a.children[2].textContent.trim();
+                            bValue = b.children[2].textContent.trim();
+                            break;
+                        case 'status':
+                            aValue = a.children[3].textContent.trim();
+                            bValue = b.children[3].textContent.trim();
+                            break;
+                        case 'modified':
+                            aValue = a.children[4].textContent.trim();
+                            bValue = b.children[4].textContent.trim();
+                            break;
+                    }
+                    
+                    if (documentsCurrentSort.direction === 'asc') {
+                        return aValue.localeCompare(bValue);
+                    } else {
+                        return bValue.localeCompare(aValue);
+                    }
+                });
+                
+                // Re-append sorted rows
+                rows.forEach(row => table.appendChild(row));
+            }
+
+            function updateDocumentsSortIcons(sortedColumn, direction) {
+                // Reset all icons
+                document.querySelectorAll('#documents-view th i').forEach(icon => {
+                    icon.className = 'fas fa-sort text-sm text-gray-400';
+                });
+                
+                // Update the sorted column icon
+                const columnMap = {
+                    'name': 0,
+                    'dates': 1,
+                    'type': 2,
+                    'status': 3,
+                    'modified': 4
+                };
+                
+                const columnIndex = columnMap[sortedColumn];
+                const icon = document.querySelectorAll('#documents-view th')[columnIndex].querySelector('i');
+                
+                if (direction === 'asc') {
+                    icon.className = 'fas fa-sort-up text-sm text-primary';
+                } else {
+                    icon.className = 'fas fa-sort-down text-sm text-primary';
+                }
+            }
+
+            // Status card click handlers
+            document.querySelectorAll('#documents-view .bg-white.rounded-lg.border').forEach(card => {
+                if (card.querySelector('.text-2xl')) {
+                    card.addEventListener('click', function() {
+                        const status = this.querySelector('.text-sm').textContent;
+                        const count = this.querySelector('.text-2xl').textContent;
+                        
+                        alert(`Filter by ${status}:\n\n• Showing ${count} documents\n• Status: ${status}\n• Quick access to relevant items\n• View and manage documents`);
+                    });
+                    card.style.cursor = 'pointer';
+                }
+            });
         });
 
 
