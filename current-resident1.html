@@ -81,15 +81,17 @@
         .contact-edit-form .form-row {
             display: flex !important;
             flex-direction: column !important;
-            gap: 8px !important;
+            gap: 4px !important;
             margin-bottom: 16px !important;
+            width: 100% !important;
         }
         
         .contact-edit-form .form-row-group {
             display: grid !important;
-            grid-template-columns: 1fr 1fr !important;
+            grid-template-columns: auto 1fr !important;
             gap: 16px !important;
             margin-bottom: 16px !important;
+            width: 100% !important;
         }
         
         @media (max-width: 768px) {
@@ -104,7 +106,7 @@
         
         .contact-edit-form .form-label {
             display: block !important;
-            margin-bottom: 6px !important;
+            margin-bottom: 2px !important;
             font-weight: 500 !important;
             font-size: 14px !important;
             color: #374151 !important;
@@ -118,6 +120,7 @@
         .contact-edit-form .country-input-group {
             order: 2 !important;
             width: 100% !important;
+            box-sizing: border-box !important;
         }
         
         .contact-edit-form .form-radio-group {
@@ -125,12 +128,51 @@
             display: flex !important;
             flex-wrap: wrap !important;
             gap: 12px !important;
-            margin-top: 6px !important;
+            margin-top: 2px !important;
         }
         
         .contact-edit-form .form-checkbox-group {
             order: 3 !important;
-            margin-top: 8px !important;
+            margin-top: 4px !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+        
+        .contact-edit-form .form-checkbox {
+            margin: 0 !important;
+            width: 16px !important;
+            height: 16px !important;
+            cursor: pointer !important;
+        }
+        
+        .contact-edit-form .form-checkbox-label {
+            margin: 0 !important;
+            cursor: pointer !important;
+            font-size: 14px !important;
+            color: #374151 !important;
+            line-height: 1.4 !important;
+        }
+        
+        .contact-edit-form .radio-option {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+        
+        .contact-edit-form .form-radio {
+            margin: 0 !important;
+            width: 16px !important;
+            height: 16px !important;
+            cursor: pointer !important;
+        }
+        
+        .contact-edit-form .form-radio-label {
+            margin: 0 !important;
+            cursor: pointer !important;
+            font-size: 14px !important;
+            color: #374151 !important;
+            line-height: 1.4 !important;
         }
         
         /* Ensure phone inputs work properly with labels above */
@@ -144,9 +186,24 @@
             min-width: 70px !important;
         }
         
-        /* Form sections spacing */
+        /* Form full width and sections spacing */
+        .pageslide.contact-edit .pageslide-content {
+            padding: 24px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        
+        .contact-edit-form {
+            width: 100% !important;
+            max-width: none !important;
+        }
+        
         .contact-edit-form .form-section {
             margin-bottom: 32px !important;
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+            border-bottom: none !important;
+            width: 100% !important;
         }
         
         .contact-edit-form .form-section-title {
@@ -154,6 +211,8 @@
             font-size: 16px !important;
             font-weight: 600 !important;
             color: #111827 !important;
+            padding-left: 0 !important;
+            margin-left: 0 !important;
         }
         
         /* Special handling for identification section with 3 fields */
@@ -376,8 +435,7 @@
 						<i class="fas fa-concierge-bell text-muted mr-2"></i>
                         Concierge
                     </div>
-<!-- <div class="menu-item" id="documents-menu" <onclick="toggleView('documents')">-->
-					<div class="menu-item" id="documents-menu">
+					<div class="menu-item" id="documents-menu" onclick="toggleView('documents')">
 						<i class="fas fa-folder text-muted mr-2"></i>
 						Documents
                 </div>
@@ -506,7 +564,7 @@
                                 <div class="card-section-header">
                                     <div class="flex items-center justify-between w-full">
                                         <div>
-                                            <h4 class="font-semibold text-muted uppercase tracking-wide">Roommates</h4>
+                                        <h4 class="font-semibold text-muted uppercase tracking-wide">Roommates</h4>
                                         </div>
                                         <button class="btn btn-link p-0" onclick="openPageslide('roommate-details-overlay')">View details</button>
                                     </div>
@@ -2163,40 +2221,40 @@
                         <!-- Ledger Table -->
             <div class="">
                 <div class="overflow-x-auto">
-                    <table class="w-full">
-                        <thead class="border-b border-gray-200">
+                    <table class="standard-table w-full">
+                        <thead>
                             <tr>
-                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortTable('date')">
+                                <th class="sortable" onclick="sortTable('date')">
                                     <div class="flex items-center gap-2">
                                         Date
                                         <i class="fas fa-sort text-sm text-gray-400"></i>
                                     </div>
                                 </th>
-                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortTable('description')">
+                                <th class="sortable" onclick="sortTable('description')">
                                     <div class="flex items-center gap-2">
                                         Description
                                         <i class="fas fa-sort text-sm text-gray-400"></i>
                                     </div>
                                 </th>
-                                <th class="px-6 py-3 text-center font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortTable('status')">
+                                <th class="text-center sortable" onclick="sortTable('status')">
                                     <div class="flex items-center justify-center gap-2">
                                         Status
                                         <i class="fas fa-sort text-sm text-gray-400"></i>
                                     </div>
                                 </th>
-                                <th class="px-6 py-3 text-right font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortTable('charges')">
+                                <th class="text-right sortable" onclick="sortTable('charges')">
                                     <div class="flex items-center justify-end gap-2">
                                         Charges
                                         <i class="fas fa-sort text-sm text-gray-400"></i>
                                     </div>
                                 </th>
-                                <th class="px-6 py-3 text-right font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortTable('payments')">
+                                <th class="text-right sortable" onclick="sortTable('payments')">
                                     <div class="flex items-center justify-end gap-2">
                                         Payments
                                         <i class="fas fa-sort text-sm text-gray-400"></i>
                                     </div>
                                 </th>
-                                <th class="px-6 py-3 text-right font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortTable('balance')">
+                                <th class="text-right sortable" onclick="sortTable('balance')">
                                     <div class="flex items-center justify-end gap-2">
                                         Balance
                                         <i class="fas fa-sort text-sm text-gray-400"></i>
@@ -2204,7 +2262,7 @@
                                 </th>
                             </tr>
                         </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
+                            <tbody>
                                 <!-- Current Outstanding -->
                                 <tr class="hover:bg-gray-50 table-row" data-page="1">
                                     <td class="px-6 py-4 ">Aug 17, 2025</td>
@@ -2442,76 +2500,36 @@
         </div>
 
         <!-- Documents View (Hidden by default) -->
-        <div id="documents-view" class="container py-6 mx-auto" style="display: none;">
+        <div id="documents-view" class="px-6 pt-6 pb-0" style="display: none; min-height: auto;">
             
             <!-- Page Title -->
             <div class="mb-6 flex items-center justify-between">
                 <div>
-                    <h1 class="text-2xl font-bold  mb-1">Documents & Signatures</h1>
-                    <p class="text-muted">Manage lease documents, signatures, and attachments</p>
+                    <h1 class="text-2xl font-bold mb-1">Documents</h1>
+                    <p class="text-muted">Manage documents, signatures and attachments</p>
                 </div>
-                <button class="btn btn-primary">
-                    <i class="fas fa-plus mr-2"></i>
-                    Add Documents
+                <div class="flex items-center gap-3">
+                    <button id="add-attachment-btn" class="btn btn-primary" onclick="showAttachmentModal()">
+                        <i class="fas fa-paperclip mr-2"></i>
+                        Add Attachment
+                    </button>
+                    <button id="add-document-btn" class="btn btn-primary" onclick="showAttachmentModal()">
+                        <i class="fas fa-circle-plus mr-2"></i>
+                        Add Document
                 </button>
-            </div>
+                    </div>
+                </div>
+                
+ 
 
-            <!-- Status Overview Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-                <div class="bg-white rounded-lg border border-gray-200 p-4">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-2xl font-bold text-orange-600">2</div>
-                            <div class="text-sm font-medium text-gray-600">Pending Signatures</div>
-                        </div>
-                        <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-signature text-orange-600"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg border border-gray-200 p-4">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-2xl font-bold text-red-600">3</div>
-                            <div class="text-sm font-medium text-gray-600">Missing Uploads</div>
-                        </div>
-                        <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-upload text-red-600"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg border border-gray-200 p-4">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-2xl font-bold text-green-600">6</div>
-                            <div class="text-sm font-medium text-gray-600">Completed</div>
-                        </div>
-                        <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-check text-green-600"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg border border-gray-200 p-4">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-2xl font-bold ">11</div>
-                            <div class="text-sm font-medium text-gray-600">Total Documents</div>
-                        </div>
-                        <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-folder text-gray-600"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Search and Filters -->
+            <!-- SIGNATURE DOCUMENTS Section -->
             <div class="mt-8 mb-6">
-                <!-- Search Bar -->
-                <div class="mb-4">
-                    <div class="relative w-full md:w-80">
+                <!-- Search Bar and Filters Row - Following Ledger Pattern -->
+                <div class="search-filters-row">
+                    <div class="search-filters-group">
+                        <!-- Search Box -->
+                        <div class="search-box">
+                            <div class="relative">
                         <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         <input 
                             type="text" 
@@ -2524,7 +2542,7 @@
                 </div>
                 
                 <!-- Tab-style Filters -->
-                <div class="flex flex-wrap items-center gap-2">
+                        <div class="filter-buttons">
                     <button id="doc-filter-all" class="tab-filter active px-4 py-2 rounded-full font-medium transition-colors" onclick="setDocumentsFilter('all')">
                         All
                     </button>
@@ -2537,246 +2555,1040 @@
                     <button id="doc-filter-attachments" class="tab-filter px-4 py-2 rounded-full font-medium transition-colors" onclick="setDocumentsFilter('attachments')">
                         Attachments
                     </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- Document Sections Container -->
+            <!-- Unified Documents List -->
+            <div id="documents-sections" class="">
             <!-- Documents Table -->
-            <div class="overflow-hidden">
                 <div class="overflow-x-auto">
-                    <table class="w-full">
-                        <thead class="border-b border-gray-200">
+                    <table class="standard-table w-full">
+                        <thead>
                             <tr>
-                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortDocumentsTable('name')">
+                                <th class="sortable" onclick="sortDocumentsTable('document')">
                                     <div class="flex items-center gap-2">
-                                        Document Name
-                                        <i class="fas fa-sort text-sm text-gray-400"></i>
+                                        Document
+                                        <i id="sort-document-icon" class="fas fa-sort text-sm text-gray-400"></i>
                                     </div>
                                 </th>
-                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortDocumentsTable('linkedto')">
+                                <th class="sortable" onclick="sortDocumentsTable('type')">
                                     <div class="flex items-center gap-2">
-                                        Linked To
-                                        <i class="fas fa-sort text-sm text-gray-400"></i>
+                                        Type
+                                        <i id="sort-type-icon" class="fas fa-sort text-sm text-gray-400"></i>
                                     </div>
                                 </th>
-                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortDocumentsTable('category')">
-                                    <div class="flex items-center gap-2">
-                                        Category
-                                        <i class="fas fa-sort text-sm text-gray-400"></i>
-                                    </div>
-                                </th>
-                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortDocumentsTable('status')">
+                                <th class="sortable" onclick="sortDocumentsTable('status')">
                                     <div class="flex items-center gap-2">
                                         Status
-                                        <i class="fas fa-sort text-sm text-gray-400"></i>
+                                        <i id="sort-status-icon" class="fas fa-sort-up text-sm text-blue-600"></i>
                                     </div>
                                 </th>
-                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider cursor-pointer hover:bg-gray-100" onclick="sortDocumentsTable('modified')">
-                                    <div class="flex items-center gap-2">
-                                        Last Modified
-                                        <i class="fas fa-sort text-sm text-gray-400"></i>
-                                    </div>
-                                </th>
-                                <th class="px-6 py-3 text-left font-bold text-muted tracking-wider">
+                                <th class="text-right">
                                     Actions
                                 </th>
                             </tr>
                         </thead>
-                        <tbody id="documents-tbody" class="bg-white divide-y divide-gray-200">
+                        <tbody>
                             
-                            <!-- SIGNATURE DOCUMENTS -->
-                            
-                            <!-- Lease Agreement (Completed) -->
-                            <tr class="hover:bg-gray-50" data-category="signature">
-                                <td class="px-6 py-4">
-                                    <a href="#" class="font-medium">Lease Agreement - Bluemoon 2101</a>
+                            <!-- Lease v2.1 (Signature Document) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="signature" data-type="signature">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-signature text-purple-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium text-blue-600 hover:text-blue-800 cursor-pointer">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">Lease v2.1</a>
+                                            </div>
+                                            <div class="text-sm text-gray-500">Aug 1, 2025 - July 31, 2026</div>
+                                            <div class="text-xs text-gray-500 mt-1">Modified by Sarah Wilson • July 30, 2025</div>
+                                        </div>
+                                    </div>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <div class="font-medium">Melinda Michaels</div>
-                                    <div class="text-sm text-muted">Primary Resident</div>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        Lease renewal
+                                    </span>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <div class="font-medium">Signature Document</div>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 self-start">
+                                            Pending signature
+                                        </span>
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-xs">Melinda <i class="fas fa-check text-green-600 ml-1"></i></span>
+                                            <span class="text-xs">John <i class="fas fa-check text-green-600 ml-1"></i></span>
+                                            <span class="text-xs">Angela <i class="fas fa-clock text-orange-600 ml-1"></i></span>
+                                        </div>
+                                    </div>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                        <i class="fas fa-check w-3 h-3 mr-1"></i>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-file-contract mr-1"></i>
+                                            Regenerate
+                                        </button>
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-signature mr-1"></i>Mark as manually signed
+                                        </button>
+                                        <button class="btn btn-light btn-sm text-red-600">
+                                            <i class="fas fa-trash mr-1"></i>Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Current Lease (Signature Document) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="signature" data-type="signature">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-signature text-purple-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium text-blue-600 hover:text-blue-800 cursor-pointer">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">Lease v1.2</a>
+                                            </div>
+                                            <div class="text-sm text-gray-500">Aug 1, 2024 - July 31, 2025</div>
+                                            <div class="text-xs text-gray-500 mt-1">Modified by Michael Davis • Jul 28, 2024</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        Current lease
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 self-start">
                                         Signed
                                     </span>
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-xs">Melinda <i class="fas fa-check text-green-600 ml-1"></i></span>
+                                            <span class="text-xs">John <i class="fas fa-check text-green-600 ml-1"></i></span>
+                                        </div>
+                                    </div>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-sm">Aug 29, 2025</div>
-                                    <div class="text-muted text-sm">CRMIQQA@yardi.com</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-eye"></i>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-file-contract mr-1"></i>
+                                            Regenerate
                                             </button>
-                                            <span class="tooltip-text">View Document</span>
-                                        </span>
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-download"></i>
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-pen mr-1"></i>Edit
                                             </button>
-                                            <span class="tooltip-text">Download</span>
-                                        </span>
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-sync-alt"></i>
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-arrow-right mr-1"></i>Bypass
                                             </button>
-                                            <span class="tooltip-text">Regenerate</span>
-                                        </span>
+                                        <button class="btn btn-light btn-sm text-red-600">
+                                            <i class="fas fa-trash mr-1"></i>Delete
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
 
-                            <!-- Guarantor Contract - Angela (Pending) -->
-                            <tr class="hover:bg-gray-50" data-category="signature">
-                                <td class="px-6 py-4">
-                                    <a href="#" class="font-medium">Guarantor Contract - Angela Johnson</a>
+                            <!-- Insurance Certificate (Upload Document) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="upload" data-type="upload">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-upload text-blue-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">Insurance Certificate</a>
+                                            </div>
+                                            <div class="text-sm text-gray-500">Household</div>
+                                            <div class="mt-1">
+                                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800">
+                                                    Required
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <div class="font-medium">Angela Johnson</div>
-                                    <div class="text-sm text-muted">Roommate</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="font-medium">Signature Document</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-orange-100 text-orange-800">
-                                        <i class="fas fa-signature w-3 h-3 mr-1"></i>
-                                        Awaiting Signature
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        Upload document
                                     </span>
                                 </td>
-                                <td class="px-6 py-4 text-sm text-muted">
-                                    -
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-primary">
-                                                <i class="fas fa-paper-plane"></i>
-                                            </button>
-                                            <span class="tooltip-text">Send for Signature</span>
-                                        </span>
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                            <span class="tooltip-text">View</span>
-                                        </span>
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-pen"></i>
-                                            </button>
-                                            <span class="tooltip-text">Edit</span>
-                                        </span>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <!-- Guarantor Contract - John (Pending) -->
-                            <tr class="hover:bg-gray-50" data-category="signature">
-                                <td class="px-6 py-4">
-                                    <a href="#" class="font-medium">Guarantor Contract - John Smith</a>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="font-medium">John Smith</div>
-                                    <div class="text-sm text-muted">Roommate</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="font-medium">Signature Document</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-orange-100 text-orange-800">
-                                        <i class="fas fa-signature w-3 h-3 mr-1"></i>
-                                        Awaiting Signature
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                        Pending upload
                                     </span>
                                 </td>
-                                <td class="px-6 py-4 text-sm text-muted">
-                                    -
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-primary">
-                                                <i class="fas fa-paper-plane"></i>
-                                            </button>
-                                            <span class="tooltip-text">Send for Signature</span>
-                                        </span>
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                            <span class="tooltip-text">View</span>
-                                        </span>
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-pen"></i>
-                                            </button>
-                                            <span class="tooltip-text">Edit</span>
-                                        </span>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-upload mr-1"></i>Upload for resident
+                                        </button>
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-bell mr-1"></i>Remind
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
 
-                            <!-- UPLOAD DOCUMENTS -->
+                            <!-- Pet Addendum (Signature Document) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="signature" data-type="signature">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-signature text-purple-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">Pet Addendum</a>
+                                            </div>
+                                            <div class="text-xs text-gray-500 mt-1">Modified by Sarah Wilson • July 30, 2025</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        Other document
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                        Pending signature
+                                    </span>
+                                    <div class="flex items-center gap-3 mt-1">
+                                        <span class="text-xs">Melinda <i class="fas fa-check text-green-600 ml-1"></i></span>
+                                        <span class="text-xs">John <i class="fas fa-check text-green-600 ml-1"></i></span>
+                                        <span class="text-xs">Angela <i class="fas fa-clock text-orange-600 ml-1"></i></span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-sync mr-1"></i>Regenerate
+                                            </button>
+                                        <button class="btn btn-light btn-sm text-red-600">
+                                            <i class="fas fa-trash mr-1"></i>Delete
+                                            </button>
+                                    </div>
+                                </td>
+                            </tr>
 
-                            <!-- Pay Stub - Brent (Completed) -->
-                            <tr class="hover:bg-gray-50" data-category="upload">
-                                <td class="px-6 py-4">
-                                    <a href="#" class="font-medium">Pay Stub - November 2024</a>
+                            <!-- Income Verification (Upload Document) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="upload" data-type="upload">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-upload text-blue-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">Driver's License</a>
+                                            </div>
+                                            <div class="text-sm text-gray-500">Angela Johnson</div>
+                                            <div class="mt-1">
+                                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800">
+                                                    Required
+                                        </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <div class="font-medium">Melinda Michaels</div>
-                                    <div class="text-sm text-muted">Primary Resident</div>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        Upload document
+                                    </span>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <div class="font-medium">Upload Document</div>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                        Pending upload
+                                    </span>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                        <i class="fas fa-check w-3 h-3 mr-1"></i>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-upload mr-1"></i>Upload for resident
+                                            </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Income Verification - John (Upload Document) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="upload" data-type="upload">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-upload text-blue-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">Driver's License</a>
+                                            </div>
+                                            <div class="text-sm text-gray-500">John Smith • Uploaded Jan 15, 2024</div>
+                                            <div class="mt-1">
+                                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800">
+                                                    Required
+                                        </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        Upload document
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                                         Uploaded
                                     </span>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <div class="text-sm">Nov 19, 2024</div>
-                                    <div class="text-muted text-sm">By Resident</div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                            <span class="tooltip-text">View</span>
-                                        </span>
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-download"></i>
-                                            </button>
-                                            <span class="tooltip-text">Download</span>
-                                        </span>
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-sync-alt"></i>
-                                            </button>
-                                            <span class="tooltip-text">Replace</span>
-                                        </span>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm text-red-600" onclick="deleteDocument('driver-license-john')">
+                                            <i class="fas fa-trash mr-1"></i>Delete
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
 
-                            <!-- Employment Verification - Angela (Missing) -->
-                            <tr class="hover:bg-gray-50" data-category="upload">
-                                <td class="px-6 py-4">
-                                    <div class="font-medium">Employment Verification Letter</div>
+                                                        <!-- Income Verification (Upload Document) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="upload" data-type="upload">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-upload text-blue-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">Driver's License</a>
+                                            </div>
+                                            <div class="text-sm text-gray-500">Melinda Michaels • Uploaded Jan 10, 2024</div>
+                                            <div class="mt-1">
+                                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800">
+                                                    Required
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <div class="font-medium">Angela Johnson</div>
-                                    <div class="text-sm text-muted">Roommate</div>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        Upload document
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        Uploaded
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm text-red-600" onclick="deleteDocument('driver-license-melinda')">
+                                            <i class="fas fa-trash mr-1"></i>Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Parking Agreement (Signature Document) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="signature" data-type="signature">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-signature text-purple-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">Enclosed Garage Addendum</a>
+                                            </div>
+                                            <div class="text-sm text-gray-500">Aug 1, 2025 - July 31, 2026</div>
+                                            <div class="text-xs text-gray-500 mt-1">Modified by Michael Davis • Jul 28, 2024</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        One off document
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center gap-2">
+                                        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 self-start">
+                                            Processing
+                                        </span>
+                                        <div class="relative group">
+                                            <i class="fas fa-info-circle text-gray-400 hover:text-gray-600 cursor-help text-sm"></i>
+                                            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-800 text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                Document generated successfully. Pending Bluemoon processing.
+                                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm text-red-600">
+                                            <i class="fas fa-trash mr-1"></i>Delete
+                                            </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Emergency Contact Form (Upload Document) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="upload" data-type="upload">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-upload text-blue-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">Emergency Contact Form</a>
+                                            </div>
+                                            <div class="text-sm text-gray-500">John Smith • Uploaded Feb 5, 2024</div>
+                                            <div class="mt-1">
+                                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                                                    Optional
+                                        </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        Upload document
+                                        </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        Uploaded
+                                        </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm text-red-600" onclick="deleteDocument('emergency-contact-john')">
+                                            <i class="fas fa-trash mr-1"></i>Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Pet Registration (Upload Document) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="upload" data-type="upload">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-upload text-blue-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">Pet Registration</a>
+                                            </div>
+                                            <div class="text-sm text-gray-500">Household</div>
+                                            <div class="mt-1">
+                                                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                                                    Optional
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        Upload document
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                                        Not Uploaded
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm">
+                                            <i class="fas fa-upload mr-1"></i>Upload for resident
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Move-in Photos (Attachment) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="attachments" data-type="attachment">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-paperclip text-gray-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">photo002.jpg</a>
+                                            </div>
+                                            <div class="text-sm text-gray-500">JPG • Melinda Michaels • Uploaded Jan 15, 2024</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        Delivery Attachment
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        Uploaded
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm" onclick="editAttachmentDocument('photo002.jpg', 'Delivery Attachment')">
+                                            <i class="fas fa-pen mr-1"></i>Edit
+                                        </button>
+                                        <button class="btn btn-light btn-sm text-red-600" onclick="deleteDocument('photo002-melinda')">
+                                            <i class="fas fa-trash mr-1"></i>Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Maintenance Notes (Attachment) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="attachments" data-type="attachment">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-paperclip text-gray-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">Maintenance Notes</a>
+                                            </div>
+                                            <div class="text-sm text-gray-500">PDF • John Smith • Uploaded Jan 20, 2024</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        Residential Correspondence
+                                        </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        Uploaded
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm" onclick="editAttachmentDocument('Maintenance Notes', 'Residential Correspondence')">
+                                            <i class="fas fa-pen mr-1"></i>Edit
+                                        </button>
+                                        <button class="btn btn-light btn-sm text-red-600" onclick="deleteDocument('maintenance-notes-john')">
+                                            <i class="fas fa-trash mr-1"></i>Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Unit Inspection Report (Attachment) -->
+                            <tr class="document-item hover:bg-gray-50" data-category="attachments" data-type="attachment">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-paperclip text-gray-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="font-medium">
+                                                <a href="#" class="text-blue-600 hover:text-blue-800">Unit Inspection Report</a>
+                                            </div>
+                                            <div class="text-sm text-gray-500">PDF • Angela Johnson • Uploaded Jan 10, 2024</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="text-gray-600">
+                                        Additional lease document
+                                        </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        Uploaded
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm" onclick="editAttachmentDocument('Unit Inspection Report', 'Additional Lease Document')">
+                                            <i class="fas fa-pen mr-1"></i>Edit
+                                        </button>
+                                        <button class="btn btn-light btn-sm text-red-600" onclick="deleteDocument('inspection-report-angela')">
+                                            <i class="fas fa-trash mr-1"></i>Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Attachment Upload Widget (only visible when Attachments filter is active) -->
+            <div id="attachment-upload-widget" class="bg-white rounded-lg border border-gray-200 p-6" style="display: none;">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Select who this attachment is for <span class="text-red-500">*</span>
+                    </label>
+                    <select id="widget-attachment-recipient" class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="melinda-michaels" selected>Melinda Michaels</option>
+                        <option value="angela-johnson">Angela Johnson</option>
+                        <option value="john-smith">John Smith</option>
+                        <option value="household">Household</option>
+                    </select>
+                </div>
+                
+                <!-- Upload Area -->
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors cursor-pointer" 
+                     onclick="document.getElementById('widget-attachment-file-input').click()">
+                    <div class="mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-cloud-upload-alt text-blue-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-900 mb-2">Drop files here to upload.</h4>
+                        <div class="mb-4">
+                            <span class="text-gray-500">or</span>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="document.getElementById('widget-attachment-file-input').click()">
+                            Select File
+                        </button>
+                        <input type="file" id="widget-attachment-file-input" class="hidden" multiple>
+                    </div>
+                </div>
+                
+                <!-- File Format Information -->
+                <div class="mt-4 text-xs text-gray-500">
+                    <strong>Max Size:</strong> 5MB, <strong>Valid files:</strong> PDF, Text(TXT, CSV, XML), Excel (XLS, XLSX, XLSB), Word(DOC, DOCX, RTF), Image(JPG, JPEG, TIF, BMP, GIF, PNG), Video (MP4, MPG, AVI), Other (ZIP, SWF, DWF, DWFX, SVG)
+                </div>
+                
+                <!-- Upload Button -->
+                <div class="flex justify-end mt-4">
+                    <button onclick="uploadWidgetAttachment()" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        Upload Attachment
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+            <!-- Ledger View (Hidden by default) -->
+            <div id="ledger-view" class="container py-6 mx-auto" style="display: none;">
+                
+                <!-- Page Title -->
+                <div class="mb-6 flex items-center justify-between">
+                    <h1 class="text-2xl font-semibold ">Ledger</h1>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        ⏳ Pending
+                                    </span>
+                                    <button class="btn btn-light btn-sm">Upload for resident</button>
+                                    <button class="btn btn-light btn-sm">Remind</button>
+        </div>
+
+        </main>
+    </div>
+
+    <!-- Outstanding Balance Pageslide -->
+    <div class="pageslide-overlay" id="outstanding-balance-overlay">
+        <div class="pageslide" id="outstanding-balance">
+            <div class="pageslide-header">
+                <div class="flex items-start justify-between w-full">
+                    <div class="flex items-start gap-2">
+                        <div>
+                            <h2 class="pageslide-title  font-semibold text-lg mb-1">Outstanding balance</h2>
+                                                    <div class="text-muted">
+                                Outstanding balance for all charges
+                            </div>
+                        </div>
+                        <div class="p-1 bg-orange-100 rounded-full">
+                            <div class="p-1 bg-orange-600 rounded-full">
+                                <i class="fas fa-exclamation text-white text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="pageslide-close" onclick="closePageslide('outstanding-balance-overlay')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="pageslide-content">
+                <!-- Content will be added here later -->
+                <div class="p-6 text-center text-muted">
+                    <i class="fas fa-dollar-sign text-4xl mb-4"></i>
+                    <p>Outstanding balance details will be displayed here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle Create Proposal button - Global function
+        function handleCreateProposal() {
+            alert('Create Lease Proposal:\n\n• Review current lease terms\n• Check market rent rates\n• Generate renewal proposal\n• Calculate new rent amount\n• Prepare proposal documents\n• Schedule tenant meeting');
+        }
+        
+        // Documents filtering variables - Global scope
+        let documentsCurrentSort = {
+            column: 'status',
+            direction: 'desc'
+        };
+        let documentsCurrentFilter = 'all';
+        let documentsTableInitialized = false;
+
+        // Documents filter function - Global function
+        function setDocumentsFilter(filter) {
+            // Remove active class from all tab filters
+            document.querySelectorAll('#documents-view .tab-filter').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to selected filter
+            document.getElementById('doc-filter-' + filter).classList.add('active');
+            
+            // Update current filter
+            documentsCurrentFilter = filter;
+            
+            // Apply filter
+            filterDocuments();
+        }
+
+        // Documents search and filter function - Global function
+        function filterDocuments() {
+            const searchTerm = document.getElementById('documents-search').value.toLowerCase();
+            
+            // Get all document items
+            const documentItems = document.querySelectorAll('.document-item');
+            
+            // Filter items based on category and search term
+            documentItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                const text = item.textContent.toLowerCase();
+                
+                // Check if item matches current filter
+                let showByCategory = false;
+                if (documentsCurrentFilter === 'all') {
+                    showByCategory = true;
+                } else if (documentsCurrentFilter === 'signature' && category === 'signature') {
+                    showByCategory = true;
+                } else if (documentsCurrentFilter === 'upload' && category === 'upload') {
+                    showByCategory = true;
+                } else if (documentsCurrentFilter === 'attachments' && category === 'attachments') {
+                    showByCategory = true;
+                }
+                
+                // Check if item matches search term
+                let showBySearch = true;
+                if (searchTerm && !text.includes(searchTerm)) {
+                    showBySearch = false;
+                }
+                
+                // Show/hide item based on both filters
+                if (showByCategory && showBySearch) {
+                    item.style.display = 'table-row';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Show/hide attachment upload widget based on filter
+            const uploadWidget = document.getElementById('attachment-upload-widget');
+            if (uploadWidget) {
+                if (documentsCurrentFilter === 'attachments') {
+                    uploadWidget.style.display = 'block';
+                } else {
+                    uploadWidget.style.display = 'none';
+                }
+            }
+        }
+
+        // Documents sorting function - Global function
+        function sortDocumentsTable(column) {
+            // Determine sort direction
+            if (documentsCurrentSort.column === column) {
+                documentsCurrentSort.direction = documentsCurrentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                documentsCurrentSort.direction = 'asc';
+            }
+            documentsCurrentSort.column = column;
+            
+            // Update sort icons
+            updateDocumentsSortIcons(column, documentsCurrentSort.direction);
+            
+            // Get table body and rows
+            const tbody = document.querySelector('#documents-sections tbody');
+            if (!tbody) return;
+            
+            const rows = Array.from(tbody.querySelectorAll('.document-item'));
+            
+            // Define status priority order for sorting
+            const statusPriority = {
+                'pending signature': 1,
+                'pending upload': 2,
+                'processing': 3,
+                'signed': 4,
+                'not uploaded': 5,
+                'uploaded': 6
+            };
+            
+            // Sort rows based on column
+            rows.sort((a, b) => {
+                let aValue, bValue;
+                
+                switch(column) {
+                    case 'document':
+                        aValue = a.querySelector('td:nth-child(1)').textContent.trim().toLowerCase();
+                        bValue = b.querySelector('td:nth-child(1)').textContent.trim().toLowerCase();
+                        break;
+                    case 'type':
+                        aValue = a.querySelector('td:nth-child(2)').textContent.trim().toLowerCase();
+                        bValue = b.querySelector('td:nth-child(2)').textContent.trim().toLowerCase();
+                        break;
+                    case 'status':
+                        // Get status badge text
+                        const aStatusElement = a.querySelector('td:nth-child(3) .rounded-full');
+                        const bStatusElement = b.querySelector('td:nth-child(3) .rounded-full');
+                        
+                        aValue = aStatusElement ? aStatusElement.textContent.trim().toLowerCase() : '';
+                        bValue = bStatusElement ? bStatusElement.textContent.trim().toLowerCase() : '';
+                        
+                        // Use priority order for status
+                        const aPriority = statusPriority[aValue] || 999;
+                        const bPriority = statusPriority[bValue] || 999;
+                        
+                        if (documentsCurrentSort.direction === 'asc') {
+                            return aPriority - bPriority;
+                        } else {
+                            return bPriority - aPriority;
+                        }
+                }
+                
+                // Standard string comparison for other columns
+                if (documentsCurrentSort.direction === 'asc') {
+                    return aValue.localeCompare(bValue);
+                } else {
+                    return bValue.localeCompare(aValue);
+                }
+            });
+            
+            // Clear tbody and append sorted rows
+            tbody.innerHTML = '';
+            rows.forEach(row => tbody.appendChild(row));
+        }
+
+        // Update documents sort icons - Global function
+        function updateDocumentsSortIcons(activeColumn, direction) {
+            // Reset all icons to default state
+            const allIcons = document.querySelectorAll('#documents-sections .sortable i');
+            allIcons.forEach(icon => {
+                icon.className = 'fas fa-sort text-sm text-gray-400';
+            });
+            
+            // Update active column icon
+            const activeIcon = document.getElementById(`sort-${activeColumn}-icon`);
+            if (activeIcon) {
+                if (direction === 'asc') {
+                    activeIcon.className = 'fas fa-sort-up text-sm text-blue-600';
+                } else {
+                    activeIcon.className = 'fas fa-sort-down text-sm text-blue-600';
+                }
+            }
+        }
+
+        // Initialize documents table with default sort
+        function initializeDocumentsSort() {
+            // Sort by status priority order on initial load
+            sortDocumentsTable('status');
+        }
+
+        // Delete document function - Global function
+        function deleteDocument(documentId) {
+            // Show confirmation dialog
+            const confirmed = confirm('Are you sure you want to delete this document? This action cannot be undone.');
+            
+            if (!confirmed) {
+                return;
+            }
+
+            // Find and remove the document row
+            const documentRows = document.querySelectorAll('.document-item');
+            documentRows.forEach(row => {
+                const deleteButton = row.querySelector(`button[onclick*="${documentId}"]`);
+                if (deleteButton) {
+                    // Add fade-out animation
+                    row.style.transition = 'opacity 0.3s ease-out';
+                    row.style.opacity = '0';
+                    
+                    // Remove the row after animation
+                    setTimeout(() => {
+                        row.remove();
+                        // Show success message
+                        alert('Document deleted successfully!');
+                    }, 300);
+                }
+            });
+        }
+        
+        // Toggle Past Roommates expanded view - Global function
+        function togglePastRoommatesExpanded() {
+            const summaryView = document.getElementById('past-roommates-summary');
+            const expandedView = document.getElementById('past-roommates-expanded');
+            const toggleText = document.getElementById('past-roommates-toggle-text');
+            const chevron = document.getElementById('past-roommates-chevron');
+
+            if (summaryView && expandedView && toggleText && chevron) {
+                if (expandedView.style.display === 'none' || !expandedView.style.display) {
+                    expandedView.style.display = 'block';
+                    summaryView.style.display = 'none';
+                    toggleText.textContent = 'Less details';
+                    chevron.style.transform = 'rotate(180deg)';
+                } else {
+                    expandedView.style.display = 'none';
+                    summaryView.style.display = 'block';
+                    toggleText.textContent = 'More details';
+                    chevron.style.transform = 'rotate(0deg)';
+                }
+            }
+        }
+
+        // Toggle Current Roommates expanded view - Global function
+        function toggleCurrentRoommatesExpanded() {
+            const summaryView = document.getElementById('current-roommates-summary');
+            const expandedView = document.getElementById('current-roommates-expanded');
+            const toggleText = document.getElementById('current-roommates-toggle-text');
+            const chevron = document.getElementById('current-roommates-chevron');
+
+            if (summaryView && expandedView && toggleText && chevron) {
+                if (expandedView.style.display === 'none' || !expandedView.style.display) {
+                    expandedView.style.display = 'block';
+                    summaryView.style.display = 'none';
+                    toggleText.textContent = 'Less details';
+                    chevron.style.transform = 'rotate(180deg)';
+                } else {
+                    expandedView.style.display = 'none';
+                    summaryView.style.display = 'block';
+                    toggleText.textContent = 'More details';
+                    chevron.style.transform = 'rotate(0deg)';
+                }
+            }
+        }
+
+        // View switching functionality
+        function toggleView(viewName) {
+            const overviewView = document.getElementById('overview-view');
+            const ledgerView = document.getElementById('ledger-view');
+            const documentsView = document.getElementById('documents-view');
+            const overviewMenu = document.getElementById('overview-menu');
+            const ledgerMenu = document.getElementById('ledger-menu');
+            const documentsMenu = document.getElementById('documents-menu');
+            
+            // Hide all views
+            overviewView.style.display = 'none';
+            ledgerView.style.display = 'none';
+            documentsView.style.display = 'none';
+            
+            // Remove active state from all menus
+            overviewMenu.classList.remove('active');
+            ledgerMenu.classList.remove('active');
+            documentsMenu.classList.remove('active');
+            
+            // Show selected view and activate corresponding menu
+            if (viewName === 'overview') {
+                overviewView.style.display = 'block';
+                overviewMenu.classList.add('active');
+            } else if (viewName === 'ledger') {
+                ledgerView.style.display = 'block';
+                ledgerMenu.classList.add('active');
+            } else if (viewName === 'documents') {
+                documentsView.style.display = 'block';
+                documentsMenu.classList.add('active');
+                
+                // Initialize documents table sorting on first load
+                if (!documentsTableInitialized) {
+                    initializeDocumentsSort();
+                    documentsTableInitialized = true;
+                }
+            }
+        }
+
+        // DOMContentLoaded event handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize activity timeline features
+            initializeActivityTimeline();
+            
+            // Load saved activities from local storage
+            // loadSavedActivities(); // Commented out to avoid duplicating existing activities on page reload
+            
+            // Keyboard shortcuts for modals
+            document.addEventListener('keydown', function(e) {
+                // ESC key to close modals
+                if (e.key === 'Escape') {
+                    closeActivityModal();
+                }
+                
+                // Ctrl+Enter or Cmd+Enter to save activity in modal
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    const modal = document.getElementById('activity-modal');
+                    if (modal) {
+                        const saveButton = modal.querySelector('.btn-primary');
+                        if (saveButton && !saveButton.disabled) {
+                            saveButton.click();
+                        }
+                    }
+                }
+            });
+            
+            // Click outside modal to close
+            document.addEventListener('click', function(e) {
+                // Check if clicking outside activity modal
+                const modal = document.getElementById('activity-modal');
+                if (modal && e.target === modal) {
+                    closeActivityModal();
+                }
+                
+                // Check if clicking outside activity add menu
+                const addMenu = document.getElementById('activity-add-menu');
+                const addButton = document.querySelector('.activity-add-btn');
+                if (addMenu && !addMenu.contains(e.target) && !addButton.contains(e.target)) {
+                    addMenu.style.display = 'none';
+                }
+            });
+        });
+
+        // Additional functions from activity timeline system
+        function addActivityType(type) {
+            showActivityModal(type);
+        }
+
+        function showActivityModal(type) {
+            // Modal creation code would go here
+            // For now, just show an alert
+            alert('Add ' + type + ' activity');
+        }
+
+        function closeActivityModal() {
+            const modal = document.getElementById('activity-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function initializeActivityTimeline() {
+            // Initialize activity timeline functionality
+            console.log('Activity timeline initialized');
+        }
+
+    </script>
+
+</body>
+</html>
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="font-medium">Upload Document</div>
@@ -3021,79 +3833,9 @@
                                     <div class="text-sm">Aug 30, 2024</div>
                                     <div class="text-muted text-sm">Property Manager</div>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                            <span class="tooltip-text">View</span>
-                                        </span>
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-download"></i>
-                                            </button>
-                                            <span class="tooltip-text">Download</span>
-                                        </span>
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-user-tag"></i>
-                                            </button>
-                                            <span class="tooltip-text">Reassign</span>
-                                        </span>
-                                        <span class="tooltip-black">
-                                            <button class="btn btn-light">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                            <span class="tooltip-text">Delete</span>
-                                        </span>
-                                    </div>
-                                </td>
                             </tr>
-
                         </tbody>
                     </table>
-                </div>
-            </div>
-
-            <!-- Upload Zone -->
-            <div class="mt-6 bg-white rounded-lg border border-gray-200 p-6">
-                <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">
-                        Select who this attachment is for <span class="text-red-500">*</span>
-                    </label>
-                    <select class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white">
-                        <option value="brent-biondi" selected>Melinda Michaels</option>
-                        <option value="angela-johnson">Angela Johnson</option>
-                        <option value="john-smith">John Smith</option>
-                    </select>
-                </div>
-                
-                <div class="border-2 border-dashed border-gray-300 hover:border-blue-400 transition-colors p-8 rounded-lg">
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-cloud-upload-alt text-blue-600 text-xl"></i>
-                        </div>
-                        <p class="text-gray-700 mb-4">Drop files here to upload attachments or documents on behalf of residents.</p>
-                        <p class="text-muted text-sm mb-4">Files will be categorized as attachments and can be linked to specific residents.</p>
-                        
-                        <div class="mb-4">
-                            <span class="text-muted">or</span>
-                        </div>
-                        
-                        <!-- Upload Button -->
-                        <button class="btn btn-primary">
-                            <i class="fas fa-upload mr-2"></i>
-                            Select File
-                        </button>
-                        
-                        <!-- File Format Information -->
-                        <div class="mt-4 text-xs text-muted text-left">
-                            <strong>Max Size:</strong> 5MB<br>
-                            <strong>Valid files:</strong> PDF, Text(TXT, CSV, XML), Excel (XLS, XLSX, XLSB), Word(DOC, DOCX, RTF), Image(JPG, JPEG, TIF, BMP, GIF, PNG), Video (MP4, MPG, AVI), Other (ZIP, SWF, DWF, DWFX, SVG)
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -3643,27 +4385,24 @@
                     <div class="form-section">
                         <h3 class="form-section-title">Contact information</h3>
                         
-                        <div class="form-row">
+                        <div class="form-row ml-0">
                             <label class="form-label">Preferred name</label>
                             <div class="form-input-group">
                                 <input type="text" class="form-input" value="Mel Michaels" placeholder="Enter preferred name">
                             </div>
 						</div>
-                        <div class="form-row">
+                        <div class="form-row ml-0">
                             <label class="form-label">Email</label>
                             <div class="form-input-group">
                                 <input type="email" class="form-input" value="kamala.hakuna@email.com" placeholder="Enter email address">
-                                <div class="form-input-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
                             </div>
                             <div class="form-checkbox-group">
                                 <input type="checkbox" id="unsubscribe-email" class="form-checkbox">
-                                <label for="unsubscribe-email" class="form-checkbox-label">Unsubscribe to all email</label>
+                                <label for="unsubscribe-email" class="form-checkbox-label">Unsubscribe from all email</label>
                             </div>
                         </div>
 
-                        <div class="form-row">
+                        <div class="form-row ml-0">
                             <label class="form-label">Preferred contact method</label>
                             <div class="form-radio-group">
                                 <div class="radio-option">
@@ -3690,43 +4429,43 @@
                         </div>
 
                         <div class="form-row-group">
-                            <div class="form-row">
+                            <div class="form-row mr-md-4 ml-0">
                                 <label class="form-label">Cell</label>
                                 <div class="phone-input-group">
                                     <select class="country-select">
                                         <option value="US">US</option>
                                     </select>
-                                    <input type="tel" class="form-input" value="(555) 123-4567" placeholder="(201) 555-0123">
+                                    <input type="tel" class="form-input" value="(555) 123-4567" placeholder="(xxx) xxx-xxxx">
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row ml-md-4 ml-0">
                                 <label class="form-label">Home phone</label>
                                 <div class="phone-input-group">
                                     <select class="country-select">
                                         <option value="US">US</option>
                                     </select>
-                                    <input type="tel" class="form-input" placeholder="(201) 555-0123">
+                                    <input type="tel" class="form-input" placeholder="(xxx) xxx-xxxx">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-row-group">
-                            <div class="form-row">
+                            <div class="form-row mr-md-4 ml-0">
                                 <label class="form-label">Office phone</label>
                                 <div class="phone-input-group">
                                     <select class="country-select">
                                         <option value="US">US</option>
                                     </select>
-                                    <input type="tel" class="form-input" placeholder="(201) 555-0123">
+                                    <input type="tel" class="form-input" placeholder="(xxx) xxx-xxxx">
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row ml-md-4 ml-0">
                                 <label class="form-label">Other phone</label>
                                 <div class="phone-input-group">
                                     <select class="country-select">
                                         <option value="US">US</option>
                                     </select>
-                                    <input type="tel" class="form-input" placeholder="(201) 555-0123">
+                                    <input type="tel" class="form-input" placeholder="(xxx) xxx-xxxx">
                                 </div>
                             </div>
                         </div>
@@ -3737,26 +4476,26 @@
                         <h3 class="form-section-title">Identification</h3>
                         
                         <div class="form-row-group">
-                            <div class="form-row">
+                            <div class="form-row ml-0">
                                 <label class="form-label">First name (legal)</label>
                                 <input type="text" class="form-input" value="Kamala" placeholder="Enter name">
                             </div>
-                            <div class="form-row">
+                            <div class="form-row ml-0">
                                 <label class="form-label">Middle name (legal)</label>
                                 <input type="text" class="form-input" placeholder="Enter name">
                             </div>
-                            <div class="form-row">
+                            <div class="form-row ml-0">
                                 <label class="form-label">Last name (legal)</label>
                                 <input type="text" class="form-input" value="Hakuna" placeholder="Enter name">
                             </div>
                         </div>
 
                         <div class="form-row-group">
-                            <div class="form-row">
+                            <div class="form-row ml-0">
                                 <label class="form-label">Date of birth</label>
                                 <input type="text" class="form-input" value="07/14/****" placeholder="MM/DD/YYYY">
                             </div>
-                            <div class="form-row">
+                            <div class="form-row ml-0">
                                 <label class="form-label">US military service member</label>
                                 <select class="form-select">
                                     <option value="">Select...</option>
@@ -3771,19 +4510,17 @@
                     <div class="form-section">
                         <h3 class="form-section-title">Address</h3>
                         
-                        <div class="form-row">
-                            <label class="form-label">Country <span class="required">*</span></label>
-                            <div class="country-input-group">
+                        <div class="form-row-group">
+                            <div class="form-row ml-0">
+                                <label class="form-label">Country <span class="required">*</span></label>
                                 <select class="form-select">
                                     <option value="US" selected>US (United States)</option>
                                 </select>
-                                <button type="button" class="country-remove-btn">×</button>
                             </div>
-                        </div>
-
-                            <div class="form-row">
-                            <label class="form-label">Address</label>
-                            <input type="text" class="form-input" value="430 S Fairview Avenue 288 Santa Barbara, CA 93117" placeholder="Enter address">
+                            <div class="form-row ml-0">
+                                <label class="form-label">Address</label>
+                                <input type="text" class="form-input" value="430 S Fairview Avenue 288 Santa Barbara, CA 93117" placeholder="Enter address">
+                            </div>
                         </div>
                     </div>
 
@@ -4010,7 +4747,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <!-- Action Buttons - Always Visible -->
                                     <div class="flex gap-2 flex-wrap mt-3">
                                         <button class="btn btn-light btn-sm">
@@ -4129,21 +4866,21 @@
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </button>
                                             </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Add Roommate Button -->
+                    <!-- Add Roommate Button -->
                 <div class="add-pet-section mt-6 mb-4">
-                    <button class="font-medium px-3 py-1" onclick="addNewRoommate()">
-                        <i class="fas fa-plus mr-2"></i>
+                        <button class="font-medium px-3 py-1" onclick="addNewRoommate()">
+                            <i class="fas fa-plus mr-2"></i>
                         Add roommate
-                    </button>
-                </div>
+                        </button>
+                    </div>
 
                     <!-- Past Roommates Section -->
                     <div class="mb-6 mt-8">
@@ -4153,7 +4890,7 @@
                                 <span id="past-roommates-toggle-text">More details</span>
                                 <i id="past-roommates-chevron" class="fas fa-chevron-down ml-1"></i>
                             </button>
-                        </div>
+                </div>
                         
                         <!-- Past Roommate List (Collapsed - Show only recent) -->
                         <div id="past-roommates-summary" class="space-y-4">
@@ -7026,6 +7763,12 @@
             } else if (viewName === 'documents') {
                 documentsView.style.display = 'block';
                 documentsMenu.classList.add('active');
+                
+                // Initialize documents table sorting on first load
+                if (!documentsTableInitialized) {
+                    initializeDocumentsSort();
+                    documentsTableInitialized = true;
+                }
             }
         }
         
@@ -8926,30 +9669,8 @@
 
         // Documents page functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Add Documents button handler
-            const addDocumentsBtn = document.querySelector('#documents-view .btn-primary');
-            if (addDocumentsBtn) {
-                addDocumentsBtn.addEventListener('click', function() {
-                    alert('Add Documents:\n\n• Upload new files\n• Generate from templates\n• Create signature requests\n• Bulk document operations\n• Set document categories and assignees');
-                });
-            }
+            // Add Documents button now handled by onclick in HTML
 
-            // Upload zone functionality
-            const selectFilesBtn = document.querySelector('#documents-view .btn-primary:contains("Select Files")');
-            const generateTemplateBtn = document.querySelector('#documents-view .btn:contains("Generate From Template")');
-            
-            // Handle file selection
-            document.querySelectorAll('#documents-view .btn').forEach(btn => {
-                if (btn.textContent.includes('Select Files')) {
-                    btn.addEventListener('click', function() {
-                        alert('File Upload:\n\n• Choose files to upload\n• Drag and drop support\n• Auto-categorization\n• Batch processing\n• File validation');
-                    });
-                } else if (btn.textContent.includes('Generate From Template')) {
-                    btn.addEventListener('click', function() {
-                        alert('Generate Document:\n\n• Choose template type\n• Auto-populate tenant data\n• Set signing requirements\n• Schedule delivery\n• Track completion');
-                    });
-                }
-            });
 
             // Document action buttons
             document.querySelectorAll('#documents-view .btn-sm').forEach(btn => {
@@ -8979,143 +9700,9 @@
                 }
             });
 
-            // Documents sorting and filtering
-            let documentsCurrentSort = {
-                column: null,
-                direction: 'asc'
-            };
 
-            let documentsCurrentFilter = 'all';
 
-            function setDocumentsFilter(filter) {
-                // Remove active class from all tab filters
-                document.querySelectorAll('#documents-view .tab-filter').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                
-                // Add active class to clicked filter
-                document.getElementById('doc-filter-' + filter).classList.add('active');
-                
-                // Set current filter
-                documentsCurrentFilter = filter;
-                
-                // Apply filter
-                filterDocuments();
-            }
 
-            function filterDocuments() {
-                const searchTerm = document.getElementById('documents-search').value.toLowerCase();
-                const rows = document.querySelectorAll('#documents-view tbody tr');
-                
-                rows.forEach(row => {
-                    let showRow = true;
-                    
-                    // Search filter
-                    if (searchTerm) {
-                        const text = row.textContent.toLowerCase();
-                        if (!text.includes(searchTerm)) {
-                            showRow = false;
-                        }
-                    }
-                    
-                    // Category tab filter
-                    if (documentsCurrentFilter !== 'all' && showRow) {
-                        const category = row.getAttribute('data-category');
-                        
-                        switch (documentsCurrentFilter) {
-                            case 'signature':
-                                showRow = category === 'signature';
-                                break;
-                            case 'upload':
-                                showRow = category === 'upload';
-                                break;
-                            case 'attachments':
-                                showRow = category === 'attachments';
-                                break;
-                        }
-                    }
-                    
-                    row.style.display = showRow ? '' : 'none';
-                });
-            }
-
-            function sortDocumentsTable(column) {
-                const table = document.getElementById('documents-tbody');
-                const rows = Array.from(table.querySelectorAll('tr'));
-                
-                // Determine sort direction
-                if (documentsCurrentSort.column === column) {
-                    documentsCurrentSort.direction = documentsCurrentSort.direction === 'asc' ? 'desc' : 'asc';
-                } else {
-                    documentsCurrentSort.direction = 'asc';
-                }
-                documentsCurrentSort.column = column;
-                
-                // Update sort icons
-                updateDocumentsSortIcons(column, documentsCurrentSort.direction);
-                
-                // Sort rows based on column
-                rows.sort((a, b) => {
-                    let aValue, bValue;
-                    
-                    switch(column) {
-                        case 'name':
-                            aValue = a.children[0].textContent.trim();
-                            bValue = b.children[0].textContent.trim();
-                            break;
-                        case 'linkedto':
-                            aValue = a.children[1].textContent.trim();
-                            bValue = b.children[1].textContent.trim();
-                            break;
-                        case 'category':
-                            aValue = a.children[2].textContent.trim();
-                            bValue = b.children[2].textContent.trim();
-                            break;
-                        case 'status':
-                            aValue = a.children[3].textContent.trim();
-                            bValue = b.children[3].textContent.trim();
-                            break;
-                        case 'modified':
-                            aValue = a.children[4].textContent.trim();
-                            bValue = b.children[4].textContent.trim();
-                            break;
-                    }
-                    
-                    if (documentsCurrentSort.direction === 'asc') {
-                        return aValue.localeCompare(bValue);
-                    } else {
-                        return bValue.localeCompare(aValue);
-                    }
-                });
-                
-                // Re-append sorted rows
-                rows.forEach(row => table.appendChild(row));
-            }
-
-            function updateDocumentsSortIcons(sortedColumn, direction) {
-                // Reset all icons
-                document.querySelectorAll('#documents-view th i').forEach(icon => {
-                    icon.className = 'fas fa-sort text-sm text-gray-400';
-                });
-                
-                // Update the sorted column icon
-                const columnMap = {
-                    'name': 0,
-                    'dates': 1,
-                    'type': 2,
-                    'status': 3,
-                    'modified': 4
-                };
-                
-                const columnIndex = columnMap[sortedColumn];
-                const icon = document.querySelectorAll('#documents-view th')[columnIndex].querySelector('i');
-                
-                if (direction === 'asc') {
-                    icon.className = 'fas fa-sort-up text-sm text-primary';
-                } else {
-                    icon.className = 'fas fa-sort-down text-sm text-primary';
-                }
-            }
 
             // Status card click handlers
             document.querySelectorAll('#documents-view .bg-white.rounded-lg.border').forEach(card => {
@@ -9131,8 +9718,445 @@
             });
         });
 
+        // Attachment Modal Functions
+        function showAttachmentModal() {
+            const modal = document.getElementById('attachment-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        function closeAttachmentModal() {
+            const modal = document.getElementById('attachment-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scrolling
+                
+                // Reset form
+                const select = modal.querySelector('select');
+                const fileInput = modal.querySelector('#attachment-file-input');
+                if (select) select.selectedIndex = 0;
+                if (fileInput) fileInput.value = '';
+            }
+        }
+
+        function uploadAttachment() {
+            const modal = document.getElementById('attachment-modal');
+            const select = modal.querySelector('select');
+            const fileInput = modal.querySelector('#attachment-file-input');
+            
+            if (!select.value) {
+                alert('Please select who this attachment is for.');
+                return;
+            }
+            
+            if (!fileInput.files || fileInput.files.length === 0) {
+                alert('Please select at least one file to upload.');
+                return;
+            }
+            
+            // Simulate upload process
+            const recipient = select.options[select.selectedIndex].text;
+            const fileCount = fileInput.files.length;
+            const fileNames = Array.from(fileInput.files).map(file => file.name).join(', ');
+            
+            alert(`Uploading ${fileCount} file(s) for ${recipient}:\n\n${fileNames}\n\nUpload completed successfully!`);
+            
+            // Close modal
+            closeAttachmentModal();
+        }
+
+        // Edit attachment document function
+        function editAttachmentDocument(currentName, currentType) {
+            const modal = document.createElement('div');
+            modal.id = 'edit-attachment-modal';
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center';
+            modal.style.cssText = 'background-color: rgba(0, 0, 0, 0.3); backdrop-filter: blur(2px);';
+            
+            modal.innerHTML = `
+                <div class="bg-white rounded-lg w-full max-w-md mx-4">
+                    <div class="flex items-center justify-between p-6 border-b">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-pen text-blue-600"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900">Edit Document</h3>
+                        </div>
+                        <button onclick="closeEditAttachmentModal()" class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Document Name</label>
+                            <input 
+                                type="text" 
+                                id="edit-document-name"
+                                value="${currentName}"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Enter document name"
+                            >
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Document Type</label>
+                            <select id="edit-document-type" class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <optgroup label="Portal Lease Documents">
+                                    <option value="Portal Lease Documents" ${currentType === 'Portal Lease Documents' ? 'selected' : ''}>Portal Lease Documents</option>
+                                    <option value="Condo Invoice" ${currentType === 'Condo Invoice' ? 'selected' : ''}>Condo Invoice</option>
+                                    <option value="Condo Letter" ${currentType === 'Condo Letter' ? 'selected' : ''}>Condo Letter</option>
+                                    <option value="Condo Ledger" ${currentType === 'Condo Ledger' ? 'selected' : ''}>Condo Ledger</option>
+                                    <option value="Next of Kin Form" ${currentType === 'Next of Kin Form' ? 'selected' : ''}>Next of Kin Form</option>
+                                    <option value="Public Trustee Form" ${currentType === 'Public Trustee Form' ? 'selected' : ''}>Public Trustee Form</option>
+                                    <option value="Lease Documents" ${currentType === 'Lease Documents' ? 'selected' : ''}>Lease Documents</option>
+                                </optgroup>
+                                <optgroup label="RGI Documents">
+                                    <option value="RGI Documents" ${currentType === 'RGI Documents' ? 'selected' : ''}>RGI Documents</option>
+                                </optgroup>
+                                <optgroup label="Tenant Management">
+                                    <option value="Tenant Complaints" ${currentType === 'Tenant Complaints' ? 'selected' : ''}>Tenant Complaints</option>
+                                    <option value="Renters Insurance" ${currentType === 'Renters Insurance' ? 'selected' : ''}>Renters Insurance</option>
+                                </optgroup>
+                                <optgroup label="Bluemoon Documents">
+                                    <option value="Bluemoon Lease Documents" ${currentType === 'Bluemoon Lease Documents' ? 'selected' : ''}>Bluemoon Lease Documents</option>
+                                    <option value="Bluemoon Addendum Documents" ${currentType === 'Bluemoon Addendum Documents' ? 'selected' : ''}>Bluemoon Addendum Documents</option>
+                                </optgroup>
+                                <optgroup label="Legal Documents">
+                                    <option value="DNR Order" ${currentType === 'DNR Order' ? 'selected' : ''}>DNR Order</option>
+                                    <option value="Living Will" ${currentType === 'Living Will' ? 'selected' : ''}>Living Will</option>
+                                    <option value="Guardian" ${currentType === 'Guardian' ? 'selected' : ''}>Guardian</option>
+                                    <option value="POA" ${currentType === 'POA' ? 'selected' : ''}>POA</option>
+                                    <option value="Attorney" ${currentType === 'Attorney' ? 'selected' : ''}>Attorney</option>
+                                </optgroup>
+                                <optgroup label="Correspondence & Attachments">
+                                    <option value="Delivery Attachment" ${currentType === 'Delivery Attachment' ? 'selected' : ''}>Delivery Attachment</option>
+                                    <option value="Residential Correspondence" ${currentType === 'Residential Correspondence' ? 'selected' : ''}>Residential Correspondence</option>
+                                    <option value="EMAIL ATTACHMENT" ${currentType === 'EMAIL ATTACHMENT' ? 'selected' : ''}>EMAIL ATTACHMENT</option>
+                                    <option value="Additional Lease Document" ${currentType === 'Additional Lease Document' ? 'selected' : ''}>Additional Lease Document</option>
+                                </optgroup>
+                                <optgroup label="Application Documents">
+                                    <option value="Portal upload Documents" ${currentType === 'Portal upload Documents' ? 'selected' : ''}>Portal upload Documents</option>
+                                    <option value="Print Application Documents" ${currentType === 'Print Application Documents' ? 'selected' : ''}>Print Application Documents</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        
+                        <div class="flex justify-end gap-3">
+                            <button onclick="closeEditAttachmentModal()" class="px-4 py-2 text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+                                Cancel
+                            </button>
+                            <button onclick="saveAttachmentEdit('${currentName}')" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            document.body.style.overflow = 'hidden';
+            
+            // Focus on the name input
+            setTimeout(() => {
+                const nameInput = document.getElementById('edit-document-name');
+                if (nameInput) {
+                    nameInput.focus();
+                    nameInput.select();
+                }
+            }, 100);
+        }
+
+        // Close edit attachment modal
+        function closeEditAttachmentModal() {
+            const modal = document.getElementById('edit-attachment-modal');
+            if (modal) {
+                modal.remove();
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Save attachment edit
+        function saveAttachmentEdit(originalName) {
+            const modal = document.getElementById('edit-attachment-modal');
+            const newName = document.getElementById('edit-document-name').value.trim();
+            const newType = document.getElementById('edit-document-type').value;
+            
+            if (!newName) {
+                alert('Please enter a document name.');
+                return;
+            }
+            
+            // Find the document row and update it
+            const documentRows = document.querySelectorAll('.document-item');
+            documentRows.forEach(row => {
+                const nameLink = row.querySelector('a');
+                if (nameLink && nameLink.textContent.trim() === originalName) {
+                    // Update document name
+                    nameLink.textContent = newName;
+                    
+                    // Update document type
+                    const typeSpan = row.querySelector('td:nth-child(2) span');
+                    if (typeSpan) {
+                        typeSpan.textContent = newType;
+                    }
+                    
+                    // Update onclick attribute with new name
+                    const editButton = row.querySelector('button[onclick*="editAttachmentDocument"]');
+                    if (editButton) {
+                        editButton.setAttribute('onclick', `editAttachmentDocument('${newName}', '${newType}')`);
+                    }
+                }
+            });
+            
+            alert(`Document updated successfully!\n\nName: ${newName}\nType: ${newType}`);
+            closeEditAttachmentModal();
+        }
+
+        // ESC key to close edit modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const editModal = document.getElementById('edit-attachment-modal');
+                if (editModal) {
+                    closeEditAttachmentModal();
+                }
+            }
+        });
+
+        // Click outside to close edit modal
+        document.addEventListener('click', function(e) {
+            const editModal = document.getElementById('edit-attachment-modal');
+            if (editModal && e.target === editModal) {
+                closeEditAttachmentModal();
+            }
+        });
+
+        // Widget upload attachment function
+        function uploadWidgetAttachment() {
+            const widget = document.getElementById('attachment-upload-widget');
+            const select = widget.querySelector('#widget-attachment-recipient');
+            const fileInput = widget.querySelector('#widget-attachment-file-input');
+            
+            if (!select.value) {
+                alert('Please select who this attachment is for.');
+                return;
+            }
+            
+            if (!fileInput.files || fileInput.files.length === 0) {
+                alert('Please select at least one file to upload.');
+                return;
+            }
+            
+            // Simulate upload process
+            const recipient = select.options[select.selectedIndex].text;
+            const fileCount = fileInput.files.length;
+            const fileNames = Array.from(fileInput.files).map(file => file.name).join(', ');
+            
+            alert(`Uploading ${fileCount} attachment(s) for ${recipient}:\n\n${fileNames}\n\nAttachment(s) uploaded successfully!`);
+            
+            // Reset form
+            select.selectedIndex = 0;
+            fileInput.value = '';
+            
+            // Reset upload area text
+            const uploadText = widget.querySelector('h4');
+            if (uploadText) {
+                uploadText.textContent = 'Drop files here to upload.';
+            }
+        }
+
+        // Handle drag and drop
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal drag and drop
+            const uploadArea = document.querySelector('#attachment-modal .border-dashed');
+            const fileInput = document.getElementById('attachment-file-input');
+            
+            // Widget drag and drop
+            const widgetUploadArea = document.querySelector('#attachment-upload-widget .border-dashed');
+            const widgetFileInput = document.getElementById('widget-attachment-file-input');
+            
+            // Setup modal drag and drop
+            if (uploadArea && fileInput) {
+                // Prevent default drag behaviors
+                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                    uploadArea.addEventListener(eventName, preventDefaults, false);
+                    document.body.addEventListener(eventName, preventDefaults, false);
+                });
+                
+                // Highlight drop area when item is dragged over it
+                ['dragenter', 'dragover'].forEach(eventName => {
+                    uploadArea.addEventListener(eventName, highlight, false);
+                });
+                
+                ['dragleave', 'drop'].forEach(eventName => {
+                    uploadArea.addEventListener(eventName, unhighlight, false);
+                });
+                
+                // Handle dropped files
+                uploadArea.addEventListener('drop', handleDrop, false);
+            }
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            function highlight(e) {
+                uploadArea.classList.add('border-blue-400', 'bg-blue-50');
+            }
+            
+            function unhighlight(e) {
+                uploadArea.classList.remove('border-blue-400', 'bg-blue-50');
+            }
+            
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                fileInput.files = files;
+                
+                // Show file names in upload area
+                if (files.length > 0) {
+                    const fileNames = Array.from(files).map(file => file.name).join(', ');
+                    const uploadText = uploadArea.querySelector('h4');
+                    if (uploadText) {
+                        uploadText.textContent = `${files.length} file(s) selected: ${fileNames}`;
+                    }
+                }
+            }
+            
+            // Setup widget drag and drop
+            if (widgetUploadArea && widgetFileInput) {
+                // Prevent default drag behaviors
+                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                    widgetUploadArea.addEventListener(eventName, preventDefaultsWidget, false);
+                    document.body.addEventListener(eventName, preventDefaultsWidget, false);
+                });
+                
+                // Highlight drop area when item is dragged over it
+                ['dragenter', 'dragover'].forEach(eventName => {
+                    widgetUploadArea.addEventListener(eventName, highlightWidget, false);
+                });
+                
+                ['dragleave', 'drop'].forEach(eventName => {
+                    widgetUploadArea.addEventListener(eventName, unhighlightWidget, false);
+                });
+                
+                // Handle dropped files
+                widgetUploadArea.addEventListener('drop', handleDropWidget, false);
+                
+                function preventDefaultsWidget(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                
+                function highlightWidget(e) {
+                    widgetUploadArea.classList.add('border-blue-400', 'bg-blue-50');
+                }
+                
+                function unhighlightWidget(e) {
+                    widgetUploadArea.classList.remove('border-blue-400', 'bg-blue-50');
+                }
+                
+                function handleDropWidget(e) {
+                    const dt = e.dataTransfer;
+                    const files = dt.files;
+                    widgetFileInput.files = files;
+                    
+                    // Show file names in upload area
+                    if (files.length > 0) {
+                        const fileNames = Array.from(files).map(file => file.name).join(', ');
+                        const uploadText = widgetUploadArea.querySelector('h4');
+                        if (uploadText) {
+                            uploadText.textContent = `${files.length} file(s) selected: ${fileNames}`;
+                        }
+                    }
+                }
+            }
+        });
+
+        // ESC key and click outside to close attachment modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeAttachmentModal();
+            }
+        });
+        
+        document.addEventListener('click', function(e) {
+            const modal = document.getElementById('attachment-modal');
+            if (modal && e.target === modal) {
+                closeAttachmentModal();
+            }
+        });
+
 
     </script>
+
+    <!-- Attachment Upload Modal -->
+    <div id="attachment-modal" class="fixed inset-0 hidden z-[9999] flex items-center justify-center" style="background-color: rgba(0, 0, 0, 0.3); backdrop-filter: blur(2px);">
+        <div class="bg-white rounded-lg w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between p-6 border-b">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-paperclip text-blue-600"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">Add Attachment</h3>
+                </div>
+                <button onclick="closeAttachmentModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <!-- Recipient Selection -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Select who this attachment is for <span class="text-red-500">*</span>
+                    </label>
+                    <select class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="melinda-michaels" selected>Melinda Michaels</option>
+                        <option value="angela-johnson">Angela Johnson</option>
+                        <option value="john-smith">John Smith</option>
+                        <option value="household">Household</option>
+                    </select>
+                </div>
+                
+                <!-- Upload Area -->
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors cursor-pointer" 
+                     onclick="document.getElementById('attachment-file-input').click()">
+                    <div class="mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-cloud-upload-alt text-blue-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium text-gray-900 mb-2">Drop files here to upload.</h4>
+                        <div class="mb-4">
+                            <span class="text-gray-500">or</span>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="document.getElementById('attachment-file-input').click()">
+                            Select File
+                        </button>
+                        <input type="file" id="attachment-file-input" class="hidden" multiple>
+                    </div>
+                </div>
+                
+                <!-- File Format Information -->
+                <div class="mt-4 text-xs text-gray-500">
+                    <strong>Max Size:</strong> 5MB, <strong>Valid files:</strong> PDF, Text(TXT, CSV, XML), Excel (XLS, XLSX, XLSB), Word(DOC, DOCX, RTF), Image(JPG, JPEG, TIF, BMP, GIF, PNG), Video (MP4, MPG, AVI), Other (ZIP, SWF, DWF, DWFX, SVG)
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex justify-end gap-3 mt-6">
+                    <button onclick="closeAttachmentModal()" class="px-4 py-2 text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+                        Cancel
+                    </button>
+                    <button onclick="uploadAttachment()" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        Upload Attachment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
 

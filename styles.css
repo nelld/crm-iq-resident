@@ -5024,3 +5024,91 @@ html {
 .grid {
 	padding: 0;
 }
+
+/* Search and Filters Layout Rule - Consistent Pattern */
+.search-filters-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-filters-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-filters-group .search-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+.search-filters-group .filter-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* FontAwesome Icon Consistency Rules */
+/* RULE: Always use fa-pen instead of fa-edit for edit actions */
+/* This provides a more modern and consistent edit icon throughout the application */
+
+/* Standard Table Layout Rule - Consistent Pattern */
+.standard-table {
+    width: 100%;
+}
+
+.standard-table thead {
+    border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
+}
+
+.standard-table th {
+    padding: 0.75rem 1.5rem; /* px-6 py-3 */
+    text-align: left;
+    font-weight: bold;
+    color: #6b7280; /* text-muted */
+    letter-spacing: 0.05em; /* tracking-wider */
+}
+
+.standard-table th.text-right {
+    text-align: right;
+}
+
+.standard-table th.text-center {
+    text-align: center;
+}
+
+.standard-table th.sortable {
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.standard-table th.sortable:hover {
+    background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+.standard-table tbody {
+    background-color: white;
+    border-collapse: collapse;
+}
+
+.standard-table tbody tr {
+    border-bottom: 1px solid #e5e7eb; /* divide-y divide-gray-200 */
+    transition: background-color 0.15s ease-in-out;
+}
+
+.standard-table tbody tr:hover {
+    background-color: #f9fafb; /* hover:bg-gray-50 */
+}
+
+.standard-table td {
+    padding: 1rem 1.5rem; /* px-6 py-4 */
+}
+
+/* Remove outer borders and backgrounds from table containers */
+.standard-table-container {
+    /* No borders, backgrounds, or rounded corners */
+    background: transparent;
+}
