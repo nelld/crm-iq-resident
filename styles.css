@@ -1366,9 +1366,7 @@ body {
     box-shadow: 0 0 0 3px rgba(0, 114, 206, 0.1);
 }
 
-.form-input-group {
-    position: relative;
-}
+/* Form input group styling consolidated below */
 
 .form-input-icon {
     position: absolute;
@@ -5106,4 +5104,593 @@ html {
 .standard-table-container {
     /* No borders, backgrounds, or rounded corners */
     background: transparent;
+}
+
+/* Tab Navigation Styles 
+ * DESIGN RULE: All tabs should have clean, minimal styling:
+ * - No background colors or gradients
+ * - No icons in tab buttons 
+ * - Text-only labels for clarity and simplicity
+ * - Transparent backgrounds for modern, clean appearance
+ */
+.tab-navigation {
+    display: flex;
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 24px;
+    background: transparent;
+    padding: 0;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 0;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.tab-button:hover {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.tab-button.active {
+    background: transparent;
+    color: #1f2937;
+    border-bottom: 2px solid #3b82f6;
+    font-weight: 600;
+}
+
+/* Tab buttons are clean text-only - no icons per design rule */
+
+.tab-content-container {
+    min-height: 500px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Lease Charges Tab Styles */
+.charges-header {
+    margin-bottom: 24px;
+}
+
+.charges-controls {
+    width: 100%;
+}
+
+/* charges-search class no longer used - using inline flex in HTML */
+
+.search-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-group i {
+    position: absolute;
+    left: 12px;
+    color: #9ca3af;
+    z-index: 1;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 12px 8px 36px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.charges-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.toggle-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toggle-checkbox {
+    width: 16px;
+    height: 16px;
+}
+
+.toggle-label {
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+}
+
+/* Card-based charges layout */
+.charges-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Reduced spacing between cards */
+}
+
+/* Removed inline edit styles - now using pageslide pattern */
+
+/* Pageslide Design Pattern - Add Lease Charge */
+.pageslide.add-lease-charge .pageslide-content {
+    padding: 24px !important;
+    padding-bottom: 100px !important; /* Space for sticky footer */
+}
+
+/* Pageslide Design Pattern - Edit Lease Charge */
+.pageslide.edit-lease-charge .pageslide-content {
+    padding: 24px !important;
+    padding-bottom: 100px !important; /* Space for sticky footer */
+}
+
+/* ===========================================================================
+   SYSTEM-WIDE FORM STANDARDS - APPLIED TO ALL FORMS THROUGHOUT APPLICATION
+   ===========================================================================
+   These styles ensure consistent form appearance across:
+   - Pageslides, Modals, Inline forms, Cards, Popups, etc.
+   
+   Standard Specifications:
+   • Form Inputs/Selects: 14px font, 500 weight, 48px height, 12px 16px padding
+     (includes text, number, date, email, tel, password, search, datetime-local)
+   • Form Labels: 13.2px font, 400 weight, 8px bottom margin
+   • Textareas: 14px font, 500 weight, 12px 16px padding, vertical resize only
+   • Placeholders: 400 weight, 75% opacity for subtle appearance
+   • Checkboxes: 16px x 16px, consistent border styling
+   • Input Groups: 48px height alignment, consistent prefix styling
+   • Modal Forms: All forms including those with Tailwind w-full classes
+   
+   DO NOT override these standards without system-wide consideration.
+   =========================================================================== */
+
+/* Global Form Elements - System-Wide - Unified Height (48px), Font Size (14px), Weight (500) */
+.form-input,
+.form-select,
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="search"],
+input[type="datetime-local"],
+select {
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    height: 48px !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    background-color: white !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    line-height: 1.5 !important;
+}
+
+/* Additional coverage for modal and inline forms using Tailwind classes */
+input.w-full,
+select.w-full,
+textarea.w-full {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+/* Global placeholder styling - System-Wide */
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+    font-weight: 400 !important;
+    opacity: 0.75;
+}
+
+/* Webkit specific placeholder styles */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    font-weight: 400 !important;
+    opacity: 0.75;
+}
+
+/* Firefox specific placeholder styles */
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+    font-weight: 400 !important;
+    opacity: 0.75;
+}
+
+/* Pageslide specific overrides - inherits from global rules above */
+.pageslide .form-input,
+.pageslide .form-select,
+.pageslide input[type="text"],
+.pageslide input[type="number"],
+.pageslide input[type="date"],
+.pageslide input[type="email"],
+.pageslide input[type="tel"],
+.pageslide input[type="password"],
+.pageslide input[type="search"],
+.pageslide input[type="datetime-local"],
+.pageslide select {
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    height: 48px !important;
+}
+
+/* Global focus states for all forms */
+.form-input:focus,
+.form-select:focus,
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+select:focus {
+    outline: none !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Pageslide specific focus overrides - inherits from global rules above */
+.pageslide .form-input:focus,
+.pageslide .form-select:focus,
+.pageslide input[type="text"]:focus,
+.pageslide input[type="number"]:focus,
+.pageslide input[type="date"]:focus,
+.pageslide input[type="email"]:focus,
+.pageslide input[type="tel"]:focus,
+.pageslide input[type="password"]:focus,
+.pageslide input[type="search"]:focus,
+.pageslide select:focus {
+    outline: none !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Global form label styles - System-Wide */
+.form-label {
+    font-weight: 400 !important;
+    margin-bottom: 8px !important;
+    font-size: 13.2px !important;
+    display: block !important;
+    color: #374151 !important;
+}
+
+/* Ensure all label elements have consistent font size and weight - System-Wide */
+label {
+    font-size: 13.2px !important;
+    font-weight: 400 !important;
+}
+
+.block.text-sm.font-medium {
+    font-size: 13.2px !important;
+    font-weight: 400 !important;
+}
+
+/* Pageslide specific label overrides - inherits from global rules above */
+.pageslide .form-label {
+    font-weight: 400 !important;
+    margin-bottom: 8px !important;
+    font-size: 13.2px !important;
+    display: block !important;
+    color: #374151 !important;
+}
+
+.pageslide label {
+    font-size: 13.2px !important;
+    font-weight: 400 !important;
+}
+
+.pageslide .block.text-sm.font-medium {
+    font-size: 13.2px !important;
+    font-weight: 400 !important;
+}
+
+/* Global checkbox styling - System-Wide */
+.form-checkbox {
+    width: 16px !important;
+    height: 16px !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 4px !important;
+}
+
+/* Global textarea styling - System-Wide */
+textarea {
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    background-color: white !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    line-height: 1.5 !important;
+    resize: vertical !important;
+}
+
+textarea:focus {
+    outline: none !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Pageslide specific overrides - inherits from global rules above */
+.pageslide .form-checkbox {
+    width: 16px !important;
+    height: 16px !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 4px !important;
+}
+
+.pageslide textarea {
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    background-color: white !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    line-height: 1.5 !important;
+    resize: vertical !important;
+}
+
+.pageslide textarea:focus {
+    outline: none !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Pageslide Sticky Footer */
+.pageslide .pageslide-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    padding: 16px 24px;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* SYSTEM-WIDE Form Element Standards - Applied to ALL Forms Throughout Application */
+/* RULE 1: All form inputs, selects, and textareas should have consistent height (48px) */
+/* RULE 2: All form elements should use consistent font size (14px) and weight (500) for better UX */
+/* RULE 3: All form elements should have consistent padding (12px 16px) */
+/* RULE 4: Input groups with prefixes should maintain the same height and alignment */
+/* RULE 5: All form labels should have consistent font size (13.2px) and weight (400) */
+/* RULE 6: All placeholders should have consistent font weight (400) for subtle appearance */
+/* RULE 7: These standards apply to ALL forms: pageslides, modals, inline forms, etc. */
+
+/* Card Design Rules - Applied System-wide */
+/* RULE 8: Card headers should NOT have border-bottom (border-b) styling */
+/* RULE 9: Card headers should NOT have icons before the title - title only */
+/* RULE 10: Keep card headers clean with just the title and minimal styling */
+
+/* Action Button Design Rules - Applied System-wide */
+/* RULE 11: Icon-only action buttons should always use 'btn btn-light' classes, never 'btn-icon' */
+/* RULE 12: Delete icons should always use 'fa-trash-alt' for consistency, never 'fa-trash' */
+/* RULE 13: Delete buttons should have 'text-red-600' class to indicate destructive action */
+
+.status {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.status.active {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status.expired {
+    background: #fef2f2;
+    color: #991b1b;
+    text-transform: none;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #f3f4f6;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-icon:hover {
+    background: #e5e7eb;
+}
+
+.btn-icon-danger:hover {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.btn-icon i {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.btn-icon-danger:hover i {
+    color: #dc2626;
+}
+
+/* Deposits Tab Styles - Simple Form Layout */
+#deposits-tab {
+    display: none !important;
+}
+
+#deposits-tab.active {
+    display: block !important;
+}
+
+.deposit-item {
+    padding: 16px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+}
+
+.deposit-item .form-label {
+    margin-bottom: 8px;
+    display: block;
+}
+
+.deposit-item div:not(.form-label) {
+    color: #6c757d;
+    font-weight: 600;
+}
+
+/* Form Input Groups - System-Wide Standards */
+.form-input-group {
+    display: flex;
+    position: relative;
+}
+
+.form-input-prefix {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+    font-size: 14px;
+    color: #6b7280;
+    height: 48px;
+    box-sizing: border-box;
+}
+
+.form-input-group .form-input {
+    border-radius: 0 6px 6px 0 !important;
+    border-left: none !important;
+    height: 48px !important;
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+/* Pageslide specific overrides for form input groups */
+.pageslide .form-input-prefix {
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    height: 48px !important;
+}
+
+.pageslide .form-input-group .form-input {
+    height: 48px !important;
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border-radius: 0 6px 6px 0 !important;
+    border-left: none !important;
+}
+
+/* Ensure amount fields have consistent text size and weight - System-Wide */
+input[type="number"].form-input {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    height: 48px !important;
+    padding: 12px 16px !important;
+}
+
+/* Pageslide specific overrides for number inputs */
+.pageslide input[type="number"].form-input {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    height: 48px !important;
+    padding: 12px 16px !important;
+}
+
+.form-input-suffix {
+    position: absolute;
+    right: 12px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    border: 2px dashed #e5e7eb;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.empty-state i {
+    margin-bottom: 16px;
+}
+
+.empty-state p {
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .charges-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .charges-search {
+        max-width: none;
+    }
+
+    .charges-actions {
+        justify-content: space-between;
+    }
+
+    /* Card layout adjustments for mobile */
+    .charge-card .flex.items-center.justify-between {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .charge-card .flex.flex-col.items-end {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .charge-card .action-buttons {
+        flex-shrink: 0;
+    }
 }

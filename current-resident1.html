@@ -86,7 +86,7 @@
             width: 100% !important;
         }
         
-        .contact-edit-form .form-row-group {
+        .contact-edit-form .form-row-group ml-1 {
             display: grid !important;
             grid-template-columns: auto 1fr !important;
             gap: 16px !important;
@@ -95,20 +95,20 @@
         }
         
         @media (max-width: 768px) {
-            .contact-edit-form .form-row-group {
+            .contact-edit-form .form-row-group ml-1 {
                 grid-template-columns: 1fr !important;
             }
         }
         
-        .contact-edit-form .form-row-group .form-row {
+        .contact-edit-form .form-row-group ml-1 .form-row {
             margin-bottom: 0 !important;
         }
         
         .contact-edit-form .form-label {
             display: block !important;
             margin-bottom: 2px !important;
-            font-weight: 500 !important;
-            font-size: 14px !important;
+            font-weight: 400 !important;
+            font-size: 13.2px !important;
             color: #374151 !important;
             order: 1 !important;
         }
@@ -121,6 +121,11 @@
             order: 2 !important;
             width: 100% !important;
             box-sizing: border-box !important;
+        }
+
+        .contact-edit-form .form-input,
+        .contact-edit-form .form-select {
+            font-weight: 500 !important;
         }
         
         .contact-edit-form .form-radio-group {
@@ -216,19 +221,162 @@
         }
         
         /* Special handling for identification section with 3 fields */
-        .contact-edit-form .form-section h3 + .form-row-group:first-of-type {
+        .contact-edit-form .form-section h3 + .form-row-group ml-1:first-of-type {
             grid-template-columns: 1fr 1fr 1fr !important;
         }
         
         @media (max-width: 1024px) {
-            .contact-edit-form .form-section h3 + .form-row-group:first-of-type {
+            .contact-edit-form .form-section h3 + .form-row-group ml-1:first-of-type {
                 grid-template-columns: 1fr 1fr !important;
             }
         }
         
         @media (max-width: 768px) {
-            .contact-edit-form .form-section h3 + .form-row-group:first-of-type {
+            .contact-edit-form .form-section h3 + .form-row-group ml-1:first-of-type {
                 grid-template-columns: 1fr !important;
+            }
+        }
+        
+        /* Lease Edit Form Styling - Matching Contact Edit Form */
+        .lease-edit-form .form-section {
+            margin-bottom: 32px !important;
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+            border-bottom: none !important;
+            width: 100% !important;
+        }
+        
+        .lease-edit-form .form-section-title {
+            margin-bottom: 20px !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: #111827 !important;
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+        }
+        
+        .lease-edit-form .form-row {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 4px !important;
+            margin-bottom: 16px !important;
+            width: 100% !important;
+        }
+        
+        .lease-edit-form .form-row-group ml-1 {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 16px !important;
+            margin-bottom: 16px !important;
+            width: 100% !important;
+        }
+        
+        /* Special handling for dates section with 3 fields */
+        .lease-edit-form .form-section h3 + .form-row-group.ml-1:first-of-type {
+            grid-template-columns: 1fr 1fr !important;
+        }
+        
+        .lease-edit-form .form-section h3 + .form-row-group.ml-1:first-of-type + .form-row-group.ml-1 {
+            grid-template-columns: 1fr 1fr 1fr !important;
+        }
+        
+        @media (max-width: 1024px) {
+            .lease-edit-form .form-section h3 + .form-row-group.ml-1:first-of-type + .form-row-group.ml-1 {
+                grid-template-columns: 1fr 1fr !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .lease-edit-form .form-row-group.ml-1 {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        
+        .lease-edit-form .form-row-group.ml-1 .form-row {
+            margin-bottom: 0 !important;
+        }
+        
+        .lease-edit-form .form-label {
+            display: block !important;
+            margin-bottom: 2px !important;
+            font-weight: 400 !important;
+            color: #374151 !important;
+            font-size: 13.2px !important;
+        }
+        
+        .lease-edit-form .form-input,
+        .lease-edit-form .form-select,
+        .lease-edit-form .form-input-group {
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .lease-edit-form .form-input,
+        .lease-edit-form .form-select {
+            font-weight: 500 !important;
+        }
+        
+        .lease-edit-form .form-radio-group {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 12px !important;
+            margin-top: 2px !important;
+        }
+        
+        .lease-edit-form .radio-option {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+        
+        .lease-edit-form .form-radio {
+            margin: 0 !important;
+            width: 16px !important;
+            height: 16px !important;
+            cursor: pointer !important;
+        }
+        
+        .lease-edit-form .form-radio-label {
+            margin: 0 !important;
+            cursor: pointer !important;
+            font-size: 14px !important;
+            color: #374151 !important;
+            line-height: 1.4 !important;
+        }
+        
+        /* Form input prefix styling now handled by external CSS */
+        
+        .lease-edit-form .form-subsection {
+            margin-bottom: 20px !important;
+            padding-left: 20px !important;
+            border-left: 3px solid #e5e7eb !important;
+        }
+        
+        /* Form full width and sections spacing */
+        .pageslide.lease-edit .pageslide-content {
+            padding: 24px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        
+        .lease-edit-form {
+            width: 100% !important;
+            max-width: none !important;
+        }
+        
+        .lease-edit-form .form-actions {
+            display: flex !important;
+            justify-content: flex-end !important;
+            gap: 12px !important;
+            padding-top: 24px !important;
+            border-top: 1px solid #e5e7eb !important;
+            margin-top: 32px !important;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .lease-edit-form .form-actions {
+                flex-direction: column !important;
             }
         }
         
@@ -258,8 +406,14 @@
             color: var(--link-hover-color, #1d4ed8) !important;
         }
 
-        /* Delete Icons - Standardized Rule */
-        /* RULE: Always use fa-trash-alt for delete buttons, never fa-trash */
+        /* Action Button Design Rules */
+        /* RULE 1: Icon-only action buttons should always use 'btn btn-light' classes, never 'btn-icon' */
+        /* This provides consistent gray background with proper hover states and accessibility */
+        
+        /* RULE 2: Delete icons should always use 'fa-trash-alt' for consistency across the application */
+        /* Never use 'fa-trash' - always use 'fa-trash-alt' for delete actions */
+        
+        /* RULE 3: Delete buttons should have 'text-red-600' class to indicate destructive action */
 
         /* Regenerate Icons - Standardized Rule */
         /* RULE: Always use fa-redo for regenerate actions */
@@ -508,10 +662,6 @@
                             <div class="flex items-center justify-between w-full">
                                 <h3 class="card-title">Resident information</h3>
                                 <div class="flex items-center gap-2">
-                                    <button class="btn btn-light btn-sm section-edit-btn">
-                                        <i class="fas fa-pen mr-1"></i>
-                                        Edit
-                                    </button>
                                     <button id="kebab-btn-resident" class="btn btn-light btn-sm kebab-menu">
                                         <i class="fas fa-ellipsis-v"></i>
                         </button>
@@ -522,7 +672,12 @@
                             <!-- CONTACT INFORMATION Section -->
                             <div class="card-section">
                                 <div class="card-section-header">
+                                    <div class="flex items-center justify-between w-full">
+                                        <div>
                                     <h4 class="font-semibold text-muted uppercase tracking-wide">Contact information</h4>
+                                        </div>
+                                        <button class="btn btn-link p-0" onclick="openPageslide('contact-edit-overlay')">Edit</button>
+                                    </div>
                                 </div>
                                 <div class="card-section-content">
                                     <div class="flex items-start gap-3">
@@ -773,26 +928,30 @@
                         <div class="card-header border-0">
                             <div class="flex items-center justify-between w-full">
                                 <h3 class="card-title">Lease information</h3>
-                                <!-- <div class="flex items-center gap-2">
-                                    <button id="kebab-btn-lease" class="btn btn-light btn-sm">
-                                        <span class="">Manage</span>
-                                        <i class="fas fa-chevron-down"></i>
+                                <div class="flex items-center gap-2">
+                                    <button id="kebab-btn-lease" class="btn btn-light btn-sm kebab-menu">
+                                        <i class="fas fa-ellipsis-v"></i>
                                         </button>
-                                    </div> -->
+                                </div>
                                 </div>
                             </div>
                         <div class="card-content">
                                 <!-- LEASE OVERVIEW Section -->
                                 <div class="card-section">
                                     <div class="card-section-header">
+                                        <div class="flex items-center justify-between w-full">
+                                        <div>
                                         <h4 class="font-semibold text-muted uppercase tracking-wide">Lease overview</h4>
+                                        </div>
+                                         <!-- <button class="btn btn-link p-0" onclick="openPageslide('lease-edit-overlay')">Edit</button> -->
+                                    </div>
                         </div>
                                     <div class="card-section-content">
                                         <div class="lease-overview-grid">
                                             <div class="lease-overview-item space-y-1">
                                                 <div class="flex items-center gap-2">
                                                     <i class="fas fa-calendar text-muted"></i>
-                                                    <span class=" ">Oct 2, 2020 - Oct 1, 2025</span>
+                                                    <span class=" ">Oct 1, 2024 - Oct 1, 2025</span>
                                                     <span class="badge bg-gray-100 text-gray-800 text-sm px-2 py-1 rounded-full ">12 months</span>
                                 </div>
                                                 <div class="flex items-center gap-2">
@@ -818,7 +977,9 @@
                                                     <div class="lease-status-indicator active"></div>
                                                     <span class="text-green-700">Active lease</span>
                                                     <span class="text-muted">•</span>
-                                                    <span class="">Move-in: Oct 2, 2025</span>
+                                                    <span class="">Move-in: Oct 2, 2020</span>
+													<span class="text-muted">•</span>
+                                                    <span class="">Tenancy: 4 years 11 months</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -876,6 +1037,38 @@
                                                     <span>2 Vehicles</span>
                         </div>
                                                  <button class="btn btn-link p-0" onclick="openPageslide('vehicle-details-overlay')">View details</button>
+                                </div>				
+                    </div>
+                        </div>
+                    </div>
+
+                                <!-- PAST LEASES Section -->
+                                <div class="card-section">
+                                    <div class="card-section-header">
+                                        <h4 class="font-semibold text-muted uppercase tracking-wide">Past leases</h4>
+                                    </div>
+                                    <div class="card-section-content">
+                                        <div class="lease-history-container">
+                                            <!-- Past Lease Record -->
+                                            <div class="lease-history-item space-y-1">
+                                                <div class="flex items-center gap-2">
+                                                    <i class="fas fa-calendar text-muted"></i>
+                                                    <span class="">Oct 1, 2023 - Sep 30, 2024</span>
+                                                    <span class="badge bg-gray-100 text-gray-800 text-sm px-2 py-1 rounded-full">12 months</span>
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <div class="flex items-center gap-1">
+                                                        <span class="">$1,850.00/mo</span>
+                                                    </div>
+                                                    <span class="text-muted">•</span>
+                                                    <div class="flex items-center gap-1">
+                                                        <span class="">Total deposit: $1,750.00</span>
+                                                    </div>
+                                                    <span class="text-muted">•</span>
+                                                    <div class="flex items-center gap-1">
+                                                        <span class="">Agent: Sarah Martinez</span>
+                                                    </div>
+                                                </div>
                                 </div>				
                     </div>
                         </div>
@@ -3883,17 +4076,17 @@
                     <div class="flex items-start gap-2">
                         <div>
                             <h2 class="pageslide-title  font-semibold text-lg mb-1">Outstanding balance</h2>
-                            <div class="text-muted">
-                                <span class="font-medium">$2,809.50 outstanding</span>
-                                <span class="text-gray-400 mx-1">•</span>
+                                                    <div class="text-muted">
+                            <span class="font-medium">$2,809.50 outstanding</span>
+							<span class="text-gray-400 mx-1">•</span>
                                 <span class="text-red-600 font-medium">3 past due</span>
-                                <span class="text-gray-400 mx-1">•</span>
-                                <span class="font-medium">2 current</span>
-                                <span class="text-gray-400 mx-1">•</span>
-                                <span class="font-medium text-yellow-600">1 processing</span>
-                                <span class="text-gray-400">•</span>
-                                <i class="fas fa-warning text-red-500"></i><span class="text-red-600 font-medium ml-1">Do not accept payment</span>
-                            </div>
+							<span class="text-gray-400 mx-1">•</span>
+                            <span class="font-medium">2 current</span>
+                            <span class="text-gray-400 mx-1">•</span>
+                            <span class="font-medium text-yellow-600">1 processing</span>
+							<span class="text-gray-400">•</span>
+							<i class="fas fa-warning text-red-500"></i><span class="text-red-600 font-medium ml-1">Do not accept payment</span>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -3934,7 +4127,7 @@
                     <h3 class="section-title mb-0">Processing payments</h3>
                     <p class="text-sm text-muted mb-4">Payments received within 24 hours, not yet posted.</p>
                     
-                    <div class="charge-item p-2 rounded-lg" style="border-left: 4px solid #f0c479;">
+                    <div class="charge-item p-2 rounded-lg shadow-sm" style="border-left: 4px solid #f0c479;">
                         <div class="flex items-center justify-between">
                             <!-- Left Side -->
                             <div class="flex-1">
@@ -3970,7 +4163,7 @@
                     <!-- Balanced List View -->
                     <div class="charges-list-container space-y-4">
                         <!-- Past Due Charges -->
-                        <div class="charge-item p-3 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all duration-200" style="border-left: 4px solid #ef4444;">
+                        <div class="charge-item p-3 bg-white border border-gray-200 rounded-lg shadow-sm" style="border-left: 4px solid #ef4444;">
                             <div class="flex items-center justify-between">
                                 <!-- Left Side -->
                                 <div class="flex-1">
@@ -3992,7 +4185,7 @@
                             </div>
                         </div>
 
-                        <div class="charge-item p-2 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all duration-200" style="border-left: 4px solid #ef4444;">
+                        <div class="charge-item p-2 bg-white border border-gray-200 rounded-lg shadow-sm" style="border-left: 4px solid #ef4444;">
                             <div class="flex items-center justify-between">
                                 <!-- Left Side -->
                                 <div class="flex-1">
@@ -4014,7 +4207,7 @@
                         </div>
 
                         <!-- Late Fee -->
-                        <div class="charge-item p-2 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all duration-200" style="border-left: 4px solid #ef4444;">
+                        <div class="charge-item p-2 bg-white border border-gray-200 rounded-lg shadow-sm" style="border-left: 4px solid #ef4444;">
                             <div class="flex items-center justify-between">
                                 <!-- Left Side -->
                                 <div class="flex-1">
@@ -4036,7 +4229,7 @@
                         </div>
 
                         <!-- Current Outstanding Charges -->
-                        <div class="charge-item p-2 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all duration-200">
+                        <div class="charge-item p-2 bg-white border border-gray-200 rounded-lg shadow-sm">
                             <div class="flex items-center justify-between">
                                 <!-- Left Side -->
                                 <div class="flex-1">
@@ -4055,7 +4248,7 @@
                             </div>
                         </div>
 
-                        <div class="charge-item p-2 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all duration-200">
+                        <div class="charge-item p-2 bg-white border border-gray-200 rounded-lg shadow-sm">
                             <div class="flex items-center justify-between">
                                 <!-- Left Side -->
                                 <div class="flex-1">
@@ -4458,7 +4651,7 @@
                             </div>
                         </div>
 
-                        <div class="form-row-group">
+                        <div class="form-row-group ml-1">
                             <div class="form-row mr-md-4 ml-0">
                                 <label class="form-label">Cell</label>
                                 <div class="phone-input-group">
@@ -4479,7 +4672,7 @@
                             </div>
                         </div>
 
-                        <div class="form-row-group">
+                        <div class="form-row-group ml-1">
                             <div class="form-row mr-md-4 ml-0">
                                 <label class="form-label">Office phone</label>
                                 <div class="phone-input-group">
@@ -4505,7 +4698,7 @@
                     <div class="form-section">
                         <h3 class="form-section-title">Identification</h3>
                         
-                        <div class="form-row-group">
+                        <div class="form-row-group ml-1">
                             <div class="form-row ml-0">
                                 <label class="form-label">First name (legal)</label>
                                 <input type="text" class="form-input" value="Kamala" placeholder="Enter name">
@@ -4520,7 +4713,7 @@
                             </div>
                         </div>
 
-                        <div class="form-row-group">
+                        <div class="form-row-group ml-1">
                             <div class="form-row ml-0">
                                 <label class="form-label">Date of birth</label>
                                 <input type="text" class="form-input" value="07/14/****" placeholder="MM/DD/YYYY">
@@ -4540,7 +4733,7 @@
                     <div class="form-section">
                         <h3 class="form-section-title">Address</h3>
                         
-                        <div class="form-row-group">
+                        <div class="form-row-group ml-1">
                             <div class="form-row ml-0">
                             <label class="form-label">Country <span class="required">*</span></label>
                                 <select class="form-select">
@@ -4560,6 +4753,629 @@
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lease Edit Pageslide -->
+    <div class="pageslide-overlay" id="lease-edit-overlay">
+        <div class="pageslide lease-edit">
+            <div class="pageslide-header">
+                <h2 class="pageslide-title">Edit Lease Information</h2>
+                <button class="pageslide-close" onclick="closePageslide('lease-edit-overlay')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="pageslide-content">
+                <!-- Tab Navigation -->
+                <div class="tab-navigation">
+                    <button type="button" class="tab-button active" data-tab="lease-details" onclick="switchLeaseTab('lease-details')">
+                        Lease details
+                    </button>
+                    <button type="button" class="tab-button" data-tab="lease-charges" onclick="switchLeaseTab('lease-charges')">
+                        Lease charges
+                    </button>
+                    <button type="button" class="tab-button" data-tab="deposits" onclick="switchLeaseTab('deposits')">
+                        Deposits
+                    </button>
+                </div>
+
+                <!-- Tab Content Container -->
+                <div class="tab-content-container">
+                    
+                    <!-- Tab 1: Lease Details -->
+                    <div class="tab-content active" id="lease-details-tab">
+                        <form class="lease-edit-form">
+                    <!-- Dates Section -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Lease dates</h3>
+                        
+                        <div class="form-row-group ml-1">
+                            <div class="form-row">
+                                <label class="form-label">Move in <span class="text-red-500">*</span></label>
+                                <input type="date" class="form-input" value="2024-10-02" required>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Move in time <span class="text-red-500">*</span></label>
+                                <input type="time" class="form-input" value="08:00" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row-group ml-1">
+                            <div class="form-row">
+                                <label class="form-label">Lease from <span class="text-red-500">*</span></label>
+                                <input type="date" class="form-input" value="2024-10-02" required>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Lease to <span class="text-red-500">*</span></label>
+                                <input type="date" class="form-input" value="2025-10-01" required>
+                            </div>
+							<div class="form-row">
+                                <label class="form-label">Term (months) <span class="text-red-500">*</span></label>
+                                <input type="number" class="form-input" value="12" min="1" max="60" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row-group ml-1">
+                            <div class="form-row">
+                                <label class="form-label">Last renewal</label>
+                                <input type="date" class="form-input">
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Move out</label>
+                                <input type="date" class="form-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Details Section -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Payment details</h3>                        
+                        <div class="form-row-group ml-1">
+                            <div class="form-row">
+                                <label class="form-label">Lease description</label>
+                                <select class="form-select">
+                                    <option value="">N/A</option>
+                                    <option value="commercial">Commercial</option>
+                                    <option value="controlled">Controlled</option>
+                                    <option value="fair-market">Fair Market</option>
+                                    <option value="owner">Owner</option>
+                                    <option value="stabilized">Stabilized</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Payment method</label>
+                                <select class="form-select">
+                                    <option value="any">Any</option>
+                                    <option value="do-not-accept">Do Not Accept</option>
+                                    <option value="cash-equiv">Cash Equiv.</option>
+                                </select>
+                            </div>
+                        
+							<div class="form-row">
+								<div class="form-row">
+									<label class="form-label">Responsibility date</label>
+									<input type="date" class="form-input" value="">
+								</div>
+							</div>
+						</div>
+                        
+                    </div>
+                    
+                    <!-- Late Fees Section -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Late fees</h3>
+                        
+                        <div class="form-row-group ml-1">
+                            <div class="form-row">
+                                <label class="form-label">Charge late fee(s) on</label>
+                                <select class="form-select">
+                                    <option value="1">1st day of month</option>
+                                    <option value="2">2nd day of month</option>
+                                    <option value="3">3rd day of month</option>
+                                    <option value="4" selected>4th day of month</option>
+                                    <option value="5">5th day of month</option>
+                                    <option value="6">6th day of month</option>
+                                    <option value="7">7th day of month</option>
+                                    <option value="8">8th day of month</option>
+                                    <option value="9">9th day of month</option>
+                                    <option value="10">10th day of month</option>
+                                    <option value="11">11th day of month</option>
+                                    <option value="12">12th day of month</option>
+                                    <option value="13">13th day of month</option>
+                                    <option value="14">14th day of month</option>
+                                    <option value="15">15th day of month</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Minimum due to be charged</label>
+                                <div class="form-input-group">
+                                    <span class="form-input-prefix">$</span>
+                                    <input type="number" class="form-input" value="100.00" step="0.01" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row-group ml-1">
+                            <div class="form-row">
+                                <label class="form-label">Maximum monthly fee</label>
+                                <div class="form-input-group">
+                                    <span class="form-input-prefix">$</span>
+                                    <input type="number" class="form-input" value="0" step="0.01" min="0">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Amount type</label>
+                                <select class="form-select">
+                                    <option value="fixed">Fixed Amount</option>
+                                    <option value="percent" selected>% of Owed Total</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Monthly Fee Section -->
+                        <div class="form-subsection bg-gray-50 p-3">
+                            <div class="form-row">
+                                <label class="form-label">Charge a monthly fee?</label>
+                                <div class="form-radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="monthly-fee-yes" name="monthly-fee" value="yes" class="form-radio" checked>
+                                        <label for="monthly-fee-yes" class="form-radio-label">Yes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="monthly-fee-no" name="monthly-fee" value="no" class="form-radio">
+                                        <label for="monthly-fee-no" class="form-radio-label">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="monthly-fee-details" class="form-row-group ml-1">
+                                <div class="flex gap-4" style="display: flex !important;">
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount</label>
+                                        <div class="form-input-group">
+                                            <span class="form-input-prefix">$</span>
+                                            <input type="number" class="form-input" value="50.00" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount type</label>
+                                        <select class="form-select">
+                                            <option value="flat" selected>Flat Amount</option>
+                                            <option value="percent">% of Owed Total</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Daily Fee Section -->
+                        <div class="form-subsection bg-gray-50 p-3">
+                            <div class="form-row">
+                                <label class="form-label">Charge a daily fee?</label>
+                                <div class="form-radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="daily-fee-yes" name="daily-fee" value="yes" class="form-radio" checked>
+                                        <label for="daily-fee-yes" class="form-radio-label">Yes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="daily-fee-no" name="daily-fee" value="no" class="form-radio">
+                                        <label for="daily-fee-no" class="form-radio-label">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="daily-fee-details" class="form-row-group ml-1">
+                                <div class="flex gap-4" style="display: flex !important;">
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount per day</label>
+                                        <div class="form-input-group">
+                                            <span class="form-input-prefix">$</span>
+                                            <input type="number" class="form-input" value="1.00" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Maximum days</label>
+                                        <div class="form-radio-group">
+                                            <div class="radio-option">
+                                                <input type="radio" id="max-days-unlimited" name="max-days" value="unlimited" class="form-radio" checked>
+                                                <label for="max-days-unlimited" class="form-radio-label">Unlimited</label>
+                                            </div>
+                                            <div class="radio-option flex items-center gap-2">
+                                                <input type="radio" id="max-days-limited" name="max-days" value="limited" class="form-radio">
+                                                <label for="max-days-limited" class="form-radio-label" style="min-width:50px">Limit to</label>
+                                                <input type="number" class="form-input" value="0" min="1" max="365" style="width: 80px;" disabled>
+                                                <span class="text-sm text-gray-600">days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Second Late Fee Section -->
+                        <div class="form-subsection bg-gray-50 p-3">
+                            <div class="form-row">
+                                <label class="form-label">Charge a 2nd late fee?</label>
+                                <div class="form-radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="second-fee-yes" name="second-fee" value="yes" class="form-radio">
+                                        <label for="second-fee-yes" class="form-radio-label">Yes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="second-fee-no" name="second-fee" value="no" class="form-radio" checked>
+                                        <label for="second-fee-no" class="form-radio-label">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="second-fee-details" class="form-row-group ml-1" style="display: none;">
+                                <div class="flex gap-4" style="display: flex !important;">
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Charge 2nd late fee on:</label>
+                                        <select class="form-select">
+                                            <option value="1st" selected>1st</option>
+                                            <option value="2nd">2nd</option>
+                                            <option value="3rd">3rd</option>
+                                            <option value="4th">4th</option>
+                                            <option value="5th">5th</option>
+                                            <option value="10th">10th</option>
+                                            <option value="15th">15th</option>
+                                            <option value="30th">30th</option>
+                                            <option value="day-of-month">Day of month</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount</label>
+                                        <div class="form-input-group">
+                                            <span class="form-input-prefix">$</span>
+                                            <input type="number" class="form-input" value="0" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount Type</label>
+                                        <select class="form-select">
+                                            <option value="flat">Flat Amount</option>
+                                            <option value="percent" selected>% of Owed Total</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                            <!-- Form Actions -->
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-light" onclick="closePageslide('lease-edit-overlay')">
+                                    Cancel
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Tab 2: Lease Charges -->
+                    <div class="tab-content" id="lease-charges-tab">
+                        <div class="charges-header">
+                            <div class="charges-controls mb-6">
+                                <div class="flex items-center gap-3">
+                                    <!-- Search Field -->
+                                    <div class="relative flex-1">
+                                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                        <input 
+                                            type="text" 
+                                            placeholder="Search charges..." 
+                                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus-ring-primary"
+                                        >
+                                    </div>
+                                    
+                                    <!-- Action Controls -->
+                                    <div class="flex items-center gap-3">
+                                        <button type="button" class="btn btn-light" onclick="openPageslide('add-lease-charge-overlay')">
+                                            <i class="fas fa-plus mr-2"></i>
+                                            Add lease charge
+                                        </button>
+                                        <div class="toggle-group">
+                                            <input type="checkbox" id="hide-expired-charges" class="toggle-checkbox" checked>
+                                            <label for="hide-expired-charges" class="toggle-label mb-0">Hide expired charges</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="charges-list">
+                            <div class="charges-card-container space-y-2">
+                                
+                                <!-- Current Lease Charges (Oct 1, 2024 - Sep 30, 2025) -->
+                                
+                                <!-- Rent (Residential) -->
+                                <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm" id="charge-rent">
+                                    <!-- Display View -->
+                                    <div class="charge-display-view">
+                                        <div class="flex items-center justify-between">
+                                            <!-- Left Side -->
+                                            <div class="flex-1">
+                                                <h4 class="text-base font-semibold mb-1">Rent (Residential)</h4>
+                                                <div class="flex items-center gap-3 mb-2">
+                                                    <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">rentres</span>
+                                                    <span class="text-muted font-medium">Oct 1, 2024 - Sep 30, 2025</span>
+                                                </div>
+                                                <div class="flex items-center gap-4 text-sm text-muted">
+                                                    <span>Added by: Sarah Chen</span>
+                                                    <span>Modified by: Michael Rodriguez</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Right Side -->
+                                            <div class="flex flex-col items-end gap-2">
+                                                <div class="text-lg font-bold">$2,000.00</div>
+                                                <div class="action-buttons">
+                                                    <button type="button" class="btn btn-light" onclick="editLeaseCharge('rent')" title="Edit">
+                                                        <i class="fas fa-pen"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('rent')" title="Delete">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <!-- Pet Fee (2 pets) -->
+                                <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm" id="charge-petfee">
+                                    <!-- Display View -->
+                                    <div class="charge-display-view">
+                                        <div class="flex items-center justify-between">
+                                            <!-- Left Side -->
+                                            <div class="flex-1">
+                                                <h4 class="text-base font-semibold mb-1">Pet Fee (2 pets)</h4>
+                                                <div class="flex items-center gap-3 mb-2">
+                                                    <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">petfee</span>
+                                                    <span class="text-muted font-medium">Oct 1, 2024 - Sep 30, 2025</span>
+                                                </div>
+                                                <div class="flex items-center gap-4 text-sm text-muted">
+                                                    <span>Added by: Jessica Wang</span>
+                                                    <span>Modified by: David Thompson</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Right Side -->
+                                            <div class="flex flex-col items-end gap-2">
+                                                <div class="text-lg font-bold">$30.00</div>
+                                                <div class="action-buttons">
+                                                    <button type="button" class="btn btn-light" onclick="editLeaseCharge('petfee')" title="Edit">
+                                                        <i class="fas fa-pen"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('petfee')" title="Delete">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <!-- Parking Space #42 -->
+                                <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm">
+                                    <div class="flex items-center justify-between">
+                                        <!-- Left Side -->
+                                        <div class="flex-1">
+                                            <h4 class="text-base font-semibold mb-1">Parking Space #42</h4>
+                                            <div class="flex items-center gap-3 mb-2">
+                                                <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">parking</span>
+                                                <span class="text-muted font-medium">Oct 1, 2024 - Sep 30, 2025</span>
+                                            </div>
+                                            <div class="flex items-center gap-4 text-sm text-muted">
+                                                <span>Added by: Emily Johnson</span>
+                                                <span>Modified by: Alex Martinez</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Right Side -->
+                                        <div class="flex flex-col items-end gap-2">
+                                            <div class="text-lg font-bold">$75.00</div>
+                                            <div class="action-buttons">
+                                                <button type="button" class="btn btn-light" onclick="editLeaseCharge('parking')" title="Edit">
+                                                    <i class="fas fa-pen"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('parking')" title="Delete">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Storage Unit #15 -->
+                                <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm">
+                                    <div class="flex items-center justify-between">
+                                        <!-- Left Side -->
+                                        <div class="flex-1">
+                                            <h4 class="text-base font-semibold mb-1">Storage Unit #15</h4>
+                                            <div class="flex items-center gap-3 mb-2">
+                                                <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">storage</span>
+                                                <span class="text-muted font-medium">Oct 1, 2024 - Sep 30, 2025</span>
+                                            </div>
+                                            <div class="flex items-center gap-4 text-sm text-muted">
+                                                <span>Added by: Ryan Lee</span>
+                                                <span>Modified by: Amanda Foster</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Right Side -->
+                                        <div class="flex flex-col items-end gap-2">
+                                            <div class="text-lg font-bold">$45.00</div>
+                                            <div class="action-buttons">
+                                                <button type="button" class="btn btn-light" onclick="editLeaseCharge('storage')" title="Edit">
+                                                    <i class="fas fa-pen"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('storage')" title="Delete">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Washer/Dryer Rental -->
+                                <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm">
+                                    <div class="flex items-center justify-between">
+                                        <!-- Left Side -->
+                                        <div class="flex-1">
+                                            <h4 class="text-base font-semibold mb-1">Washer/Dryer Rental</h4>
+                                            <div class="flex items-center gap-3 mb-2">
+                                                <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">washdry</span>
+                                                <span class="text-muted font-medium">Oct 1, 2024 - Sep 30, 2025</span>
+                                            </div>
+                                            <div class="flex items-center gap-4 text-sm text-muted">
+                                                <span>Added by: Kevin Park</span>
+                                                <span>Modified by: Lisa Anderson</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Right Side -->
+                                        <div class="flex flex-col items-end gap-2">
+                                            <div class="text-lg font-bold">$25.00</div>
+                                            <div class="action-buttons">
+                                                <button type="button" class="btn btn-light" onclick="editLeaseCharge('washdry')" title="Edit">
+                                                    <i class="fas fa-pen"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('washdry')" title="Delete">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Expired Charges (Previous Lease: Oct 1, 2023 - Sep 30, 2024) -->
+                                
+                                <!-- Expired Rent (Previous Lease) -->
+                                <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm" style="border-left: 4px solid #991b1b; display: none;">
+                                    <div class="flex items-center justify-between">
+                                        <!-- Left Side -->
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <h4 class="text-base font-semibold">Rent (Residential)</h4>
+                                                <span class="status expired">Expired</span>
+                                            </div>
+                                            <div class="flex items-center gap-3 mb-2">
+                                                <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">rentres</span>
+                                                <span class="text-muted font-medium">Oct 1, 2023 - Sep 30, 2024</span>
+                                            </div>
+                                            <div class="flex items-center gap-4 text-sm text-muted">
+                                                <span>Added by: Jennifer Davis</span>
+                                                <span>Modified by: Mark Wilson</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Right Side -->
+                                        <div class="flex flex-col items-end gap-2">
+                                            <div class="text-lg font-bold">$1,850.00</div>
+                                            <div class="action-buttons">
+                                                    <button type="button" class="btn btn-light" onclick="editLeaseCharge('rent-expired')" title="Edit">
+                                                        <i class="fas fa-pen"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('rent-expired')" title="Delete">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Expired Pet Fee (Previous Lease - Only 1 pet) -->
+                                <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm" style="border-left: 4px solid #991b1b; display: none;">
+                                    <div class="flex items-center justify-between">
+                                        <!-- Left Side -->
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <h4 class="text-base font-semibold">Pet Fee (1 pet)</h4>
+                                                <span class="status expired">Expired</span>
+                                            </div>
+                                            <div class="flex items-center gap-3 mb-2">
+                                                <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">petfee</span>
+                                                <span class="text-muted font-medium">Oct 1, 2023 - Sep 30, 2024</span>
+                                            </div>
+                                            <div class="flex items-center gap-4 text-sm text-muted">
+                                                <span>Added by: Rachel Brown</span>
+                                                <span>Modified by: Tom Garcia</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Right Side -->
+                                        <div class="flex flex-col items-end gap-2">
+                                            <div class="text-lg font-bold">$15.00</div>
+                                            <div class="action-buttons">
+                                                    <button type="button" class="btn btn-light" onclick="editLeaseCharge('petfee-expired')" title="Edit">
+                                                        <i class="fas fa-pen"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('petfee-expired')" title="Delete">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Expired Parking (Different Space) -->
+                                <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm" style="border-left: 4px solid #991b1b; display: none;">
+                                    <div class="flex items-center justify-between">
+                                        <!-- Left Side -->
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <h4 class="text-base font-semibold">Parking Space #38</h4>
+                                                <span class="status expired">Expired</span>
+                                            </div>
+                                            <div class="flex items-center gap-3 mb-2">
+                                                <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">parking</span>
+                                                <span class="text-muted font-medium">Oct 1, 2023 - Sep 30, 2024</span>
+                                            </div>
+                                            <div class="flex items-center gap-4 text-sm text-muted">
+                                                <span>Added by: Nicole Taylor</span>
+                                                <span>Modified by: James Miller</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Right Side -->
+                                        <div class="flex flex-col items-end gap-2">
+                                            <div class="text-lg font-bold">$65.00</div>
+                                            <div class="action-buttons">
+                                                    <button type="button" class="btn btn-light" onclick="editLeaseCharge('parking-expired')" title="Edit">
+                                                        <i class="fas fa-pen"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('parking-expired')" title="Delete">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Deposits -->
+                    <div class="tab-content" id="deposits-tab">
+                        <!-- TEMPORARILY EMPTY TO TEST -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">Deposits</h3>
+                            <p>Deposits content will go here.</p>
+                        </div>
+                    </div>
+
+                </div> <!-- End tab-content-container -->
             </div>
         </div>
     </div>
@@ -5378,7 +6194,12 @@
 
          <!-- Lease Charges Popover -->
      <div id="lease-charges-popover" class="hidden bg-white border border-gray-200 rounded-lg shadow-xl p-4 min-w-[320px]" style="position: fixed; z-index: 9999;">
-         <div class="font-semibold text-gray-900 mb-3">Monthly Lease Charges</div>
+         <div class="flex items-center justify-between mb-3">
+             <div class="font-semibold text-gray-900">Monthly Lease Charges</div>
+             <button class="btn btn-light btn-sm" onclick="document.getElementById('lease-charges-popover').classList.add('hidden'); openPageslide('edit-lease-charges-overlay')" title="Edit lease charges">
+                 <i class="fas fa-pen"></i>
+             </button>
+         </div>
          
          <!-- Total Rent -->
          <div class="bg-gray-50 p-3 rounded-lg mb-3">
@@ -5567,6 +6388,18 @@
             <i class="fas fa-circle-plus mr-2 text-muted"></i>
             Add one-time charge
         </button>
+		        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors" onclick="openPageslide('edit-lease-charges-overlay')">
+            <i class="fas fa-pen mr-2 text-muted"></i>
+            Edit lease charges
+        </button>
+		<button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
+            <i class="fas fa-piggy-bank mr-2 text-muted"></i>
+            Apply deposit
+        </button>
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors" onclick="openPageslide('payment-settings-overlay')">
+            <i class="fas fa-credit-card mr-2 text-muted"></i>
+            Payment settings
+        </button>
         
         <!-- Service & Operations -->
         <hr class="my-1 border-gray-200">
@@ -5576,13 +6409,9 @@
             Add work order
         </button>
         
-        <!-- Lease Management -->
+        <!-- Lease operations -->
         <hr class="my-1 border-gray-200">
-        <div class="kebab-group-header">Lease Management</div>
-        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
-            <i class="fas fa-receipt mr-2 text-muted"></i>
-            Add lease charge
-        </button>
+        <div class="kebab-group-header">Lease operations</div>
 		<button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
             <i class="fas fa-file-contract mr-2 text-muted"></i>
             Create proposal
@@ -5592,9 +6421,10 @@
             View application form
         </button>
         <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
-            <i class="fas fa-piggy-bank mr-2 text-muted"></i>
-            Apply deposit
+            <i class="fas fa-search mr-2 text-muted"></i>
+            Screening
         </button>
+        
         <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
             <i class="fas fa-calendar-alt mr-2 text-muted"></i>
             Adjust lease-end
@@ -5641,9 +6471,13 @@
     <div id="kebab-dropdown-lease" class="hidden bg-white border border-gray-200 rounded-lg shadow-xl py-1 min-w-[240px]" style="position: fixed; z-index: 9999;">
         <!-- Financial -->
         <div class="kebab-group-header">Financial</div>
-        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
-            <i class="fas fa-circle-plus mr-2 text-muted"></i>
-            Add lease charge
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors" onclick="openPageslide('edit-lease-charges-overlay')">
+            <i class="fas fa-pen mr-2 text-muted"></i>
+            Edit lease charges
+        </button>
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors" onclick="openPageslide('payment-settings-overlay')">
+            <i class="fas fa-credit-card mr-2 text-muted"></i>
+            Payment settings
         </button>
         <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
             <i class="fas fa-piggy-bank mr-2 text-muted"></i>
@@ -5656,6 +6490,14 @@
         <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
             <i class="fas fa-file-contract mr-2 text-muted"></i>
             Create proposal
+        </button>
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
+            <i class="fas fa-file-alt mr-2 text-muted"></i>
+            View application form
+        </button>
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
+            <i class="fas fa-search mr-2 text-muted"></i>
+            Screening
         </button>
 		<button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors">
             <i class="fas fa-calendar-alt mr-2 text-muted"></i>
@@ -5808,7 +6650,7 @@
                                 <div class="flex-1">
                                     <div class="mb-2">
                                         <h4 class="text-base font-semibold">Documents awaiting signature</h4>
-                                    </div>
+                    </div>
                                     <div class="space-y-3">
                                         <div class="flex items-center justify-between p-3 bg-gray-50 rounded border-l-4 border-gray-400">
                                             <div class="flex items-center gap-3">
@@ -8320,6 +9162,19 @@
             if (overlay) {
                 overlay.classList.remove('active');
                 document.body.style.overflow = ''; // Restore scrolling
+                
+                // Reset forms when closing
+                if (overlayId === 'add-lease-charge-overlay') {
+                    const form = overlay.querySelector('#add-lease-charge-form');
+                    if (form) {
+                        form.reset();
+                    }
+                } else if (overlayId === 'edit-lease-charge-overlay') {
+                    const form = overlay.querySelector('#edit-lease-charge-form');
+                    if (form) {
+                        form.reset();
+                    }
+                }
             }
         }
         
@@ -10299,14 +11154,1336 @@
         });
         
         document.addEventListener('click', function(e) {
-            const modal = document.getElementById('attachment-modal');
-            if (modal && e.target === modal) {
+            const attachmentModal = document.getElementById('attachment-modal');
+            if (attachmentModal && e.target === attachmentModal) {
                 closeAttachmentModal();
             }
         });
 
+        // Monthly and Daily fee conditional display logic
+        document.addEventListener('DOMContentLoaded', function() {
+            // Monthly fee logic
+            const monthlyFeeYes = document.getElementById('monthly-fee-yes');
+            const monthlyFeeNo = document.getElementById('monthly-fee-no');
+            const monthlyFeeDetails = document.getElementById('monthly-fee-details');
+            
+            function toggleMonthlyFeeDetails() {
+                if (monthlyFeeNo.checked) {
+                    monthlyFeeDetails.style.display = 'none';
+                } else {
+                    monthlyFeeDetails.style.display = 'block';
+                }
+            }
+            
+            // Add event listeners to monthly fee radio buttons
+            if (monthlyFeeYes && monthlyFeeNo && monthlyFeeDetails) {
+                monthlyFeeYes.addEventListener('change', toggleMonthlyFeeDetails);
+                monthlyFeeNo.addEventListener('change', toggleMonthlyFeeDetails);
+                
+                // Set initial state
+                toggleMonthlyFeeDetails();
+            }
+            
+            // Daily fee logic
+            const dailyFeeYes = document.getElementById('daily-fee-yes');
+            const dailyFeeNo = document.getElementById('daily-fee-no');
+            const dailyFeeDetails = document.getElementById('daily-fee-details');
+            
+            function toggleDailyFeeDetails() {
+                if (dailyFeeNo.checked) {
+                    dailyFeeDetails.style.display = 'none';
+                } else {
+                    dailyFeeDetails.style.display = 'block';
+                }
+            }
+            
+            // Add event listeners to daily fee radio buttons
+            if (dailyFeeYes && dailyFeeNo && dailyFeeDetails) {
+                dailyFeeYes.addEventListener('change', toggleDailyFeeDetails);
+                dailyFeeNo.addEventListener('change', toggleDailyFeeDetails);
+                
+                // Set initial state
+                toggleDailyFeeDetails();
+            }
+            
+            // Maximum days limit input logic
+            const maxDaysUnlimited = document.getElementById('max-days-unlimited');
+            const maxDaysLimited = document.getElementById('max-days-limited');
+            const maxDaysInput = document.querySelector('#daily-fee-details input[type="number"][max="365"]');
+            
+            function toggleMaxDaysInput() {
+                if (maxDaysLimited && maxDaysInput) {
+                    if (maxDaysLimited.checked) {
+                        maxDaysInput.disabled = false;
+                        maxDaysInput.value = maxDaysInput.value === '0' ? '30' : maxDaysInput.value;
+                    } else {
+                        maxDaysInput.disabled = true;
+                        maxDaysInput.value = '0';
+                    }
+                }
+            }
+            
+            // Add event listeners to max days radio buttons
+            if (maxDaysUnlimited && maxDaysLimited && maxDaysInput) {
+                maxDaysUnlimited.addEventListener('change', toggleMaxDaysInput);
+                maxDaysLimited.addEventListener('change', toggleMaxDaysInput);
+                
+                // Set initial state
+                toggleMaxDaysInput();
+            }
+            
+            // Second late fee logic
+            const secondFeeYes = document.getElementById('second-fee-yes');
+            const secondFeeNo = document.getElementById('second-fee-no');
+            const secondFeeDetails = document.getElementById('second-fee-details');
+            
+            function toggleSecondFeeDetails() {
+                if (secondFeeNo.checked) {
+                    secondFeeDetails.style.display = 'none';
+                } else {
+                    secondFeeDetails.style.display = 'block';
+                }
+            }
+            
+            // Add event listeners to second fee radio buttons
+            if (secondFeeYes && secondFeeNo && secondFeeDetails) {
+                secondFeeYes.addEventListener('change', toggleSecondFeeDetails);
+                secondFeeNo.addEventListener('change', toggleSecondFeeDetails);
+                
+                // Set initial state
+                toggleSecondFeeDetails();
+            }
+        });
+
+        // Payment Settings standalone form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Monthly fee logic for standalone form
+            const monthlyFeeYesStandalone = document.getElementById('monthly-fee-yes-standalone');
+            const monthlyFeeNoStandalone = document.getElementById('monthly-fee-no-standalone');
+            const monthlyFeeDetailsStandalone = document.getElementById('monthly-fee-details-standalone');
+            
+            function toggleMonthlyFeeDetailsStandalone() {
+                if (monthlyFeeNoStandalone && monthlyFeeNoStandalone.checked) {
+                    monthlyFeeDetailsStandalone.style.display = 'none';
+                } else {
+                    monthlyFeeDetailsStandalone.style.display = 'block';
+                }
+            }
+            
+            // Add event listeners to monthly fee radio buttons
+            if (monthlyFeeYesStandalone && monthlyFeeNoStandalone && monthlyFeeDetailsStandalone) {
+                monthlyFeeYesStandalone.addEventListener('change', toggleMonthlyFeeDetailsStandalone);
+                monthlyFeeNoStandalone.addEventListener('change', toggleMonthlyFeeDetailsStandalone);
+                
+                // Set initial state
+                toggleMonthlyFeeDetailsStandalone();
+            }
+            
+            // Daily fee logic for standalone form
+            const dailyFeeYesStandalone = document.getElementById('daily-fee-yes-standalone');
+            const dailyFeeNoStandalone = document.getElementById('daily-fee-no-standalone');
+            const dailyFeeDetailsStandalone = document.getElementById('daily-fee-details-standalone');
+            
+            function toggleDailyFeeDetailsStandalone() {
+                if (dailyFeeNoStandalone && dailyFeeNoStandalone.checked) {
+                    dailyFeeDetailsStandalone.style.display = 'none';
+                } else {
+                    dailyFeeDetailsStandalone.style.display = 'block';
+                }
+            }
+            
+            // Add event listeners to daily fee radio buttons
+            if (dailyFeeYesStandalone && dailyFeeNoStandalone && dailyFeeDetailsStandalone) {
+                dailyFeeYesStandalone.addEventListener('change', toggleDailyFeeDetailsStandalone);
+                dailyFeeNoStandalone.addEventListener('change', toggleDailyFeeDetailsStandalone);
+                
+                // Set initial state
+                toggleDailyFeeDetailsStandalone();
+            }
+            
+            // Maximum days limit input logic for standalone form
+            const maxDaysUnlimitedStandalone = document.getElementById('max-days-unlimited-standalone');
+            const maxDaysLimitedStandalone = document.getElementById('max-days-limited-standalone');
+            const maxDaysInputStandalone = document.querySelector('#daily-fee-details-standalone input[type="number"][max="365"]');
+            
+            function toggleMaxDaysInputStandalone() {
+                if (maxDaysLimitedStandalone && maxDaysInputStandalone) {
+                    if (maxDaysLimitedStandalone.checked) {
+                        maxDaysInputStandalone.disabled = false;
+                        maxDaysInputStandalone.value = maxDaysInputStandalone.value === '0' ? '30' : maxDaysInputStandalone.value;
+                    } else {
+                        maxDaysInputStandalone.disabled = true;
+                        maxDaysInputStandalone.value = '0';
+                    }
+                }
+            }
+            
+            // Add event listeners to max days radio buttons
+            if (maxDaysUnlimitedStandalone && maxDaysLimitedStandalone && maxDaysInputStandalone) {
+                maxDaysUnlimitedStandalone.addEventListener('change', toggleMaxDaysInputStandalone);
+                maxDaysLimitedStandalone.addEventListener('change', toggleMaxDaysInputStandalone);
+                
+                // Set initial state
+                toggleMaxDaysInputStandalone();
+            }
+            
+            // Second late fee logic for standalone form
+            const secondFeeYesStandalone = document.getElementById('second-fee-yes-standalone');
+            const secondFeeNoStandalone = document.getElementById('second-fee-no-standalone');
+            const secondFeeDetailsStandalone = document.getElementById('second-fee-details-standalone');
+            
+            function toggleSecondFeeDetailsStandalone() {
+                if (secondFeeNoStandalone && secondFeeNoStandalone.checked) {
+                    secondFeeDetailsStandalone.style.display = 'none';
+                } else {
+                    secondFeeDetailsStandalone.style.display = 'block';
+                }
+            }
+            
+            // Add event listeners to second fee radio buttons
+            if (secondFeeYesStandalone && secondFeeNoStandalone && secondFeeDetailsStandalone) {
+                secondFeeYesStandalone.addEventListener('change', toggleSecondFeeDetailsStandalone);
+                secondFeeNoStandalone.addEventListener('change', toggleSecondFeeDetailsStandalone);
+                
+                // Set initial state
+                toggleSecondFeeDetailsStandalone();
+            }
+        });
+
+        // Payment settings form submission
+        function savePaymentSettings(event) {
+            event.preventDefault();
+            alert('Payment settings saved successfully!');
+            closePageslide('payment-settings-overlay');
+        }
+
+        // Tab switching functionality
+        function switchLeaseTab(tabName) {
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Activate selected tab button
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+            
+            // Show selected tab content
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+        }
+
+        // Lease charges functionality
+        // Set default dates when pageslide opens
+        document.addEventListener('DOMContentLoaded', function() {
+            // Listen for pageslide opening
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        const target = mutation.target;
+                        if (target.id === 'add-lease-charge-overlay' && target.classList.contains('active')) {
+                            // Pageslide opened, set default dates
+                            const pageslide = target;
+                            const fromDateInput = pageslide.querySelector('input[name="fromDate"]');
+                            if (fromDateInput) {
+                                fromDateInput.value = '2024-10-01'; // Current lease period start
+                            }
+                            
+                            const toDateInput = pageslide.querySelector('input[name="toDate"]');
+                            if (toDateInput) {
+                                toDateInput.value = '2025-09-30'; // Current lease period end
+                            }
+                            
+                            // Focus on first input
+                            setTimeout(() => {
+                                const firstInput = pageslide.querySelector('select[name="chargeCode"]');
+                                if (firstInput) {
+                                    firstInput.focus();
+                                }
+                            }, 100);
+                        }
+                    }
+                });
+            });
+            
+            const pageslideOverlay = document.getElementById('add-lease-charge-overlay');
+            if (pageslideOverlay) {
+                observer.observe(pageslideOverlay, { attributes: true });
+            }
+        });
+
+        function submitAddLeaseCharge(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Get form values
+            const chargeCode = formData.get('chargeCode');
+            const amount = parseFloat(formData.get('amount'));
+            const fromDate = formData.get('fromDate');
+            const toDate = formData.get('toDate');
+            const status = formData.get('status');
+            
+            // Get charge name from select option text
+            const chargeSelect = form.querySelector('select[name="chargeCode"]');
+            const selectedOption = chargeSelect.options[chargeSelect.selectedIndex];
+            const chargeName = selectedOption.text.split(' (')[1]?.replace(')', '') || selectedOption.text;
+            
+            // Format dates for display
+            const startDateObj = new Date(fromDate);
+            const endDateObj = toDate ? new Date(toDate) : null;
+            
+            const dateRange = startDateObj.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            }) + (endDateObj ? ' - ' + endDateObj.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            }) : '');
+            
+            // Create new charge card HTML
+            const newChargeId = 'charge-' + chargeCode + '-' + Date.now();
+            const newChargeHTML = `
+                <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm" id="${newChargeId}">
+                    <!-- Display View -->
+                    <div class="charge-display-view">
+                        <div class="flex items-center justify-between">
+                            <!-- Left Side -->
+                            <div class="flex-1">
+                                <h4 class="text-base font-semibold mb-1">${chargeName} ${putOnHold ? '<span class="text-orange-600">(On Hold)</span>' : ''}</h4>
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">${chargeCode}</span>
+                                    <span class="text-muted font-medium">${dateRange}</span>
+                                </div>
+                                <div class="flex items-center gap-4 text-sm text-muted">
+                                    <span>Added by: Current User</span>
+                                    <span>Modified by: Current User</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Side -->
+                            <div class="flex flex-col items-end gap-2">
+                                <div class="text-lg font-bold">$${amount.toFixed(2)}</div>
+                                <div class="action-buttons">
+                                    <button type="button" class="btn btn-light" onclick="editLeaseCharge('${newChargeId.replace('charge-', '')}')" title="Edit">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('${newChargeId.replace('charge-', '')}')" title="Delete">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add the new charge to the list
+            const chargesContainer = document.querySelector('.charges-card-container');
+            if (chargesContainer) {
+                // Insert at the beginning (after the comment for current lease charges)
+                const firstCard = chargesContainer.querySelector('.charge-card');
+                if (firstCard) {
+                    firstCard.insertAdjacentHTML('beforebegin', newChargeHTML);
+                } else {
+                    chargesContainer.innerHTML = newChargeHTML;
+                }
+            }
+            
+            // Close pageslide and show success message
+            closePageslide('add-lease-charge-overlay');
+            showNotification('Lease charge added successfully', 'success');
+        }
+
+        function showChargeCodeOptions() {
+            // This would typically show additional charge code options or management
+            alert('Additional charge code management options would be available here.');
+        }
+
+
+        function deleteLeaseCharge(chargeId) {
+            if (confirm(`Are you sure you want to delete this charge: ${chargeId}?`)) {
+                alert(`Charge ${chargeId} would be deleted.`);
+                // Here you would typically remove the row from the table
+            }
+        }
+
+        // Deposit functionality placeholders
+        function showAddDepositSplitModal() {
+            alert('Add Deposit Split modal would open here:\n\n• Deposit Amount\n• Split Between Tenants\n• Effective Date\n• Notes');
+        }
+
+        // Hide expired charges toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const hideExpiredToggle = document.getElementById('hide-expired-charges');
+            const hideExpiredToggleStandalone = document.getElementById('hide-expired-charges-standalone');
+            
+            // For the original toggle in the lease edit pageslide
+            if (hideExpiredToggle) {
+                hideExpiredToggle.addEventListener('change', function() {
+                    const expiredCards = document.querySelectorAll('#lease-charges-tab .charge-card .status.expired');
+                    
+                    expiredCards.forEach(status => {
+                        const card = status.closest('.charge-card');
+                        if (this.checked) {
+                            card.style.display = 'none';
+                        } else {
+                            card.style.display = 'block';
+                        }
+                    });
+                });
+            }
+            
+            // For the standalone edit lease charges pageslide
+            if (hideExpiredToggleStandalone) {
+                hideExpiredToggleStandalone.addEventListener('change', function() {
+                    const expiredCards = document.querySelectorAll('#edit-lease-charges-overlay .charge-card .status.expired');
+                    
+                    expiredCards.forEach(status => {
+                        const card = status.closest('.charge-card');
+                        if (this.checked) {
+                            card.style.display = 'none';
+                        } else {
+                            card.style.display = 'block';
+                        }
+                    });
+                });
+            }
+        });
+
+        // Lease Charge Edit Functionality
+        function editLeaseCharge(chargeId) {
+            const chargeCard = document.getElementById('charge-' + chargeId);
+            if (chargeCard) {
+                const displayView = chargeCard.querySelector('.charge-display-view');
+                
+                if (displayView) {
+                    // Extract current charge data
+                    const chargeNameElement = displayView.querySelector('h4');
+                    const chargeName = chargeNameElement ? chargeNameElement.textContent.replace(' (On Hold)', '').trim() : '';
+                    
+                    const chargeCodeElement = displayView.querySelector('.font-mono');
+                    const chargeCode = chargeCodeElement ? chargeCodeElement.textContent : '';
+                    
+                    const amountElement = displayView.querySelector('.text-lg.font-bold');
+                    const amount = amountElement ? amountElement.textContent.replace('$', '').replace(',', '') : '';
+                    
+                    const dateElement = displayView.querySelector('.text-muted.font-medium');
+                    const dateRange = dateElement ? dateElement.textContent : '';
+                    
+                    // Parse date range (e.g., "Oct 1, 2024 - Sep 30, 2025")
+                    let startDate = '', endDate = '';
+                    if (dateRange.includes(' - ')) {
+                        const dates = dateRange.split(' - ');
+                        startDate = formatDateForInput(dates[0]);
+                        endDate = formatDateForInput(dates[1]);
+                    } else if (dateRange) {
+                        startDate = formatDateForInput(dateRange);
+                    }
+                    
+                    // Determine status
+                    const isOnHold = chargeNameElement && chargeNameElement.textContent.includes('(On Hold)');
+                    const status = isOnHold ? 'hold' : 'active';
+                    
+                    // Populate edit form
+                    document.getElementById('edit-charge-id').value = chargeId;
+                    document.getElementById('edit-charge-code').value = chargeCode;
+                    document.getElementById('edit-charge-amount-display').textContent = '$' + amount;
+                    document.getElementById('edit-charge-start-date').value = startDate;
+                    document.getElementById('edit-charge-end-date').value = endDate;
+                    document.getElementById('edit-charge-status').value = status;
+                    
+                    // Update pageslide title
+                    document.getElementById('edit-charge-title').textContent = 'Edit ' + chargeName;
+                    document.getElementById('edit-charge-subtitle').textContent = 'Update charge information for ' + chargeName;
+                    
+                    // Open pageslide
+                    openPageslide('edit-lease-charge-overlay');
+                } else {
+                    alert('Unable to edit this charge. Please try again.');
+                }
+            }
+        }
+        
+        // Helper function to convert display date to input format
+        function formatDateForInput(dateStr) {
+            if (!dateStr) return '';
+            
+            try {
+                // Handle formats like "Oct 1, 2024" or "Sep 30, 2025"
+                const date = new Date(dateStr.trim());
+                if (!isNaN(date.getTime())) {
+                    const year = date.getFullYear();
+                    const month = String(date.getMonth() + 1).padStart(2, '0');
+                    const day = String(date.getDate()).padStart(2, '0');
+                    return `${year}-${month}-${day}`;
+                }
+            } catch (e) {
+                console.error('Error parsing date:', dateStr);
+            }
+            return '';
+        }
+
+        function saveLeaseChargeFromPageslide(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Get form values
+            const chargeId = formData.get('chargeId');
+            const chargeCode = formData.get('chargeCode');
+            const startDate = formData.get('startDate');
+            const endDate = formData.get('endDate');
+            const status = formData.get('status');
+            
+            // Find the charge card to update
+            const chargeCard = document.getElementById('charge-' + chargeId);
+            if (!chargeCard) {
+                alert('Unable to find charge to update.');
+                return;
+            }
+            
+            const displayView = chargeCard.querySelector('.charge-display-view');
+            if (!displayView) {
+                alert('Unable to update charge display.');
+                return;
+            }
+            
+            // Get the current charge name and amount from display (since they're not editable)
+            const chargeNameElement = displayView.querySelector('h4');
+            const currentChargeName = chargeNameElement ? chargeNameElement.textContent.replace(' (On Hold)', '').trim() : '';
+            
+            // Format dates for display
+            const startDateObj = new Date(startDate);
+            const endDateObj = endDate ? new Date(endDate) : null;
+            
+            let dateRange = startDateObj.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            });
+            
+            if (endDateObj) {
+                dateRange += ' - ' + endDateObj.toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
+                });
+            }
+            
+            // Update charge name with status indicator
+            let displayName = currentChargeName;
+            if (status === 'hold') {
+                displayName += ' <span class="text-orange-600">(On Hold)</span>';
+            }
+            
+            // Update display view with new values
+            const nameElement = displayView.querySelector('h4');
+            if (nameElement) nameElement.innerHTML = displayName;
+            
+            const codeElement = displayView.querySelector('.font-mono');
+            if (codeElement) codeElement.textContent = chargeCode;
+            
+            const dateElement = displayView.querySelector('.text-muted.font-medium');
+            if (dateElement) dateElement.textContent = dateRange;
+            
+            // Update modified by info
+            const currentUser = 'Current User'; // You can get this from session/context
+            const modifiedElements = displayView.querySelectorAll('.text-sm.text-muted span');
+            if (modifiedElements.length > 1) {
+                modifiedElements[1].textContent = 'Modified by: ' + currentUser;
+            }
+            
+            // Close pageslide and show success message
+            closePageslide('edit-lease-charge-overlay');
+            showNotification('Lease charge updated successfully', 'success');
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create a simple notification
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 ${
+                type === 'success' ? 'bg-green-100 text-green-800 border border-green-200' :
+                type === 'error' ? 'bg-red-100 text-red-800 border border-red-200' :
+                'bg-blue-100 text-blue-800 border border-blue-200'
+            }`;
+            notification.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
 
     </script>
+
+    <!-- Edit Lease Charges Pageslide -->
+    <div class="pageslide-overlay" id="edit-lease-charges-overlay">
+        <div class="pageslide edit-lease-charges">
+            <div class="pageslide-header">
+                <h2 class="pageslide-title">Lease Charges</h2>
+                <button class="pageslide-close" onclick="closePageslide('edit-lease-charges-overlay')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="pageslide-content">
+                <div class="charges-header">
+                    <div class="charges-controls mb-6">
+                        <div class="flex items-center gap-3">
+                            <!-- Search Field -->
+                            <div class="relative flex-1">
+                                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                                <input 
+                                    type="text" 
+                                    placeholder="Search charges..." 
+                                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus-ring-primary"
+                                >
+                            </div>
+                            
+                            <!-- Action Controls -->
+                            <div class="flex items-center gap-3">
+                                <button type="button" class="btn btn-light" onclick="openPageslide('add-lease-charge-overlay')">
+                                    <i class="fas fa-plus mr-2"></i>
+                                    Add lease charge
+                                </button>
+                                <div class="toggle-group">
+                                    <input type="checkbox" id="hide-expired-charges-standalone" class="toggle-checkbox" checked>
+                                    <label for="hide-expired-charges-standalone" class="toggle-label mb-0">Hide expired charges</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charges-list">
+                    <div class="charges-card-container space-y-2">
+                        
+                        <!-- Current Lease Charges (Oct 1, 2024 - Sep 30, 2025) -->
+                        
+                        <!-- Rent (Residential) -->
+                        <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm" id="charge-rent-standalone">
+                            <!-- Display View -->
+                            <div class="charge-display-view">
+                                <div class="flex items-center justify-between">
+                                    <!-- Left Side -->
+                                    <div class="flex-1">
+                                        <h4 class="text-base font-semibold mb-1">Rent (Residential)</h4>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">rentres</span>
+                                            <span class="text-muted font-medium">Oct 1, 2024 - Sep 30, 2025</span>
+                                        </div>
+                                        <div class="flex items-center gap-4 text-sm text-muted">
+                                            <span>Added by: Sarah Chen</span>
+                                            <span>Modified by: Michael Rodriguez</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right Side -->
+                                    <div class="flex flex-col items-end gap-2">
+                                        <div class="text-lg font-bold">$2,000.00</div>
+                                        <div class="action-buttons">
+                                            <button type="button" class="btn btn-light" onclick="editLeaseCharge('rent')" title="Edit">
+                                                <i class="fas fa-pen"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('rent')" title="Delete">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <!-- Pet Fee (2 pets) -->
+                        <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm" id="charge-petfee-standalone">
+                            <!-- Display View -->
+                            <div class="charge-display-view">
+                                <div class="flex items-center justify-between">
+                                    <!-- Left Side -->
+                                    <div class="flex-1">
+                                        <h4 class="text-base font-semibold mb-1">Pet Fee (2 pets)</h4>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">petfee</span>
+                                            <span class="text-muted font-medium">Oct 1, 2024 - Sep 30, 2025</span>
+                                        </div>
+                                        <div class="flex items-center gap-4 text-sm text-muted">
+                                            <span>Added by: Jessica Wang</span>
+                                            <span>Modified by: David Thompson</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Right Side -->
+                                    <div class="flex flex-col items-end gap-2">
+                                        <div class="text-lg font-bold">$30.00</div>
+                                        <div class="action-buttons">
+                                            <button type="button" class="btn btn-light" onclick="editLeaseCharge('petfee')" title="Edit">
+                                                <i class="fas fa-pen"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('petfee')" title="Delete">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <!-- Parking Space #42 -->
+                        <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <!-- Left Side -->
+                                <div class="flex-1">
+                                    <h4 class="text-base font-semibold mb-1">Parking Space #42</h4>
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">parking</span>
+                                        <span class="text-muted font-medium">Oct 1, 2024 - Sep 30, 2025</span>
+                                    </div>
+                                    <div class="flex items-center gap-4 text-sm text-muted">
+                                        <span>Added by: Emily Johnson</span>
+                                        <span>Modified by: Alex Martinez</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Side -->
+                                <div class="flex flex-col items-end gap-2">
+                                    <div class="text-lg font-bold">$75.00</div>
+                                    <div class="action-buttons">
+                                        <button type="button" class="btn btn-light" onclick="editLeaseCharge('parking')" title="Edit">
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('parking')" title="Delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Storage Unit #15 -->
+                        <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <!-- Left Side -->
+                                <div class="flex-1">
+                                    <h4 class="text-base font-semibold mb-1">Storage Unit #15</h4>
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">storage</span>
+                                        <span class="text-muted font-medium">Oct 1, 2024 - Sep 30, 2025</span>
+                                    </div>
+                                    <div class="flex items-center gap-4 text-sm text-muted">
+                                        <span>Added by: Ryan Lee</span>
+                                        <span>Modified by: Amanda Foster</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Side -->
+                                <div class="flex flex-col items-end gap-2">
+                                    <div class="text-lg font-bold">$45.00</div>
+                                    <div class="action-buttons">
+                                        <button type="button" class="btn btn-light" onclick="editLeaseCharge('storage')" title="Edit">
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('storage')" title="Delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Washer/Dryer Rental -->
+                        <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <!-- Left Side -->
+                                <div class="flex-1">
+                                    <h4 class="text-base font-semibold mb-1">Washer/Dryer Rental</h4>
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">washdry</span>
+                                        <span class="text-muted font-medium">Oct 1, 2024 - Sep 30, 2025</span>
+                                    </div>
+                                    <div class="flex items-center gap-4 text-sm text-muted">
+                                        <span>Added by: Kevin Park</span>
+                                        <span>Modified by: Lisa Anderson</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Side -->
+                                <div class="flex flex-col items-end gap-2">
+                                    <div class="text-lg font-bold">$25.00</div>
+                                    <div class="action-buttons">
+                                        <button type="button" class="btn btn-light" onclick="editLeaseCharge('washdry')" title="Edit">
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('washdry')" title="Delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Expired Charges (Previous Lease: Oct 1, 2023 - Sep 30, 2024) -->
+                        
+                        <!-- Expired Rent (Previous Lease) -->
+                        <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm" style="border-left: 4px solid #991b1b; display: none;">
+                            <div class="flex items-center justify-between">
+                                <!-- Left Side -->
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <h4 class="text-base font-semibold">Rent (Residential)</h4>
+                                        <span class="status expired">Expired</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">rentres</span>
+                                        <span class="text-muted font-medium">Oct 1, 2023 - Sep 30, 2024</span>
+                                    </div>
+                                    <div class="flex items-center gap-4 text-sm text-muted">
+                                        <span>Added by: Jennifer Davis</span>
+                                        <span>Modified by: Mark Wilson</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Side -->
+                                <div class="flex flex-col items-end gap-2">
+                                    <div class="text-lg font-bold">$1,850.00</div>
+                                    <div class="action-buttons">
+                                            <button type="button" class="btn btn-light" onclick="editLeaseCharge('rent-expired')" title="Edit">
+                                                <i class="fas fa-pen"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('rent-expired')" title="Delete">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Expired Pet Fee (Previous Lease - Only 1 pet) -->
+                        <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm" style="border-left: 4px solid #991b1b; display: none;">
+                            <div class="flex items-center justify-between">
+                                <!-- Left Side -->
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <h4 class="text-base font-semibold">Pet Fee (1 pet)</h4>
+                                        <span class="status expired">Expired</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">petfee</span>
+                                        <span class="text-muted font-medium">Oct 1, 2023 - Sep 30, 2024</span>
+                                    </div>
+                                    <div class="flex items-center gap-4 text-sm text-muted">
+                                        <span>Added by: Rachel Brown</span>
+                                        <span>Modified by: Tom Garcia</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Side -->
+                                <div class="flex flex-col items-end gap-2">
+                                    <div class="text-lg font-bold">$15.00</div>
+                                    <div class="action-buttons">
+                                            <button type="button" class="btn btn-light" onclick="editLeaseCharge('petfee-expired')" title="Edit">
+                                                <i class="fas fa-pen"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('petfee-expired')" title="Delete">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Expired Parking (Different Space) -->
+                        <div class="charge-card p-3 bg-white border border-gray-200 rounded-lg shadow-sm" style="border-left: 4px solid #991b1b; display: none;">
+                            <div class="flex items-center justify-between">
+                                <!-- Left Side -->
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <h4 class="text-base font-semibold">Parking Space #38</h4>
+                                        <span class="status expired">Expired</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="text-sm font-mono text-muted bg-gray-100 px-2 py-1 rounded">parking</span>
+                                        <span class="text-muted font-medium">Oct 1, 2023 - Sep 30, 2024</span>
+                                    </div>
+                                    <div class="flex items-center gap-4 text-sm text-muted">
+                                        <span>Added by: Nicole Taylor</span>
+                                        <span>Modified by: James Miller</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Side -->
+                                <div class="flex flex-col items-end gap-2">
+                                    <div class="text-lg font-bold">$65.00</div>
+                                    <div class="action-buttons">
+                                            <button type="button" class="btn btn-light" onclick="editLeaseCharge('parking-expired')" title="Edit">
+                                                <i class="fas fa-pen"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-light text-red-600" onclick="deleteLeaseCharge('parking-expired')" title="Delete">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Settings Pageslide -->
+    <div class="pageslide-overlay" id="payment-settings-overlay">
+        <div class="pageslide lease-edit payment-settings">
+            <div class="pageslide-header">
+                <h2 class="pageslide-title">Payment Settings</h2>
+                <button class="pageslide-close" onclick="closePageslide('payment-settings-overlay')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="pageslide-content">
+                <form id="payment-settings-form" class="lease-edit-form" onsubmit="savePaymentSettings(event)">
+                    
+                    <!-- Payment Details Section -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Payment details</h3>                        
+                        <div class="form-row-group ml-1">
+                            <div class="form-row">
+                                <label class="form-label">Lease description</label>
+                                <select class="form-select">
+                                    <option value="">N/A</option>
+                                    <option value="commercial">Commercial</option>
+                                    <option value="controlled">Controlled</option>
+                                    <option value="fair-market">Fair Market</option>
+                                    <option value="owner">Owner</option>
+                                    <option value="stabilized">Stabilized</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Payment method</label>
+                                <select class="form-select">
+                                    <option value="any">Any</option>
+                                    <option value="do-not-accept">Do Not Accept</option>
+                                    <option value="cash-equiv">Cash Equiv.</option>
+                                </select>
+                            </div>
+                        
+							<div class="form-row">
+								<div class="form-row">
+									<label class="form-label">Responsibility date</label>
+									<input type="date" class="form-input" value="">
+								</div>
+							</div>
+						</div>
+                        
+                    </div>
+                    
+                    <!-- Late Fees Section -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Late fees</h3>
+                        
+                        <div class="form-row-group ml-1">
+                            <div class="form-row">
+                                <label class="form-label">Charge late fee(s) on</label>
+                                <select class="form-select">
+                                    <option value="1">1st day of month</option>
+                                    <option value="2">2nd day of month</option>
+                                    <option value="3">3rd day of month</option>
+                                    <option value="4" selected>4th day of month</option>
+                                    <option value="5">5th day of month</option>
+                                    <option value="6">6th day of month</option>
+                                    <option value="7">7th day of month</option>
+                                    <option value="8">8th day of month</option>
+                                    <option value="9">9th day of month</option>
+                                    <option value="10">10th day of month</option>
+                                    <option value="11">11th day of month</option>
+                                    <option value="12">12th day of month</option>
+                                    <option value="13">13th day of month</option>
+                                    <option value="14">14th day of month</option>
+                                    <option value="15">15th day of month</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Minimum due to be charged</label>
+                                <div class="form-input-group">
+                                    <span class="form-input-prefix">$</span>
+                                    <input type="number" class="form-input" value="100.00" step="0.01" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row-group ml-1">
+                            <div class="form-row">
+                                <label class="form-label">Maximum monthly fee</label>
+                                <div class="form-input-group">
+                                    <span class="form-input-prefix">$</span>
+                                    <input type="number" class="form-input" value="0" step="0.01" min="0">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Amount type</label>
+                                <select class="form-select">
+                                    <option value="fixed">Fixed Amount</option>
+                                    <option value="percent" selected>% of Owed Total</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Monthly Fee Section -->
+                        <div class="form-subsection bg-gray-50 p-3">
+                            <div class="form-row">
+                                <label class="form-label">Charge a monthly fee?</label>
+                                <div class="form-radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="monthly-fee-yes-standalone" name="monthly-fee-standalone" value="yes" class="form-radio" checked>
+                                        <label for="monthly-fee-yes-standalone" class="form-radio-label">Yes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="monthly-fee-no-standalone" name="monthly-fee-standalone" value="no" class="form-radio">
+                                        <label for="monthly-fee-no-standalone" class="form-radio-label">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="monthly-fee-details-standalone" class="form-row-group ml-1">
+                                <div class="flex gap-4" style="display: flex !important;">
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount</label>
+                                        <div class="form-input-group">
+                                            <span class="form-input-prefix">$</span>
+                                            <input type="number" class="form-input" value="50.00" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount type</label>
+                                        <select class="form-select">
+                                            <option value="flat" selected>Flat Amount</option>
+                                            <option value="percent">% of Owed Total</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Daily Fee Section -->
+                        <div class="form-subsection bg-gray-50 p-3">
+                            <div class="form-row">
+                                <label class="form-label">Charge a daily fee?</label>
+                                <div class="form-radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="daily-fee-yes-standalone" name="daily-fee-standalone" value="yes" class="form-radio" checked>
+                                        <label for="daily-fee-yes-standalone" class="form-radio-label">Yes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="daily-fee-no-standalone" name="daily-fee-standalone" value="no" class="form-radio">
+                                        <label for="daily-fee-no-standalone" class="form-radio-label">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="daily-fee-details-standalone" class="form-row-group ml-1">
+                                <div class="flex gap-4" style="display: flex !important;">
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount per day</label>
+                                        <div class="form-input-group">
+                                            <span class="form-input-prefix">$</span>
+                                            <input type="number" class="form-input" value="1.00" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Maximum days</label>
+                                        <div class="form-radio-group">
+                                            <div class="radio-option">
+                                                <input type="radio" id="max-days-unlimited-standalone" name="max-days-standalone" value="unlimited" class="form-radio" checked>
+                                                <label for="max-days-unlimited-standalone" class="form-radio-label">Unlimited</label>
+                                            </div>
+                                            <div class="radio-option flex items-center gap-2">
+                                                <input type="radio" id="max-days-limited-standalone" name="max-days-standalone" value="limited" class="form-radio">
+                                                <label for="max-days-limited-standalone" class="form-radio-label" style="min-width:50px">Limit to</label>
+                                                <input type="number" class="form-input" value="0" min="1" max="365" style="width: 80px;" disabled>
+                                                <span class="text-sm text-gray-600">days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Second Late Fee Section -->
+                        <div class="form-subsection bg-gray-50 p-3">
+                            <div class="form-row">
+                                <label class="form-label">Charge a 2nd late fee?</label>
+                                <div class="form-radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="second-fee-yes-standalone" name="second-fee-standalone" value="yes" class="form-radio">
+                                        <label for="second-fee-yes-standalone" class="form-radio-label">Yes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="second-fee-no-standalone" name="second-fee-standalone" value="no" class="form-radio" checked>
+                                        <label for="second-fee-no-standalone" class="form-radio-label">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="second-fee-details-standalone" class="form-row-group ml-1" style="display: none;">
+                                <div class="flex gap-4" style="display: flex !important;">
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Charge 2nd late fee on:</label>
+                                        <select class="form-select">
+                                            <option value="1st" selected>1st</option>
+                                            <option value="2nd">2nd</option>
+                                            <option value="3rd">3rd</option>
+                                            <option value="4th">4th</option>
+                                            <option value="5th">5th</option>
+                                            <option value="10th">10th</option>
+                                            <option value="15th">15th</option>
+                                            <option value="30th">30th</option>
+                                            <option value="day-of-month">Day of month</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount</label>
+                                        <div class="form-input-group">
+                                            <span class="form-input-prefix">$</span>
+                                            <input type="number" class="form-input" value="0" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount Type</label>
+                                        <select class="form-select">
+                                            <option value="flat">Flat Amount</option>
+                                            <option value="percent" selected>% of Owed Total</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-light" onclick="closePageslide('payment-settings-overlay')">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Lease Charge Pageslide -->
+    <div class="pageslide-overlay" id="edit-lease-charge-overlay">
+        <div class="pageslide edit-lease-charge">
+            <div class="pageslide-header">
+                <div class="flex items-center gap-3">
+                    <button onclick="closePageslide('edit-lease-charge-overlay')" class="text-blue-600 hover:text-blue-700">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <h2 class="pageslide-title" id="edit-charge-title">Edit Lease Charge</h2>
+                        <p class="text-sm text-muted mt-1" id="edit-charge-subtitle">Update charge information</p>
+                    </div>
+                </div>
+                <button class="pageslide-close" onclick="closePageslide('edit-lease-charge-overlay')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="pageslide-content">
+                <form id="edit-lease-charge-form" onsubmit="saveLeaseChargeFromPageslide(event)">
+                    <input type="hidden" name="chargeId" id="edit-charge-id">
+
+                    <!-- Charge Code -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Charge Code <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" class="form-input" name="chargeCode" id="edit-charge-code" required>
+                    </div>
+
+                    <!-- Amount (Read-only) -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Amount
+                        </label>
+                        <div class="px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg">
+                            <span class="text-base font-semibold text-gray-900" id="edit-charge-amount-display">$0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Date Range -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Start Date <span class="text-red-500">*</span>
+                            </label>
+                            <input type="date" class="form-input" name="startDate" id="edit-charge-start-date" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                End Date
+                            </label>
+                            <input type="date" class="form-input" name="endDate" id="edit-charge-end-date">
+                        </div>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="mb-8">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Status <span class="text-red-500">*</span>
+                        </label>
+                        <select class="form-select" name="status" id="edit-charge-status" required>
+                            <option value="active">Active</option>
+                            <option value="hold">On Hold</option>
+                        </select>
+                    </div>
+
+                </form>
+            </div>
+            
+            <!-- Sticky Footer Actions -->
+            <div class="pageslide-footer">
+                <div class="flex justify-end gap-3">
+                    <button type="button" onclick="closePageslide('edit-lease-charge-overlay')" class="px-6 py-2 text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+                        Cancel
+                    </button>
+                    <button type="button" onclick="document.getElementById('edit-lease-charge-form').requestSubmit()" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Lease Charge Pageslide -->
+    <div class="pageslide-overlay" id="add-lease-charge-overlay">
+        <div class="pageslide add-lease-charge">
+            <div class="pageslide-header">
+                <div class="flex items-center gap-3">
+                    <button onclick="closePageslide('add-lease-charge-overlay')" class="text-blue-600 hover:text-blue-700">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <h2 class="pageslide-title">Add Lease Charge</h2>
+                        <p class="text-sm text-muted mt-1">Create a new charge for the current lease</p>
+                    </div>
+                </div>
+                <button class="pageslide-close" onclick="closePageslide('add-lease-charge-overlay')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="pageslide-content">
+                <form id="add-lease-charge-form" onsubmit="submitAddLeaseCharge(event)">
+
+                    <!-- Charge Code -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Charge Code <span class="text-red-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <select class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500" name="chargeCode" required>
+                                <option value="">Select charge code...</option>
+                                <option value="rentres">rentres (Rent - Residential)</option>
+                                <option value="petfee">petfee (Pet Fee)</option>
+                                <option value="keylock">keylock (Key/Lock/Remote Fee)</option>
+                                <option value="parking">parking (Parking)</option>
+                                <option value="storage">storage (Storage)</option>
+                                <option value="washdry">washdry (Washer/Dryer)</option>
+                                <option value="latefee">latefee (Late Fee)</option>
+                                <option value="utilfee">utilfee (Utility Fee)</option>
+                                <option value="deposit">deposit (Security Deposit)</option>
+                                <option value="appfee">appfee (Application Fee)</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                <button type="button" class="text-gray-400 hover:text-gray-600" onclick="showChargeCodeOptions()">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Amount -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Amount <span class="text-red-500">*</span>
+                        </label>
+                        <div class="form-input-group">
+                            <span class="form-input-prefix">$</span>
+                            <input type="number" class="form-input" name="amount" step="0.01" min="0" placeholder="0.00" required>
+                        </div>
+                    </div>
+
+                    <!-- Date Range -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                From <span class="text-red-500">*</span>
+                            </label>
+                            <input type="date" class="form-input" name="fromDate" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                To
+                            </label>
+                            <input type="date" class="form-input" name="toDate">
+                        </div>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="mb-8">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Status <span class="text-red-500">*</span>
+                        </label>
+                        <select class="form-select" name="status" required>
+                            <option value="active" selected>Active</option>
+                            <option value="hold">On Hold</option>
+                        </select>
+                    </div>
+
+                </form>
+            </div>
+            
+            <!-- Sticky Footer Actions -->
+            <div class="pageslide-footer">
+                <div class="flex justify-end gap-3">
+                    <button type="button" onclick="closePageslide('add-lease-charge-overlay')" class="px-6 py-2 text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+                        Cancel
+                    </button>
+                    <button type="button" onclick="document.getElementById('add-lease-charge-form').requestSubmit()" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        Add Charge
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Attachment Upload Modal -->
     <div id="attachment-modal" class="fixed inset-0 hidden z-[9999] flex items-center justify-center" style="background-color: rgba(0, 0, 0, 0.3); backdrop-filter: blur(2px);">
@@ -10373,6 +12550,7 @@
             </div>
         </div>
     </div>
+
 
 </body>
 </html>
