@@ -2056,6 +2056,10 @@ body {
     overflow-y: auto;
 }
 
+.pageslide.lease-history-wide {
+    width: 1300px;
+}
+
 .pageslide-overlay.active .pageslide {
     transform: translateX(0);
 }
@@ -3492,10 +3496,19 @@ button.rounded-lg,
         width: 90vw;
         max-width: 800px;
     }
+    
+    .pageslide.lease-history-wide {
+        width: 95vw;
+        max-width: 1100px;
+    }
 }
 
 @media (max-width: 768px) {
     .pageslide {
+        width: 100vw;
+    }
+    
+    .pageslide.lease-history-wide {
         width: 100vw;
     }
     

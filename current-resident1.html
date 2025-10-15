@@ -6300,6 +6300,119 @@
         <!-- </div> -->
     <!-- </div> -->
 
+    <!-- Lease History Pageslide -->
+    <div class="pageslide-overlay" id="lease-history-overlay">
+        <div class="pageslide lease-history lease-history-wide">
+            <div class="pageslide-header">
+                <div class="flex items-start justify-between w-full">
+                    <div>
+                        <h2 class="pageslide-title">Lease history</h2>
+                        <p class="text-sm text-muted mt-1">Melinda Michaels • 4 years 11 months tenancy</p>
+                    </div>
+                    <button class="pageslide-close" onclick="closePageslide('lease-history-overlay')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="pageslide-content">
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-gray-200">
+                                <th class="text-left py-3 px-4 font-semibold text-muted">Type</th>
+                                <th class="text-left py-3 px-4 font-semibold text-muted">Period</th>
+                                <th class="text-left py-3 px-4 font-semibold text-muted">Unit</th>
+                                <th class="text-left py-3 px-4 font-semibold text-muted">Lease ID</th>
+                                <th class="text-left py-3 px-4 font-semibold text-muted">Monthly rent</th>
+                                <th class="text-left py-3 px-4 font-semibold text-muted">Term</th>
+                                <th class="text-left py-3 px-4 font-semibold text-muted">Agent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Current Lease -->
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-4 text-gray-900">Current lease</td>
+                                <td class="py-4 px-4">Oct 1, 2024 - Sep 30, 2025</td>
+                                <td class="py-4 px-4">288</td>
+                                <td class="py-4 px-4">t0039661</td>
+                                <td class="py-4 px-4">$1,482.25</td>
+                                <td class="py-4 px-4">12 months</td>
+                                <td class="py-4 px-4">Maria Gonzalez</td>
+                            </tr>
+                            <!-- Previous Lease 2023-2024 -->
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-4 text-gray-900">Previous lease</td>
+                                <td class="py-4 px-4">Oct 1, 2023 - Sep 30, 2024</td>
+                                <td class="py-4 px-4">288</td>
+                                <td class="py-4 px-4">t0038432</td>
+                                <td class="py-4 px-4">$1,395.00</td>
+                                <td class="py-4 px-4">12 months</td>
+                                <td class="py-4 px-4">David Chen</td>
+                            </tr>
+                            <!-- Roommate Promotion -->
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-4 text-gray-900">Roommate promotion</td>
+                                <td class="py-4 px-4">Mar 15, 2023 - Sep 30, 2023</td>
+                                <td class="py-4 px-4">3104 → 288</td>
+                                <td class="py-4 px-4">t0312765</td>
+                                <td class="py-4 px-4">$1,350.00</td>
+                                <td class="py-4 px-4">6 months</td>
+                                <td class="py-4 px-4">Jennifer Walsh</td>
+                            </tr>
+                            <!-- Previous Lease in Unit 3104 -->
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-4 text-gray-900">Previous lease</td>
+								 <td class="py-4 px-4">Oct 1, 2022 - Mar 14, 2023</td>
+                                <td class="py-4 px-4">3104</td>
+                                <td class="py-4 px-4">t0312765</td>
+                                <td class="py-4 px-4">$1,320.00</td>
+                                <td class="py-4 px-4">5 months</td>
+                                <td class="py-4 px-4">Jennifer Walsh</td>
+                            </tr>
+                            <!-- Unit Transfer -->
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-4 text-gray-900">Unit transfer</td>
+                                <td class="py-4 px-4">Oct 10, 2021 - Sep 30, 2022</td>
+                                <td class="py-4 px-4">2101 → 3104</td>
+                                <td class="py-4 px-4">t0123452</td>
+                                <td class="py-4 px-4">$1,280.00</td>
+                                <td class="py-4 px-4">12 months</td>
+                                <td class="py-4 px-4">Robert Kim</td>
+                            </tr>
+                            <!-- Previous Lease in Unit 2101 -->
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-4 text-gray-900">Previous lease</td>
+                                <td class="py-4 px-4">Oct 2, 2021 - Oct 9, 2021</td>
+                                <td class="py-4 px-4">2101</td>
+                                <td class="py-4 px-4">t0123452</td>
+                                <td class="py-4 px-4">$1,250.00</td>
+                                <td class="py-4 px-4">8 days</td>
+                                <td class="py-4 px-4">Robert Kim</td>
+                            </tr>
+                            <!-- Original Lease -->
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-4 px-4 text-gray-900">Original lease</td>
+                                <td class="py-4 px-4">Oct 2, 2020 - Oct 1, 2021</td>
+                                <td class="py-4 px-4">2101</td>
+                                <td class="py-4 px-4">t0123452</td>
+                                <td class="py-4 px-4">$1,180.00</td>
+                                <td class="py-4 px-4">12 months</td>
+                                <td class="py-4 px-4">Michael Torres</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="flex justify-end gap-3 mt-6 pt-4 border-t fixed bottom-0 right-0 bg-white z-50" style="width: 1300px; padding-right: 24px;">
+                    <button type="button" onclick="closePageslide('lease-history-overlay')" class="btn btn-light">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Roommate Details Pageslide -->
     <div class="pageslide-overlay" id="roommate-details-overlay">
         <div class="pageslide roommate-details">
