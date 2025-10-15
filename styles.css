@@ -2851,7 +2851,7 @@ button.rounded-lg,
     background-color: #f0f0f0;
     padding: 1.5rem;
     border-radius: 8px;
-	margin-left: 36px;
+	margin-left: 0;
 }
 
 @media (max-width: 1023px) {
