@@ -3345,6 +3345,12 @@
                                         <i id="sort-document-icon" class="fas fa-sort text-sm text-gray-400"></i>
                                     </div>
                                 </th>
+                                <th class="sortable" onclick="sortDocumentsTable('people')">
+                                    <div class="flex items-center gap-2">
+                                        People
+                                        <i id="sort-people-icon" class="fas fa-sort text-sm text-gray-400"></i>
+                                    </div>
+                                </th>
                                 <th class="sortable" onclick="sortDocumentsTable('type')">
                                     <div class="flex items-center gap-2">
                                         Type
@@ -3376,9 +3382,11 @@
                                                 <a href="#" class="text-blue-600 hover:text-blue-800">Lease v2.1</a>
                                             </div>
                                             <div class="text-sm text-gray-500">Aug 1, 2025 - July 31, 2026</div>
-                                            
                                         </div>
                                     </div>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">Household</span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
@@ -3435,6 +3443,9 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">Household</span>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
                                         Current lease
                                     </span>
@@ -3482,12 +3493,11 @@
                                                     Required
                                                 </span>
                                             </div>
-                                            <div class="text-sm text-gray-500">Household</div>
-                                            <div class="mt-1">
-                                                
-                                            </div>
                                         </div>
                                     </div>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">Household</span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
@@ -3525,6 +3535,9 @@
                                             <div class="text-xs text-gray-500 mt-1">Modified by Sarah Wilson • July 30, 2025</div>
                                         </div>
                                     </div>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">Household</span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
@@ -3575,12 +3588,11 @@
                                                     Required
                                         </span>
                                             </div>
-                                            <div class="text-sm text-gray-500">Angela Johnson</div>
-                                            <div class="mt-1">
-                                                
-                                            </div>
                                         </div>
                                     </div>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">Angela Johnson</span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
@@ -3617,12 +3629,12 @@
                                                     Required
                                         </span>
                                             </div>
-                                            <div class="text-sm text-gray-500">John Smith • Uploaded Jan 15, 2024</div>
-                                            <div class="mt-1">
-                                                
-                                            </div>
+                                            <div class="text-sm text-gray-500">Uploaded Jan 15, 2024</div>
                                         </div>
                                     </div>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">John Smith</span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
@@ -3636,6 +3648,9 @@
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm" onclick="editAttachmentDocument('Driver\'s License', 'Proof of ID', false)">
+                                            <i class="fas fa-pen mr-1"></i>Edit
+                                        </button>
                                         <button id="kebab-btn-driver-license-john" class="btn btn-light btn-sm kebab-menu">
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
@@ -3656,12 +3671,12 @@
                                                     Required
                                                 </span>
                                             </div>
-                                            <div class="text-sm text-gray-500">Melinda Michaels • Uploaded Jan 10, 2024</div>
-                                            <div class="mt-1">
-                                                
-                                            </div>
+                                            <div class="text-sm text-gray-500">Uploaded Jan 10, 2024</div>
                                         </div>
                                     </div>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">Melinda Michaels</span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
@@ -3675,6 +3690,9 @@
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">     
                                     <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm" onclick="editAttachmentDocument('Driver\'s License', 'Proof of ID', false)">
+                                            <i class="fas fa-pen mr-1"></i>Edit
+                                        </button>
                                         <button id="kebab-btn-driver-license-melinda" class="btn btn-light btn-sm kebab-menu">
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
@@ -3697,6 +3715,9 @@
                                             
                                         </div>
                                     </div>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">Household</span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
@@ -3738,7 +3759,7 @@
                                             <div class="font-medium">
                                                 <a href="#" class="text-blue-600 hover:text-blue-800">Emergency Contact Form</a>
                                             </div>
-                                            <div class="text-sm text-gray-500">John Smith • Uploaded Feb 5, 2024</div>
+                                            <div class="text-sm text-gray-500">Uploaded Feb 5, 2024</div>
                                             <div class="mt-1">
                                                 <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
                                                     Optional
@@ -3746,6 +3767,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">John Smith</span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
@@ -3759,6 +3783,9 @@
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex items-center justify-end gap-1">
+                                        <button class="btn btn-light btn-sm" onclick="editAttachmentDocument('Emergency Contact Form', 'Emergency contact', false)">
+                                            <i class="fas fa-pen mr-1"></i>Edit
+                                        </button>
                                         <button id="kebab-btn-emergency-contact-john" class="btn btn-light btn-sm kebab-menu">
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
@@ -3779,12 +3806,11 @@
                                                     Optional
                                                 </span>
                                             </div>
-                                            <div class="text-sm text-gray-500">Household</div>
-                                            <div class="mt-1">
-                                                
-                                            </div>
                                         </div>
                                     </div>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">Household</span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
@@ -3815,9 +3841,12 @@
                                             <div class="font-medium">
                                                 <a href="#" class="text-blue-600 hover:text-blue-800">photo002.jpg</a>
                                             </div>
-                                            <div class="text-sm text-gray-500">JPG • Melinda Michaels • Uploaded Jan 15, 2024</div>
+                                            <div class="text-sm text-gray-500">JPG • Uploaded Jan 15, 2024</div>
                                         </div>
                                     </div>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">Melinda Michaels</span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
@@ -3825,13 +3854,19 @@
                                     </span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                        Uploaded
-                                    </span>
+                                    <div>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                            Uploaded
+                                        </span>
+                                        <div class="flex items-center gap-1 mt-2">
+                                            <i class="fas fa-eye text-gray-600 text-xs"></i>
+                                            <span class="text-xs text-gray-600">Visible in Resident Portal</span>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex items-center justify-end gap-1">
-                                        <button class="btn btn-light btn-sm" onclick="editAttachmentDocument('photo002.jpg', 'Delivery Attachment')">
+                                        <button class="btn btn-light btn-sm" onclick="editAttachmentDocument('photo002.jpg', 'Delivery Attachment', true)">
                                             <i class="fas fa-pen mr-1"></i>Edit
                                         </button>
                                         <button id="kebab-btn-photo002-melinda" class="btn btn-light btn-sm kebab-menu">
@@ -3852,9 +3887,12 @@
                                             <div class="font-medium">
                                                 <a href="#" class="text-blue-600 hover:text-blue-800">Maintenance Notes</a>
                                             </div>
-                                            <div class="text-sm text-gray-500">PDF • John Smith • Uploaded Jan 20, 2024</div>
+                                            <div class="text-sm text-gray-500">PDF • Uploaded Jan 20, 2024</div>
                                         </div>
                                     </div>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">John Smith</span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
@@ -3862,13 +3900,19 @@
                                         </span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                        Uploaded
-                                    </span>
+                                    <div>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                            Uploaded
+                                        </span>
+                                        <div class="flex items-center gap-1 mt-2">
+                                            <i class="fas fa-eye text-gray-600 text-xs"></i>
+                                            <span class="text-xs text-gray-600">Visible in Resident Portal</span>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex items-center justify-end gap-1">
-                                        <button class="btn btn-light btn-sm" onclick="editAttachmentDocument('Maintenance Notes', 'Residential Correspondence')">
+                                        <button class="btn btn-light btn-sm" onclick="editAttachmentDocument('Maintenance Notes', 'Residential Correspondence', true)">
                                             <i class="fas fa-pen mr-1"></i>Edit
                                         </button>
                                         <button id="kebab-btn-maintenance-notes-john" class="btn btn-light btn-sm kebab-menu">
@@ -3889,9 +3933,12 @@
                                             <div class="font-medium">
                                                 <a href="#" class="text-blue-600 hover:text-blue-800">Unit Inspection Report</a>
                                             </div>
-                                            <div class="text-sm text-gray-500">PDF • Angela Johnson • Uploaded Jan 10, 2024</div>
+                                            <div class="text-sm text-gray-500">PDF • Uploaded Jan 10, 2024</div>
                                         </div>
                                     </div>
+                                </td>
+                                <td class="px-6 py-3 whitespace-nowrap">
+                                    <span class="text-gray-600">Angela Johnson</span>
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap">
                                     <span class="text-gray-600">
@@ -3905,7 +3952,7 @@
                                 </td>
                                 <td class="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
                                     <div class="flex items-center justify-end gap-1">
-                                        <button class="btn btn-light btn-sm" onclick="editAttachmentDocument('Unit Inspection Report', 'Additional Lease Document')">
+                                        <button class="btn btn-light btn-sm" onclick="editAttachmentDocument('Unit Inspection Report', 'Additional Lease Document', false)">
                                             <i class="fas fa-pen mr-1"></i>Edit
                                         </button>
                                         <button id="kebab-btn-inspection-report-angela" class="btn btn-light btn-sm kebab-menu">
@@ -3916,53 +3963,6 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
-
-            <!-- Attachment Upload Widget (only visible when Attachments filter is active) -->
-            <div id="attachment-upload-widget" class="bg-white rounded-lg border border-gray-200 p-6" style="display: none;">
-                <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">
-                        Select who this attachment is for <span class="text-red-500">*</span>
-                    </label>
-                    <select id="widget-attachment-recipient" class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        <option value="melinda-michaels" selected>Melinda Michaels</option>
-                        <option value="angela-johnson">Angela Johnson</option>
-                        <option value="john-smith">John Smith</option>
-                        <option value="household">Household</option>
-                    </select>
-                </div>
-                
-                <!-- Upload Area -->
-                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors cursor-pointer" 
-                     onclick="document.getElementById('widget-attachment-file-input').click()">
-                    <div class="mb-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                            <i class="fas fa-cloud-upload-alt text-blue-600 text-xl"></i>
-                        </div>
-                    </div>
-                    <div class="mb-4">
-                        <h4 class="font-medium text-gray-900 mb-2">Drop files here to upload.</h4>
-                        <div class="mb-4">
-                            <span class="text-gray-500">or</span>
-                        </div>
-                        <button type="button" class="btn btn-primary" onclick="document.getElementById('widget-attachment-file-input').click()">
-                            Select File
-                        </button>
-                        <input type="file" id="widget-attachment-file-input" class="hidden" multiple>
-                    </div>
-                </div>
-                
-                <!-- File Format Information -->
-                <div class="mt-4 text-xs text-gray-500">
-                    <strong>Max Size:</strong> 5MB, <strong>Valid files:</strong> PDF, Text(TXT, CSV, XML), Excel (XLS, XLSX, XLSB), Word(DOC, DOCX, RTF), Image(JPG, JPEG, TIF, BMP, GIF, PNG), Video (MP4, MPG, AVI), Other (ZIP, SWF, DWF, DWFX, SVG)
-                </div>
-                
-                <!-- Upload Button -->
-                <div class="flex justify-end mt-4">
-                    <button onclick="uploadWidgetAttachment()" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                        Upload Attachment
-                    </button>
                 </div>
             </div>
 
@@ -11500,7 +11500,7 @@
         }
 
         // Edit attachment document function
-        function editAttachmentDocument(currentName, currentType) {
+        function editAttachmentDocument(currentName, currentType, visibleInPortal = false) {
             const modal = document.createElement('div');
             modal.id = 'edit-attachment-modal';
             modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center';
@@ -11531,7 +11531,7 @@
                             >
                         </div>
                         
-                        <div class="mb-6">
+                        <div class="mb-4">
                             <label class="block text-sm font-medium text-gray-700 mb-2">Document Type</label>
                             <select id="edit-document-type" class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                 <optgroup label="Portal Lease Documents">
@@ -11572,6 +11572,14 @@
                                     <option value="Print Application Documents" ${currentType === 'Print Application Documents' ? 'selected' : ''}>Print Application Documents</option>
                                 </optgroup>
                             </select>
+                        </div>
+                        
+                        <div class="mb-6 flex items-center justify-between">
+                            <label class="block text-sm font-medium text-gray-700">Visible in Resident Portal</label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="portal-visibility-toggle" class="sr-only peer" ${visibleInPortal ? 'checked' : ''}>
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                            </label>
                         </div>
                         
                         <div class="flex justify-end gap-3">
