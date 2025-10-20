@@ -901,7 +901,7 @@
                                             <a href="#" class="btn btn-link p-0">
                                                 <i class="fas fa-external-link-alt ml-1"></i> Preview account
                                             </a>
-                                            <button id="kebab-btn-rentcafe" class="btn btn-link">
+                                            <button id="kebab-btn-rentcafe" class="btn btn-link text-body">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </button>
                                         </div>
@@ -945,6 +945,11 @@
                                                     <span class="tooltip-text">Email</span>
                                                 </span>
                                             </div>
+                                            <div class="ml-auto">
+                                                <button id="kebab-btn-roommate-angela-overview" class="btn btn-link btn-sm kebab-menu text-body">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                         <div class="roommate-item flex items-center gap-2">
                                             <!-- Avatar -->
@@ -953,6 +958,7 @@
                                             </div>
                                             <span class="">John Smith</span>
                                             <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">Current</span>
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700">Registered</span>
                                             <div class="flex items-center gap-3">
                                                 <span class="tooltip-black">
                                                     <i class="fas fa-phone text-link cursor-pointer"></i>
@@ -966,6 +972,11 @@
                                                     <i class="fas fa-envelope text-link cursor-pointer"></i>
                                                     <span class="tooltip-text">Email</span>
                                                 </span>
+                                            </div>
+                                            <div class="ml-auto">
+                                                <button id="kebab-btn-roommate-john-overview" class="btn btn-link btn-sm kebab-menu text-body">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -2460,629 +2471,7 @@
             <!-- Lease Information View (Hidden by default) -->
             <div id="lease-info-view" class="container py-6 mx-auto" style="display: none;">
                 
-                <!-- Page Title -->
-                <div class="mb-6 flex items-center justify-between">
-                    <h1 class="text-2xl font-semibold">Lease Information</h1>
-                    <div class="flex items-center gap-3">
-                    </div>
-                </div>
 
-                <!-- 30-Day Notice to Vacate Alert -->
-                <div class="mb-6">
-                    <div class="bg-orange-50 border border-orange-200 rounded-lg p-3">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <i class="fas fa-bell text-orange-600"></i>
-                                    <div>
-                                        <span class="font-semibold text-gray-900">30-Day Notice to Vacate</span>
-                                    <div class="text-sm text-gray-600">
-                                        <span>Move-out: Sep 30, 2025 • 15 days remaining</span>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <button class="btn btn-success btn-sm">
-                                        <i class="fas fa-check mr-1"></i>
-                                        Approve
-                                    </button>
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="fas fa-times mr-1"></i>
-                                        Reject
-                                    </button>
-                            </div>
-                                </div>
-                            </div>
-                        </div>
-
-                <!-- Active Renewal Offers - Compact Alert Style -->
-                <div class="mb-6 space-y-3">
-                    <!-- Active Renewal Offer Alert -->
-                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <i class="fas fa-file-contract text-blue-600"></i>
-                                <div>
-                                    <span class="font-semibold text-gray-900">Renewal Offer #67892 - Pending Response</span>
-                                    <div class="text-sm text-gray-600">
-                                        <span>$2,000.00/mo • 12 months (Oct 1, 2025 - Sep 30, 2026)</span>
-                                        <span class="mx-2">•</span>
-                                        <span class="text-orange-600 font-medium">
-                                            <i class="fas fa-exclamation-triangle mr-1"></i>
-                                            Expires Sep 15, 2025 (45 days)
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <button class="btn btn-light btn-sm" title="Edit Renewal Offer">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <button class="btn btn-light btn-sm" title="View Details">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <button class="btn btn-primary btn-sm" title="Send to Tenant">
-                                    <i class="fas fa-paper-plane mr-1"></i>
-                                    Send
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cancelled Renewal Offer Alert (Hidden by default) -->
-                    <div class="bg-red-50 border border-red-200 rounded-lg p-3" style="display: none;" id="inactive-renewal-alert">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <i class="fas fa-ban text-red-600"></i>
-                                <div>
-                                    <span class="font-semibold text-gray-900">Renewal Offer #67456 - Cancelled</span>
-                                    <div class="text-sm text-gray-600">
-                                        <span>$1,850.00/mo • 12 months (Oct 1, 2024 - Sep 30, 2025)</span>
-                                        <span class="mx-2">•</span>
-                                        <span class="text-red-600">Cancelled by tenant - Jul 15, 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <button class="btn btn-light btn-sm" title="View Details">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                                <button class="btn btn-light btn-sm" title="Archive">
-                                    <i class="fas fa-archive"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Show Cancelled Toggle -->
-                    <div class="text-right">
-                        <button class="btn btn-link text-sm" onclick="toggleInactiveRenewal()">
-                            <span id="toggle-inactive-text">Show cancelled renewal offer</span>
-                            <i class="fas fa-chevron-down ml-1" id="toggle-inactive-icon"></i>
-                        </button>
-                    </div>
-                </div>
-
-
-                <!-- Main Content Grid -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    
-                    <!-- Left Column (2/3 width) -->
-                    <div class="col-span-1 lg:col-span-2 space-y-6">
-
-                        <!-- Current Lease Details -->
-                        <div class="card">
-                            <div class="card-header border-0">
-                                <h3 class="card-title">Lease Timeline</h3>
-                                
-                            </div>
-                            <div class="card-content">
-                                
-                                <!-- Quick Stats Summary -->
-                                <div class="bg-gray-50 border border-blue-100 rounded-lg p-4 mb-6">
-                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                        <div class="text-center">
-                                            <div class="text-2xl font-bold">4y 11m</div>
-                                            <div class="text-muted tracking-wide">Total Tenancy</div>
-                                        </div>
-                                        <div class="text-center">
-                                            <div class="text-2xl font-bold">4</div>
-                                            <div class="text-muted tracking-wide">Renewals</div>
-                                                </div>
-                                        <div class="text-center">
-                                            <div class="text-2xl font-bold">+$450</div>
-                                            <div class="text-muted tracking-wide">Total Rent Increase</div>
-                                            </div>
-                                        <div class="text-center">
-                                            <div class="text-2xl font-bold">3/0</div>
-                                            <div class="text-muted tracking-wide">Late Fees/NSF</div>
-                                                </div>
-                                            </div>
-                                                </div>
-
-                                <!-- Timeline Container -->
-                                <div class="relative">
-                                    <!-- Timeline Line -->
-                                    <div class="absolute left-1.5 top-0 bottom-0 w-0.5 bg-gray-200"></div>
-                                    
-                                    <!-- Current Lease (Highlighted) -->
-                                    <div class="relative bg-green-50 border border-green-200 rounded-lg p-4 mb-4 ml-14">
-                                        <div class="absolute -left-14 top-4 w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-sm"></div>
-                                        <div class="absolute -left-12 top-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-medium">CURRENT</div>
-                                        
-                                        <div class="flex justify-between items-start">
-                                            <div class="flex-1">
-                                                <div class="flex items-center gap-3 mb-2">
-                                                    <h4 class="text-lg font-semibold text-gray-900">Oct 1, 2024 - Sep 30, 2025</h4>
-                                                    <span class="badge bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">12 months</span>
-                                            </div>
-                                                <div class="">
-                                                    <div>
-                                                        <span class="text-gray-500">Rent:</span>
-                                                        <span class="font-semibold text-gray-900 ml-1">$2,000.00</span>
-														<span class="mx-2">•</span>                                         
-                                                        <span class="text-gray-500">Renewed:</span>
-                                                        <span class="font-semibold text-gray-900 ml-1">Sep 01, 2024</span>
-                                                </div>
-                                            </div>
-                                                </div>
-                                            </div>
-                                            </div>
-
-                                    <!-- Past Leases Timeline -->
-                                    <div class="space-y-4">
-                                        <!-- Past Lease 1 -->
-                                        <div class="relative flex items-start ml-14">
-                                            <div class="absolute -left-14 top-2 w-3 h-3 bg-gray-400 rounded-full border-2 border-white shadow-sm"></div>
-                                            <div class="flex-1 bg-white border border-gray-200 rounded-lg p-3 hover:shadow-sm transition-shadow">
-                                                <div class="flex justify-between items-center">
-                                                    <div class="flex-1">
-                                                        <div class="flex items-center gap-2 mb-1">
-                                                            <span class="font-bold">Oct 1, 2023 - Sep 30, 2024</span>
-                                                            <span class="badge bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">12 months</span>
-                                                        </div>
-                                                        <div class="text-sm">
-                                                            <span class="">Rent: $1,850.00/mo</span>
-                                                            <span class="mx-2">•</span>
-                                                            <span>Late fees: 2/0</span>
-                                                            <span class="mx-2">•</span>
-                                                            <span>Agent: Sarah Martinez</span>
-                                                            <span class="mx-2">•</span>	
-                                                            <span>Renewed: Aug 15, 2023</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-center gap-2 ml-4">
-                                                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">+$100</span>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-
-                                        <!-- Past Lease 2 -->
-                                        <div class="relative flex items-start ml-14">
-                                            <div class="absolute -left-14 top-2 w-3 h-3 bg-gray-400 rounded-full border-2 border-white shadow-sm"></div>
-                                            <div class="flex-1 bg-white border border-gray-200 rounded-lg p-3 hover:shadow-sm transition-shadow">
-                                                <div class="flex justify-between items-center">
-                                                    <div class="flex-1">
-                                                        <div class="flex items-center gap-2 mb-1">
-                                                            <span class="font-bold">Oct 1, 2022 - Sep 30, 2023</span>
-                                                            <span class="badge bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">12 months</span>
-                                                        </div>
-                                                        <div class="text-sm">
-                                                            <span class="">Rent: $1,750.00/mo</span>
-                                                            <span class="mx-2">•</span>
-                                                            <span>Late fees: 1/0</span>
-                                                            <span class="mx-2">•</span>
-                                                            <span>Agent: Michael Johnson</span>
-                                                            <span class="mx-2">•</span>
-                                                            <span>Renewed: Aug 20, 2022</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-center gap-2 ml-4">
-                                                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">+$100</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Past Lease 3 -->
-                                        <div class="relative flex items-start ml-14">
-                                            <div class="absolute -left-14 top-2 w-3 h-3 bg-gray-400 rounded-full border-2 border-white shadow-sm"></div>
-                                            <div class="flex-1 bg-white border border-gray-200 rounded-lg p-3 hover:shadow-sm transition-shadow">
-                                                <div class="flex justify-between items-center">
-                                                    <div class="flex-1">
-                                                        <div class="flex items-center gap-2 mb-1">
-                                                            <span class="font-bold">Oct 1, 2021 - Sep 30, 2022</span>
-                                                            <span class="badge bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">12 months</span>
-                                                        </div>
-                                                        <div class="text-sm">
-                                                            <span class="">Rent: $1,650.00/mo</span>
-                                                            <span class="mx-2">•</span>
-                                                            <span>Late fees: 0/0</span>
-                                                            <span class="mx-2">•</span>
-                                                            <span>Agent: Sarah Martinez</span>
-                                                            <span class="mx-2">•</span>
-                                                            <span>Renewed: Sep 10, 2021</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-center gap-2 ml-4">
-                                                        <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">+$100</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Original Lease -->
-                                        <div class="relative flex items-start ml-14">
-                                            <div class="absolute -left-14 top-2 w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow-sm"></div>
-                                            <div class="absolute -left-12 top-0 bg-blue-500 text-white text-xs px-2 py-1 rounded-full font-medium">START</div>
-                                            <div class="flex-1 border border-gray-200 rounded-lg p-3">
-                                                <div class="flex justify-between items-center">
-                                                    <div class="flex-1">
-                                                        <div class="flex items-center gap-2 mb-1">
-                                                            <span class="font-bold">Oct 2, 2020 - Sep 30, 2021</span>
-                                                            <span class="badge bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full">12 months</span>
-                                                        </div>
-                                                        <div class="text-sm">
-                                                            <span class="">Rent: $1,550.00/mo</span>
-                                                            <span class="mx-2">•</span>
-                                                            <span>Late fees: 0/0</span>
-                                                            <span class="mx-2">•</span>
-                                                            <span>Agent: Sarah Martinez</span>
-                                                        </div>
-                                                        <div class="mt-2 p-3 bg-gray-50 rounded-lg border border-gray-200">
-                                                            <div class="font-bold  mb-2">Deposits Collected: $1,850.00</div>
-                                                            <div class="">
-                                                                <span>Security: $1,400.00</span>
-																<span class="mx-2">•</span>
-                                                                <span>Key: $200.00</span>
-																<span class="mx-2">•</span>
-                                                                <span>Pet (2 pets): $250.00</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="mt-2 p-3 bg-gray-50 rounded-lg border border-green-200">
-                                                            <div class="flex items-center justify-between mb-2">
-                                                                <div class="font-bold">Screening Results</div>
-                                                                <button class="btn btn-light btn-sm" onclick="openPageslide('screening-results-overlay')" title="View Full Screening Results">
-                                                                    <i class="fas fa-search mr-1"></i>
-                                                                    View Details
-                                                                </button>
-                                                            </div>
-                                                            <div class="text-sm">
-                                                                <div>
-                                                                    <span>Credit Check:</span>
-                                                                    <span class="badge bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">742 - Passed</span>
-                                                                    <span class="mx-2">•</span>
-																	<span>Background:</span>
-                                                                    <span class="badge bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Passed</span>
-                                                                    <span class="mx-2">•</span>
-																	<span>Income:</span>
-                                                                    <span class="badge bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">3.2x Verified</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="text-sm mt-3 flex items-center justify-between">
-                                                            <div>
-                                                                <span>Lease signed: Sep 15, 2020</span>
-                                                                <span class="mx-2">•</span>
-                                                                <span class="font-medium">Move-in: Oct 2, 2020</span>
-                                                            </div>
-                                                            <button class="btn btn-light btn-sm" title="View Original Application">
-                                                                <i class="fas fa-file-alt mr-1"></i>
-                                                                View Application
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                           </div>
-                        </div>
-
-                        <!-- Payment & Late Fees Card -->
-                        <div class="card">
-                            <div class="card-header border-0">
-                                <div class="flex items-center justify-between w-full">
-                                    <h3 class="card-title">Payment & Fees</h3>
-									<button class="btn btn-light btn-sm ml-auto" onclick="openPageslide('lease-edit-overlay')">
-										<i class="fas fa-pen mr-2"></i>
-										Edit
-									</button>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                    <!-- Payment Details Section -->
-                                    <div class="card-section">
-                                        <div class="card-section-header">
-                                            <h4 class="font-semibold text-muted uppercase tracking-wide">Payment Details</h4>
-                                        </div>
-                                        <div class="card-section-content">
-                                            <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
-                                            <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Monthly rent</span>
-                                                <div class="flex items-center gap-2">
-                                                    <span class="font-bold text-xl text-gray-900">$1,482.25</span>
-                                                    <button class="ml-1 btn btn-link p-0" onclick="toggleLeaseChargesPopover(event)" aria-label="View lease charges breakdown">
-                                                        <i class="fas fa-info-circle text-blue-500 text-sm hover:text-blue-600"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Total deposit</span>
-                                                <div class="flex items-center gap-2">
-                                                    <span class="font-bold text-xl text-gray-900">$1,850.00</span>
-                                                    <button class="ml-1 btn btn-link p-0" onclick="toggleDepositPopover(event)" aria-label="View deposit breakdown">
-                                                        <i class="fas fa-info-circle text-blue-500 text-sm hover:text-blue-600"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Late fee/NSF</span>
-                                                <div class="flex items-center gap-2">
-                                                    <i class="fas fa-exclamation-triangle text-gray-400 text-sm"></i>
-                                                    <span class="font-semibold text-gray-900">0/0</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Lease description</span>
-                                                <div class="flex items-center gap-2">
-                                                    <i class="fas fa-file-contract text-gray-400 text-sm"></i>
-                                                    <span class="font-semibold text-gray-900">Controlled</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Payment method</span>
-                                                <div class="flex items-center gap-2">
-                                                    <i class="fas fa-credit-card text-gray-400 text-sm"></i>
-                                                    <span class="font-semibold text-gray-900">Do not accept</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Responsibility date</span>
-                                                <div class="flex items-center gap-2">
-                                                    <i class="fas fa-calendar text-gray-400 text-sm"></i>
-                                                    <span class="font-semibold text-gray-900">-</span>
-                                                </div>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Late Fees Section -->
-                                    <div class="card-section">
-                                        <div class="card-section-header">
-                                            <h4 class="font-semibold text-muted uppercase tracking-wide">Late Fees</h4>
-                                        </div>
-                                        <div class="card-section-content">
-                                            <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
-                                            <div class="space-y-4">
-                                                <div class="flex flex-col">
-                                                    <span class="text-xs text-gray-500 mb-1">Charge late fee(s) on</span>
-                                                    <div class="flex items-center gap-2">
-                                                        <i class="fas fa-calendar-day text-gray-400 text-sm"></i>
-                                                        <span class="font-semibold text-gray-900">1st day of month</span>
-                                                    </div>
-                                                </div>
-                                                <div class="flex flex-col">
-                                                    <span class="text-xs text-gray-500 mb-1">Minimum due to be charged</span>
-                                                    <div class="flex items-center gap-2">
-                                                        <span class="font-semibold text-gray-900">$0</span>
-                                                    </div>
-                                                </div>
-                                                <div class="flex flex-col">
-                                                    <span class="text-xs text-gray-500 mb-1">Maximum monthly fee</span>
-                                                    <div class="flex items-center gap-2">
-                                                        <span class="font-semibold text-gray-900">$0</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="space-y-4">
-                                                <div class="flex flex-col">
-                                                    <span class="text-xs text-gray-500 mb-1">Charge a monthly fee?</span>
-                                                    <div class="flex items-center gap-2">
-                                                        <i class="fas fa-check-circle text-green-500 text-sm"></i>
-                                                        <span class="font-semibold text-gray-900">Yes</span>
-                                                        <span class="text-sm text-gray-600">($25.00 Flat Amount)</span>
-                                                    </div>
-                                                </div>
-                                                <div class="flex flex-col">
-                                                    <span class="text-xs text-gray-500 mb-1">Charge a daily fee?</span>
-                                                    <div class="flex items-center gap-2">
-                                                        <i class="fas fa-check-circle text-green-500 text-sm"></i>
-                                                        <span class="font-semibold text-gray-900">Yes</span>
-                                                        <span class="text-sm text-gray-600">($2.00/day, Unlimited)</span>
-                                                    </div>
-                                                </div>
-                                                <div class="flex flex-col">
-                                                    <span class="text-xs text-gray-500 mb-1">Charge a 2nd late fee?</span>
-                                                    <div class="flex items-center gap-2">
-                                                        <i class="fas fa-check-circle text-green-500 text-sm"></i>
-                                                        <span class="font-semibold text-gray-900">Yes</span>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-
-                            </div>
-                                </div>
-
-
-
-                    </div>
-
-                    <!-- Right Column (1/3 width) -->
-                    <div class="col-span-1 space-y-6">
-                        
-                        <!-- Lease Charges -->
-                        <div class="card">
-                            <div class="card-header border-0">
-                                <div class="flex items-center justify-between w-full">
-                                    <h3 class="card-title">Lease Charges</h3>
-                                    <button class="btn btn-light btn-sm" onclick="openPageslide('add-lease-charge-overlay')">
-                                        <i class="fas fa-plus-circle mr-1"></i>
-                                        Add lease charge
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div class="flex justify-end mb-3">
-                                    <div class="flex items-center gap-2">
-                                        <input type="checkbox" id="show-expired-charges-lease" class="form-checkbox text-blue-600">
-                                        <label for="show-expired-charges-lease" class="text-sm text-gray-600 leading-none mb-0">Show expired charges</label>
-                                    </div>
-                                </div>
-                                <div class="space-y-3">
-                                    <!-- Rent (Residential) -->
-                                    <div class="border-b border-gray-100 pb-3 group">
-                                        <div class="flex justify-between items-start mb-2">
-                                            <div class="flex-1">
-                                                <div class="flex items-center gap-2 mb-1">
-                                                    <span class="text-gray-900 font-medium">Rent (Residential)</span>
-                                                    <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">rentres</span>
-                                                </div>
-                                                <div class="text-sm text-gray-600 mb-2">Oct 1, 2024 - Sep 30, 2025</div>
-                                                <div class="text-xs text-gray-500">
-                                                    <span>Added by: Sarah Chen</span>
-                                                    <span class="ml-4">Modified by: Michael Rodriguez</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center gap-2">
-                                                <span class="font-semibold text-right text-lg">$2,000.00</span>
-                                                <button class="btn btn-light btn-sm" title="Edit" onclick="editLeaseCharge('rentres', 'Rent (Residential)', '2000.00', '2024-10-01', '2025-09-30', 'active')">
-                                                    <i class="fas fa-pen"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Pet Fee (2 pets) -->
-                                    <div class="border-b border-gray-100 pb-3 group">
-                                        <div class="flex justify-between items-start mb-2">
-                                            <div class="flex-1">
-                                                <div class="flex items-center gap-2 mb-1">
-                                                    <span class="text-gray-900 font-medium">Pet Fee (2 pets)</span>
-                                                    <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">petfee</span>
-                                                </div>
-                                                <div class="text-sm text-gray-600 mb-2">Oct 1, 2024 - Sep 30, 2025</div>
-                                                <div class="text-xs text-gray-500">
-                                                    <span>Added by: Jessica Wang</span>
-                                                    <span class="ml-4">Modified by: David Thompson</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center gap-2">
-                                                <span class="font-semibold text-right text-lg">$30.00</span>
-                                                <button class="btn btn-light btn-sm" title="Edit" onclick="editLeaseCharge('petfee', 'Pet Fee (2 pets)', '30.00', '2024-10-01', '2025-09-30', 'active')">
-                                                    <i class="fas fa-pen"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Parking Space #42 -->
-                                    <div class="border-b border-gray-100 pb-3 group">
-                                        <div class="flex justify-between items-start mb-2">
-                                            <div class="flex-1">
-                                                <div class="flex items-center gap-2 mb-1">
-                                                    <span class="text-gray-900 font-medium">Parking Space #42</span>
-                                                    <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">parking</span>
-                                                </div>
-                                                <div class="text-sm text-gray-600 mb-2">Oct 1, 2024 - Sep 30, 2025</div>
-                                                <div class="text-xs text-gray-500">
-                                                    <span>Added by: Emily Johnson</span>
-                                                    <span class="ml-4">Modified by: Alex Martinez</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center gap-2">
-                                                <span class="font-semibold text-right text-lg">$75.00</span>
-                                                <button class="btn btn-light btn-sm" title="Edit" onclick="editLeaseCharge('parking', 'Parking Space #42', '75.00', '2024-10-01', '2025-09-30', 'active')">
-                                                    <i class="fas fa-pen"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Storage Unit #15 -->
-                                    <div class="border-b border-gray-100 pb-3 group additional-charge">
-                                        <div class="flex justify-between items-start mb-2">
-                                            <div class="flex-1">
-                                                <div class="flex items-center gap-2 mb-1">
-                                                    <span class="text-gray-900 font-medium">Storage Unit #15</span>
-                                                    <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">storage</span>
-                                                </div>
-                                                <div class="text-sm text-gray-600 mb-2">Oct 1, 2024 - Sep 30, 2025</div>
-                                                <div class="text-xs text-gray-500">
-                                                    <span>Added by: Ryan Lee</span>
-                                                    <span class="ml-4">Modified by: Amanda Foster</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center gap-2">
-                                                <span class="font-semibold text-right text-lg">$45.00</span>
-                                                <button class="btn btn-light btn-sm" title="Edit" onclick="editLeaseCharge('storage', 'Storage Unit #15', '45.00', '2024-10-01', '2025-09-30', 'active')">
-                                                    <i class="fas fa-pen"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Washer/Dryer Rental -->
-                                    <div class="pb-3 group additional-charge">
-                                        <div class="flex justify-between items-start mb-2">
-                                            <div class="flex-1">
-                                                <div class="flex items-center gap-2 mb-1">
-                                                    <span class="text-gray-900 font-medium">Washer/Dryer Rental</span>
-                                                    <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">washdry</span>
-                                                </div>
-                                                <div class="text-sm text-gray-600 mb-2">Oct 1, 2024 - Sep 30, 2025</div>
-                                                <div class="text-xs text-gray-500">
-                                                    <span>Added by: Kevin Park</span>
-                                                    <span class="ml-4">Modified by: Lisa Anderson</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex items-center gap-2">
-                                                <span class="font-semibold text-right text-lg">$25.00</span>
-                                                <button class="btn btn-light btn-sm" title="Edit" onclick="editLeaseCharge('washdry', 'Washer/Dryer Rental', '25.00', '2024-10-01', '2025-09-30', 'active')">
-                                                    <i class="fas fa-pen"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    
-                                    <!-- Total -->
-                                    <div class="pt-3 border-t border-gray-200">
-                                        <div class="flex justify-between items-center mb-3">
-                                            <span class="font-semibold text-gray-900">Total Charges</span>
-                                            <span class="font-bold text-lg text-gray-900">$2,175.00</span>
-                                        </div>
-                                        
-                                        <!-- Housing Assistance -->
-                                        <div class="flex justify-between items-center mb-3">
-                                                <div class="flex items-center gap-2">
-                                                <span class="text-gray-700">Housing Assistance (HAP Subsidy)</span>
-                                                    <button class="text-blue-500 hover:text-blue-600" title="View details">
-                                                        <i class="fas fa-info-circle text-xs"></i>
-                                                    </button>
-                                                </div>
-                                                <span class="font-medium">-$692.75</span>
-                                        </div>
-                                        
-                                        <!-- Tenant Responsibility -->
-                                        <div class="pt-3 border-t border-gray-200">
-                                            <div class="flex justify-between items-center">
-                                                <span class="font-bold text-gray-900">Tenant Responsibility</span>
-                                                <span class="font-bold text-lg text-gray-900">$1,482.25</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                            </div>
-                </div>
             </div>
 
             <!-- Ledger View (Hidden by default) -->
@@ -4990,7 +4379,7 @@
         // View switching functionality
         function toggleView(viewName) {
             const overviewView = document.getElementById('overview-view');
-            const leaseInfoView = document.getElementById('lease-info-view');
+            const leaseInfoView = document.getElementById('lease-info-2-view');
             const ledgerView = document.getElementById('ledger-view');
             const documentsView = document.getElementById('documents-view');
             const overviewMenu = document.getElementById('overview-menu');
@@ -6973,6 +6362,38 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Floating Kebab Dropdown - Angela Johnson Overview (outside all containers) -->
+    <div id="kebab-dropdown-roommate-angela-overview" class="hidden bg-white border border-gray-200 rounded-lg shadow-xl py-1 min-w-[180px]" style="position: fixed; z-index: 9999;">
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors" onclick="alert('Approve Roommate Application:\n\n• Final review of Angela Johnson\'s application\n• Process background check results\n• Generate lease addendum\n• Notify all parties of approval')">
+            <i class="fas fa-check mr-2 text-muted"></i>
+            Approve
+        </button>
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors" onclick="alert('View Application:\n\n• Review Angela Johnson\'s application\n• Verify background check\n• Check submitted documents\n• Review credit score')">
+            <i class="fas fa-file-alt mr-2 text-muted"></i>
+            View application
+        </button>
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors" onclick="alert('Invite to RentCafe:\n\n• Send RentCafe invitation to Angela Johnson\n• Generate unique access link\n• Send via email\n• Track invitation status')">
+            <i class="fas fa-paper-plane mr-2 text-muted"></i>
+            Invite to RentCafe
+        </button>
+    </div>
+
+    <!-- Floating Kebab Dropdown - John Smith Overview (outside all containers) -->
+    <div id="kebab-dropdown-roommate-john-overview" class="hidden bg-white border border-gray-200 rounded-lg shadow-xl py-1 min-w-[180px]" style="position: fixed; z-index: 9999;">
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors" onclick="alert('Preview RentCafe Account:\n\n• View John Smith\'s RentCafe account\n• Check access permissions\n• Review login history\n• Verify account settings')">
+            <i class="fas fa-eye mr-2 text-muted"></i>
+            Preview RentCafe account
+        </button>
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors" onclick="alert('Change Password:\n\n• Reset John Smith\'s password\n• Generate temporary password\n• Send notification email\n• Require password change on next login')">
+            <i class="fas fa-key mr-2 text-muted"></i>
+            Change password
+        </button>
+        <button class="kebab-option w-full text-left px-3 py-2 hover:bg-red-50 transition-colors" onclick="alert('Lock Account:\n\n• Temporarily lock John Smith\'s account\n• Prevent RentCafe access\n• Send notification\n• Set unlock conditions')">
+            <i class="fas fa-lock text-red-500 mr-2"></i>
+            Lock account
+        </button>
     </div>
 
     <!-- Floating Kebab Dropdown - Angela Johnson (outside all containers) -->
@@ -10759,6 +10180,8 @@
             const leaseKebab = setupKebabMenu('kebab-btn-lease', 'kebab-dropdown-lease', 200);
             const leaseTimelineKebab = setupKebabMenu('kebab-btn-lease-timeline', 'kebab-dropdown-lease-timeline', 180);
             const tenantHeaderManageKebab = setupKebabMenu('tenant-header-manage-btn', 'tenant-header-manage-dropdown', 260);
+            const roommateAngelaOverviewKebab = setupKebabMenu('kebab-btn-roommate-angela-overview', 'kebab-dropdown-roommate-angela-overview', 180);
+            const roommateJohnOverviewKebab = setupKebabMenu('kebab-btn-roommate-john-overview', 'kebab-dropdown-roommate-john-overview', 180);
             const roommateAngelaKebab = setupKebabMenu('kebab-btn-roommate-angela', 'kebab-dropdown-roommate-angela', 180);
             const roommateJohnKebab = setupKebabMenu('kebab-btn-roommate-john', 'kebab-dropdown-roommate-john', 180);
             const rentcafeKebab = setupKebabMenu('kebab-btn-rentcafe', 'kebab-dropdown-rentcafe', 160);
