@@ -1200,7 +1200,14 @@
                                                     <span>2 Vehicles</span>
                         </div>
                                                  <button class="btn btn-link p-0" onclick="openPageslide('vehicle-details-overlay')">View details</button>
-                                </div>				
+                                </div>
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center gap-2">
+                                                    <i class="fas fa-exclamation-triangle text-muted"></i>
+                                                    <span>Late fees</span>
+                                                </div>
+                                                <button class="btn btn-link p-0" onclick="alert('Late fees details:\n\n• View fee history\n• Payment status\n• Waiver requests')">View details</button>
+                                            </div>
                     </div>
                         </div>
                     </div>
@@ -1222,7 +1229,7 @@
                                                                 <span>Roommate promotion</span>
                                                             </div>
 															<div class="flex items-center gap-2 text-muted">
-																<span>Prior lease: <a href="#">t0312765</a></span><span class="text-muted">•</span><span>Prior unit: <a href="#">3104</a></span>
+																<span>Prior lease: <a href="#">t0312765</a></span><span class="text-muted">•</span><span>Prior unit: <a href="#">288</a></span>
 															</div>
                                                         </div>
                                                         <button class="btn btn-link p-0">View ledger</button>
@@ -2887,42 +2894,35 @@
                 <!-- Left Column (2/3 width) - Main Lease Information Card -->
                 <div class="col-span-1 lg:col-span-2">
                     <div class="card shadow-sm flex-grow">
+                        <div class="card-header border-0">
+                            <div class="flex items-center justify-between w-full">
+                                <h3 class="card-title">Current lease</h3>
+                                <button class="btn btn-light" onclick="openPageslide('payment-details-edit-overlay')">
+                                    Edit
+                                </button>
+                            </div>
+                        </div>
                         <div class="card-content">
                                 <!-- LEASE DATES Section -->
                                 <div class="card-section">
-                                    <div class="card-section-header">
-                                        <div class="flex items-center justify-between w-full">
-                                        <div>
-                                        <h4 class="font-semibold text-muted uppercase tracking-wide">Lease dates</h4>
-                                        </div>
-                                         <!-- <button class="btn btn-link p-0" onclick="openPageslide('lease-edit-overlay')">Edit</button> -->
-                                        </div>
-                                    </div>
                                     <div class="card-section-content">
                                         <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
                                             <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Lease term</span>
+                                                <span class="text-xs text-gray-500 mb-1">Lease dates</span>
                                                 <div class="flex flex-col gap-2">
-                                                    <span class="font-bold text-xl text-gray-900">Oct 1, 2024 - Sep 30, 2025</span>
-                                                    <span class="badge bg-gray-100 text-gray-800 text-sm px-2 py-1 rounded-full w-fit">12 months</span>
+                                                    <span class="font-bold text-gray-900">Oct 1, 2024 - Sep 30, 2025</span>
                                                 </div>
                                             </div>
                                             <div class="flex flex-col">
                                                 <span class="text-xs text-gray-500 mb-1">Move-in date</span>
                                                 <div class="flex items-center gap-2">
-                                                    <span class="font-bold text-xl text-gray-900">Oct 2, 2020</span>
+                                                    <span class="font-bold text-gray-900">Oct 2, 2020</span>
                                                 </div>
                                             </div>
                                             <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Tenancy duration</span>
+                                                <span class="text-xs text-gray-500 mb-1">Lease terms</span>
                                                 <div class="flex items-center gap-2">
-                                                    <span class="font-bold text-xl text-gray-900">4 years 11 months</span>
-                                                    <span class="tooltip-black">
-                                                        <button class="btn btn-light btn-sm px-2 py-1" onclick="openPageslide('lease-history-overlay')">
-                                                            <i class="fas fa-eye text-sm"></i>
-                                                        </button>
-                                                        <span class="tooltip-text">View lease history</span>
-                                                    </span>
+                                                    <span class="font-bold text-gray-900">12 months</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -2931,20 +2931,12 @@
 
                                 <!-- PAYMENT DETAILS Section -->
                                 <div class="card-section">
-                                    <div class="card-section-header">
-                                        <div class="flex items-center justify-between w-full">
-                                            <h4 class="font-semibold text-muted uppercase tracking-wide">Payment Details</h4>
-                                            <button class="btn btn-link p-0" onclick="openPageslide('payment-details-edit-overlay')">
-                                                Edit
-                                            </button>
-                                        </div>
-                                    </div>
                                     <div class="card-section-content">
                                         <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
                                         <div class="flex flex-col">
                                             <span class="text-xs text-gray-500 mb-1">Monthly rent</span>
                                             <div class="flex items-center gap-2">
-                                                <span class="font-bold text-xl text-gray-900">$1,482.25</span>
+                                                <span class="font-bold text-gray-900">$1,482.25</span>
                                                 <span class="tooltip-black">
                                                     <button class="btn btn-light btn-sm px-2 py-1" onclick="openPageslide('edit-lease-charges-overlay')">
                                                         <i class="fas fa-eye text-sm"></i>
@@ -2956,7 +2948,7 @@
                                         <div class="flex flex-col">
                                             <span class="text-xs text-gray-500 mb-1">Total deposit</span>
                                             <div class="flex items-center gap-2">
-                                                <span class="font-bold text-xl text-gray-900">$1,850.00</span>
+                                                <span class="font-bold text-gray-900">$1,850.00</span>
                                                 <span class="tooltip-black">
                                                     <button class="btn btn-light btn-sm px-2 py-1">
                                                         <i class="fas fa-eye text-sm"></i>
@@ -2997,110 +2989,179 @@
                                     </div>
                                 </div>
 
-                                <!-- LATE FEES Section -->
-                                <div class="card-section">
-                                    <div class="card-section-header">
-                                        <div class="flex items-center justify-between w-full">
-                                            <h4 class="font-semibold text-muted uppercase tracking-wide">Late Fees</h4>
-                                            <button class="btn btn-link p-0" onclick="openPageslide('late-fees-edit-overlay')">
-                                                Edit
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="card-section-content">
-                                        <div class="grid grid-cols-3 gap-x-8 gap-y-4">
-                                            <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Charge late fee(s) on</span>
-                                                <div class="flex items-center gap-2">
-                                                    <i class="fas fa-calendar-day text-gray-400 text-sm"></i>
-                                                    <span class="font-semibold text-gray-900">1st day of month</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Minimum due to be charged</span>
-                                                <div class="flex items-center gap-2">
-                                                    <span class="font-semibold text-gray-900">$0</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Maximum monthly fee</span>
-                                                <div class="flex items-center gap-2">
-                                                    <span class="font-semibold text-gray-900">$0</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Charge a monthly fee?</span>
-                                                <div class="flex items-center gap-2">
-                                                    <i class="fas fa-check-circle text-green-500 text-sm"></i>
-                                                    <span class="font-semibold text-gray-900">Yes</span>
-                                                    <span class="text-sm text-gray-600">($25.00 Flat Amount)</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Charge a daily fee?</span>
-                                                <div class="flex items-center gap-2">
-                                                    <i class="fas fa-check-circle text-green-500 text-sm"></i>
-                                                    <span class="font-semibold text-gray-900">Yes</span>
-                                                    <span class="text-sm text-gray-600">($2.00/day, Unlimited)</span>
-                                                </div>
-                                            </div>
-                                            <div class="flex flex-col">
-                                                <span class="text-xs text-gray-500 mb-1">Charge a 2nd late fee?</span>
-                                                <div class="flex items-center gap-2">
-                                                    <i class="fas fa-check-circle text-green-500 text-sm"></i>
-                                                    <span class="font-semibold text-gray-900">Yes</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-								
-								                                <!-- UNIT TRANSFER AND PROMOTION HISTORY Section -->
-                                <div class="card-section">
-                                    <div class="card-section-header">
-                                        <h4 class="font-semibold text-muted uppercase tracking-wide">Unit transfer and promotion history</h4>
-                                    </div>
-                                    <div class="card-section-content">
-                                        <div class="history-records-container">
-                                            <div>
-                                                <!-- History Record 1: Promote Roommate -->
-                                                <div class="history-record">
-                                                    <div class="flex items-start justify-between">
-                                                        <div class="flex-1">
-                                                            <div class="flex items-center gap-2">
-                                                                <i class="fas fa-user-plus text-muted"></i>
-                                                                <span>Roommate promotion</span>
-                                                            </div>
-															<div class="flex items-center gap-2 text-muted">
-																<span>Prior lease: <a href="#">t0312765</a></span><span class="text-muted">•</span><span>Prior unit: <a href="#">3104</a></span>
-															</div>
-                                                        </div>
-                                                        <button class="btn btn-link p-0">View ledger</button>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- History Record 2: Unit Transfer -->
-                                                <div class="history-record">
-                                                    <div class="flex items-start justify-between">
-                                                        <div class="flex-1">
-                                                            <div class="flex items-center gap-2">
-                                                                <i class="fas fa-exchange-alt text-muted"></i>
-                                                                <span>Unit Transfer</span>
-                                                            </div>
-                                                            <div class="flex items-center gap-2 text-muted">
-																<span>Prior lease: <a href="#">t0123452</a></span><span class="text-muted">•</span><span>Prior unit: <a href="#">2101</a></span>
-															</div>
-                                                        </div>
-                                                        <button class="btn btn-link p-0">View ledger</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
- 
-						
 						</div>
+                    </div>
+                    
+                    <!-- Lease History Card -->
+                    <div class="card shadow-sm flex-grow mt-6">
+                        <div class="card-header border-0">
+                            <div class="flex items-center justify-between w-full">
+                                <h3 class="card-title">Lease history</h3>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <!-- Timeline Container -->
+                            <div class="relative">
+                                <!-- Timeline Line -->
+                                <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+                                
+                                <!-- Timeline Items -->
+                                <div class="space-y-3">
+                                    <!-- Previous Lease 2023-2024 -->
+                                    <div class="relative pl-8">
+                                        <div class="absolute left-2.5 top-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow"></div>
+                                        <div class="bg-white border border-gray-200 rounded-lg p-3">
+                                            <div class="flex items-center justify-between mb-1.5">
+                                                <h4 class="font-semibold text-gray-900">Oct 1, 2023 - Sep 30, 2024</h4>
+                                            </div>
+                                            <div class="grid grid-cols-3 gap-x-3 gap-y-1 text-xs mt-2">
+                                                <div>
+                                                    <span class="text-gray-500">Rent:</span>
+                                                    <span class="font-medium ml-1">$1,395.00</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-gray-500">Term:</span>
+                                                    <span class="font-medium ml-1">12 months</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-gray-500">Agent:</span>
+                                                    <span class="font-medium ml-1">David Chen</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Roommate Promotion -->
+                                    <div class="relative pl-8">
+                                        <div class="absolute left-2.5 top-1 w-3 h-3 bg-purple-500 rounded-full border-2 border-white shadow"></div>
+                                        <div class="bg-purple-50 border border-purple-200 rounded-lg p-3">
+                                            <div class="flex items-center justify-between mb-1.5">
+                                                <div>
+                                                    <h4 class="font-semibold text-gray-900">Mar 15, 2023 - Sep 30, 2023</h4>
+                                                    <p class="text-xs text-gray-600 mt-0.5">From lease <a href="#" class="text-blue-600 hover:underline">t0312765</a> in unit 288</p>
+                                                </div>
+                                                <span class="badge bg-purple-100 text-purple-800 text-xs px-1.5 py-0.5 rounded-full">Roommate Promotion</span>
+                                            </div>
+                                            <div class="grid grid-cols-3 gap-x-3 gap-y-1 text-xs mt-2">
+                                                <div>
+                                                    <span class="text-gray-500">Rent:</span>
+                                                    <span class="font-medium ml-1">$1,350.00</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-gray-500">Term:</span>
+                                                    <span class="font-medium ml-1">6 months</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-gray-500">Agent:</span>
+                                                    <span class="font-medium ml-1">Jennifer Walsh</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Previous Lease in Unit 288 -->
+                                    <div class="relative pl-8">
+                                        <div class="absolute left-2.5 top-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow"></div>
+                                        <div class="bg-white border border-gray-200 rounded-lg p-3">
+                                            <div class="flex items-center justify-between mb-1.5">
+                                                <h4 class="font-semibold text-gray-900">Oct 1, 2022 - Mar 14, 2023</h4>
+                                            </div>
+                                            <div class="grid grid-cols-3 gap-x-3 gap-y-1 text-xs mt-2">
+                                                <div>
+                                                    <span class="text-gray-500">Rent:</span>
+                                                    <span class="font-medium ml-1">$1,320.00</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-gray-500">Term:</span>
+                                                    <span class="font-medium ml-1">5 months</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-gray-500">Agent:</span>
+                                                    <span class="font-medium ml-1">Jennifer Walsh</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Unit Transfer -->
+                                    <div class="relative pl-8">
+                                        <div class="absolute left-2.5 top-1 w-3 h-3 bg-orange-500 rounded-full border-2 border-white shadow"></div>
+                                        <div class="bg-orange-50 border border-orange-200 rounded-lg p-3">
+                                            <div class="flex items-center justify-between mb-1.5">
+                                                <div>
+                                                    <h4 class="font-semibold text-gray-900">Oct 10, 2021 - Sep 30, 2022</h4>
+                                                    <p class="text-xs text-gray-600 mt-0.5">From lease <a href="#" class="text-blue-600 hover:underline">t0123452</a> in unit <a href="#" class="text-blue-600 hover:underline">2101</a></p>
+                                                </div>
+                                                <span class="badge bg-orange-100 text-orange-800 text-xs px-1.5 py-0.5 rounded-full">Transfer</span>
+                                            </div>
+                                            <div class="grid grid-cols-3 gap-x-3 gap-y-1 text-xs mt-2">
+                                                <div>
+                                                    <span class="text-gray-500">Rent:</span>
+                                                    <span class="font-medium ml-1">$1,280.00</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-gray-500">Term:</span>
+                                                    <span class="font-medium ml-1">12 months</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-gray-500">Agent:</span>
+                                                    <span class="font-medium ml-1">Robert Kim</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Previous Lease in Unit 2101 -->
+                                    <div class="relative pl-8">
+                                        <div class="absolute left-2.5 top-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow"></div>
+                                        <div class="bg-white border border-gray-200 rounded-lg p-3">
+                                            <div class="flex items-center justify-between mb-1.5">
+                                                <h4 class="font-semibold text-gray-900">Oct 2, 2021 - Oct 9, 2021</h4>
+                                            </div>
+                                            <div class="grid grid-cols-3 gap-x-3 gap-y-1 text-xs mt-2">
+                                                <div>
+                                                    <span class="text-gray-500">Rent:</span>
+                                                    <span class="font-medium ml-1">$1,250.00</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-gray-500">Term:</span>
+                                                    <span class="font-medium ml-1">8 days</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-gray-500">Agent:</span>
+                                                    <span class="font-medium ml-1">Robert Kim</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Original Lease -->
+                                    <div class="relative pl-8">
+                                        <div class="absolute left-2.5 top-1 w-3 h-3 bg-gray-500 rounded-full border-2 border-white shadow"></div>
+                                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3">
+                                            <div class="flex items-center justify-between mb-1.5">
+                                                <h4 class="font-semibold text-gray-900">Oct 2, 2020 - Oct 1, 2021</h4>
+                                                <span class="badge bg-gray-200 text-gray-800 text-xs px-1.5 py-0.5 rounded-full">Start</span>
+                                            </div>
+                                            <div class="grid grid-cols-3 gap-x-3 gap-y-1 text-xs mt-2">
+                                                <div>
+                                                    <span class="text-gray-500">Rent:</span>
+                                                    <span class="font-medium ml-1">$1,180.00</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-gray-500">Term:</span>
+                                                    <span class="font-medium ml-1">12 months</span>
+                                                </div>
+                                                <div>
+                                                    <span class="text-gray-500">Agent:</span>
+                                                    <span class="font-medium ml-1">Michael Torres</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -3108,62 +3169,65 @@
                 <div class="col-span-1 lg:col-span-1">
                     <div class="third-column-separator space-y-6">
                         
-                        <!-- Important Notifications -->
-                        <div class="space-y-4">
-                            <!-- 30-Day Notice to Vacate -->
-                            <div class="card border border-gray-300 border-l-4 border-l-orange-500">
-                                <div class="card-content p-3">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <div class="flex items-center gap-2">
-                                            <i class="fas fa-exclamation-triangle text-orange-600 text-sm"></i>
-                                            <h4 class="font-semibold text-gray-800">30-Day Notice to Vacate</h4>
-                                        </div>
-                                        <span class="text-xs text-orange-600 font-medium">15 days remaining</span>
-                                    </div>
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-gray-700">Move-out: Sep 30, 2025</span>
-                                        <div class="flex gap-1">
-                                            <button class="btn text-xs px-2 py-1 bg-green-600 text-white hover:bg-green-700">
-                                                Approve
-                                            </button>
-                                            <button class="btn text-xs px-2 py-1 bg-red-600 text-white hover:bg-red-700">
-                                                Reject
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                        <!-- Alerts Card -->
+                        <div class="card">
+                            <div class="card-header border-0">
+                                <h4 class="card-title" style="font-size: 16px;">Alerts</h4>
                             </div>
+                            <div class="card-content pt-0">
+                                <div class="space-y-3">
+                                    <!-- 30-Day Notice to Vacate -->
+                                    <div class="border border-gray-300 border-l-4 border-l-orange-500 rounded-lg p-3 bg-orange-50">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <div class="flex items-center gap-2">
+                                                <i class="fas fa-exclamation-triangle text-orange-600 text-sm"></i>
+                                                <h4 class="font-semibold text-gray-800">30-Day Notice</h4>
+                                            </div>
+                                            <!--<span class="text-xs text-orange-600 font-medium">15 days remaining</span>-->
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-gray-700">Move-out: Sep 30, 2025</span>
+                                            <div class="flex gap-1"> 
+                                                <button class="btn text-xs px-2 py-1 bg-red-600 text-white hover:bg-red-700">
+                                                    Reject
+                                                </button>
+												 <button class="btn text-xs px-2 py-1 bg-green-600 text-white hover:bg-green-700">
+                                                    Approve
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <!-- Renewal Offer -->
-                            <div class="card border border-gray-300 border-l-4 border-l-blue-500">
-                                <div class="card-content p-3">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <div class="flex items-center gap-2">
-                                            <i class="fas fa-file-contract text-blue-600 text-sm"></i>
-                                            <h4 class="font-semibold text-gray-800">Renewal Offer #67892</h4>
+                                    <!-- Renewal Offer -->
+                                    <div class="border border-gray-300 border-l-4 border-l-blue-500 rounded-lg p-3 bg-blue-50">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <div class="flex items-center gap-2">
+                                                <i class="fas fa-file-contract text-blue-600 text-sm"></i>
+                                                <h4 class="font-semibold text-gray-800">Renewal Offer #67892</h4>
+                                            </div>
+                                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium">Pending Response</span>
                                         </div>
-                                        <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium">Pending Response</span>
-                                    </div>
-                                    <div class="flex items-center justify-between mb-2">
-                                        <div class="text-gray-700">
-                                            <span class="font-medium">$2,000.00/mo • 12 months</span>
+                                        <div class="flex items-center justify-between mb-2">
+                                            <div class="text-gray-700">
+                                                <span class="font-medium">$2,000.00/mo • 12 months</span>
+                                            </div>
+                                            <span class="text-xs text-red-600 font-medium">
+                                                <i class="fas fa-clock mr-1"></i>45 days
+                                            </span>
                                         </div>
-                                        <span class="text-xs text-red-600 font-medium">
-                                            <i class="fas fa-clock mr-1"></i>45 days
-                                        </span>
-                                    </div>
-                                    <div class="flex items-center justify-between">
-                                        <span class="text-sm text-gray-600">Oct 1, 2025 - Sep 30, 2026</span>
-                                        <div class="flex gap-1">
-                                            <button class="btn text-xs px-2 py-1 bg-gray-100 text-gray-700 hover:bg-gray-200">
-                                                Edit
-                                            </button>
-                                            <button class="btn text-xs px-2 py-1 bg-gray-100 text-gray-700 hover:bg-gray-200">
-                                                View
-                                            </button>
-                                            <button class="btn text-xs px-2 py-1 bg-blue-600 text-white hover:bg-blue-700">
-                                                Remind
-                                            </button>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-sm text-gray-600">Oct 1, 2025 - Sep 30, 2026</span>
+                                            <div class="flex gap-1">
+                                                <button class="btn text-xs px-2 py-1 bg-gray-100 text-gray-700 hover:bg-gray-200">
+                                                    Edit
+                                                </button>
+                                                <button class="btn text-xs px-2 py-1 bg-gray-100 text-gray-700 hover:bg-gray-200">
+                                                    View
+                                                </button>
+                                                <button class="btn text-xs px-2 py-1 bg-blue-600 text-white hover:bg-blue-700">
+                                                    Remind
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -3244,14 +3308,13 @@
                                         Vehicle information
                                         <span class="ml-2 bg-white text-gray-600 text-sm font-bold px-2 py-1 rounded-full">2</span>
                                     </button>
-                                    <button class="btn btn-light w-full py-2 justify-start">
-                                        <i class="fas fa-file-contract mr-2 text-muted"></i>
-                                        Renewal offers
-                                        <span class="ml-2 bg-white text-gray-600 text-sm font-bold px-2 py-1 rounded-full">1</span>
+                                    <button class="btn btn-light w-full py-2 justify-start" onclick="openPageslide('late-fees-edit-overlay')">
+                                        <i class="fas fa-exclamation-triangle mr-2 text-muted"></i>
+                                        Late fees
                                     </button>
-                                    <button class="btn btn-light w-full py-2 justify-start">
+                                    <button class="btn btn-light w-full py-2 justify-start" onclick="openPageslide('screening-overlay')">
                                         <i class="fas fa-clipboard-check mr-2 text-muted"></i>
-                                        Screening results
+                                        Screening
                                     </button>
                                     <button class="btn btn-light w-full py-2 justify-start">
                                         <i class="fas fa-file-alt mr-2 text-muted"></i>
@@ -5675,6 +5738,372 @@
                                 </button>
                             </div>
                         </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Late Fees Edit Pageslide -->
+    <div class="pageslide-overlay" id="late-fees-edit-overlay">
+        <div class="pageslide lease-edit">
+            <div class="pageslide-header">
+                <h2 class="pageslide-title">Edit Late Fees</h2>
+                <button class="pageslide-close" onclick="closePageslide('late-fees-edit-overlay')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="pageslide-content">
+                <form class="lease-edit-form">
+                    
+                    <!-- Late Fees Section -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Late fees</h3>
+                        
+                        <div class="form-row-group ml-1">
+                            <div class="form-row">
+                                <label class="form-label">Charge late fee(s) on</label>
+                                <select class="form-select">
+                                    <option value="1">1st day of month</option>
+                                    <option value="2">2nd day of month</option>
+                                    <option value="3">3rd day of month</option>
+                                    <option value="4" selected>4th day of month</option>
+                                    <option value="5">5th day of month</option>
+                                    <option value="6">6th day of month</option>
+                                    <option value="7">7th day of month</option>
+                                    <option value="8">8th day of month</option>
+                                    <option value="9">9th day of month</option>
+                                    <option value="10">10th day of month</option>
+                                    <option value="11">11th day of month</option>
+                                    <option value="12">12th day of month</option>
+                                    <option value="13">13th day of month</option>
+                                    <option value="14">14th day of month</option>
+                                    <option value="15">15th day of month</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Minimum due to be charged</label>
+                                <div class="form-input-group">
+                                    <span class="form-input-prefix">$</span>
+                                    <input type="number" class="form-input" value="100.00" step="0.01" min="0">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row-group ml-1">
+                            <div class="form-row">
+                                <label class="form-label">Maximum monthly fee</label>
+                                <div class="form-input-group">
+                                    <span class="form-input-prefix">$</span>
+                                    <input type="number" class="form-input" value="0" step="0.01" min="0">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Amount type</label>
+                                <select class="form-select">
+                                    <option value="fixed">Fixed Amount</option>
+                                    <option value="percent" selected>% of Owed Total</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Monthly Fee Section -->
+                        <div class="form-subsection bg-gray-50 p-3">
+                            <div class="form-row">
+                                <label class="form-label">Charge a monthly fee?</label>
+                                <div class="form-radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="monthly-fee-yes-late" name="monthly-fee-late" value="yes" class="form-radio" checked>
+                                        <label for="monthly-fee-yes-late" class="form-radio-label">Yes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="monthly-fee-no-late" name="monthly-fee-late" value="no" class="form-radio">
+                                        <label for="monthly-fee-no-late" class="form-radio-label">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="monthly-fee-details-late" class="form-row-group ml-1">
+                                <div class="flex gap-4" style="display: flex !important;">
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount</label>
+                                        <div class="form-input-group">
+                                            <span class="form-input-prefix">$</span>
+                                            <input type="number" class="form-input" value="50.00" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount type</label>
+                                        <select class="form-select">
+                                            <option value="flat" selected>Flat Amount</option>
+                                            <option value="percent">% of Owed Total</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Daily Fee Section -->
+                        <div class="form-subsection bg-gray-50 p-3">
+                            <div class="form-row">
+                                <label class="form-label">Charge a daily fee?</label>
+                                <div class="form-radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="daily-fee-yes-late" name="daily-fee-late" value="yes" class="form-radio" checked>
+                                        <label for="daily-fee-yes-late" class="form-radio-label">Yes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="daily-fee-no-late" name="daily-fee-late" value="no" class="form-radio">
+                                        <label for="daily-fee-no-late" class="form-radio-label">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="daily-fee-details-late" class="form-row-group ml-1">
+                                <div class="flex gap-4" style="display: flex !important;">
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount per day</label>
+                                        <div class="form-input-group">
+                                            <span class="form-input-prefix">$</span>
+                                            <input type="number" class="form-input" value="1.00" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Maximum days</label>
+                                        <div class="form-radio-group">
+                                            <div class="radio-option">
+                                                <input type="radio" id="max-days-unlimited-late" name="max-days-late" value="unlimited" class="form-radio" checked>
+                                                <label for="max-days-unlimited-late" class="form-radio-label">Unlimited</label>
+                                            </div>
+                                            <div class="radio-option flex items-center gap-2">
+                                                <input type="radio" id="max-days-limited-late" name="max-days-late" value="limited" class="form-radio">
+                                                <label for="max-days-limited-late" class="form-radio-label" style="min-width:50px">Limit to</label>
+                                                <input type="number" class="form-input" value="0" min="1" max="365" style="width: 80px;" disabled>
+                                                <span class="text-sm text-gray-600">days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Second Late Fee Section -->
+                        <div class="form-subsection bg-gray-50 p-3">
+                            <div class="form-row">
+                                <label class="form-label">Charge a 2nd late fee?</label>
+                                <div class="form-radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="second-fee-yes-late" name="second-fee-late" value="yes" class="form-radio">
+                                        <label for="second-fee-yes-late" class="form-radio-label">Yes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="second-fee-no-late" name="second-fee-late" value="no" class="form-radio" checked>
+                                        <label for="second-fee-no-late" class="form-radio-label">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="second-fee-details-late" class="form-row-group ml-1" style="display: none;">
+                                <div class="flex gap-4" style="display: flex !important;">
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Charge 2nd late fee on:</label>
+                                        <select class="form-select">
+                                            <option value="1st" selected>1st</option>
+                                            <option value="2nd">2nd</option>
+                                            <option value="3rd">3rd</option>
+                                            <option value="4th">4th</option>
+                                            <option value="5th">5th</option>
+                                            <option value="10th">10th</option>
+                                            <option value="15th">15th</option>
+                                            <option value="30th">30th</option>
+                                            <option value="day-of-month">Day of month</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount</label>
+                                        <div class="form-input-group">
+                                            <span class="form-input-prefix">$</span>
+                                            <input type="number" class="form-input" value="0" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="flex-1" style="flex: 1;">
+                                        <label class="form-label">Amount Type</label>
+                                        <select class="form-select">
+                                            <option value="flat">Flat Amount</option>
+                                            <option value="percent" selected>% of Owed Total</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-light" onclick="closePageslide('late-fees-edit-overlay')">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screening Pageslide -->
+    <div class="pageslide-overlay" id="screening-overlay">
+        <div class="pageslide">
+            <div class="pageslide-header">
+                <h2 class="pageslide-title">Run Screening Report</h2>
+                <button class="pageslide-close" onclick="closePageslide('screening-overlay')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="pageslide-content">
+                <!-- Instructions -->
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-info-circle text-blue-600 text-lg mt-0.5"></i>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-1">Before running the report</h4>
+                            <p class="text-sm text-gray-700">Select the individuals to include in the screening report. All applicants must have consent and photo ID confirmed before they can be included.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screening Subjects -->
+                <div class="space-y-4">
+                    <!-- Current Residents Section -->
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Current Residents</h3>
+                        
+                        <!-- Melinda Michaels -->
+                        <div class="border border-gray-200 rounded-lg p-4 bg-white">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-start gap-3 flex-1">
+                                    <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
+                                        <span class="text-purple-700 font-semibold">MM</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-900">Melinda Michaels</h4>
+                                        <p class="text-sm text-gray-600">Primary resident</p>
+                                    </div>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                    <span class="ml-3 text-sm font-medium text-gray-700">Include</span>
+                                </label>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-xs text-gray-500 mb-1 block">Role</label>
+                                    <select class="form-select text-sm">
+                                        <option value="occupant" selected>Occupant</option>
+                                        <option value="applicant">Applicant</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2 mt-3">
+                                        <input type="checkbox" id="verified-mm" class="form-checkbox h-4 w-4 text-blue-600 flex-shrink-0">
+                                        <label for="verified-mm" class="text-sm text-gray-700">Consent/Photo ID Confirmed</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- John Smith -->
+                        <div class="border border-gray-200 rounded-lg p-4 bg-white mt-3">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-start gap-3 flex-1">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                                        <span class="text-blue-700 font-semibold">JS</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-900">John Smith</h4>
+                                        <p class="text-sm text-gray-600">Co-occupant</p>
+                                    </div>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                    <span class="ml-3 text-sm font-medium text-gray-700">Include</span>
+                                </label>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-xs text-gray-500 mb-1 block">Role</label>
+                                    <select class="form-select text-sm">
+                                        <option value="occupant" selected>Occupant</option>
+                                        <option value="applicant">Applicant</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2 mt-3">
+                                        <input type="checkbox" id="verified-js" class="form-checkbox h-4 w-4 text-blue-600 flex-shrink-0">
+                                        <label for="verified-js" class="text-sm text-gray-700">Consent/Photo ID Confirmed</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Applicants Section -->
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">Applicants</h3>
+                        
+                        <!-- Angela Johnson -->
+                        <div class="border border-gray-200 rounded-lg p-4 bg-white">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-start gap-3 flex-1">
+                                    <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                                        <span class="text-green-700 font-semibold">AJ</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-900">Angela Johnson</h4>
+                                        <p class="text-sm text-gray-600">Roommate Application</p>
+                                    </div>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                    <span class="ml-3 text-sm font-medium text-gray-700">Include</span>
+                                </label>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-xs text-gray-500 mb-1 block">Role</label>
+                                    <select class="form-select text-sm">
+                                        <option value="occupant">Occupant</option>
+                                        <option value="applicant" selected>Applicant</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2 mt-3">
+                                        <input type="checkbox" id="verified-aj" class="form-checkbox h-4 w-4 text-blue-600 flex-shrink-0">
+                                        <label for="verified-aj" class="text-sm text-gray-700">Consent/Photo ID Confirmed</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pageslide Footer -->
+            <div class="pageslide-footer flex gap-3 justify-end">
+                <button class="btn btn-light" onclick="closePageslide('screening-overlay')">
+                    Cancel
+                </button>
+                <button class="btn btn-primary">
+                    <i class="fas fa-file-medical-alt mr-2"></i>
+                    Run Screening Report
+                </button>
             </div>
         </div>
     </div>
